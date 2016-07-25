@@ -352,7 +352,7 @@ function AccessAdd(UserID){
 <%
 	if(rs.getString(37)!=null){
 %>
-										<img src="<%=realFolder %>" alt="" style="width:200px;height:200px;" id="prev_View_area" />
+										<img src="<%=realFolder %>" alt="" style="width:180px;height:180px;" id="prev_View_area" />
 <%		
 	}
 %>							
@@ -371,7 +371,7 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 29)%> : 
 								</div>		
-								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"  size="20rem" disabled>				
+								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"  size="30rem" disabled>				
 							</div>
 							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
