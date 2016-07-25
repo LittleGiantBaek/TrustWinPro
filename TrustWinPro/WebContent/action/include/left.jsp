@@ -158,6 +158,8 @@
 	
 	
 </script>
+
+
 <div id="left">
 	<div class="left_bottom">
 		<div class="left_buttom">
@@ -225,7 +227,7 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
-					<span onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></span>
+					<span><a  href="#UserInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
 					<span onclick="changeInputBox(0)" id="text0" class="span"><%=dev[0].getGroupname() %></span>
 					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
 					<span><a href="#UserInfo" onclick="submit('AllDevice');" >All</a></span>
@@ -590,69 +592,6 @@
 	<input type="hidden" value="DeviceInfo" name="content" />
 </form>
 
-
-
-
-<script type = "text/javascript">
-function show_menu() {  // 우측/하단 여분길이계산, 필요시 커서좌측/상단출력
- var rightedge = document.body.clientWidth - event.clientX;  // 우측여분
- var bottomedge = document.body.clientHeight - event.clientY;  // 하단여분
- if (rightedge < popmenus.offsetWidth) {  // 우측여분이 팝메뉴너비보다 작으면
-  menuleft = document.body.scrollLeft + event.clientX - popmenus.offsetWidth;
-  popmenus.style.left = menuleft;  // 커서x좌표에서 팝메뉴너비를 뺀 값을 팝메뉴x좌표로 할당
- } else {
-  popmenus.style.left = document.body.scrollLeft + event.clientX;
- }
- if (bottomedge < popmenus.offsetHeight) {  // 팝메뉴의 y좌표를 할당한다.(위와동일)
-  menutop = document.body.scrollTop + event.clientY - popmenus.offsetHeight;
-  popmenus.style.top = menutop
- } else {
-  popmenus.style.top = document.body.scrollTop + event.clientY;
- }
- popmenus.style.visibility = "visible";
- return false;
-}
-function hide_menu() {  // 팝메뉴숨김
- popmenus.style.visibility = "hidden";
-}
-function highlight() {  // 커서가 위치시 활성스타일로
- if (event.srcElement.id == "menuitems") {
-  event.srcElement.style.backgroundColor = "highlight";
-  event.srcElement.style.color = "white";
-  window.status = event.srcElement.url;
- }
-}
-function lowlight() {  // 커서가 벗어나면 비활성스타일로
- if (event.srcElement.id == "menuitems") {
-  event.srcElement.style.backgroundColor = "";
-  event.srcElement.style.color = "black";
-  window.status = "";
- }
-}
-function jumpto() {  // 항목클릭시 해당URL로 이동
- if (event.srcElement.id == "menuitems") {
-  if (event.srcElement.getAttribute("target") == null)
-  { alert(event.srcElement.getAttribute("target"));
-  window.location.href = event.srcElement.url;
- 		}
-  else
-   window.open(event.srcElement.url, event.srcElement.getAttribute("target"));
-  }
-}
-</script>
-<body>
-<div id="popmenus" onmouseover="highlight()" onmouseout="lowlight()" onclick="jumpto()">
-<div id="menuitems" url="http://www.naver.com/">그룹추가</div>
-<div id="menuitems" url="http://www.google.co.kr">장치추가</div>
-</div>
-<script language="JavaScript">
-document.oncontextmenu = show_menu;
-document.body.onclick = hide_menu;
-</script>
-
-
-
-
 <script type="text/javascript">
 	function SpanDeviceClass(idx){
 		document.getElementById("dev"+idx).className = "userspan";
@@ -720,3 +659,47 @@ document.body.onclick = hide_menu;
 	
 	Buttom('<%=request.getParameter("left")%>')
 </script>
+<script type="text/javascript" src="/TrustWinPro/action/js/contextmenu.js"></script>
+<link href=".css" rel="stylesheet" type="text/css" />
+<link href="/TrustWinPro/action/css/contextmenu.css" rel="stylesheet" type="text/css" />
+  <div class="contextmenu conDevice">
+	  <ul>
+	    <li class="menuitem">Edit</li>
+	    <li class="divider"></li>
+	    <li class="menuitem">Device</li>
+	    <li class="menuitem">Delete</li>
+	    <li class="menuitem">Add Group</li>
+	  </ul>
+  </div>
+  <div class="contextmenu conUser">
+	 <ul>
+	   <li class="menuitem">Edit</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">User</li>
+	   <li class="menuitem">Delete</li>
+	   <li class="menuitem">Add user</li>
+	 </ul>
+  
+  </div>
+  <div class="contextmenu conTime">
+	 <ul>
+	   <li class="menuitem">Edit</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Time</li>
+	   <li class="menuitem">Delete</li>
+	   <li class="menuitem">Add user</li>
+	 </ul>
+  
+  </div>
+  <div class="contextmenu conMonitoring">
+	 <ul>
+	   <li class="menuitem">Edit</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Monitoring</li>
+	   <li class="menuitem">Delete</li>
+	   <li class="menuitem">Add user</li>
+	 </ul>
+  
+  </div>    
+  <script type="text/template" id="contextmenu-template"> 
+  </script>
