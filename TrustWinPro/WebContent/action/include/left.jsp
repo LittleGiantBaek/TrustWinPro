@@ -165,13 +165,13 @@
 		<div class="left_buttom">
 			<div>
 				<a href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice"><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;"><img src="/TrustWinPro/action/image/interface/leftButtom_off.png" id="deviceButtom" style="width:100%;height:41px;"><img src="/TrustWinPro/action/image/interface/leftarrow.png" style="position:absolute;top:15px;right:20px;"></a>
-				<div class="Device">
+				<div class="Device LeftDevicetop">
 					<a href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice">DEVICE</a>
 				</div>
 			</div>
 			<div>	
 				<a href="/TrustWinPro/action/index.jsp?left=User&content=AllUser"><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:50px;left:30px;"><img src="/TrustWinPro/action/image/interface/leftButtom_off.png" id="userButtom" style="width:100%;height:41px;"><img src="/TrustWinPro/action/image/interface/leftarrow.png" style="position:absolute;top:55px;right:20px;"></a>
-				<div class="User">
+				<div class="User LeftUsertop">
 					<a href="/TrustWinPro/action/index.jsp?left=User&content=AllUser">USER</a>
 				</div>	
 			</div>
@@ -183,13 +183,13 @@
 			</div>
 			<div>
 				<a href="/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup"><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:132px;left:30px;width:22px;"><img src="/TrustWinPro/action/image/interface/leftButtom_off.png" id="timeButtom" style="width:100%;height:41px;"><img src="/TrustWinPro/action/image/interface/leftarrow.png" style="position:absolute;top:132px;right:20px;"></a>
-				<div class="Time">
+				<div class="Time LeftTimetop">
 					<a href="/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup">ACCESS CONTROL</a>
 				</div>			
 			</div>
 			<div>
 				<a href="/TrustWinPro/action/index.jsp?left=Monitoring&content=Map"><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:172px;left:30px;width:22px;"><img src="/TrustWinPro/action/image/interface/leftButtom_off.png" id="monitoringButtom" style="width:100%;height:41px;"><img src="/TrustWinPro/action/image/interface/leftarrow.png" style="position:absolute;top:172px;right:20px;"></a>
-				<div class="Monitoring">
+				<div class="Monitoring LeftMonitoringtop">
 					<a href="/TrustWinPro/action/index.jsp?left=Monitoring&content=Map">MONITORING</a>
 				</div>
 			</div>
@@ -659,47 +659,54 @@
 	
 	Buttom('<%=request.getParameter("left")%>')
 </script>
+
 <script type="text/javascript" src="/TrustWinPro/action/js/contextmenu.js"></script>
 <link href=".css" rel="stylesheet" type="text/css" />
 <link href="/TrustWinPro/action/css/contextmenu.css" rel="stylesheet" type="text/css" />
   <div class="contextmenu conDevice">
 	  <ul>
-	    <li class="menuitem">Edit</li>
+	    <li class="menuitem">Add Device Group</li>
+  	    <li class="menuitem">Delete Device Group</li>
 	    <li class="divider"></li>
-	    <li class="menuitem">Device</li>
-	    <li class="menuitem">Delete</li>
-	    <li class="menuitem">Add Group</li>
+	    <li class="menuitem">Add Device</li>
+	    <li class="menuitem">Delete Device</li>
 	  </ul>
   </div>
   <div class="contextmenu conUser">
 	 <ul>
-	   <li class="menuitem">Edit</li>
+	   <li class="menuitem">Add User Group</li>
+	   <li class="menuitem">Delete User Group</li>
 	   <li class="divider"></li>
-	   <li class="menuitem">User</li>
-	   <li class="menuitem">Delete</li>
-	   <li class="menuitem">Add user</li>
+	   <li class="menuitem">Add User</li>
+	   <li class="menuitem">Delete User</li>
 	 </ul>
   
   </div>
   <div class="contextmenu conTime">
 	 <ul>
-	   <li class="menuitem">Edit</li>
+	   <li class="menuitem">Add accessGroup</li>
+   	   <li class="menuitem">Delete accessGroup</li>
 	   <li class="divider"></li>
-	   <li class="menuitem">Time</li>
-	   <li class="menuitem">Delete</li>
-	   <li class="menuitem">Add user</li>
+	   <li class="menuitem">Add TimeZone</li>
+	   <li class="menuitem">Delete TimeZone</li>
 	 </ul>
   
   </div>
   <div class="contextmenu conMonitoring">
 	 <ul>
-	   <li class="menuitem">Edit</li>
+	   <li class="menuitem">Add Map</li>
+	   <li class="menuitem">Delete Map</li>
 	   <li class="divider"></li>
-	   <li class="menuitem">Monitoring</li>
-	   <li class="menuitem">Delete</li>
-	   <li class="menuitem">Add user</li>
 	 </ul>
   
-  </div>    
+  </div>
+  <div class="contextmenu conDeviceGroup">
+	 <ul>
+	   <li class="menuitem">Add Group</li>
+	   <li class="menuitem">Delete Group</li>
+	   <li class="divider"></li>
+	 </ul>
+  
+  </div>        
   <script type="text/template" id="contextmenu-template"> 
   </script>

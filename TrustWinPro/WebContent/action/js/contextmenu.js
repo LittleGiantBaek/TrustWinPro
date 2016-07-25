@@ -10,13 +10,14 @@ $(function(){
   });
   
   $(".contextmenu li").click(function(e){
-    alert($(this).html() + ' clicked' );
+	  if($(this).html() == "Add Map")
+	  alert($(this).html() + ' clicked' );
     $(".contextmenu").hide();
     $(document).unbind('mousedown');
   });
   
   
-  $(".Device").on('contextmenu', function(event) {
+  $(".LeftDevicetop").on('contextmenu', function(event) {
     $(".conDevice").css({
       left:event.pageX+"px",
       top:event.pageY+"px"
@@ -32,7 +33,7 @@ $(function(){
     return false;
   });
   
-  $(".User").on('contextmenu', function(event) {
+  $(".LeftUsertop").on('contextmenu', function(event) {
 	    $(".conUser").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
@@ -48,7 +49,7 @@ $(function(){
 	    return false;
 	  });
   
-  $(".Time").on('contextmenu', function(event) {
+  $(".LeftTimetop").on('contextmenu', function(event) {
 	    $(".conTime").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
@@ -64,7 +65,7 @@ $(function(){
 	    return false;
 	  });
   
-  $(".Monitoring").on('contextmenu', function(event) {
+  $(".LeftMonitoringtop").on('contextmenu', function(event) {
 	    $(".conMonitoring").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
@@ -79,5 +80,21 @@ $(function(){
 	    });
 	    return false;
 	  });
+  $("#span3").on('contextmenu', function(event) {
+	    $(".conDeviceGroup").css({
+	      left:event.pageX+"px",
+	      top:event.pageY+"px"
+	    }).show();
+
+	    $(document).mousedown(function(e){
+	      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
+	      if ($(e.target).parents(".contextmenu").length !== 0) 
+	        return;
+	      $(".contextmenu").hide();
+	      $(document).unbind('mousedown');
+	    });
+	    return false;
+	  });
+
 
 });
