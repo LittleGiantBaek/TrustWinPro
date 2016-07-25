@@ -61,6 +61,25 @@
 %>
 <script type="text/javascript">
 
+var change = 0;
+function allA_GroupInfoCheck() {
+	var check = document.DeviceInfomation.check;
+	if(change == 0){
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = true;	
+		}
+			
+		change = 1;
+	}else{
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = false;
+		}
+		
+		change = 0;
+	}
+}
+
+
 function DeviceInfoSubmit(){
 	var dev = document.getElementById("DeviceInfomation");
 	
@@ -2097,7 +2116,7 @@ function AccessDelete(deviceID){
 										<col width="10%">
 									</colgroup>
 									<tr>
-										<th><%=lanFunc.language(lan, 85)%><input type="checkbox" id="allcheck" onclick="allA_GroupInfoCheck()"></th>
+										<th><%=lanFunc.language(lan, 85)%><input type="checkbox" name="allcheck" onclick="allA_GroupInfoCheck();"></th>
 										<th><%=lanFunc.language(lan, 81) %></th>
 										<th><%=lanFunc.language(lan, 82) %></th>
 									</tr>
@@ -2113,7 +2132,7 @@ function AccessDelete(deviceID){
 			AccessGroup accessGroup2 = Accfunc.SelAccessGroup(accessDevice[j].getAccess());
 			out.println("<tr id='tr"+ accessGroup2.getIdx() +"'>");
 
-			out.println("<td><input class='access_class' type='checkbox' name='AG_check' value='"+accessGroup2.getIdx()+"'></td>");
+			out.println("<td><input class='access_class' type='checkbox' name='check' value='"+accessGroup2.getIdx()+"'></td>");
 
 			
 			out.println("<td>" + accessGroup2.getName() + "</td>");
