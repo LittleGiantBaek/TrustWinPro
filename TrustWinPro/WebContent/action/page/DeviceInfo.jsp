@@ -61,6 +61,25 @@
 %>
 <script type="text/javascript">
 
+var change = 0;
+function allA_GroupInfoCheck() {
+	var check = document.DeviceInfomation.check;
+	if(change == 0){
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = true;	
+		}
+			
+		change = 1;
+	}else{
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = false;
+		}
+		
+		change = 0;
+	}
+}
+
+
 function DeviceInfoSubmit(){
 	var dev = document.getElementById("DeviceInfomation");
 	
@@ -326,35 +345,35 @@ function AccessDelete(deviceID){
 								</div>				
 				</div>
 				<div class="Info">
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 1)%> : 
 						</div>
 						<input type="text" class = "inputt" name="controllerName" value="<%=LangUtil.Empty(rs.getString(1)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 2)%> : 
 						</div>
 						<input type="text" class = "inputt" name="idm" value="<%=LangUtil.Empty(rs.getString(2)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 3)%> : </div>
 						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 4)%> : </div>
 						<input type="text" class = "inputt" name="port" value="<%=LangUtil.Empty(rs.getString(4)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 5)%> : </div>
 						<input type="text" name="Password" class = "inputt" value="<%=LangUtil.Empty(rs.getString(5)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 6)%> : </div>
 						<input type="text" name="uniqueid" class = "inputt" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:50rem;">
+					<div class="block" style="margin-left:45rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 7)%> : </div>
 						<input type="text" name="serverport" class = "inputt" value="<%=LangUtil.Empty(rs.getString(7)) %>" size="30um">
 					</div>
@@ -2097,7 +2116,7 @@ function AccessDelete(deviceID){
 										<col width="10%">
 									</colgroup>
 									<tr>
-										<th><%=lanFunc.language(lan, 85)%><input type="checkbox" id="allcheck" onclick="allA_GroupInfoCheck()"></th>
+										<th><%=lanFunc.language(lan, 85)%><input type="checkbox" name="allcheck" onclick="allA_GroupInfoCheck();"></th>
 										<th><%=lanFunc.language(lan, 81) %></th>
 										<th><%=lanFunc.language(lan, 82) %></th>
 									</tr>
@@ -2113,7 +2132,7 @@ function AccessDelete(deviceID){
 			AccessGroup accessGroup2 = Accfunc.SelAccessGroup(accessDevice[j].getAccess());
 			out.println("<tr id='tr"+ accessGroup2.getIdx() +"'>");
 
-			out.println("<td><input class='access_class' type='checkbox' name='AG_check' value='"+accessGroup2.getIdx()+"'></td>");
+			out.println("<td><input class='access_class' type='checkbox' name='check' value='"+accessGroup2.getIdx()+"'></td>");
 
 			
 			out.println("<td>" + accessGroup2.getName() + "</td>");
