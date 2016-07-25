@@ -367,31 +367,31 @@ function AccessAdd(UserID){
 									<p></p>				
 				</div>
 				<div class="Info">		
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 29)%> : 
 								</div>		
 								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"  size="30rem" disabled>				
 							</div>
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 26)%> : 
 								</div>
 								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  size="30um">
 							</div>
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 27)%> : 
 								</div>
 								<input class = "inputt" type="text" name="middleName" value="<%=LangUtil.Empty(rs.getString(2)) %>"  size="30um">
 							</div>					
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 28)%> : 
 								</div>
 								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>"  size="30um">
 							</div>				
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 30)%> : 
 								</div>
@@ -402,13 +402,13 @@ function AccessAdd(UserID){
 								</select>
 								</div>
 							</div>					
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 2)%> : 
 								</div>
 								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um">
 							</div>				
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 5)%> : 
 								</div>
