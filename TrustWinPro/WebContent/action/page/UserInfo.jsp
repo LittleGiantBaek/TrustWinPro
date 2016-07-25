@@ -547,7 +547,7 @@ function AccessAdd(UserID){
 						</div>
 					</div>
 					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 50) %></div>
+						<div class="header" style="font-size: 10px"><%=Lanfunc.language(lan, 50) %></div>
 						<div class="main"><input type="text" name="ResidentRegNo" value="<%=LangUtil.Empty(rs.getString(22)) %>" size="40um"></div>
 					</div>
 					<div class="block">

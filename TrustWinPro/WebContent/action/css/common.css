@@ -215,7 +215,7 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .Private {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:320px;}
 #UserInfo .basic .Private .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .Private .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
-#UserInfo .basic .Private .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .Private .InfoBox .block .header {height:28px;width:25%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
 #UserInfo .basic .Private .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
 #UserInfo .basic .Private .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
 #UserInfo .basic .Private .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
