@@ -1,0 +1,611 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+	String content = (String)request.getParameter("content");
+	String logtype = (String)request.getParameter("logtype");
+	
+	if(content == null){
+		content = "";
+	}
+	if(logtype == null){
+		logtype = "";
+	}
+%>
+
+
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Category.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Device.*" %>
+<%@ page import="com.Trustwin.Admin.Project.User.*" %>
+<%
+	CategoryFunc Catefunc = new CategoryFunc();
+	LanguageFunc Lanfunc = new LanguageFunc();
+	UserFunc Userfunc = new UserFunc();
+	DeviceFunc Devfunc = new DeviceFunc();
+	
+	String lan = (String)session.getAttribute("nation");
+%>
+<script type="text/javascript">
+	
+	function UserAdd(num){
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddUser.jsp",   
+		    data: "depart="+num,
+		    success:function(args){
+		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
+	
+	function UserDelete(id){
+		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
+		if(del){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/DeleteUser.jsp",   
+			    data: "id="+id,
+			    success:function(args){
+			    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}
+	}
+	
+	function DepartAdd(){
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddDepart.jsp",   
+		    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
+		    success:function(args){   
+		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
+	
+	function DepartDelete(){
+		var del = confirm("정말 삭제하시겠습니까?");
+		$(".Loading").css("display","block");
+		if(del){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/DeleteDepart.jsp",   
+			    data: "idx="+document.getElementById("GroupN").value,
+			    success:function(args){   
+			    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}
+	}
+	
+	//device
+	function DeviceAdd(num){
+		$(".Loading").css("display","block");
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddDevice.jsp",   
+		    data: "group="+num,
+		    success:function(args){
+		    	args = check(args);
+		    	if(args != null && args != ""){
+		    		alert(args);
+		    	}
+		    	
+		    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
+	
+	
+	function GroupAdd(){
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddGroup.jsp",   
+		    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
+		    success:function(args){   
+		    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
+	
+	function GroupDelete(){
+		$(".Loading").css("display","block");
+		
+		var del = confirm('<%=Lanfunc.language(lan, 103)%>');
+		var idx = "";
+		var Didx = "";
+		if(document.getElementById("GroupN").value==""){
+			Didx = <%=request.getParameter("deviceID")%>;
+		}else{
+			idx =  document.getElementById("GroupN").value;
+		}
+		
+		if(del){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/DeleteGroup.jsp",   
+			    data: "idx="+idx + "&Didx=" + Didx,
+			    success:function(args){   
+			    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}
+	}
+</script>
+<div class="left_top">
+<%
+	// userInfo
+	Category[] category = null;
+	
+	category = Catefunc.CategoryDefind();
+
+	int length = category.length;
+	Category[] cata = new Category[length];	
+	cata = Catefunc.SortCategoryOne(category);
+
+	//DeviceInfo
+	DeviceGroup[] device = null;
+	device = Devfunc.GroupDefind();
+	
+	int lengthD = device.length;
+	DeviceGroup[] dev = new DeviceGroup[lengthD];	
+	dev = Devfunc.SortGroupOne(device);
+	
+	String left = "";
+	if(request.getParameter("left")!=null){
+		left = request.getParameter("left");
+	}else{
+		left = "Event";
+	}
+	if(left.equals("Device")){
+%>
+		<div class="Device">
+			<ul>
+				<li>
+					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
+					<span onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span"><%=dev[0].getGroupname() %></span>
+					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
+					<span><a href="#UserInfo" onclick="submit('AllDevice');" >All</a></span>
+				</li>
+<%
+		int padding = 0;
+		int[] depth;
+		int LastDepth = 0;
+		int LastDepth2 = 0;
+		depth = new int[100];
+		
+		int devcot = -1;
+		for(int i=1;i<lengthD;i++){
+			padding = dev[i].getDepth() * 20;
+			
+			if(i!= lengthD-1){
+				if(dev[i].getDepth()<dev[i+1].getDepth()){
+					devcot++;
+					depth[devcot] = dev[i].getIdx();
+				}
+			}else{
+				LastDepth = dev[i].getIdx();
+				LastDepth2 = dev[i].getDepth();
+			}
+			
+			Device[] dev2 = Devfunc.DeviceSelect(dev[i].getIdx());
+%>
+				<li style="padding-left:<%=padding%>px" >
+					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
+					<span id="span<%=i %>" >
+						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a><a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
+							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
+							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
+						</a>
+					</span>
+					<span id="text<%=i%>" class="span" >
+						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
+						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a></span>
+					<span id="input<%=i%>" class="spanInput">
+						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=dev[i].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')"  />
+<%
+			if(dev2.length>0){
+%>
+						<a href="#in" onclick="swich(<%=i%>)">-</a>
+<%
+			}
+%>
+					</span> 
+<%
+			
+			if(dev2.length != 0){
+				if(i!=lengthD-1){
+					if(dev2!=null&&dev[i+1].getUpnumber() != dev[i].getIdx()){
+						padding = (dev[i].getDepth()+1) * 30;
+						if(0<dev2.length){
+%>
+					<ul id="<%=i%>">
+<%
+						}
+						for(int j=0;j<dev2.length;j++){
+%>
+						<li id="dev<%=dev2[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev2[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev2[j].getID() %>');" id="dev<%=dev2[j].getID() %>a"><%=dev2[j].getControllerName() %></a>
+<%
+						if(j==dev2.length-1){
+%>
+							<a href="#in" onclick="DeviceAdd(<%=dev2[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<%
+						}
+						if(0<dev2.length){
+%>
+					</ul>
+<%
+						}
+					}
+				}
+			}else if(i!= lengthD-1){
+				if(dev[i].getDepth()>dev[i+1].getDepth()){
+					if(dev[i+1].getDepth()<dev[i].getDepth()){
+%>
+					<ul id="<%=i%>">
+<%
+					}
+					for(int k=dev[i+1].getDepth();k<dev[i].getDepth();k++){
+						Device[] dev1 = Devfunc.DeviceSelect(depth[devcot]);
+						padding = (devcot+2) * 30;
+						for(int j=0;j<dev1.length;j++){
+%>
+						<li id="dev<%=dev1[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev1[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev1[j].getID() %>');" id="dev<%=dev1[j].getID() %>a"><%=dev1[j].getControllerName() %></a>
+<%
+						if(j==dev1.length-1){
+%>
+							<a href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<% 
+						}
+						devcot--;
+					}
+					if(dev[i+1].getDepth()<dev[i].getDepth()){
+%>
+					</ul>
+<%
+					}
+				}
+			}
+%>
+				
+<%
+		}
+		
+		for(int i = 0;i<=LastDepth2;i++){
+			if(i>0){
+				LastDepth = Devfunc.GroupUpNum(LastDepth);
+			}
+			Device[] dev1 = Devfunc.DeviceSelect(LastDepth);
+			if(0<dev1.length){
+%>
+					<ul id="<%=lengthD-1%>">
+<%				
+			}
+			for(int j=0;j<dev1.length;j++){
+%>
+						<li id="dev<%=dev1[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev1[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev1[j].getID() %>');" id="dev<%=dev1[j].getID() %>a"><%=dev1[j].getControllerName() %></a>
+<%
+						if(j==dev1.length-1){
+%>
+							<a href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<% 
+			}
+			if(0<dev1.length){
+%>
+					</ul>
+<%
+			}
+		}
+%>
+					
+				</li>
+			</ul>
+		</div>
+		<div class="DeviceButtom">
+			<a href="#in" onclick="GroupAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
+			<a href="#in" onclick="GroupDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
+			<a href="#in" onclick="DeviceAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
+		</div>
+<%
+	}else if(left.equals("User")){
+%>
+		<div class="User">
+			<ul>
+				<li>
+					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
+					<span onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span"><%=cata[0].getName()%></span>
+					<span id="input0" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
+					<span><a href="#UserInfo" onclick="submit('AllUser');" >All</a></span> 
+				</li>
+			
+<%
+		int padding = 0;
+		int[] depth;
+		int LastDepth = 0;
+		int LastDepth2 = 0;
+		depth = new int[100];
+		
+		int depcot = -1;
+		for(int i=1;i<length;i++){
+			padding = cata[i].getDepth() * 30;
+			
+			if(i!= length-1){
+				if(cata[i].getDepth()<cata[i+1].getDepth()){
+					depcot++;
+					depth[depcot] = cata[i].getIdx();
+				}
+			}else{
+				LastDepth = cata[i].getIdx();
+				LastDepth2 = cata[i].getDepth();	
+			}
+%>
+				<li style="padding-left:<%=padding%>px">
+					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
+					<span id="span<%=i %>" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" /></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
+					</span>
+					<span id="text<%=i%>" class="span" >
+						<a href="#in" onclick="changeInputBox(<%=i%>)" ><%=cata[i].getName() %></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" /></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
+					</span>
+					<span id="input<%=i%>" class="spanInput">
+						<input type="text" name="name" id="name" class="inputText" value="<%=cata[i].getName() %>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" onblur="UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" />
+					</span> 
+<%
+			User[] user2 = Userfunc.UserSelect(cata[i].getIdx());
+
+			
+			if(i!=length-1){
+				if(user2!=null&&cata[i+1].getUpnumber() != cata[i].getIdx()){
+					if(user2.length>0){
+%>
+				<ul id="<%=i%>">
+<%
+					}
+					for(int j=0;j<user2.length;j++){
+%>
+					<li id="user<%=user2[j].getId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user2[j].getUserId() %>');" onkeypress="submit('User','<%=user2[j].getUserId() %>');" ><%=user2[j].getName() %></a>
+<%
+						if(j==user2.length-1){
+%>
+						<a href="#in" onclick="UserAdd(<%=user2[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+					</li>
+<%
+					}
+					if(user2.length>0){
+%>
+				</ul>
+<%
+					}
+				}
+
+				if(cata[i].getDepth()>cata[i+1].getDepth()){
+					for(int k=cata[i+1].getDepth();k<cata[i].getDepth();k++){
+						User[] user1 = Userfunc.UserSelect(depth[depcot]);
+						if(user1.length>0){
+%>
+				<ul id="<%=i%>">
+<%
+						}
+						for(int j=0;j<user1.length;j++){
+%>
+					<li id="user<%=user1[j].getId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user1[j].getUserId() %>');" onkeypress="submit('User','<%=user1[j].getUserId() %>');" ><%=user1[j].getName() %></a>
+<%
+							if(j==user1.length-1){
+%>
+						<a href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+							}
+%>
+					</li>
+<% 
+						}
+						depcot--;
+						if(user1.length>0){
+%>
+				</ul>
+<%
+						}
+					}
+				}
+			}
+
+		}
+		for(int i = 0;i<=LastDepth2;i++){
+			if(i>0){
+				LastDepth = Catefunc.CataUpNum(LastDepth);
+			}
+			User[] user1 = Userfunc.UserSelect(LastDepth);
+			if(user1.length>0){
+%>
+				<ul id="<%=length-1%>">
+<%
+			}
+			for(int j=0;j<user1.length;j++){
+%>
+					<li id="user<%=user1[j].getId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user1[j].getUserId() %>');" onkeypress="submit('User','<%=user1[j].getUserId() %>');" ><%=user1[j].getName() %></a>
+<%
+						if(j==user1.length-1){
+%>
+						<a href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+					</li>
+<% 
+			}
+			if(user1.length>0){
+%>
+				</ul>
+<%
+			}
+			
+		}
+%>
+				</li>
+			</ul>
+		</div>
+		<div class="UserButtom">
+			<a href="#in" onclick="DepartAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
+			<a href="#in" onclick="DepartDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
+			<a href="#in" onclick="UserAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
+		</div>
+<%
+	}else if(left.equals("Event")){
+%>
+		<jsp:include page="left_event.jsp" flush="false"></jsp:include>
+<%
+	}else if(left.equals("Monitoring")){
+%>
+		<jsp:include page="left_Monitoring.jsp" flush="false"></jsp:include>
+<%
+	}else{
+%>
+		<jsp:include page="left_time.jsp" flush="false"></jsp:include>
+<%
+	}
+		
+%>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="content">
+<%
+	if(content.equals("Home")){ 
+%>
+	<jsp:include page="/action/page/Log.jsp" flush="false"></jsp:include>
+<%
+	}else if(content.equals("User")){
+%>
+	<jsp:include page="/action/page/User.jsp" flush="false"></jsp:include>
+<%		
+	}else if(content.equals("AllUser")){
+%>
+	<jsp:include page="/action/page/AllUserList.jsp" flush="false"></jsp:include>
+<%		
+	}else if(content.equals("AllDevice")){
+%>
+	<jsp:include page="/action/page/AllDeviceList.jsp" flush="false"></jsp:include>
+<%		
+	}else if(content.equals("Log")){
+%>
+	<div>
+		<form action="/TrustWinPro/action/index.jsp" name="realLog" id="realLog" method="post">
+			<input type="hidden" value="realLog"  name="logtype" />
+			<input type="hidden" value="Log" name="content" />
+		</form>
+		<form action="/TrustWinPro/action/index.jsp" name="searchLog" id="searchLog" method="post">
+			<input type="hidden" value="searchLog" name="logtype" />
+			<input type="hidden" value="Log" name="content" />
+		</form>
+	</div>
+<%
+		if(logtype.equals("searchLog")){
+%>
+	<jsp:include page="/action/page/LogSearch.jsp" flush="false"></jsp:include>
+<%		
+		}else{
+%>
+	<jsp:include page="/action/page/Log.jsp" flush="false"></jsp:include>
+<%			
+		}
+	}else if(content.equals("UserInfo")){
+%>
+	<script type="text/javascript">
+		$(".Loading").css("display","block");
+	</script>
+	<jsp:include page="/action/page/UserInfo.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("DeviceInfo")){
+%>
+		<jsp:include page="/action/page/DeviceInfo.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Time")){
+%>
+		<jsp:include page="/action/page/TimeZone.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Holiday")){
+%>
+		<jsp:include page="/action/page/HoliDay.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("AccessGroup")){
+%>
+		<jsp:include page="/action/page/AccessGroup.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Language")){
+%>
+		<jsp:include page="/action/page/LanguageAdmin.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Map")){
+%>
+		<jsp:include page="/action/page/Map.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("MapSetup")){
+%>
+		<jsp:include page="/action/page/MapSetup.jsp" flush="false"></jsp:include>
+<%	
+	}else{
+%>
+		<jsp:include page="/action/page/main.jsp" flush="false"></jsp:include>
+<%	
+	}
+%>
+
+</div>

@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import="com.Trustwin.Admin.Project.*" %>
+<%
+	dbData dD = new dbData();
+	String[] places = dD.getPlace();	
+	int placeCnt = dD.getPlaceCnt();
+	String SDate = (String) request.getParameter("selectDate");
+	String SPlace = (String) request.getParameter("selectPlace");
+%>    
+    
+    
+<script type="text/javascript" src="/sdffJSP/action/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/sdffJSP/action/js/calendar.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+    
+    google.load('visualization', '1', {packages: ['corechart'],'language':'ko'});
+     
+    	function fn_submit2() { 
+    	document.chartOption.submit(); 
+    	} 
+    
+    function drawVisualization2(dataFromAjax) {
+         var data = google.visualization.arrayToDataTable(dataFromAjax);
+         new google.visualization.ColumnChart(document.getElementById('map')).
+         draw(data, {fontName: "∏º¿∫ ∞ÌµÒ, Malgon Gothic", 
+                fontSize: 11,
+                forceIFrame: false,
+                title:"√‚¿‘ ¿Œø¯",
+                vAxis: {maxValue: 20},
+         		hAxis: {textStyle: {fontSize:8}}
+         		}
+           );
+    }
+    
+    function drawInit2()
+    {
+         var data = null;
+         var table_data = null;
+
+         $.ajax({
+             url:'chartProc.jsp',
+             data: 'date=<%=SDate%>&place=<%=SPlace%>',
+             success: function(res) {
+                 table_data = eval("(" + res + ")");
+                 drawVisualization2(table_data);
+             }
+        });
+    }
+    
+    google.setOnLoadCallback(drawInit2);
+ 
+    setInterval(function() { drawInit2(); }, 60000);
+</script> 
+
+<html>
+	
+	<div  style="width:600px; height:1px; font-size:0; line-height:2; padding:2;" >
+	<form action="index.jsp" name="chartOption" id="chartOption" method="post">
+		
+	
+		place: <select name="selectPlace" >
+		<option value=""></option>
+		<%for(int i=0;i<placeCnt;i++){ %>
+		<option value="<%=places[i] %>" ><%=places[i] %></option>
+		<%} %>
+		</select>
+	
+		Date : <input type="text" name="selectDate" id="selectDate" readonly="readOnly" value="<%=LangUtil.Empty(SDate)%>" readonly="readOnly" onclick="fnPopUpCalendar(selectDate,selectDate,'yyyy-mm-dd')" /> 
+		<button onclick="fn_submit2();" form="chartOption">sumit</button>
+		
+		<a href="barChartOption.jsp" onClick="return show_hide_box(this,500,300,'1px solid')"><img  src="/sdffJSP/action/image/setting.png" style="width:15px; height:15px;float:right" ></a>
+		<a href="barChartDesc.html" onClick="return show_hide_box(this,500,300,'1px solid')"><img  src="/sdffJSP/action/image/spam.png" style="width:15px; height:15px;float:right" ></a>
+	
+	</form>
+	</div>
+		<br><br>		
+	
+		<div id="map"style="border-top:1px groove; border-bottom:1px groove; border-left:1px groove; border-right:1px groove;width: 600px; height: 250px; " ></div>
+	
+</html>

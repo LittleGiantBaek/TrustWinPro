@@ -1,0 +1,118 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Device.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Map.*" %>
+<%
+	String ID = (String)request.getParameter("mapID");
+	if(ID == null){
+
+	}else{
+		DeviceFunc devFunc = new DeviceFunc();
+		Device[] dev = devFunc.deviceList();
+		MapFunc mapFunc = new MapFunc();
+		Map map = mapFunc.selMap(ID);
+		MapDevice[] mapDev = mapFunc.selMapDev(ID);
+		String imageFile = "";
+		ServletContext scontext = getServletContext();
+		imageFile = request.getContextPath() + "/upload/image/Map/";
+		if(map == null){
+			
+		}else{
+			imageFile = imageFile + map.getImage();
+		}
+%>
+<script type="text/javascript">
+jQuery(function($){
+	$('.drag')
+		.drag(function( ev, dd ){
+			$( this ).css({
+				top: dd.offsetY,
+				left: dd.offsetX
+			});
+			$("#status"+$(this).attr('id')).css({
+				top: dd.offsetY+40,
+				left: dd.offsetX-80
+			});
+		},{ relative:true })
+		.drag("end",function( ev, dd ){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/UpdateMapXY.jsp",   
+			    data: "X="+dd.offsetX+"&Y="+dd.offsetY+"&idx="+$( this ).attr('id'),
+			    success:function(args){
+			    	
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		});
+	
+});
+
+function MapDeviceInfo(x,y){
+	$.ajax({      
+	    type:"post",  
+	    url:"/TrustWinPro/action/ajax/MapDeviceInfo.jsp",   
+	    data: "deviceID="+x,
+	    success:function(args){
+	    	$("#status"+y).html(args);
+	    	if(args == null){
+	    		$("#status"+y).css("display","none");
+	    	}else{
+	    		$("#status"+y).css("display","inline");	
+	    	}
+	    	
+	    	    
+	    },   
+	    error:function(e){  
+	        alert(e.responseText);  
+	    }  
+	}); 
+}
+
+
+<%
+	for(int i=0;i<mapDev.length;i++){
+%>
+	setInterval(function(){MapDeviceInfo('<%=mapDev[i].getDeviceID()%>','<%=mapDev[i].getIdx()%>');},1000);
+<%
+	}
+%>
+</script>
+<div id="MapInfo" style = "
+overflow: hidden;
+    border: 2px solid #46bebe;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    background: #fff;
+">
+	<div class="basic">
+<%
+		for(int i=0;i<mapDev.length;i++){
+%>
+		<img src="/TrustWinPro/action/image/MapClosedDoor.bmp" class="drag" id="<%=mapDev[i].getIdx() %>" style="top:<%=mapDev[i].getY()%>px;left:<%=mapDev[i].getX()%>px;">
+		<div class="status" id="status<%=mapDev[i].getIdx()%>" style="top:<%=mapDev[i].getY()+40%>px;left:<%=mapDev[i].getX()-80%>px;">
+		
+		</div>
+<%
+		}
+%>
+		<img src="<%=imageFile%>" class="mapImage">
+	</div>
+	<div class="bottom" id="web-buttons-idrmij3">
+		<a href="#a" title="Enroll" onclick="setupMove()">MapSetup</a>
+	</div>
+</div>
+<form name="mapsetup" id="mapsetup" method="post" action="/TrustWinPro/action/index.jsp" >
+	<input type="hidden" value="<%=ID%>"  name="mapID" />
+	<input type="hidden" value="Monitoring" name="left" />
+	<input type="hidden" value="MapSetup" name="content" />
+</form>
+<%
+	}
+%>

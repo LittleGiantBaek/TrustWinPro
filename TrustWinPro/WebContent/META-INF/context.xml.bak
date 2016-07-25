@@ -1,0 +1,12 @@
+<Context>
+<Resource name="jdbc/MssqlDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="sa"
+		password="sa"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+		url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=TSGTAP_DB"
+	/>
+</Context>
+<!-- DB address -->

@@ -1,0 +1,763 @@
+*{font-family:"Nanum Gothic" !important;font-size:12px;}
+
+html{
+background:#dcd6d3;
+scrollbar-face-color:#dcd6d3;
+scrollbar-3dlight-color:#ffffff;
+scrollbar-highlight-color:#ffffff;
+scrollbar-shadow-color:#ffffff;
+scrollbar-darkshadow-color:#ffffff;
+scrollbar-arrow-color:#afafaf;
+scrollbar-track-color:#ffffff;
+}
+body.mainBody{min-width:1024px;}
+
+h3{text-align:center;}	
+A{text-decoration:none;color:black;}
+A:link {text-decoration: none; color: black;}
+A:visited {text-decoration: none; color: black;}
+A:active {text-decoration: none; color: black;}
+A:hover {text-decoration: underline; color: black;}
+body{padding:0;margin:0 auto;width:100%;overflow:scroll;height:100%;}
+.main{padding:0;margin:0;width:100%;}
+ul li{list-style-type:none;}
+img {border:0;}
+
+
+.inputt {
+	display: inline-block;
+    height: 28px;
+    padding: 0 14px;
+    margin: 0px;
+    font-size: 12px;
+    color: #6e6e6e;
+    font-weight: normal;
+    font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;
+    line-height: 27px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.Loading{position:absolute; top:0; left:0; width:100%; height:100%; z-index:101; display:none; background-repeat: no-repeat;background-color: #fff;opacity:0.5;}
+.Loading .backImg{margin:100px auto 0;width:600px; height:600px; z-index:101;  background-image:url("/TrustWinPro/action/image/interface/loading.gif");background-repeat: no-repeat;  opacity:0.5; }
+
+.wrap {width:100%;height:100%;position:absolute;background-image:url("/TrustWinPro/action/image/interface/loginBackground.jpg");z-index:1;background-repeat: no-repeat;margin:0 auto; padding:0;min-width:1024px;}
+.wrap .start {width:100%;margin:auto; height:100%;position:absolute; top:0; left:0; right:0; bottom:0;z-index:10;}
+.wrap .start .welcome {width:100%;margin:0 auto;height:100px;}
+.wrap .start .login {width:300px;position:absolute; top:0; left:0; right:0; bottom:0;margin:auto;height:150px;vertical-align: middle;text-align: center;}
+.wrap .start .loginlogo{position:absolute;bottom:0px;left:40%;margin:0 auto; padding:0}
+.wrap .start .login .loginImage {opacity:0.2;position: absolute;left:-35px;top:-55px;}
+.wrap .start .login .loginLogo {opacity:0.7;position: absolute;left:15px;top:-15px;}
+.wrap .start .login .inputBox {width:200px;position:absolute;top:25px;left:7px;}
+.wrap .start .login .inputBox input {background-color: #0f5c92;color : #ffffff; padding-left:5px;width:175px;height:30px;border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;opacity: 0.8;}
+.wrap .start .login .inputBox input.id {margin-bottom:11px;}
+.wrap .start .login .inputBox input.password {}
+.wrap .start .login .inputBox .radioBox {width:100%;height:15px;text-align: left;padding-left:10px;}
+.wrap .start .login .inputBox .radioBox label{} 
+.wrap .start .login .inputBox .radioBox .ez-radio {background: transparent url('/TrustWinPro/action/image/interface/radio_off.png') 0 1px no-repeat;display:inline-block;z-index:100}
+.wrap .start .login .inputBox .radioBox .ez-selected {background: transparent url('/TrustWinPro/action/image/interface/radio_on.png') 0 1px no-repeat;display:inline-block;z-index:100}
+.wrap .start .login .inputBox .radioBox .ez-hide { opacity: 0; filter:alpha(opacity=0); }
+.wrap .start .login .inputBox .radioBox input[type="radio"] {height:15px; width:15px; margin:0 4px 0 0;padding:0;}
+.wrap .start .login .inputBox .radioBox .ez-checked-green { background-position: 0 -18px; }
+.wrap .start .login .inputBox .radioBox .ez-radio { zoom: 1; *display:inline; _height:30px; }
+
+.wrap .start .login .LoginButtom{position:absolute;right:0px;top:25px;opacity:0.7;}
+.wrap .start .login .inputBox .select {float:left;margin:7px 0 0 10px;}
+
+.wrap .start .login .inputBox .ez-radio {background: transparent url('radio_off.png') 0 1px no-repeat;display:inline-block;}
+.wrap .start .login .inputBox .ez-selected {background: transparent url('radio_on.png') 0 1px no-repeat;display:inline-block;}
+
+.titlebar{background-image:url("/TrustWinPro/action/image/interface/titlebar.png"); background-size:100%;background-repeat:no-repeat;border:0;height:24px; width:96%;margin:0 auto; padding:5px 0 0 5px;color:#fff;z-index:100;position: relative;}
+
+/* top menu */
+#top {
+    overflow: hidden;
+    position: relative;
+    height: 68px;
+    border-bottom: 1px solid #020202;
+    background: #312d2e;
+    z-index: 500;}
+#top .Logo{width:20%;height:auto;position:relative;float:left;}
+#top .Logo img{padding : 20px 30px;}
+#top .main_top .top_right{text-align:right;color:white;padding-right:30px;margin:0;top:40px;position:absolute;right:0;}
+#top .main_top .top_right a{color:white;}
+#top .main_top {float:left;height:56px;position:relative;width:80%;}
+#top .main_top .top_menu {}
+#top .main_top .top_menu .menu{width:100%;position:relative;float:left;height:53px;}
+#top .main_top .top_menu .menu ul{padding:0;margin:0;bottom:0;display:block;position:absolute;bottom:0;}
+#top .main_top .top_menu .menu ul li{list-style-type:none;background-color: black;color: white;line-height:30px;position:relative;float:left;margin:0 1px;padding:0 20px;}
+#top .main_top .top_menu .menu ul li a{color:white;}
+	
+/* left style */
+#left{padding:10px 0;width:21%;height:100%;margin:0;float:left;background-color: #dcd6d3; 
+min-height:760px;min-width:200px;position:relative;}
+#left .left_top {width:100%;position:absolute;height:69%;min-height:500px;bottom:30px;}
+#left .left_top .left_box{border:1px solid black;margin:5px;padding-top:5px;}
+#left .left_top .left_box .left_boxlist{border:1px solid black;overflow-y:scroll; height:200px;}
+#left .left_top .left_box .left_boxlist ul{padding:0px;margin:5px;}
+#left .left_top .left_box .left_boxlist ul li{list-style-type:none;}
+#left .left_top .left_box .left_boxlist ul li ul{margin-left:5px 5px 5px 15px;display:none;}
+#left .left_top .left_box .left_boxlist ul li ul li{list-style-type:none;}
+#left .left_bottom{position:absolute;width:100%;margin:0;padding:0;top:0;}
+#left .left_bottom .left_buttom{width:100%;height:auto;}
+#left .left_bottom .left_buttom .Device{position:absolute;top:15px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+#left .left_bottom .left_buttom .User{position:absolute;top:55px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+#left .left_bottom .left_buttom .Event{position:absolute;top:95px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+#left .left_bottom .left_buttom .Time{position:absolute;top:135px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+#left .left_bottom .left_buttom .Monitoring{position:absolute;top:175px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+  
+#left .left_top .User {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;min-width: 150px;}
+#left .left_top .User ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .User ul li{padding:0;margin:0;}
+
+#left .left_top .Device {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;}
+#left .left_top .Device ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .Device ul li{padding:0;margin:0;}
+
+#left .left_top .Event {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:700px;}
+#left .left_top .Event ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .Event ul li{padding:0;margin:0;}
+
+#left .left_top .Time {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;}
+#left .left_top .Monitoring {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:560px;}
+
+.open {display:none;}
+.close {} 
+
+
+/* footer style */
+#footer {width:100%;padding:0;float:left;height:auto;z-index:1;
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 68px;
+    border-top: 2px solid #19a5a0;
+    background: #312d2e;
+    z-index: 500;
+	
+}
+#footer .footer_left {width:21%;height:120px;;background-color: #312d2e;float:left;}
+#footer .footer_right {width:79%;height:120px;background-color: #312d2e;float:left;}
+#footer .footer_right .footerCopyright{color:#dcd6d3;margin:8px 0;}
+
+/* content style */
+.content{float:right; padding:0; width:78%; padding: 10px 0 100px 10px; 
+    background: #dcd6d3; min-height:760px;}
+
+
+
+
+#userdata {}
+#userdata .searchForm {width:95%;border:2px solid #C2C2C2;padding:2px 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;margin: 0 0 5px 0;}
+#userdata .colorOption {display:none;width:95%;border:2px solid #C2C2C2;padding:2px 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;margin: 0 0 5px 0;height:100%;}
+#userdata .colorOption .button{width:95%;height:30px;padding:3px;maring:0;}
+
+#userdata table{
+}
+#userdata table tr{}
+#userdata table tr th{}
+#userdata table tr td{}
+#userdata .bottom{text-align: right;margin:10px 0 0;width:95%;position:relative}
+#userdata .bottom .text{text-align: center;width:100px;background-image: url("/TrustWinPro/action/image/interface/statusbar.png");height:23px;float:right; cursor: pointer;border:0px;}
+
+#web-buttons-idrmij3 a{display:block;color:transparent;float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;} 
+#web-buttons-idrmij3 a:hover{float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;}
+a#web-buttons-idrmij3a {display:none}
+
+#userDevice {}
+#userDevice table{}
+#userDevice table tr{}
+#userDevice table tr th{}
+#userDevice table tr td{}
+#userDevice .bottom{text-align: center;margin:10px 0 0;}
+
+/* UserInfo*/
+#UserInfo {width:100%;padding:0;margin:0;min-width: 800px;overflow: hidden;}
+#UserInfo .basic {width:100%;position:relative;}
+#UserInfo .basic .basicInfo {width:96%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;}
+#UserInfo .basic .basicInfo .picture{width:90%;margin: 30px auto 10px;height:100px;}
+#UserInfo .basic .basicInfo .picture .left {width:40%;float:left;position:relative;left:10%}
+#UserInfo .basic .basicInfo .picture .right {width:50%;float:right;}
+#UserInfo .basic .basicInfo .picture .right table {width:100%;}
+#UserInfo .basic .basicInfo .picture .right .block .header {height:28px;width:29%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;}
+#UserInfo .basic .basicInfo .picture .right .block .main {height:28px;width:71%;padding-left:5px;vertical-align: middle;line-height:22px;}
+#UserInfo .basic .basicInfo .picture .right .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .basicInfo .InfoBox {width:60%;padding:20px;height:128px;position:relative;} 
+#UserInfo .basic .basicInfo .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#UserInfo .basic .basicInfo .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:28px;float:left;}
+#UserInfo .basic .basicInfo .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+#UserInfo .basic .basicInfo .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#UserInfo .basic .basicInfo .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .Official {width:96%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:460px;}
+#UserInfo .basic .Official .InfoBox {width:60%;padding:20px;height:120px;position:relative;} 
+#UserInfo .basic .Official .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#UserInfo .basic .Official .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .Official .InfoBox .block .main {height:20px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+#UserInfo .basic .Official .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#UserInfo .basic .Official .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .Official .InfoBox .block .search {height:20px;float:right;}
+
+#UserInfo .basic .Private {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:320px;}
+#UserInfo .basic .Private .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
+#UserInfo .basic .Private .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#UserInfo .basic .Private .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .Private .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+#UserInfo .basic .Private .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#UserInfo .basic .Private .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .Private .InfoBox .block .search {height:20px;float:right;}
+
+#UserInfo .basic .Card {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;}
+#UserInfo .basic .Card .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
+#UserInfo .basic .Card .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#UserInfo .basic .Card .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .Card .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+#UserInfo .basic .Card .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#UserInfo .basic .Card .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .Card .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Device {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#UserInfo .basic .Device table{width:100%}
+#UserInfo .basic .Event {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#UserInfo .basic .Event table{width:100%}
+#UserInfo .basic .Event table .main img{padding:0;margin:0;height:28px;top:5px;}
+#UserInfo .basic .AccessControl {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#UserInfo .basic .AccessControl table{width:100%}
+
+#UserInfo .basic .buttonBox {width:96%;position:relative;margin:0 auto 10px;} 
+#UserInfo .basic .buttonBox .InfoButtom {float:right;}
+#UserInfo .basic .buttonBox .bottom {float:left;}
+#UserInfo .basic .buttonBox #web-buttons-idrmij3 a{display:block;color:transparent;float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;} 
+#UserInfo .basic .buttonBox #web-buttons-idrmij3 a:hover{float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;}
+#UserInfo .basic .buttonBox a#web-buttons-idrmij3a {display:none}
+
+#UserInfo .basic .tab {width:96%;margin:0 auto;height:20px;}
+#UserInfo .basic .tab .tab1{float:left;padding:0;}
+#UserInfo .basic .tab .tab2{float:left;padding:0;}
+#UserInfo .basic .tab .tab3{float:left;padding:0;}
+#UserInfo .basic .tab .tab4{float:left;padding:0;}
+#UserInfo .basic .tab .tab5{float:left;padding:0;}
+#UserInfo .basic .tab .tab6{float:left;padding:0;}
+
+/* DviceInfo*/
+#DeviceInfo {width:100%;padding:0;margin:0;min-width: 1000px;overflow: hidden;}
+#DeviceInfo .basic {width:100%;margin:0;padding:0;}
+#DeviceInfo .titlebar{width:96%}
+#DeviceInfo .basic .basicInfo {width:96%;border:1px solid gray;margin:0 auto 10px;padding:20px 0;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;top:-15px;z-index:1;height:260px;}
+#DeviceInfo .basic .basicInfo table{width:100%}
+#DeviceInfo .basic .basicInfo .Info{width:40%;float:right;position:relative;left:-5%}
+#DeviceInfo .basic .basicInfo .Info .block{width:100%;}
+#DeviceInfo .basic .basicInfo .Info .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;float:left;margin:5px 0;vertical-align: middle;line-height:20px;}
+#DeviceInfo .basic .basicInfo .Info .block .main {height:28px;width:73%;padding-left:5px;margin:5px 0;float:left;vertical-align: middle;line-height:20px;}
+#DeviceInfo .basic .basicInfo .Info .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#UserInfo .basic .Private .InfoBox .block .search {height:20px;float:right;}
+#DeviceInfo .basic .basicInfo .picture {width:40%;float:left;position:relative;left:5%}
+#DeviceInfo .basic .basicInfo .picture table {width:100%;}
+#DeviceInfo .basic .basicInfo .picture table tr {}
+#DeviceInfo .basic .basicInfo .picture table tr td {height:10px;}
+#DeviceInfo .basic .Device {width:90%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#DeviceInfo .basic .Device table{width:100%}
+
+#DeviceInfo .basic .InfoButtom {width:70px;margin:10px 0;float:right;}
+
+#DeviceInfo .basic .tab {width:96%;margin:0 auto;height:20px;}
+#DeviceInfo .basic .tab .tab1{float:left;padding:0;}
+#DeviceInfo .basic .tab .tab2{float:left;padding:0;}
+#DeviceInfo .basic .tab .tab3{float:left;padding:0;}
+#DeviceInfo .basic .tab .tab4{float:left;padding:0;}
+#DeviceInfo .basic .tab .tab5{float:left;padding:0;}
+#DeviceInfo .basic .tab .tab6{float:left;padding:0;}
+
+#DeviceInfo .basic .Basic {width:96%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:600px;position:relative;}
+#DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:10px 0;position:absolute;left:10px;} 
+#DeviceInfo .basic .Basic .InfoBox1 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
+#DeviceInfo .basic .Basic .InfoBox1 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#DeviceInfo .basic .Basic .InfoBox1 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:right;}
+#DeviceInfo .basic .Basic .InfoBox1 .block .mainselect {height:28px;background-color: #dcdcdc;vertical-align: middle;line-height:22px;width:50%;position: absolute;}
+#DeviceInfo .basic .Basic .InfoBox1 .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#DeviceInfo .basic .Basic .InfoBox2 {width:45%;padding:20px 0;position:absolute;right:50px;} 
+#DeviceInfo .basic .Basic .InfoBox2 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
+#DeviceInfo .basic .Basic .InfoBox2 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#DeviceInfo .basic .Basic .InfoBox2 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:right;}
+#DeviceInfo .basic .Basic .InfoBox2 .block .mainselect {height:28px;background-color: #dcdcdc;vertical-align: middle;line-height:22px;width:50%;position: absolute;}
+#DeviceInfo .basic .Basic .InfoBox2 .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#DeviceInfo .basic .Basic .GetSet {position:absolute;right:15px;padding:0;margin:0;}
+#DeviceInfo .basic .Basic .InfoButtom {position:absolute;width:200px;margin:0;padding:0;right:42px;bottom: 0;}
+#DeviceInfo .basic .Basic #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .Basic #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+#DeviceInfo .basic .Sunlight {width:96%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:280px;display:none;position:relative;}
+#DeviceInfo .basic .Sunlight .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
+#DeviceInfo .basic .Sunlight .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#DeviceInfo .basic .Sunlight .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#DeviceInfo .basic .Sunlight .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:left;}
+#DeviceInfo .basic .Sunlight .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+#DeviceInfo .basic .Sunlight .InfoButtom {position:absolute;width:200px;margin:0;padding:0;right:42px;bottom: 0;}
+#DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+#DeviceInfo .basic .Operatelight {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .Operatelight table {width:100%}
+#DeviceInfo .basic .Operatelight th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
+#DeviceInfo .basic .Operatelight tr {vertical-align: middle;line-height:28px;text-align: center;}
+#DeviceInfo .basic .Operatelight .InfoButtom {width:200px;margin:5px 0;}
+#DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+#DeviceInfo .basic .Alarm {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .Alarm table {width:100%}
+#DeviceInfo .basic .Alarm th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
+#DeviceInfo .basic .Alarm tr {vertical-align: middle;line-height:20px;text-align: center;}
+#DeviceInfo .basic .Alarm .InfoButtom {width:200px;margin:5px 0;}
+#DeviceInfo .basic .Alarm #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .Alarm #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+#DeviceInfo .basic .AutoDoor {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .AutoDoor table {width:100%}
+#DeviceInfo .basic .AutoDoor th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
+#DeviceInfo .basic .AutoDoor tr {vertical-align: middle;line-height:20px;text-align: center;}
+#DeviceInfo .basic .AutoDoor .InfoButtom {width:200px;margin:5px 0;}
+#DeviceInfo .basic .AutoDoor #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .AutoDoor #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+
+#DeviceInfo .basic .AutoKey {width:96%;border:1px solid gray;margin:0 auto 10px;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .AutoKey table {width:100%}
+#DeviceInfo .basic .AutoKey th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
+#DeviceInfo .basic .AutoKey tr {vertical-align: middle;line-height:20px;text-align: center;}
+#DeviceInfo .basic .AutoKey .key {width:150px;}
+#DeviceInfo .basic .AutoKey .InfoButtom {width:200px;margin:5px 0;}
+#DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+#DeviceInfo .basic .NoAct {width:96%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;display:none;position:relative;}
+#DeviceInfo .basic .NoAct .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
+#DeviceInfo .basic .NoAct .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#DeviceInfo .basic .NoAct .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#DeviceInfo .basic .NoAct .InfoBox .block .main {height:28px;width:73%;background-color:vertical-align: middle;line-height:22px;float:left;}
+#DeviceInfo .basic .NoAct .InfoBox .block select{width:150px;}
+#DeviceInfo .basic .NoAct .InfoBox .block .search {height:20px;float:right;}
+#DeviceInfo .basic .NoAct .InfoButtom {position:absolute;width:200px;margin:0;padding:0;right:42px;bottom: 0;}
+#DeviceInfo .basic .NoAct #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
+#DeviceInfo .basic .NoAct #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
+
+.Year{display:none;}
+
+
+.minuteselect{height: 28px;}
+.hourselect{height: 28px;}
+
+/*
+ Event style
+table.ex1 {width:90%; margin:0 auto; text-align:right; border-collapse:collapse;padding:10px;}
+.ex1 th, .ex1 td {padding:5px 8px}
+.ex1 caption {font-weight:500;  padding:5px; color:#1BA6B2; text-align:left; margin-bottom:5px}
+.ex1 thead th {background:#ABC668; color:#fff; text-align:center; border-right:1px solid #fff}
+.ex1 tbody th {text-align:left;}
+.ex1 tbody td.date1 {text-align:center;}
+.ex1 tbody td.desc {text-align:left;}
+.ex1 tbody tr.odd {background:#f9f9f9}
+.ex1 tbody tr.odd th {background:#f2f2f2}
+.ex1 tbody tr:hover {background:#F3F5BB}
+.ex1 tbody tr:hover th {background:#F2F684; color:#1BA6B2}
+.ex1 tfoot tr {border-top:6px solid #E9F7F6; color:#1BA6B2}
+.ex1 tfoot th {text-align:left; padding-left:10px}
+*/
+ 
+
+table.ex1 {width:100%;margin:0 auto; padding:10px; }
+table.ex1, .ex1 td, .ex1 th{border:0;border-collapse:collapse;margin:0;padding:0;}
+.ex1 td, .ex1 th{padding:.2em 0;vertical-align:top;font-weight:normal;text-align:center;}
+.ex1 thead th{text-transform:uppercase;}
+.ex1 tbody td{background:#fff;}
+.ex1 tbody th{background:#a29797;}
+.ex1 tbody tr.odd {background:#f9f9f9}
+.ex1 tbody tr.odd td{background:#f2f2f2}
+.ex1 tbody tr.odd th {background:#f2f2f2}
+.ex1 caption{text-align:left;text-transform:uppercase;letter-spacing:-1px; color:#1BA6B2;}
+table.ex1 th a:link{color:black;}
+table.ex1 th a:visited{color:black;}
+table.ex1 td a:link{color:black;}
+table.ex1 td a:visited{color:black;}
+table.ex1 a:hover{text-decoration:none;}
+table.ex1 a:active{color:#000;}
+
+.ex1 tbody td.date1 {text-align:center;}
+.ex1 tbody td.desc {text-align:left;}
+.ex1 tbody tr:hover {background:#F3F5BB}
+.ex1 tbody tr:hover th {background:#F2F684; color:#1BA6B2}
+.ex1 tfoot tr {border-top:6px solid #E9F7F6; color:#1BA6B2}
+.ex1 tfoot th {text-align:left; padding-left:10px}
+
+
+
+/* Event log */
+
+
+/* button style */
+.button01{width: 100%; height: 30px; background: linear-gradient(to left top, blue, rgba(255,0,0,0.5));z-index:10}
+.button01 a{color:white;text-decoration: none;}
+
+/* tab style */
+#globalnav {position:relative;width:100%;padding:0 0 1.75em 0;margin:0;list-style:none;line-height:1em;}
+#globalnav LI {float:left;margin:0;padding:0;width:86px;height:28px;}
+#globalnav A {display:block;text-decoration:none;margin:0;padding:0.25em 0;background-image:url("/TrustWinPro/action/image/interface/tab_off.png");background-repeat: no-repeat;}
+#globalnav A:hover,
+#globalnav A:active,
+#globalnav A.here:link,
+#globalnav A.here:visited {background-image:url("/TrustWinPro/action/image/interface/tab_on.png");color:#fff;}
+#globalnav A.here:link,
+#globalnav A.here:visited {position:relative;z-index:100;}
+
+/*input Text*/
+.spanInput {display:none;width:100%;background-color: black;}
+.spanInput .inputText {border:none;height:13px;background-color: black;color:#ffffff;}
+.span {display:none;width:100%;background-color: #5c5c5b;color:#ffffff}
+.span a{color:#ffffff}
+.userspan {width:100%;background-color: #5c5c5b;color:#ffffff}
+.userspan a {color:#ffffff}
+/*subnav*/
+#globalnav UL {position:absolute;left:0;top:1.5em;float:left;background:#bbb;width:100%;margin:0;list-style:none;border-top:1px solid #fff;}
+
+#globalnav UL LI {float:left;display:block;margin-top:1px;}
+#globalnav UL A {background:#bbb;color:#fff;display:inline;margin:0;padding:0 1em;border:0}
+
+.DeviceButtom {padding:5px 0; ;margin:0;float:right;}
+.UserButtom {padding:5px 0; ;margin:0;float:right;}
+.UserButtom a{border:0;}
+
+
+/* Time */
+.selection {position: absolute;border: 1px solid #89B;background: #BCE;background-color: #BEC;border-color: #8B9;}
+#TimeInfo .size2 {height: 118px;line-height: 118px;}
+#TimeInfo .size3 {height: 178px;line-height: 178px;}
+#TimeInfo .drop {float: left;border: 1px solid #888;background: #EEE;text-align: center;padding: 0;margin: 0;font-size: 8px;width:3px;height:15px;}
+#TimeInfo .dropped {background-color: #EBC;border-color: #B89;}	
+#TimeInfo .active {background-color: #CEB;border-color: #9B8;}
+#TimeInfo .holi {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .holi .end {border-right: 2px solid #000;}
+#TimeInfo .holiName {position:relative;clear:both;}
+#TimeInfo .holiName .name{float:left;width:31px;}
+#TimeInfo .holiName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .holiName .last{float:left;width:10px;}
+#TimeInfo .sun {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .sun .end {border-right: 2px solid #000;}
+#TimeInfo .sunName {position:relative;clear:both;}
+#TimeInfo .sunName .name{float:left;width:31px;}
+#TimeInfo .sunName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .sunName .last{float:left;width:10px;}
+#TimeInfo .mon {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .mon .end {border-right: 2px solid #000;}
+#TimeInfo .monName {position:relative;clear:both;}
+#TimeInfo .monName .name{float:left;width:31px;}
+#TimeInfo .monName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .tue {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .tue .end {border-right: 2px solid #000;}
+#TimeInfo .tueName {position:relative;clear:both;}
+#TimeInfo .tueName .name{float:left;width:31px;}
+#TimeInfo .tueName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .wed {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .wed .end {border-right: 2px solid #000;}
+#TimeInfo .wedName {position:relative;clear:both;}
+#TimeInfo .wedName .name{float:left;width:31px;}
+#TimeInfo .wedName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .thu {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .thu .end {border-right: 2px solid #000;}
+#TimeInfo .thuName {position:relative;clear:both;}
+#TimeInfo .thuName .name{float:left;width:31px;}
+#TimeInfo .thuName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .fri {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .fri .end {border-right: 2px solid #000;}
+#TimeInfo .friName {position:relative;clear:both;}
+#TimeInfo .friName .name{float:left;width:31px;}
+#TimeInfo .friName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .sat {position:relative;clear:both;padding:5px 0;}
+#TimeInfo .sat .end {border-right: 2px solid #000;}
+#TimeInfo .satName {position:relative;clear:both;}
+#TimeInfo .satName .name{float:left;width:31px;}
+#TimeInfo .satName .first{float:left;width:29px;margin-left:-4px;}
+#TimeInfo .buttom {clear:both;position:relative;width:100%;padding-top:15px;} 
+
+#TimeInfo .titlebar{width:96%}
+#TimeInfo .basic .block {width:96%;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:50px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
+#TimeInfo .basic .block .header {height:20px;width:15%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;margin-bottom:10px;}
+#TimeInfo .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
+#TimeInfo .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
+#TimeInfo .week {width:95%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:350px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
+#TimeInfo .week .Name {width:7%;float:left;padding:25px 6px 0 6px;}
+#TimeInfo .week .Group {width:90%;float:left;padding-top:5px;}
+#TimeInfo .buttom .image{float:right;padding-right:50px;}
+
+/* HoliInfo */
+#HoliInfo {width:100%;padding:0;margin:0;min-width: 500px;overflow: hidden;}
+#HoliInfo .basic {width:100%;position:relative;padding:0;margin:0;}
+#HoliInfo .basic .basicTitleBar {width:96%;margin:0 auto;position:relative;z-index:100;}
+#HoliInfo .basic .basicTitleBar .TitleBar {width:100%}
+#HoliInfo .basic .basicInfo {width:96%;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:200px;}
+#HoliInfo .basic .basicInfo .left {width:45%;float:left;position:relative;left:5%;}
+#HoliInfo .basic .basicInfo .left .block {width:99%;border:1px solid black;height:150px;overflow-x: scroll;overflow:auto;}
+#HoliInfo .basic .basicInfo .left .block .header{width:100%;margin:0 auto;}
+#HoliInfo .basic .basicInfo .left .block .header .header1{width:27%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .header .header2{width:28%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .header .header3{width:28%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .header .header4{width:15%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;border-right:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .main{width:100%;margin:0 auto;}
+#HoliInfo .basic .basicInfo .left .block .main .main1{width:27%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .main .main2{width:28%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .main .main3{width:28%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .left .block .main .main4{width:15%;float:left;border-bottom:1px solid gray;border-left:1px solid gray;border-right:1px solid gray;text-align: center;height:18px;line-height: 18px;}
+#HoliInfo .basic .basicInfo .right {width:45%;float:right;position:relative;}
+#HoliInfo .basic .basicInfo .right .buttom{padding:5px 0;}
+#HoliInfo .basic .basicInfo .right .buttom .text {position:absolute;text-align: center;padding:13px 0 0 0;width:100px;}
+#HoliInfo .basic .dataAdd {width:96%;margin-top:10px;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:80px;}
+#HoliInfo .basic .dataAdd .text {width:10%;float:left;padding-left:40px;}
+#HoliInfo .basic .dataAdd .input {width:75%;float:left;}
+#HoliInfo .basic .dataAdd .buttom {width:15%;float:right;position:relative;}
+#HoliInfo .basic .dataAdd .buttom .text {position:absolute;width:80px;text-align: center;padding:10px 0 0 0;}
+
+
+#HoliInfo table.titleEx1{background-image:url("/TrustWinPro/action/image/interface/titlebar.png"); background-size:cover;background-repeat:no-repeat;border:0; width:100%;margin:0 auto;padding:10px; margin:0;padding:0;color:#fff;-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/TrustWinPro/action/image/interface/titlebar.png',sizingMethod='scale')";  }
+#HoliInfo .titleEx1 th{padding:.2em 0;vertical-align:middle;font-weight:normal;text-align:center;}
+#HoliInfo table.ex1 {width:100%;margin:0 auto;padding:10px;}
+#HoliInfo table.ex1 ,.ex1 td,.ex1 th{border:0;border-collapse:collapse;margin:0;padding:0;}
+#HoliInfo .ex1 td, .ex1 th{padding:.2em 0;vertical-align:top;font-weight:normal;text-align:center;}
+#HoliInfo .ex1 thead th{text-transform:uppercase;color:#fff;}
+#HoliInfo .ex1 tbody td{background:#e1e9ef;}
+#HoliInfo .ex1 tbody th{background:#e1e9ef;}
+#HoliInfo .ex1 tbody tr.odd td{background:#fff;}
+#HoliInfo .ex1 tbody tr.odd th{background:#fff;}
+#HoliInfo .ex1 caption{text-align:left;text-transform:uppercase;letter-spacing:-1px;}
+#HoliInfo table.ex1 th a:link{color:#030;}
+#HoliInfo table.ex1 th a:visited{color:#003;}
+#HoliInfo table.ex1 td a:link{color:#369;}
+#HoliInfo table.ex1 td a:visited{color:#000;}
+#HoliInfo table.ex1 a:hover{text-decoration:none;}
+#HoliInfo table.ex1 a:active{color:#000;}
+
+
+/* AccessGroup */
+#Access .titlebar{width:98%}
+#Access .basic .block {width:96%; margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:50px;position: relative;padding:30px 10px 10px 10px;top:-15px;}
+#Access .basic .block .header {height:20px;width:15%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;margin-bottom:10px;}
+#Access .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
+#Access .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
+#Access .info {width:96%;border:1px solid gray; padding: 0 0 20px 0;
+				-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:330px;position: relative; height:500px;}
+#Access .info .Name {width:4%;float:left;padding:25px 6px 0 6px;}
+#Access .info .Group {width:94%;float:left;padding-top:5px;}
+#Access .buttom .image{float:right;padding-right:50px;}
+#Access .basic .tab {width:96%;margin:0 auto;height:20px;}
+#Access .basic .tab .tab1{float:left;padding:0;}
+#Access .basic .tab .tab2{float:left;padding:0;}
+#Access .info .device {width:96%; }
+#Access .info .device table{width:100%}
+#Access .info .device .InfoBox {width:100%;padding:20px;position:relative;height:400px;}
+
+#Access .info .user {width:96%;}
+#Access .info .user table{width:100%}
+#Access .info .user .InfoBox {width:100%;padding:20px;position:relative;height:400px;}  
+#Access .mainButtom {float:right;margin:10px 80px 0 0;}
+
+.postitDevice {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: #fff;left:35%;top:5%;}
+.postitDevice .accessDevice {width:99%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:290px;}
+.postitDevice .accessDevice table{width:100%}
+.postitDevice .accessDevice table tr th{padding:0;margin:0;}
+.postitDevice .accessDevice table tr th input {margin:0;padding:0;}
+.postitDevice .accessDevice .infoBox {height:260px;overflow:hidden;}
+.postitDevice .accessDevice .timeZone {position:absolute;bottom:10%;}
+.postitDevice .accessDevice .timeZone .title{margin:0 70px 0 0;}
+.postitDevice .accessDevice .buttom {position:absolute;right:10px;bottom:10px;}
+
+.postitUser {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: #fff;left:35%;top:5%;}
+.postitUser .accessUser {width:99%;border:1px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:290px;}
+.postitUser .accessUser table{width:100%}
+.postitUser .accessUser table tr th{padding:0;margin:0;}
+.postitUser .accessUser table tr th input {margin:0;padding:0;}
+.postitUser .accessUser .infoBox {height:260px;overflow:hidden;}
+.postitUser .accessUser .buttom {position:absolute;right:10px;bottom:10px;}
+
+/* Language */
+#Language {width:100%;padding:0 0 0 10px;margin:0;}
+#Language .basic {width:100%;margin:0;padding:0;}
+#Language .InfoButtom {float:right;padding:0 50px 0 0;}
+
+/* QueryUpdate */
+#Update {width:100%;padding:0 0 0 10px;margin:0;}
+#Update .basic {width:100%;margin:0;padding:0;}
+#Update .InfoButtom {float:right;padding:0 50px 0 0;}
+#Update .title {vertical-align: middle;}
+
+/* print */
+.printContent {margin:20px 40px;padding:0;width:720px;} 
+.printContent .printPage {margin:0;padding:0;}
+.printContent .printPage .Title{font-size: 18px;color:#6496FF;font-weight: bold;}
+.printContent .printPage .selectBox{border: 1px solid #b4b4b4;padding:10px;}
+.printContent .printPage .selectBox .smallTitle{font-size: 14px; font-weight: bold;}
+.printContent .printPage .selectBox .buttom{text-align: center;margin:10px 0 0 ;}
+.printContent .printPage .ListBox{overflow-y:scroll;height:120px;margin:5px 0 0;border: 1px solid #b4b4b4;}
+.printContent .printShow {margin-top:30px;}
+.printContent .printShow .Title{font-size: 18px;color:#6496FF;font-weight: bold;margin-bottom:10px;}
+.printContent .printShow .tableList{width:100%;border: 1px solid #b4b4b4;padding:0;}
+.printContent .printShow .buttom{text-align: center;margin:10px 0 0 ;}
+
+.userDevice
+
+
+/* buttom */
+.ct-btn {
+    display: inline-block;
+    margin: 5px 0;
+    padding: .5em .75em;
+    border-radius: .25em;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    background: transparent;
+    outline: 0;
+    vertical-align: middle;
+    font-family: inherit;
+    font-size: 18px;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer
+	
+}
+
+.ct-btn.white,
+.ct-btn.white:link,
+.ct-btn.white:visited {
+    color: #666;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #c6c6c6;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
+    background: #fff;
+    background: linear-gradient(to bottom, #ffffff 40%, #f6f6f6 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0 );/*IE*/
+}
+
+/* ¸¶¿ì½º¿À¹ö */
+.ct-btn.white:focus,
+.ct-btn.white:hover {
+    background: #6986a1;
+    background: linear-gradient(to bottom, #6986a1 0%, #6986a1 100%);
+    color:#fff;
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6986a1', endColorstr='#6986a1', GradientType=0 );/*IE*/
+}
+
+
+/* Map */
+#MapInfo {width:100%;padding:0;margin:0;min-width: 800px;overflow: hidden;}
+#MapInfo .basic {width:1024px;position:relative;maring:0 auto;}
+#MapInfo .basic .drag {position: absolute;border: 1px solid #89B;background: #BCE;cursor: move;}
+#MapInfo .basic .mapImage{width:98%;height:600px;}
+#MapInfo .basic .status{display:none;width:20%;position:absolute;}
+#MapInfo .basic .basicInfo {width:96%;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;}
+#MapInfo .basic .basicInfo .InfoBox {width:60%;padding:20px;position:relative;} 
+#MapInfo .basic .basicInfo .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:20px;}
+#MapInfo .basic .basicInfo .InfoBox .block .header {height:20px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#MapInfo .basic .basicInfo .InfoBox .block .main {height:20px;width:73%;background-color: #dcdcdc;vertical-align: middle;line-height:22px;float:right;}
+#MapInfo .basic .basicInfo .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#MapInfo .basic .basicInfo .InfoBox .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
+
+#MapInfo .bottom{text-align: right;margin:10px 0 0;width:95%;position:relative;}
+
+
+
+/*Main chart*/
+.main_chart .block{position:relative; width:100%; height:100px;}
+.main_chart .block .block_b{width:48%;float:left;padding:0 2px;}
+#chart_div {display:block;width:100%; height:100%;}
+.chart_div_S 
+{
+display:none;
+border-top:1px groove; 
+border-bottom:1px groove;
+border-left:1px groove; 
+border-right:1px groove;
+width: 48%; 
+height: 200px; 
+background-color: white;
+position:absolute;
+overflow-y: scroll;
+}
+
+.chart_div_S .chart_table {padding-left:20px;} 
+.chart_div_S .chart_table .bottom{padding-right:20px;}
+
+
+.ulji{
+height: 45px;
+border-bottom: 1px solid #f2f2f2;
+position: relative;
+height: 44px;
+background: #72c8cd;
+list-style: none;
+margin: 0;
+padding: 0;
+color: #5a5a5a;
+font: normal 12px/0.9 Roboto, 'Nanum Gothic', 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;
+letter-spacing: 0.03em;
+}
+
+.sectionji{
+overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; 
+				padding: 0 0 20px 0;
+				margin: 0 0 20px 0;
+				width: 96%;
+}
+
+.headerji {margin-left:10px; height:28px; width:14%; text-align: left;padding-left:5px;vertical-align: middle;line-height:28px;float:left;}
+.mainji {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+
+.tablebor{
+    overflow: hidden;
+	position: relative;
+    width: 96%;
+    height: auto;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+table.titleEx1{background:#8c8282;  width:100%; margin:0;padding:0; color:#fff;}
+.titleEx1 th{    
+	height: 45px;
+    /* padding: 0 5px; */
+    border-width: 0 0 1px 1px;
+    border-color: #8c8282 #988f90;
+    border-style: solid;
+    background: #a49c9e;
+}

@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	
+	 String SPlace = (String)request.getParameter("place");
+	 String SDate = (String)request.getParameter("date");
+	 
+     StringBuilder sb = new StringBuilder();
+     int interval = 16;
+     
+	 
+	 int[] hourCnt = db.hourCnt(SDate,SPlace);
+	 //int count = db.getCount();
+     
+    
+     sb.append("[['time','출입 인원'],");
+	 for (int i=0;i<24;i++){
+      if(23 == i){
+    	  sb.append("['" + i+ "'," + hourCnt[i] + "]");
+      }
+      else{  
+		 sb.append("['" + i + "'," + hourCnt[i] + "],");
+      }
+	 }
+     sb.append("]");
+     
+%>
+<%=sb.toString()%>
+ 

@@ -1,0 +1,113 @@
+<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Access.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Category.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+<%
+	CategoryFunc Catafunc = new CategoryFunc();
+	AccessFunc Accfunc = new AccessFunc();
+	LanguageFunc Lanfunc = new LanguageFunc();
+	
+	int idxs = 0;
+	if(request.getParameter("num") == null || request.getParameter("num").equals("")){
+		AccessGroup[] group =  Accfunc.AccessGroupMenu();
+		idxs = group[0].getIdx();
+	}else{
+		idxs = Integer.parseInt(request.getParameter("num"));
+	}
+	String lan = (String)session.getAttribute("nation");
+%>
+<script type="text/javascript">
+	
+	var change = 0;
+
+	function accessUserList(v){
+		if(v!=0){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/AccessUserList.jsp",   
+			    data: "group=" + v,
+			    success:function(args){   
+			        $("#userlist").html(args);      
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}else{
+			
+		}
+	}
+	
+	function allUserCheck(){
+		var check = document.getElementsByName("checkU");
+		if(change == 0){
+			for(var i = 0 ; i < check.length;i++ ){
+				check[i].checked = true;	
+			}
+				
+			change = 1;
+		}else{
+			for(var i = 0 ; i < check.length;i++ ){
+				check[i].checked = false;
+			}
+			
+			change = 0;
+		}
+		
+	}
+	
+	function accessUser(){
+		document.getElementById("AccessUser").submit();
+	}
+	
+	function accessUserClose(){
+		document.getElementById("postitUser").style.display = "none";
+	}
+
+</script>
+<div class="accessUser">
+	<form name="AccessUser" id="AccessUser" method="post" action="/TrustWinPro/action/page/AccessUserAdd.jsp">
+	<input type="hidden" name="idx" id="idx" value="<%=idxs %>" >
+		<table class = "tablebor">
+			<colgroup>
+				<col width="20%" align="center" >
+				<col width="80%">
+			</colgroup>
+			<tr class="block">
+				<td class="header"><%=Lanfunc.language(lan, 134) %></td>
+				<td class="main">
+					<select name="User" onchange="accessUserList(this.value);" onload="accessUserList(this.value);">
+						<option value = "0" >-- <%=Lanfunc.language(lan, 65) %> --</option>
+<%
+	Category[] category = null;
+	category = Catafunc.CategoryDefind();
+	
+	int lengthC = category.length;
+	Category[] cate = new Category[lengthC];	
+	cate = Catafunc.SortCategoryOne(category);
+	for(int i=0;i < cate.length;i++){
+%>
+						<option value = "<%=cate[i].getIdx()%>"><%=cate[i].getName() %></option>
+<%
+	}
+%>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="userlist">
+					
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="buttom">
+			<a href="#DeviceInfo" onclick="accessUser();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
+			<a href="#DeviceInfo" onclick="accessUserClose();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=windows-1256"
+    pageEncoding="windows-1256"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%
+	String id = (String)session.getAttribute("id");
+	if(id == null || id.equals("")){
+%>
+		<script type="text/javascript">
+			alert("not Login! go LoginPage!");
+			location.href("Login.jsp");
+		</script>
+<%
+	}
+%>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<title>Trust</title>
+</head>
+<body>
+<div class="main">
+	<div class="top">
+		<jsp:include page="./include/top.jsp" flush="false">
+	</div>
+	<div class="left">
+		<jsp:include page="./include/left.jsp" flush="false">
+	</div>
+	<div class="content;">
+		<jsp:include page="./include/content.jsp" flush="false">
+	</div>
+</div>
+</body>
+</html>
