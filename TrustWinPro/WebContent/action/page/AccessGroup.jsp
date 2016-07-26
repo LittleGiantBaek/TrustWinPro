@@ -262,7 +262,7 @@
 	<jsp:include page="AccessUser.jsp" flush="false"></jsp:include>
 </div>
 <form action="/TrustWinPro/action/page/TimeZoneDel.jsp" name="TimeZoneDel" id="TimeZoneDel" method="post">
-	<input value="<%=idx%>" name="num" id="num" />
+	<input value="<%=idx%>" name="num" id="num" type="hidden"/>
 </form>
 <%
 	}else{
