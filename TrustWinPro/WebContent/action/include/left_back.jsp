@@ -175,6 +175,8 @@
 	// userInfo
 	Category[] category = null;
 	CategoryFunc func = new CategoryFunc();
+	DeviceFunc devfunc = new DeviceFunc();
+	UserFunc userfunc = new UserFunc();
 	category = func.CategoryDefind();
 
 	int length = category.length;
@@ -183,11 +185,11 @@
 
 	//DeviceInfo
 	DeviceGroup[] device = null;
-	device = func.GroupDefind();
+	device = devfunc.GroupDefind();
 	
 	int lengthD = device.length;
 	DeviceGroup[] dev = new DeviceGroup[lengthD];	
-	dev = func.SortGroupOne(device);
+	dev = devfunc.SortGroupOne(device);
 	
 	String left = "";
 	if(request.getParameter("left")!=null){
@@ -228,7 +230,7 @@
 				<font size="0.5">DevGroup<a href="#in" onclick="GroupAdd(<%=dev[i].getIdx()%>,<%=dev[i].getDepth()+1%>);">+</a>/<a href="#in" onclick="GroupDelete(<%=dev[i].getIdx()%>);">-</a>
 				|Device<a href="#in" onclick="DeviceAdd(<%=dev[i].getIdx()%>);">+</a></font></li>
 <%
-			Device[] dev2 = func.DeviceSelect(dev[i].getIdx());
+			Device[] dev2 = devfunc.DeviceSelect(dev[i].getIdx());
 			if(i!=lengthD-1||i==1){
 				if(i==1){
 					padding = (dev[i].getDepth()+1) * 30;
@@ -249,7 +251,7 @@
 			if(i!= lengthD-1){
 				if(dev[i].getDepth()>dev[i+1].getDepth()){
 					for(int k=dev[i+1].getDepth();k<dev[i].getDepth();k++){
-						Device[] dev1 = func.DeviceSelect(depth[devcot]);
+						Device[] dev1 = devfunc.DeviceSelect(depth[devcot]);
 						padding = (devcot+2) * 30;
 						for(int j=0;j<dev1.length;j++){
 %>
@@ -264,9 +266,9 @@
 		
 		for(int i = 0;i<=LastDepth2;i++){
 			if(i>0){
-				LastDepth = func.GroupUpNum(LastDepth);
+				LastDepth = devfunc.GroupUpNum(LastDepth);
 			}
-			Device[] dev1 = func.DeviceSelect(LastDepth);
+			Device[] dev1 = devfunc.DeviceSelect(LastDepth);
 			padding = (LastDepth2+1-i) * 30;
 			for(int j=0;j<dev1.length;j++){
 %>
@@ -314,7 +316,7 @@
 				<span id="input<%=i%>" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[i].getName() %>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" onblur="UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" /></span> 
 				<font size="0.5">부서<a href="#in" onclick="DepartAdd(<%=cata[i].getIdx()%>,<%=cata[i].getDepth()+1%>);">+</a>/<a href="#in" onclick="DepartDelete(<%=cata[i].getIdx()%>);">-</a>|사용자<a href="#in" onclick="UserAdd(<%=cata[i].getIdx()%>);">+</a></font></li>
 <%
-			User[] user2 = func.UserSelect(cata[i].getIdx());
+			User[] user2 = userfunc.UserSelect(cata[i].getIdx());
 			if(i!=length-1){
 				if(user2!=null&&cata[i+1].getUpnumber() != cata[i].getIdx()){
 					padding = (cata[i].getDepth()+1) * 30;
@@ -328,7 +330,7 @@
 			if(i!= length-1){
 				if(cata[i].getDepth()>cata[i+1].getDepth()){
 					for(int k=cata[i+1].getDepth();k<cata[i].getDepth();k++){
-						User[] user1 = func.UserSelect(depth[depcot]);
+						User[] user1 = userfunc.UserSelect(depth[depcot]);
 						padding = (depcot+2) * 30;
 						for(int j=0;j<user1.length;j++){
 %>
@@ -345,7 +347,7 @@
 			if(i>0){
 				LastDepth = func.CataUpNum(LastDepth);
 			}
-			User[] user1 = func.UserSelect(LastDepth);
+			User[] user1 = userfunc.UserSelect(LastDepth);
 			padding = (LastDepth2+1-i) * 30;
 			for(int j=0;j<user1.length;j++){
 %>

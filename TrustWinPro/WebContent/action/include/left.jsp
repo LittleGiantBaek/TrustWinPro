@@ -51,7 +51,7 @@
 	function DepartAdd(){
 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
 		{
-			alert("부서를 선택해 주세요.");
+			alert('<%=Lanfunc.language(lan, 186)%>');
 		} else {
 			$.ajax({      
 			    type:"post",  
@@ -59,7 +59,7 @@
 			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
 			    success:function(args){
 			    	if(args == 1)
-			    		alert("Member가 존재하는 부서에 하위 부서를 추가할 수 없습니다.");
+						alert("<%=Lanfunc.language(lan, 187)%>");
 	
 			    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
 			    },   
@@ -73,9 +73,9 @@
 	function DepartDelete(){
 		if(document.getElementById("GroupN").value == '')
 		{
-			alert("삭제 할 부서를 선택해 주세요.");
+			alert('<%=Lanfunc.language(lan, 186)%>');
 		} else {
-			var del = confirm("정말 삭제하시겠습니까?");
+			var del = confirm("<%=Lanfunc.language(lan, 188)%>");
 			$(".Loading").css("display","block");
 			if(del){
 				$.ajax({      
