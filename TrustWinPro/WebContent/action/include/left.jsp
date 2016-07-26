@@ -429,7 +429,7 @@
 					depth[depcot] = cata[i].getIdx();
 				}
 			}else{
-// 				LastDepth = cata[i].getIdx();
+ 				LastDepth = cata[i].getIdx();
 				LastDepth2 = cata[i].getDepth();	
 			}
 %>

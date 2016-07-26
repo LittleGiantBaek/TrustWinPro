@@ -16,7 +16,12 @@
 		
 		for(int i=0;i<timeName.length;i++){
 			Connection conn = null;
-			sql = "insert into AccessDevice (device, timezone,access ) values ('" + timeName[i] + "', '" + timeZone + "',"+idx+");";
+			sql = "IF NOT EXISTS";
+			sql += " (Select * From AccessDevice Where device='" +timeName[i]+"' and timezone='"+timeZone+"' and access='"+idx+"') ";
+			sql += "BEGIN";
+			sql += " insert AccessDevice (device, timezone,access ) values ('" + timeName[i] + "', '" + timeZone + "',"+idx+") ";
+			sql += "END;";
+			//sql = "insert into AccessDevice (device, timezone,access ) values ('" + timeName[i] + "', '" + timeZone + "',"+idx+");";
 			try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
