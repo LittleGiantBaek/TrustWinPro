@@ -13,10 +13,21 @@
 	
 	TimeZone[] times = Timefunc.TimeMenu();	
 	String Num = "";
+	int value = 0;
 	AccessGroup[] access = Accfunc.AccessGroupMenu();
-	if(request.getParameter("num") != null){
+	
+
+	if(request.getParameter("num") == null || request.getParameter("num").equals("")){
+		if(access.length != 0){
+			Num = Integer.toString(access[0].getIdx());
+		}else{
+			value = 1;
+		}
+	}else{
 		Num = (String)request.getParameter("num");
 	}
+	
+	
 	String lan = (String)session.getAttribute("nation");
 %>
 <script type="text/javascript">
@@ -127,7 +138,7 @@ function TimeDelete(v){
 <%
 		for(int i = 0;access.length>i;i++){	
 %>
-				<li id="access<%=access[i].getIdx()%>"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/TimeZone-2.png" style="width:13px;"><a href="#content" onclick="Accesssubmit('<%=access[i].getIdx() %>');" onkeypress="Accesssubmit('<%=access[i].getIdx() %>');" id="access<%=access[i].getIdx()%>a" ><%=access[i].getName() %></a></li>
+				<li class = "accessgrouplist" id="access<%=access[i].getIdx()%>"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/TimeZone-2.png" style="width:13px;"><a href="#content" onclick="Accesssubmit('<%=access[i].getIdx() %>');" onkeypress="Accesssubmit('<%=access[i].getIdx() %>');" id="access<%=access[i].getIdx()%>a" ><%=access[i].getName() %></a></li>
 <%
 		}
 %>
@@ -138,7 +149,7 @@ function TimeDelete(v){
 <%
 		for(int i = 0;times.length>i;i++){
 %>
-				<li id="time<%=times[i].getTimeZoneNo()%>"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/TimeZone-2.png" style="width:13px;"><a href="#content" onclick="Timesubmit('<%=times[i].getTimeZoneNo() %>');" onkeypress="Timesubmit('<%=times[i].getTimeZoneNo() %>');" id="time<%=times[i].getTimeZoneNo()%>a" ><%=times[i].getTimeZoneName() %></a></li>
+				<li class = "timezonelist" id="time<%=times[i].getTimeZoneNo()%>"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/TimeZone-2.png" style="width:13px;"><a href="#content" onclick="Timesubmit('<%=times[i].getTimeZoneNo() %>');" onkeypress="Timesubmit('<%=times[i].getTimeZoneNo() %>');" id="time<%=times[i].getTimeZoneNo()%>a" ><%=times[i].getTimeZoneName() %></a></li>
 <%
 		}
 %>
@@ -185,10 +196,11 @@ function SpanAccessClass(idx){
 	
 }
 
-if('<%=request.getParameter("content")%>'=='Time'){
-	SpanTimeClass(<%=Num%>);
-}else{
-	SpanAccessClass(<%=Num%>);	
+if(<%=value%> == 0 ){
+	if('<%=request.getParameter("content")%>'=='Time'){
+		SpanTimeClass(<%=Num%>);
+	}else{
+		SpanAccessClass(<%=Num%>);	
+	}
 }
-
 </script>

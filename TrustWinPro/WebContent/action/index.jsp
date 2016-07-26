@@ -41,9 +41,9 @@ $(".Loading").css("display","none");
 	<div class="backImg">&nbsp;</div>
 </div>
 <div class="main" id="mainContent" >
-   <jsp:include page="./include/top.jsp" flush="false"></jsp:include>   
-   <jsp:include page="./include/left.jsp" flush="false"></jsp:include> 
-   <jsp:include page="./include/content.jsp" flush="false"></jsp:include>
+   <jsp:include page="./include/top.jsp" flush="false"></jsp:include>
+   <jsp:include page="./include/left.jsp" flush="false"></jsp:include>    
+   <jsp:include page="./include/content.jsp" flush="false"></jsp:include>        
    <jsp:include page="./include/footer.jsp" flush="false"></jsp:include>
 </div>
 

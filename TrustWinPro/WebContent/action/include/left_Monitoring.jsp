@@ -59,12 +59,12 @@
 	</script>
 <div class="Monitoring">
 	<ul>
-		<li>Map <a class = "buttom" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
+		<li><a id = "MapRight">Map</a><a class = "buttom" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
 			<ul>
 <%	
 	for(int i = 0;i<maps.length;i++){	
 %>
-	<li id="map<%=maps[i].getIdx()%>" ><img src="/TrustWinPro/action/image/interface/nieun Icon.png" style="width:7px;"><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a href="#a" onclick="mapSubmit(<%=maps[i].getIdx() %>)" onkeypress="mapSubmit(<%=maps[i].getIdx() %>)"><%=maps[i].getName() %></a></li>
+	<li class = "maplist" id="map<%=maps[i].getIdx()%>" ><img src="/TrustWinPro/action/image/interface/nieun Icon.png" style="width:7px;"><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a href="#a" onclick="mapSubmit(<%=maps[i].getIdx() %>)" onkeypress="mapSubmit(<%=maps[i].getIdx() %>)"><%=maps[i].getName() %></a></li>
 <%	
 	}	
 %>

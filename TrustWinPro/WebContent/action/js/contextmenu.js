@@ -1,5 +1,6 @@
+var classname;
 $(function(){
-  $(".menuitem").mouseover(function(e){
+	$(".menuitem").mouseover(function(e){
     var $el = $(this);
     if ( !$el.hasClass('hover'))
       $el.addClass('hover');
@@ -10,13 +11,14 @@ $(function(){
   });
   
   $(".contextmenu li").click(function(e){
-	  if($(this).html() == "Add Map")
+	  //if($(this).html() == "Add Map")
 	  alert($(this).html() + ' clicked' );
     $(".contextmenu").hide();
     $(document).unbind('mousedown');
   });
   
   
+  //클래스별 메뉴 띄우기
   $(".LeftDevicetop").on('contextmenu', function(event) {
     $(".conDevice").css({
       left:event.pageX+"px",
@@ -48,9 +50,8 @@ $(function(){
 	    });
 	    return false;
 	  });
-  
-  $(".LeftTimetop").on('contextmenu', function(event) {
-	    $(".conTime").css({
+  $(".timezonelist").on('contextmenu', function(event) {
+	    $(".conTimeZone").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
 	    }).show();
@@ -65,7 +66,23 @@ $(function(){
 	    return false;
 	  });
   
-  $(".LeftMonitoringtop").on('contextmenu', function(event) {
+  $(".accessgrouplist").on('contextmenu', function(event) {
+	    $(".conAccessGroup").css({
+	      left:event.pageX+"px",
+	      top:event.pageY+"px"
+	    }).show();
+
+	    $(document).mousedown(function(e){
+	      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
+	      if ($(e.target).parents(".contextmenu").length !== 0) 
+	        return;
+	      $(".contextmenu").hide();
+	      $(document).unbind('mousedown');
+	    });
+	    return false;
+	  });
+  
+  $("#MapRight").on('contextmenu', function(event) {
 	    $(".conMonitoring").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
@@ -80,8 +97,23 @@ $(function(){
 	    });
 	    return false;
 	  });
-  $("#span3").on('contextmenu', function(event) {
-	    $(".conDeviceGroup").css({
+  $(".maplist").on('contextmenu', function(event) {
+	    $(".conMonitoring").css({
+	      left:event.pageX+"px",
+	      top:event.pageY+"px"
+	    }).show();
+
+	    $(document).mousedown(function(e){
+	      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
+	      if ($(e.target).parents(".contextmenu").length !== 0) 
+	        return;
+	      $(".contextmenu").hide();
+	      $(document).unbind('mousedown');
+	    });
+	    return false;
+	  });  
+  $(".userspanroot").on('contextmenu', function(event) {
+	    $(".conUserGroup").css({
 	      left:event.pageX+"px",
 	      top:event.pageY+"px"
 	    }).show();
