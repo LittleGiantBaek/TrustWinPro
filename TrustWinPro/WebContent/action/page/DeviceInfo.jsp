@@ -1087,7 +1087,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" id="web-buttons-idrmij3"">
+				<div class="InfoButtom" id="web-buttons-idrmij3"" style="margin-left: 1100px">
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,3,<%=UID%>,E')"><%=lanFunc.language(lan, 88)%></a>
 					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,3,<%=UID%>,E')"><%=lanFunc.language(lan, 183)%></a>
 				</div>
@@ -1405,7 +1405,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" id="web-buttons-idrmij3">
+				<div class="InfoButtom" id="web-buttons-idrmij3" style="margin-left: 1100px">
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,4,<%=UID%>,E')"><%=lanFunc.language(lan, 88)%></a>
 					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,4,<%=UID%>,E')"><%=lanFunc.language(lan, 183)%></a>
 				</div>
@@ -1609,7 +1609,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" id="web-buttons-idrmij3">
+				<div class="InfoButtom" id="web-buttons-idrmij3" style="margin-left: 1100px">
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,5,<%=UID%>,E')"><%=lanFunc.language(lan, 88)%></a>
 					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,5,<%=UID%>,E')"><%=lanFunc.language(lan, 183)%></a>
 				</div>
@@ -1852,7 +1852,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" id="web-buttons-idrmij3">
+				<div class="InfoButtom" id="web-buttons-idrmij3" style="margin-left: 1100px">
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,6,<%=UID%>,E')"><%=lanFunc.language(lan, 88)%></a>
 					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,6,<%=UID%>,E')"><%=lanFunc.language(lan, 183)%></a>
 				</div>
@@ -2168,7 +2168,7 @@ function AccessDelete(deviceID){
 			</div>
 			
 			
-			<div class="InfoButtom">
+			<div class="InfoButtom" >
 				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 				<a href="#DeviceInfo" onclick="DeviceDelete();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
 			</div>
