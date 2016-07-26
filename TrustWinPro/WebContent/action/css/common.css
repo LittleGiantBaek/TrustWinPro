@@ -273,7 +273,7 @@ a#web-buttons-idrmij3a {display:none}
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
 #UserInfo .basic .Private .InfoBox .block .search {height:20px;float:right;}
-#DeviceInfo .basic .picture {width:40%;float:left;position:relative;left:10%;margin:30px auto 10px;}
+#DeviceInfo .basic .picture {width:40%;float:left;position:relative;left:10%;margin:50px auto 10px;}
 #DeviceInfo .basic .picture table {width:100%;}
 #DeviceInfo .basic .basicInfo .picture table tr {}
 #DeviceInfo .basic .basicInfo .picture table tr td {height:10px;}

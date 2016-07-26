@@ -116,36 +116,14 @@
 	
 	
 	function GroupAdd(){
-		$.ajax({      
-		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/AddGroup.jsp",   
-		    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
-		    success:function(args){   
-		    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
-		    },   
-		    error:function(e){  
-		        alert(e.responseText);  
-		    }  
-		}); 
-	}
-	
-	function GroupDelete(){
-		$(".Loading").css("display","block");
-		
-		var del = confirm('<%=Lanfunc.language(lan, 103)%>');
-		var idx = "";
-		var Didx = "";
-		if(document.getElementById("GroupN").value==""){
-			Didx = <%=request.getParameter("deviceID")%>;
-		}else{
-			idx =  document.getElementById("GroupN").value;
-		}
-		
-		if(del){
+		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
+		{
+			alert('<%=Lanfunc.language(lan, 189)%>');
+		} else {
 			$.ajax({      
 			    type:"post",  
-			    url:"/TrustWinPro/action/ajax/DeleteGroup.jsp",   
-			    data: "idx="+idx + "&Didx=" + Didx,
+			    url:"/TrustWinPro/action/ajax/AddGroup.jsp",   
+			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
 			    success:function(args){   
 			    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
 			    },   
@@ -153,6 +131,38 @@
 			        alert(e.responseText);  
 			    }  
 			}); 
+		}
+	}
+	
+	function GroupDelete(){
+		if(document.getElementById("GroupN").value == '')
+		{
+			alert('<%=Lanfunc.language(lan, 189)%>');
+		} else {
+			$(".Loading").css("display","block");
+			
+			var del = confirm('<%=Lanfunc.language(lan, 103)%>');
+			var idx = "";
+			var Didx = "";
+			if(document.getElementById("GroupN").value==""){
+				Didx = <%=request.getParameter("deviceID")%>;
+			}else{
+				idx =  document.getElementById("GroupN").value;
+			}
+			
+			if(del){
+				$.ajax({      
+				    type:"post",  
+				    url:"/TrustWinPro/action/ajax/DeleteGroup.jsp",   
+				    data: "idx="+idx + "&Didx=" + Didx,
+				    success:function(args){   
+				    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+				    },   
+				    error:function(e){  
+				        alert(e.responseText);  
+				    }  
+				}); 
+			}
 		}
 	}
 	
