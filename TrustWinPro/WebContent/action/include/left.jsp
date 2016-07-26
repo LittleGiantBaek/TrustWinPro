@@ -264,9 +264,10 @@
 						</a>
 					</span>
 					<span id="text<%=i%>" class="span" >
-						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a>
-						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
-						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a></span>
+						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a><a href="#in" onclick="swich(<%=i%>,<%=i%>)">
+						<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
+						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" />
+						</a></span>
 					<span id="input<%=i%>" class="spanInput">
 						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=dev[i].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')"  />
 <%
