@@ -25,6 +25,7 @@
 	}else{
 		idx = Integer.parseInt(request.getParameter("num"));
 	}
+	
 	if(value == 0){
 		AccessGroup access = Accfunc.SelAccessGroup(idx);
 		AccessDevice[] ad = Accfunc.SelAccessDevice(idx);
@@ -261,7 +262,7 @@
 	<jsp:include page="AccessUser.jsp" flush="false"></jsp:include>
 </div>
 <form action="/TrustWinPro/action/page/TimeZoneDel.jsp" name="TimeZoneDel" id="TimeZoneDel" method="post">
-	<input type="hidden" value="" name="num" id="num" />
+	<input value="<%=idx%>" name="num" id="num" />
 </form>
 <%
 	}else{

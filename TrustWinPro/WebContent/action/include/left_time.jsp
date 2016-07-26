@@ -13,10 +13,21 @@
 	
 	TimeZone[] times = Timefunc.TimeMenu();	
 	String Num = "";
+	int value = 0;
 	AccessGroup[] access = Accfunc.AccessGroupMenu();
-	if(request.getParameter("num") != null){
+	
+
+	if(request.getParameter("num") == null || request.getParameter("num").equals("")){
+		if(access.length != 0){
+			Num = Integer.toString(access[0].getIdx());
+		}else{
+			value = 1;
+		}
+	}else{
 		Num = (String)request.getParameter("num");
 	}
+	
+	
 	String lan = (String)session.getAttribute("nation");
 %>
 <script type="text/javascript">
@@ -185,10 +196,11 @@ function SpanAccessClass(idx){
 	
 }
 
-if('<%=request.getParameter("content")%>'=='Time'){
-	SpanTimeClass(<%=Num%>);
-}else{
-	SpanAccessClass(<%=Num%>);	
+if(<%=value%> == 0 ){
+	if('<%=request.getParameter("content")%>'=='Time'){
+		SpanTimeClass(<%=Num%>);
+	}else{
+		SpanAccessClass(<%=Num%>);	
+	}
 }
-
 </script>
