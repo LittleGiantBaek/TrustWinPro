@@ -150,6 +150,7 @@ function TimeDelete(v){
 		for(int i = 0;times.length>i;i++){
 %>
 				<li class = "timezonelist" id="time<%=times[i].getTimeZoneNo()%>"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/TimeZone-2.png" style="width:13px;"><a href="#content" onclick="Timesubmit('<%=times[i].getTimeZoneNo() %>');" onkeypress="Timesubmit('<%=times[i].getTimeZoneNo() %>');" id="time<%=times[i].getTimeZoneNo()%>a" ><%=times[i].getTimeZoneName() %></a></li>
+
 <%
 		}
 %>
@@ -180,6 +181,7 @@ function TimeDelete(v){
 	<input type="hidden" value="Time" name="left" />
 	<input type="hidden" value="AccessGroup" name="content" />
 </form>
+
 <script type="text/javascript">
 function SpanTimeClass(idx){
 	document.getElementById("time"+idx).className = "userspan";

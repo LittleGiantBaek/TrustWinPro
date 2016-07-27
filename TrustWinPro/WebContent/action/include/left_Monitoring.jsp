@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=euc-kr"
     pageEncoding="euc-kr"%>
-<%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
@@ -14,6 +13,7 @@
 
 	String lan = (String)session.getAttribute("nation");
 	String select_mapID = (String)request.getParameter("mapID");
+
 	
 %>
 <script type="text/javascript">
@@ -82,4 +82,8 @@
 	<input type="hidden" value="" name="mapID" />
 	<input type="hidden" value="Monitoring" name="left" />
 	<input type="hidden" value="Map" name="content" />
+</form>
+
+<form action="/TrustWinPro/action/include/rightclickmenu.jsp" name="mapInfo" id="mapInfo" method="post">
+	<input type="hidden" value="<%=select_mapID%>" name="selectMapID" />
 </form>
