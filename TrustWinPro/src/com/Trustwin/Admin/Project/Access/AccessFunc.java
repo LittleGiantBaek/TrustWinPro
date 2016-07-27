@@ -146,7 +146,8 @@ public class AccessFunc {
 	
 	public AccessUser[] SelAccessUserId(int userId){
 		Connection conn = null;
-		String sql = "select idx,userID,department,access from AccessUser where userID = " + userId + ";";
+		// 유저 조회
+		String sql = "select distinct A.idx,A.userId,A.department,A.access from AccessUser A where A.userID=" + userId + "and exists(select B.* from AccessGroup B where A.access=B.idx);";
 		AccessUser[] ads = null;
 		try {
 				Context init = new InitialContext();
