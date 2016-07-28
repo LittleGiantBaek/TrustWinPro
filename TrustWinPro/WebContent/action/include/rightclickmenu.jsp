@@ -37,7 +37,9 @@
 	 </div>
     <div class="contextmenu conUserAdd">
 	 <ul>
-	   <li class="menuitem">Add User</li>
+	  <li class="menuitem">Delete Group</li>
+	  <li class="divider"></li>
+      <li class="menuitem">Add User</li>
 	   </ul>
      </div>
          <div class="contextmenu conUserDelete">
