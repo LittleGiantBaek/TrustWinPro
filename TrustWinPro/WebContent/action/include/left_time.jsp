@@ -32,10 +32,14 @@
 %>
 <script type="text/javascript">
 function AccessGroupTop(){
+	document.getElementById("TimeZoneTopID").className = "timezonetop";
+	document.getElementById("TimeZoneTopID").style.color = "black";
 	document.getElementById("AccessGroupTopID").className = "accessgrouptop userspan";
 	document.getElementById("AccessGroupTopID").style.color = "#ffffff";
 }
 function TimeZoneTop(){
+	document.getElementById("AccessGroupTopID").className = "accessgrouptop";
+	document.getElementById("AccessGroupTopID").style.color = "black";
 	document.getElementById("TimeZoneTopID").className = "timezonetop userspan";
 	document.getElementById("TimeZoneTopID").style.color = "#ffffff";
 }
