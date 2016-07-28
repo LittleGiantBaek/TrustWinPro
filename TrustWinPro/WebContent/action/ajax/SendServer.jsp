@@ -31,10 +31,12 @@
 			int result = 0; 
 			
 			String send = request.getParameter("Data");
-			System.out.println(send);
 			
+		
 			client.output(send);
+			
 			result = client.input();
+			
 			System.out.println(result);
 			
 			if(result != 0){

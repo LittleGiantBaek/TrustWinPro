@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
  
@@ -20,30 +21,35 @@ public class TCPClient extends Thread{
 		if( socket.isConnected() == true && socket.getKeepAlive() == false) {
         	socket.close();
         }
-		// 소켓의 입력스트림을 얻는다.
+		
         InputStream in = socket.getInputStream();
-        DataInputStream dis = new DataInputStream(in);  // 기본형 단위로 처리하는 보조스트림
+        DataInputStream dis = new DataInputStream(in); 
         int str = 0;
         str = dis.read();
         return str;
 	}
 	
 	public void output(String str) throws IOException{
-		 // 소켓의 출력스트림을 얻는다.
+		
         OutputStream out = socket.getOutputStream(); 
-        DataOutputStream dos = new DataOutputStream(out); // 기본형 단위로 처리하는 보조스트림
+        DataOutputStream dos = new DataOutputStream(out);
+   
         if( socket.isConnected() == true && socket.getKeepAlive() == false) {
         	socket.setKeepAlive(true);
         	if(socket.getKeepAlive() == false){
         			socket.close();
         	}
         }
+
+        dos.writeUTF(str);
         
+      /*  String new_str = "";
         char strChar;
+        
         for(int i=0;i<str.length();i++){
-        	strChar = str.charAt(i);
-        	dos.write(strChar);
+        	new_str += str.charAt(i);
         }
+        dos.writeUTF(new_str);*/
 	}
 	
 	
