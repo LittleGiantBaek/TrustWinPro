@@ -676,7 +676,7 @@
 	
 </script>
 
-		<%
+<%
 			if(userClass != null && userClass.equals("128")){
 		%>
 			<jsp:include page="rightclickmenu.jsp" flush="false"></jsp:include>	

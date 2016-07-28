@@ -30,6 +30,8 @@
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.event.drop-2.2.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.event.drop.live-2.2.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jscolor/jscolor.js"></script>
+<script type="text/javascript" src="/TrustWinPro/action/js/contextmunu.js"></script>
+
 
 <title>Trust</title>
 <script type="text/javascript">

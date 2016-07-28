@@ -83,7 +83,3 @@
 	<input type="hidden" value="Monitoring" name="left" />
 	<input type="hidden" value="Map" name="content" />
 </form>
-
-<%-- <form action="/TrustWinPro/action/include/rightclickmenu.jsp" name="mapInfo" id="mapInfo" method="post">
-	<input type="hidden" value="<%=select_mapID%>" name="selectMapID" />
-</form> --%>
