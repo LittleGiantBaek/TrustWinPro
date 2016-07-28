@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
@@ -72,7 +73,6 @@
   }
  
 </script>
-
 <div  style="width:100%; height:6px; font-size:0;  padding:2;" >
 	
 	<a href="#" onclick="statusWindowBar()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right"/></a>

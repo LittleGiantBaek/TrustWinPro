@@ -22,22 +22,19 @@
 			String department = catefunc.selCategory(user.getDepartment());
 			Connection conn = null;
 			
+			// 기존에 있으면 삭제
 			sql = "Delete from AccessUser where access = '" + idx + "' and userID='"+ user.getUserId()+ "';";
 			try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
 				conn = ds.getConnection();
 				Statement pstmt = conn.createStatement();
-				
 				pstmt.executeUpdate(sql);
-				
 				conn.close();
 			}catch(Exception e){
 				out.println("DB error!!.");
 				e.printStackTrace();
 			}
-			
-			
 			
 			sql = "insert into AccessUser (userID, department, access ) values ('" + user.getUserId() + "', '" + department + "',"+idx+");";
 			try {

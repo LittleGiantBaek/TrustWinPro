@@ -9,7 +9,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.Trustwin.Admin.Project.User.User;
+import com.Trustwin.Admin.Project.User.UserFunc;
+
 public class AccessFunc {
+	
+	
+	
 	public AccessGroup[] AccessGroupMenu(){
 		Connection conn = null;
 		String sql = "select idx,Name from AccessGroup order by idx desc;";
@@ -111,6 +117,7 @@ public class AccessFunc {
 	
 	public AccessUser[] SelAccessUser(int access){
 		Connection conn = null;
+		
 		String sql = "select idx,userID,department,access from AccessUser where access = " + access + ";";
 		AccessUser[] ads = null;
 		try {
@@ -146,8 +153,23 @@ public class AccessFunc {
 	
 	public AccessUser[] SelAccessUserId(int userId){
 		Connection conn = null;
-		// 유저 조회
-		String sql = "select distinct A.idx,A.userId,A.department,A.access from AccessUser A where A.userID=" + userId + "and exists(select B.* from AccessGroup B where A.access=B.idx);";
+		String sql = "";
+		
+		// 중복된 값 삭제
+		sql = "delete from AccessUser where userID =" +  userId + "and idx IN ( select A.idx as idx from AccessUser A inner join ( select max(idx) as idx, access, count(*) as accesscount from AccessUser group by access having count(*) >1) B on A.access = B.access and A.idx <> B.idx );";
+		try {
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			pstmt.executeUpdate(sql);
+			conn.close();
+			}catch(Exception e){
+				e.printStackTrace();
+		}
+		
+		// 조회
+		sql = "select distinct A.idx,A.userId,A.department,A.access from AccessUser A where A.userID=" + userId + "and exists(select B.* from AccessGroup B where A.access=B.idx);";
 		AccessUser[] ads = null;
 		try {
 				Context init = new InitialContext();
