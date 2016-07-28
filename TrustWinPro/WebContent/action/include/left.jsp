@@ -93,6 +93,47 @@
 			}
 		}
 	}
+ 	function returnDepartCheck(){ 
+ 		var returnData = "";
+
+ 		DepartCheck().done(function(data){
+ 		returnData = data.RESULT;
+ 		});
+ 		alert(returnData + "fdfdfd");
+ 		}
+
+ 	function DepartCheck(){
+ 		var temp = 33;
+ 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
+		{
+			alert('<%=Lanfunc.language(lan, 186)%>');
+		} else {
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/CheckDepartment.jsp",   
+			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
+			    success:function(args){
+			    	var ret;
+			    	if(args == 1){
+			    		ret = 11;
+			     		alert(ret + "aaa");
+			     		temp = 1;
+			     		return ret;
+			    	}
+			    	else{
+			    		ret = 22;
+			     		alert(ret + "bbb");
+			    		return ret;
+			    	}
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);
+			    }  
+			}); 
+		}
+	}
+ 	
+
 	
 	//device
 	function DeviceAdd(num){
@@ -440,7 +481,7 @@
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
 					</span>
 
-					<span id="text<%=i%>" class="span userspanroot" >
+					<span id="text<%=i%>" class="span userGroupspan" >
 						<a href="#in" onclick="changeInputBox(<%=i%>)" ><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" /></a>
 						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>

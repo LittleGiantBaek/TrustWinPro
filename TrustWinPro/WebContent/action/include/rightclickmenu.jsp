@@ -82,13 +82,15 @@
 	 <ul>
 	   <li class="menuitem">Add TimeZone</li>
 	 </ul>
-	 </div>
+	</div>
   <div class="contextmenu conTimeZoneDelete">
 	 <ul>
 	   <li class="menuitem">Delete TimeZone</li>
 	 </ul>
   </div>
   
+  
+<!-- Monitoring --> 
   <div class="contextmenu conMonitoringAdd">
 	 <ul>
 	   <li class="menuitem">Add Map</li>
@@ -116,32 +118,81 @@
 	  });
 	  
   
-	//Show Menu
+	//AccessGroup Contextmenu
+	$("#AccessGroupTopID").on('contextmenu', function(event) {
+		if($('#AccessGroupTopID').hasClass('userspan')){
+		ShowContextMenu("conAccessGroupAdd");
+	  	CheckLocation();	  
+	  	return false;
+		}	  	
+	});	
 	$(".accessgrouplist.userspan").on('contextmenu', function(event) {
 	  ShowContextMenu("conAccessGroupDelete");
 	  CheckLocation();	  
 	  return false;
-	});
+	});	
+
+	$("#TimeZoneTopID").on('contextmenu', function(event) {
+		if($('#TimeZoneTopID').hasClass('userspan')){
+		ShowContextMenu("conTimeZoneAdd");
+	  	CheckLocation();	  
+	  	return false;
+		}	  	
+	});	
 	$(".timezonelist.userspan").on('contextmenu', function(event) {
 		  ShowContextMenu("conTimeZoneDelete");
 		  CheckLocation();
 		  return false;
 	});
-	
+
+	//Mornitoring Contextmenu
+	$("#MapTopID").on('contextmenu', function(event) {
+		if($('#MapTopID').hasClass('userspan')){
+		  ShowContextMenu("conMonitoringAdd");
+		  CheckLocation();
+		  return false;
+		}
+	});
 	$(".maplist.userspan").on('contextmenu', function(event) {
 		  ShowContextMenu("conMonitoringDelete");
 		  CheckLocation();
 		  return false;
 	});
-	//Menu Event
+	
+ 	$(".userspanroot").on('contextmenu', function(event) {
+		  ShowContextMenu("conUserGroup");
+		  CheckLocation();
+		  return false;
+	});
+	
+	$(".userGroupspan").on('contextmenu', function(event) {
+		/* if(DepartCheck() == 1)
+		ShowContextMenu("conUsersubGroup");
+		 */
+		 ShowContextMenu("conUsersubGroup");
+		 alert(DepartCheck());
+		  CheckLocation();
+		  return false;
+	});
+	//AccessGroup Function
+	  $(".conAccessGroupAdd").click(function(e){
+		InsertAccess();
+	    $(".contextmenu").hide();
+	    $(document).unbind('mousedown');
+	  });
+	});
+
 	  $(".conAccessGroupDelete").click(function(e){
 		var deleteID = $("#valueOfselectID").val();
 		TimeDelete(deleteID);
 	    $(".contextmenu").hide();
 	    $(document).unbind('mousedown');
 	  });
-
-
+	  $(".conTimeZoneAdd").click(function(e){
+		 InsertTime();
+	    $(".contextmenu").hide();
+	    $(document).unbind('mousedown');
+	  });
 	  $(".conTimeZoneDelete").click(function(e){
 		var deleteID = $("#valueOfselectID").val();
 		TimeDelete(deleteID);
@@ -149,11 +200,27 @@
 	    $(document).unbind('mousedown');
 	  });
 	  
+
+		//Morinitoring Function
+	  $(".conMonitoringAdd").click(function(e){
+			addMap();
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
 	  $(".conMonitoringDelete").click(function(e){
 			var deleteID = $("#valueOfselectID").val();
 			deleteMap(deleteID);
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });
+	  
+	  $(".conUserGroup").click(function(e){
+/* 			var deleteID = $("#valueOfselectID").val();
+			deleteMap(deleteID); */
+			if($(this).find(".hover").text() == "Add User Group")
+				DepartAdd();
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });	  
 });
 </script> 
