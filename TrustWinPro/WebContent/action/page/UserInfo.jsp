@@ -369,13 +369,13 @@ function AccessAdd(UserID){
 				<div class="Info">		
 							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 29)%> : 
+								<%=Lanfunc.language(lan, 29)%> * : 
 								</div>		
 								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"  size="30rem" disabled>				
 							</div>
 							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 26)%> : 
+								<%=Lanfunc.language(lan, 26)%> * : 
 								</div>
 								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  size="30um">
 							</div>
@@ -393,7 +393,7 @@ function AccessAdd(UserID){
 							</div>				
 							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 30)%> : 
+								<%=Lanfunc.language(lan, 30)%> * : 
 								</div>
 								<div class="main">
 								<select name="userClass" class="mainselect" style="height:28px;">
@@ -404,17 +404,20 @@ function AccessAdd(UserID){
 							</div>					
 							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 2)%> : 
+								<%=Lanfunc.language(lan, 2)%> * : 
 								</div>
 								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um">
 							</div>				
 							<div class="block" style="margin-left:45rem;">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 5)%> : 
+								<%=Lanfunc.language(lan, 5)%> * : 
 								</div>
 								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" size="30um">
 							</div>	
-				</div>
+							<div class="block" style="float:right; margin-right:10rem;">
+								<p><div >required *</div>
+							</div>
+					</div>
 			</section>
 			
 			
