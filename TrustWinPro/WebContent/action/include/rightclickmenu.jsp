@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     
-<script type="text/javascript" src="/TrustWinPro/action/js/contextmenu.js"></script>
-<link href=".css" rel="stylesheet" type="text/css" />
 <link href="/TrustWinPro/action/css/contextmenu.css" rel="stylesheet" type="text/css" />
 
   <div class="contextmenu conDeviceGroup">
@@ -21,12 +19,13 @@
 	    <li class="menuitem">Delete Device</li>
 	  </ul>
   </div>
+  
   <div class="contextmenu conDevice">
 	 <ul>
 	   <li class="menuitem">Add Device</li>
 	   <li class="menuitem">Delete Device</li>
 	 </ul>
-     </div>     
+   </div>     
     
  
   <div class="contextmenu conUserGroup">
@@ -66,112 +65,97 @@
 	 </ul>
      </div>     
   
+
   <div class="contextmenu conAccessGroupAdd">
 	 <ul>
-	   <li class="menuitem">Add accessGroup</li>
-   	 </ul>
-	 </div>
+	   <li class="menuitem">Add Access Group</li>
+	 </ul>
+  </div>	
   <div class="contextmenu conAccessGroupDelete">
 	 <ul>
-	   <li class="menuitem">Delete accessGroup</li>
+	   <li class="menuitem">Delete Access Group</li>
 	 </ul>
-	 </div>	 
+  </div>	
+   
+  
   <div class="contextmenu conTimeZoneAdd">
 	 <ul>
 	   <li class="menuitem">Add TimeZone</li>
-	   <li class="menuitem">Delete TimeZone</li>
 	 </ul>
 	 </div>
   <div class="contextmenu conTimeZoneDelete">
 	 <ul>
 	   <li class="menuitem">Delete TimeZone</li>
 	 </ul>
-	 </div>
+  </div>
+  
   <div class="contextmenu conMonitoringAdd">
 	 <ul>
 	   <li class="menuitem">Add Map</li>
-	   <li class="divider"></li>
 	 </ul>
-     </div>
+    </div>
+     
   <div class="contextmenu conMonitoringDelete">
 	 <ul>
 	   <li class="menuitem">Delete Map</li>
-	   <li class="divider"></li>
 	 </ul>
      </div>       
-  <script type="text/template" id="contextmenu-template"> 
-  </script>
 
- <script type = "text/javascript">
-  var mapID = document.getElementById('mapInfo')[0].value;
- alert(mapID);
 
-  $(function(){
-	$(".menuitem").mouseover(function(e){
-    var $el = $(this);
-    if ( !$el.hasClass('hover'))
-      $el.addClass('hover');
-  }).mouseout(function(e){
-  var $el = $(this);
-    if($el.hasClass('hover'))
-      $el.removeClass('hover');
-  });
+<script type="text/template" id="contextmenu-template"></script>
+<script type = "text/javascript">
+	  $(function(){
+		$(".menuitem").mouseover(function(e){
+	    var $el = $(this);
+	    if ( !$el.hasClass('hover'))
+	      $el.addClass('hover');
+	  }).mouseout(function(e){
+	  var $el = $(this);
+	    if($el.hasClass('hover'))
+	      $el.removeClass('hover');
+	  });
+	  
   
-  $(".contextmenu li").click(function(e){
-	  //if($(this).html() == "Add Map")
-	  alert($(this).html() + ' clicked' );
-    $(".contextmenu").hide();
-    $(document).unbind('mousedown');
-  });
-  
-  
-  //클래스별 메뉴 띄우기
-    $("#MapRight").on('contextmenu', function(event) {
-	    $(".conUser").css({
-	      left:event.pageX+"px",
-	      top:event.pageY+"px"
-	    }).show();
+	//Show Menu
+	$(".accessgrouplist.userspan").on('contextmenu', function(event) {
+	  ShowContextMenu("conAccessGroupDelete");
+	  CheckLocation();	  
+	  return false;
+	});
 
-	    $(document).mousedown(function(e){
-	      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
-	      if ($(e.target).parents(".contextmenu").length !== 0) 
-	        return;
-	      $(".contextmenu").hide();
-	      $(document).unbind('mousedown');
-	    });
-	    return false;
+	$(".timezonelist.userspan").on('contextmenu', function(event) {
+		  ShowContextMenu("conTimeZoneDelete");
+		  CheckLocation();
+		  return false;
+	});
+	
+	$(".maplist.userspan").on('contextmenu', function(event) {
+		  ShowContextMenu("conMonitoringDelete");
+		  CheckLocation();
+		  return false;
+	});
+
+	//Menu Event
+	  $(".conAccessGroupDelete").click(function(e){
+		var deleteID = $("#valueOfselectID").val();
+		TimeDelete(deleteID);
+	    $(".contextmenu").hide();
+	    $(document).unbind('mousedown');
 	  });
 
- 	   $("#map"+mapID).on('contextmenu', function(event) {
-		    $(".conMonitoring").css({
-		      left:event.pageX+"px",
-		      top:event.pageY+"px"
-		    }).show();
-
-		    $(document).mousedown(function(e){
-		      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
-		      if ($(e.target).parents(".contextmenu").length !== 0) 
-		        return;
-		      $(".contextmenu").hide();
-		      $(document).unbind('mousedown');
-		    });
-		    return false;
-		  });
- 
-	   $(".LeftDevicetop").on('contextmenu', function(event) {
-		    $(".conDevice").css({
-		      left:event.pageX+"px",
-		      top:event.pageY+"px"
-		    }).show();
-
-		    $(document).mousedown(function(e){
-		      // context menu 가 아닌 다른 영역을 클릭한경우 판단 
-		      if ($(e.target).parents(".contextmenu").length !== 0) 
-		        return;
-		      $(".contextmenu").hide();
-		      $(document).unbind('mousedown');
-		    });
-		    return false;
-		  });
+	  $(".conTimeZoneDelete").click(function(e){
+		var deleteID = $("#valueOfselectID").val();
+		TimeDelete(deleteID);
+	    $(".contextmenu").hide();
+	    $(document).unbind('mousedown');
+	  });
+	  
+	  $(".conMonitoringDelete").click(function(e){
+			var deleteID = $("#valueOfselectID").val();
+			deleteMap(deleteID);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+  
 });
 </script> 

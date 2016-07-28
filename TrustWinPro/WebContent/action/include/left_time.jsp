@@ -177,21 +177,24 @@ function TimeDelete(v){
 	<input type="hidden" value="Holiday" name="content" />
 </form>
 <form action="/TrustWinPro/action/index.jsp" name="AccessGroup" id="AccessGroup" method="post">
-	<input type="hidden" value="" name="num" />
+	<input type="hidden" id="valueOfselectID" value="<%=Num%>" name="num" />
 	<input type="hidden" value="Time" name="left" />
 	<input type="hidden" value="AccessGroup" name="content" />
 </form>
 
+
+
+
 <script type="text/javascript">
 function SpanTimeClass(idx){
-	document.getElementById("time"+idx).className = "userspan";
+	document.getElementById("time"+idx).className = "timezonelist userspan";
 	document.getElementById("time"+idx+"a").style.color = "#ffffff";
 	document.getElementById("numValue").value = idx;
 	document.getElementById("TimeAcess").value = "1";
 }
 
 function SpanAccessClass(idx){
-	document.getElementById("access"+idx).className = "userspan";
+	document.getElementById("access"+idx).className = "accessgrouplist userspan";
 	document.getElementById("access"+idx+"a").style.color = "#ffffff";
 	document.getElementById("numValue").value = idx;
 	document.getElementById("TimeAcess").value = "2";
@@ -205,4 +208,6 @@ if(<%=value%> == 0 ){
 		SpanAccessClass(<%=Num%>);	
 	}
 }
+
 </script>
+
