@@ -79,11 +79,11 @@
 </div>
 
 <form action="/TrustWinPro/action/index.jsp" name="Monitoring" id="Monitoring" method="post">
-	<input type="hidden" value="" name="mapID" />
+	<input type="hidden" id="valueOfselectID" value="<%=select_mapID%>" name="mapID" />
 	<input type="hidden" value="Monitoring" name="left" />
 	<input type="hidden" value="Map" name="content" />
 </form>
 
-<form action="/TrustWinPro/action/include/rightclickmenu.jsp" name="mapInfo" id="mapInfo" method="post">
+<%-- <form action="/TrustWinPro/action/include/rightclickmenu.jsp" name="mapInfo" id="mapInfo" method="post">
 	<input type="hidden" value="<%=select_mapID%>" name="selectMapID" />
-</form>
+</form> --%>
