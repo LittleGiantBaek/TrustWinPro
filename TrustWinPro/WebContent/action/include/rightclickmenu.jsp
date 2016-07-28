@@ -65,7 +65,8 @@
 	 </ul>
      </div>     
   
-
+  
+<!-- Access Group -->
   <div class="contextmenu conAccessGroupAdd">
 	 <ul>
 	   <li class="menuitem">Add Access Group</li>
@@ -174,13 +175,13 @@
 		  CheckLocation();
 		  return false;
 	});
+	
 	//AccessGroup Function
 	  $(".conAccessGroupAdd").click(function(e){
 		InsertAccess();
 	    $(".contextmenu").hide();
 	    $(document).unbind('mousedown');
 	  });
-	});
 
 	  $(".conAccessGroupDelete").click(function(e){
 		var deleteID = $("#valueOfselectID").val();

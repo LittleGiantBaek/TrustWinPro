@@ -31,6 +31,18 @@
 	String lan = (String)session.getAttribute("nation");
 %>
 <script type="text/javascript">
+function AccessGroupTop(){
+	document.getElementById("TimeZoneTopID").className = "timezonetop";
+	document.getElementById("TimeZoneTopID").style.color = "black";
+	document.getElementById("AccessGroupTopID").className = "accessgrouptop userspan";
+	document.getElementById("AccessGroupTopID").style.color = "#ffffff";
+}
+function TimeZoneTop(){
+	document.getElementById("AccessGroupTopID").className = "accessgrouptop";
+	document.getElementById("AccessGroupTopID").style.color = "black";
+	document.getElementById("TimeZoneTopID").className = "timezonetop userspan";
+	document.getElementById("TimeZoneTopID").style.color = "#ffffff";
+}
 function InsertTime(){
 	$.ajax({      
 	    type:"post",  
@@ -133,7 +145,7 @@ function TimeDelete(v){
 </script>
 <div class="Time">
 	<ul>
-		<li><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %> <a class = "bottom" href="#a" onclick="InsertAccess();" >+</a>
+		<li><a id="AccessGroupTopID" href="#content" onclick="AccessGroupTop();"><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %></a> <a class = "bottom" href="#a" onclick="InsertAccess();" >+</a>
 			<ul>
 <%
 		for(int i = 0;access.length>i;i++){	
@@ -144,7 +156,7 @@ function TimeDelete(v){
 %>
 			</ul>
 		</li>
-		<li><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %> <a class = "bottom" href="#a" onclick="InsertTime();" >+</a>
+		<li><a id="TimeZoneTopID" href="#content" onclick="TimeZoneTop();"><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %></a> <a class = "bottom" href="#a" onclick="InsertTime();" >+</a>
 			<ul>
 <%
 		for(int i = 0;times.length>i;i++){
@@ -177,9 +189,12 @@ function TimeDelete(v){
 	<input type="hidden" value="Holiday" name="content" />
 </form>
 <form action="/TrustWinPro/action/index.jsp" name="AccessGroup" id="AccessGroup" method="post">
-	<input type="hidden" id="valueOfselectID" value="<%=Num%>" name="num" />
+	<input type="hidden" value="" name="num" />
 	<input type="hidden" value="Time" name="left" />
 	<input type="hidden" value="AccessGroup" name="content" />
+</form>
+<form action="/TrustWinPro/action/index.jsp" name="forrightclick" id="forrightclick" method="post">
+	<input type="hidden" id="valueOfselectID" value="<%=Num%>" name="num" />
 </form>
 
 

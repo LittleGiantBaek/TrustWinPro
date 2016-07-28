@@ -17,6 +17,10 @@
 	
 %>
 <script type="text/javascript">
+	function MapTop(){
+		document.getElementById("MapTopID").className = "maptop userspan";
+		document.getElementById("MapTopID").style.color = "#ffffff";
+	}
 	function addMap(){
 		$.ajax({      
 		    type:"post",  
@@ -59,7 +63,7 @@
 	</script>
 <div class="Monitoring">
 	<ul>
-		<li><a id = "MapRight">Map</a><a class = "buttom" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
+		<li><a  href="#in" id="MapTopID"  onclick="MapTop();">Map</a><a class = "buttom" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
 			<ul>
 <%	
 	for(int i = 0;i<maps.length;i++){	

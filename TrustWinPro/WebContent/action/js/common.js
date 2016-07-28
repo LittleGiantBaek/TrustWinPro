@@ -265,7 +265,6 @@ function Enroll(value){
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
-	    	alert(args);
 	    	if(args.trim() == 'success'){
 	    		alert("success");
 	    	}else{
@@ -284,7 +283,6 @@ function Delete(value){
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
-	    	alert(args);
 	    	if(args.trim() == 'success'){
 	    		alert("success");
 	    	}else{
@@ -303,7 +301,6 @@ function Recive(value){
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
-	    	alert(args);
 	    	if(args.trim()  == 'success'){
 	    		alert("success");
 	    	}else{
