@@ -15,6 +15,7 @@
 	
 	String lan = (String)session.getAttribute("nation");
 	String userClass = (String)session.getAttribute("userClass");
+
 %>
 <script type="text/javascript">
 	
@@ -93,37 +94,27 @@
 			}
 		}
 	}
- 	function returnDepartCheck(){ 
- 		var returnData = "";
 
- 		DepartCheck().done(function(data){
- 		returnData = data.RESULT;
- 		});
- 		alert(returnData + "fdfdfd");
- 		}
-
- 	function DepartCheck(){
- 		var temp = 33;
+ 	function DepartCheck(handleData){
+ 		var ret;
  		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
 		{
 			alert('<%=Lanfunc.language(lan, 186)%>');
 		} else {
 			$.ajax({      
 			    type:"post",  
-			    url:"/TrustWinPro/action/ajax/CheckDepartment.jsp",   
+			    url:"/TrustWinPro/action/ajax/CheckDepartment.jsp",
+			    async:false,
 			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
 			    success:function(args){
-			    	var ret;
 			    	if(args == 1){
-			    		ret = 11;
-			     		alert(ret + "aaa");
-			     		temp = 1;
-			     		return ret;
+						ret = 1;
+			     		}
+			    	else if(args == 2){
+			     		ret = 2;
 			    	}
-			    	else{
-			    		ret = 22;
-			     		alert(ret + "bbb");
-			    		return ret;
+			    	else if(args == 3){
+			    		ret = 3;
 			    	}
 			    },   
 			    error:function(e){  
@@ -131,6 +122,7 @@
 			    }  
 			}); 
 		}
+ 		return ret;
 	}
  	
 
@@ -329,7 +321,7 @@
 <%
 			}
 %>
-					</span> 
+					</> 
 <%
 			
 			if(dev2.length != 0){
@@ -463,7 +455,7 @@
 		int depcot = -1;
 		for(int i=1;i<length;i++){
 			padding = cata[i].getDepth() * 30;
-			
+
 			if(i!= length-1){
 				if(cata[i].getDepth()<cata[i+1].getDepth()){
 					depcot++;
@@ -471,12 +463,12 @@
 				}
 			}else{
  				LastDepth = cata[i].getIdx();
-				LastDepth2 = cata[i].getDepth();	
+				LastDepth2 = cata[i].getDepth();
 			}
 %>
 				<li style="padding-left:<%=padding%>px">
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
-					<span id="span<%=i %>" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+					<span id="span<%=i %>" class = "userIDspan" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" /></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
 					</span>
@@ -493,7 +485,6 @@
 
 <%
 			User[] user2 = Userfunc.UserSelect(cata[i].getIdx());
-
 			
 			if(i!=length-1){
 				if(user2!=null&&cata[i+1].getUpnumber() != cata[i].getIdx()){
@@ -536,8 +527,9 @@
 					<li id="user<%=user1[j].getUserId()%>" style="padding-left:15px;">
 						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user1[j].getUserId() %>');" onkeypress="submit('User','<%=user1[j].getUserId() %>');" ><%=user1[j].getName() %></a>
 <%
+
 							if(j==user1.length-1){
-%>
+%>						
 						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 							}
@@ -554,18 +546,19 @@
 					}
 				}
 			}
-
 		}
 		for(int i = 0;i<=LastDepth2;i++){
 			if(i>0){
 				LastDepth = Catefunc.CataUpNum(LastDepth);
 			}
 			User[] user1 = Userfunc.UserSelect(LastDepth);
+		
 			if(user1.length>0){
 %>
 				<ul id="<%=length-1%>">
 <%
 			}
+
 			for(int j=0;j<user1.length;j++){
 %>
 					<li id="user<%=user1[j].getUserId()%>" style="padding-left:15px;">
@@ -585,8 +578,9 @@
 				</ul>
 <%
 			}
-			
 		}
+		
+		
 %>
 				</li>
 			</ul>
@@ -647,6 +641,10 @@
 	<input type="hidden" value="" name="deviceID" />
 	<input type="hidden" value="DeviceInfo" name="content" />
 </form>
+<% String selectuserID = request.getParameter("userID");%>
+<form action="/TrustWinPro/action/index.jsp" name="RightClick" id="RightClick" method="post">
+	<input type="hidden" id="valueOfselectUserID" value="<%=selectuserID%>" name="selectUserID" />
+</form>
 
 <script type="text/javascript">
 	function SpanDeviceClass(idx){
@@ -658,7 +656,7 @@
 	}
 	
 	function SpanUserClass(idx){
-		document.getElementById("user" +  idx).className = "userspan";
+		document.getElementById("user" +  idx).className = "userspan userIDspan";
 		//document.getElementById("user" +  parseInt(idx,10)).className = "userspan";
 	}
 	

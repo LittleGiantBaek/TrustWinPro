@@ -15,13 +15,11 @@
 		int Num = Integer.parseInt(request.getParameter("num"));
 		int Dep = Integer.parseInt(request.getParameter("dep"));
 		
-		
 		Connection conn = null;
 		
 		//만약 num에 Member가 있다면 추가를 하지 않는다.
 		Connection conn2 = null;
-		String sql_temp = "select count(*) from Member where Department = " + Num;
-		
+		String sql_temp = "select count(*) from Member where Department = " + Num;	
 		try {
 			int count = 0;
 			Context init2 = new InitialContext();

@@ -17,32 +17,56 @@
 		
 		
 		Connection conn = null;
+		String sql_temp = "select count(*) from Member where Department = " + Num;
 		
 		Connection conn2 = null;
-		String sql_temp = "select count(*) from Member where Department = " + Num;
+		String sql_depart = "select count(*) from Depart where UpNumber = " + Num;	
+		
 		
 		try {
 			int count = 0;
-			Context init2 = new InitialContext();
-			DataSource ds2 = (DataSource)init2.lookup("java:comp/env/jdbc/MssqlDB");
-			conn2 = ds2.getConnection();
-			Statement pstmt2 = conn2.createStatement();
-			ResultSet rs2 = pstmt2.executeQuery(sql_temp);
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement();
+			ResultSet rs = pstmt.executeQuery(sql_temp);
 
-			while(rs2.next()){
-				count = rs2.getInt(1);
+			while(rs.next()){
+				count = rs.getInt(1);
 			}
 			
-			//mumber가 존재 하지 않다면 0 아니면 1
+			//count : mumber가 존재 하지 않다면 0   //count2: 부서 하위에 부서가 존재하지 않다면 0 
 			if(count == 0 ){ 
-				out.println(0);
-			} else
+				try {
+					int countdepart = 0;
+					Context init2 = new InitialContext();
+					DataSource ds2 = (DataSource)init2.lookup("java:comp/env/jdbc/MssqlDB");
+					conn2 = ds2.getConnection();
+					Statement pstmt2 = conn2.createStatement();
+					ResultSet rs2 = pstmt2.executeQuery(sql_depart);
+					
+					while(rs2.next()){
+						countdepart = rs2.getInt(1);
+					}
+					
+					if(countdepart !=0){
+						out.println(1);
+					}
+					else{
+						out.println(3);
+					}
+					conn2.close();
+				}catch(Exception e){
+					out.println("DB error!!.");
+					e.printStackTrace();}
+			} 
+			else
 			{
-				out.println(1);
+				out.println(2);
 			}
 			
 			
-			conn2.close();
+			conn.close();
 		}catch(Exception e){
 			out.println("DB error!!.");
 			e.printStackTrace();

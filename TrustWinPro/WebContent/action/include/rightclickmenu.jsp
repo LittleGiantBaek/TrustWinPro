@@ -27,7 +27,7 @@
 	 </ul>
    </div>     
     
- 
+ <!-- User -->
   <div class="contextmenu conUserGroup">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
@@ -47,7 +47,7 @@
 	   </ul>
      </div>
      
-  <div class="contextmenu conUsertotal">
+  <div class="contextmenu conUserTotal">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
@@ -65,7 +65,14 @@
 	 </ul>
      </div>     
   
-  
+ <div class="contextmenu conUserMemberGroup">
+	 <ul>
+	   <li class="menuitem">Delete User Group</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Add User</li>
+	 </ul>
+     </div> 
+       
 <!-- Access Group -->
   <div class="contextmenu conAccessGroupAdd">
 	 <ul>
@@ -160,6 +167,7 @@
 		  return false;
 	});
 	
+	//User Contextmenu
  	$(".userspanroot").on('contextmenu', function(event) {
 		  ShowContextMenu("conUserGroup");
 		  CheckLocation();
@@ -167,14 +175,25 @@
 	});
 	
 	$(".userGroupspan").on('contextmenu', function(event) {
-		/* if(DepartCheck() == 1)
-		ShowContextMenu("conUsersubGroup");
-		 */
-		 ShowContextMenu("conUsersubGroup");
-		 alert(DepartCheck());
-		  CheckLocation();
+		//1.부서 하위에 부서가 존재  2.부서 하위에 멤버가 존재  3.부서 하위에 아무것도 없음3 
+		if(DepartCheck() == 1){
+		ShowContextMenu("conUserGroup");
+		}else if(DepartCheck() == 2){
+		ShowContextMenu("conUserMemberGroup");
+		}else if(DepartCheck() == 3){
+			ShowContextMenu("conUsersubGroup");
+		}
+		 CheckLocation();
 		  return false;
 	});
+	
+	$(".userIDspan").on('contextmenu', function(event) {
+		ShowContextMenu("conUserDelete");
+		 CheckLocation();
+		  return false;
+	});
+	
+	
 	
 	//AccessGroup Function
 	  $(".conAccessGroupAdd").click(function(e){
@@ -215,13 +234,40 @@
 		    $(document).unbind('mousedown');
 	  });
 	  
+	  
+	  //User Function
 	  $(".conUserGroup").click(function(e){
-/* 			var deleteID = $("#valueOfselectID").val();
-			deleteMap(deleteID); */
 			if($(this).find(".hover").text() == "Add User Group")
 				DepartAdd();
+			else
+				DepartDelete();
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });	  
+	  $(".conUserMemberGroup").click(function(e){
+			if($(this).find(".hover").text() == "Delete User Group")
+				DepartDelete();
+			else
+				UserAdd(document.getElementById('GroupN').value);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+	  $(".conUsersubGroup").click(function(e){
+			if($(this).find(".hover").text() == "Add User Group")
+				DepartAdd();
+			else if($(this).find(".hover").text() == "Delete User Group"){
+				DepartDelete();
+			}
+			else
+				UserAdd(document.getElementById('GroupN').value);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+	  $(".conUserDelete").click(function(e){
+ 		  var deleteID = $("#valueOfselectUserID").val();
+		  UserDelete(deleteID);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
 });
 </script> 
