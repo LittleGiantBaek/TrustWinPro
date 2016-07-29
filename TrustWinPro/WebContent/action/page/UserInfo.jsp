@@ -367,48 +367,48 @@ function AccessAdd(UserID){
 									<p></p>				
 				</div>
 				<div class="Info">		
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 29)%> * : 
 								</div>		
 								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"  size="30rem" disabled>				
 							</div>
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 26)%> * : 
 								</div>
 								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  size="30um">
 							</div>
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 27)%> : 
 								</div>
 								<input class = "inputt" type="text" name="middleName" value="<%=LangUtil.Empty(rs.getString(2)) %>"  size="30um">
 							</div>					
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 28)%> : 
 								</div>
 								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>"  size="30um">
 							</div>				
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 30)%> * : 
 								</div>
-								<div class="main">
+								<div class="main" size="30um">
 								<select name="userClass" class="mainselect" style="height:28px;">
 								<option value="1" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("1")){out.print("selected");}} %>><%=Lanfunc.language(lan, 170)%></option>
 								<option value="128" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("128")){out.print("selected");}}  %>><%=Lanfunc.language(lan, 171)%></option>
 								</select>
 								</div>
-							</div>					
-							<div class="block" style="margin-left:45rem;">
+							</div>			
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 2)%> * : 
 								</div>
-								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um">
+								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um" >
 							</div>				
-							<div class="block" style="margin-left:45rem;">
+							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 5)%> * : 
 								</div>
