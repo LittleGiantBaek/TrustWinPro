@@ -28,6 +28,7 @@
 		$.ajax({
 			url:'/TrustWinPro/action/ajax/pieChartProc.jsp',
 			data:{},
+			cache: false,
 			success: function(res){
 				table_data = eval("(" + res + ")");
 				drawChart(table_data);
@@ -48,6 +49,7 @@
     	$.ajax({
 		     url:'/TrustWinPro/action/ajax/pieStatusProc.jsp',
 		     data: 'val='+val,
+		     cache: false,
 		     success: function(res) {
 		    	 //document.getElementById("pieChart").submit();
 	        	   location.reload();

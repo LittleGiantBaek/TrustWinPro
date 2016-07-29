@@ -33,6 +33,7 @@
        $.ajax({
            url:'/TrustWinPro/action/ajax/barChartProc.jsp',
            data: 'idx=',
+           cache: false,
            success: function(res) {
           	table_data = eval("(" + res + ")");
           	drawVisualization(table_data);
@@ -53,9 +54,10 @@
        $.ajax({
            url:'/TrustWinPro/action/ajax/barStatusProc.jsp',
            data: 'val='+val,
+           cache: false,
            success: function(res) {
         	  /* alert("StatusBar : " +val); */
-        	  /* location.reload();  */
+        	  location.reload();
           	  document.getElementById("barChart").submit();
            }
       });
