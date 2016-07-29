@@ -44,6 +44,26 @@ img {border:0;}
     background: #fff;
 }
 
+.mainselect {
+	/* 	display: inline-block;
+    height: 28px;
+    padding: 0 14px;
+    margin: 0px;
+    font-size: 12px;
+    color: #6e6e6e;
+    font-weight: normal;
+    font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;
+    line-height: 27px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    background: #fff; */
+}
+
 .Loading{position:absolute; top:0; left:0; width:100%; height:100%; z-index:101; display:none; background-repeat: no-repeat;background-color: #fff;opacity:0.5;}
 .Loading .backImg{margin:100px auto 0;width:600px; height:600px; z-index:101;  background-image:url("/TrustWinPro/action/image/interface/loading.gif");background-repeat: no-repeat;  opacity:0.5; }
 
@@ -179,11 +199,10 @@ a#web-buttons-idrmij3a {display:none}
 #userDevice .bottom{text-align: center;margin:10px 0 0;}
 
 /* UserInfo*/
-#UserInfo {width:100%;padding:0;margin:0;min-width: 800px;overflow: hidden;}
+#UserInfo {width:100%;padding:0;margin:0;min-width: 1000px;overflow: hidden;}
 #UserInfo .basic {width:100%;position:relative;}
-#UserInfo .basic .basicInfo {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;}
-#UserInfo .basic .picture{width:90%;margin: 30px auto 10px;height:100px;}
-#UserInfo .basic .picture {width:40%;float:left;position:relative;left:10%}
+#UserInfo .basic .basicInfo {width:96%;border:1px solid gray; padding:20px 0; -moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;}
+#UserInfo .basic .picture{width:40%;margin: 50px auto 10px;height:100px;float:left;position:relative;left:10%}
 #UserInfo .basic .picture .right {width:50%;float:right;}
 #UserInfo .basic .picture .right table {width:100%;}
 #UserInfo .basic .picture .right .block .header {height:28px;width:29%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;}
@@ -217,7 +236,7 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .Private .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Private .InfoBox .block .header {height:28px;width:25%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
 #UserInfo .basic .Private .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
-#UserInfo .basic .Private .InfoBox .block .mainselect {height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
+#UserInfo .basic .Private .InfoBox .block .mainselect {display: inline-block;height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
 #UserInfo .basic .Private .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -250,7 +269,7 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .buttonBox #web-buttons-idrmij3 a:hover{float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;}
 #UserInfo .basic .buttonBox a#web-buttons-idrmij3a {display:none}
 
-#UserInfo .basic .tab {width:98%;margin:0 auto;height:20px;}
+#UserInfo .basic .tab {width:98%;margin:0 auto;}
 #UserInfo .basic .tab .tab1{float:left;padding:0;}
 #UserInfo .basic .tab .tab2{float:left;padding:0;}
 #UserInfo .basic .tab .tab3{float:left;padding:0;}
@@ -443,6 +462,27 @@ table.ex1 a:active{color:#000;}
 .button01 a{color:white;text-decoration: none;}
 
 /* tab style */
+.tab {position:relative; padding-top:31px;}
+.tab>li>a {
+    display:block; 
+    position:absolute; 
+    top:0; 
+    width:95px;
+    height:30px;
+    line-height:30px;
+    text-align:center; 
+    background:#eee; 
+    color:#555; 
+    border:1px solid #767676; 
+    border-bottom:0;
+    border-radius: 3px;
+}
+.tab>li.on>a {background:#767676; color:#fff;}
+.tab>li:first-child>a {left:0;}
+.tab>li+li>a {left:100px;}
+.tab>li+li+li>a {left:200px;}
+.tab>li>div {height:0; overflow:hidden; position:absolute;}
+.tab>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
 #globalnav {position:relative;width:100%;padding:0 0 1.75em 0;margin:0;list-style:none;line-height:1em;}
 #globalnav LI {float:left;margin:0;padding:0;width:86px;height:28px;}
 #globalnav A {display:block;text-decoration:none;margin:0;padding:0.25em 0;background-image:url("/TrustWinPro/action/image/interface/tab_off.png");background-repeat: no-repeat;}

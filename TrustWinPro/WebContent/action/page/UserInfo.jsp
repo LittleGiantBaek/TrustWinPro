@@ -133,13 +133,18 @@ function previewImage(targetObj, View_area) {
 	}
 }
 
+$( ".tab>li>a" ).click(function() {
+    $(this).parent().addClass("on").siblings().removeClass("on");
+    return false;
+});
+
 function displayInfo(z){
 	for(var i=1;i<7;i++){
 		if(i==z){
-			document.getElementById("tab0"+i).className = "here";
+			document.getElementById("tab0"+i).parentNode.className = "on";
 			document.getElementById("tab"+i).style.display = "block";		
 		}else{
-			document.getElementById("tab0"+i).className = "";
+			document.getElementById("tab0"+i).parentNode.className = "";
 			document.getElementById("tab"+i).style.display = "none";
 		}
 	}
@@ -358,8 +363,9 @@ function AccessAdd(UserID){
 %>							
 
 									<div>
-										<div id="shadow" style="position:absolute;z-index:100;">
-											<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:-180px;" onchange="previewImage(this,'View_area');" value="" >
+										<!-- <div id="shadow" style="position:absolute;z-index:100;"> -->
+										<div>
+											<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="" >
 										</div>
 										<img src="/TrustWinPro/action/image/interface/search.png"  border='0' align="absmiddle">
 									</div>	
@@ -367,7 +373,7 @@ function AccessAdd(UserID){
 									<p></p>				
 				</div>
 				<div class="Info">		
-							<div class="block" style="margin-left:50rem;">
+							<div class="block" style="margin-left:50rem; ">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 29)%> * : 
 								</div>		
@@ -396,7 +402,7 @@ function AccessAdd(UserID){
 								<%=Lanfunc.language(lan, 30)%> * : 
 								</div>
 								<div class="main" size="30um">
-								<select name="userClass" class="mainselect" style="height:28px;">
+								<select name="userClass" class="mainselect">
 								<option value="1" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("1")){out.print("selected");}} %>><%=Lanfunc.language(lan, 170)%></option>
 								<option value="128" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("128")){out.print("selected");}}  %>><%=Lanfunc.language(lan, 171)%></option>
 								</select>
@@ -421,28 +427,28 @@ function AccessAdd(UserID){
 			</section>
 			
 			
-			<div class="tab">
-				<ul id="globalnav">
-					<li class="tab1">
-						<a href="#a" onclick="displayInfo(1)" class="here" id="tab01"><%=Lanfunc.language(lan, 32)%></a>
+			<!-- <div class="tab"> -->
+				<ul class="tab">
+					<li class="on" >
+						<a href="#a" onclick="displayInfo(1)"  id="tab01"><%=Lanfunc.language(lan, 32)%></a>
 					</li>
-					<li class="tab2">
+					<li>
 						<a href="#a" onclick="displayInfo(2)" id="tab02"><%=Lanfunc.language(lan, 33)%></a>
 					</li>
-					<li class="tab3">
+					<li>
 						<a href="#a" onclick="displayInfo(3)" id="tab03" ><%=Lanfunc.language(lan, 34)%></a>
 					</li>
-					<li class="tab4" style="display:none;">
+					<li  style="display:none;">
 						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=Lanfunc.language(lan, 35)%></a>
 					</li>
-					<li class="tab5">
+					<li>
 						<a href="#a" onclick="displayInfo(5)" id="tab05" ><%=Lanfunc.language(lan, 36)%></a>
 					</li>
-					<li class="tab6">
+					<li >
 						<a href="#a" onclick="displayInfo(6)" id="tab06" ><%=Lanfunc.language(lan, 37)%></a>
 					</li>
 				</ul>
-			</div>
+			<!-- </div> -->
 			
 			<div class="Official" id="tab1">
 				<div class="InfoBox">
