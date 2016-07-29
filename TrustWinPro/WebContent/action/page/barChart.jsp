@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
-<meta http-equiv="x-ua-compatible" content="IE=9" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
@@ -54,9 +54,9 @@
            url:'/TrustWinPro/action/ajax/barStatusProc.jsp',
            data: 'val='+val,
            success: function(res) {
-        	  //alert("StatusBar : " +val);
-        	   location.reload();
-          	 //document.getElementById("barChart").submit();
+        	  /* alert("StatusBar : " +val); */
+        	  /* location.reload();  */
+          	  document.getElementById("barChart").submit();
            }
       });
   }

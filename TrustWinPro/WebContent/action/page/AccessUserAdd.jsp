@@ -22,7 +22,6 @@
 			String department = catefunc.selCategory(user.getDepartment());
 			Connection conn = null;
 			
-			// 기존에 있으면 삭제
 			sql = "Delete from AccessUser where access = '" + idx + "' and userID='"+ user.getUserId()+ "';";
 			try {
 				Context init = new InitialContext();
