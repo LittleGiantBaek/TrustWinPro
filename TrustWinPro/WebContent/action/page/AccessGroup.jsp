@@ -33,13 +33,18 @@
 		String lan = (String)session.getAttribute("nation");
 %>
 <script type="text/javascript">
+$( ".tab3>li>a" ).click(function() {
+    $(this).parent().addClass("on").siblings().removeClass("on");
+    return false;
+});
+
 	function displayInfo(z){
 		for(var i=1;i<3;i++){
 			if(i==z){
-				document.getElementById("tab0"+i).className = "here";
+				document.getElementById("tab0"+i).parentNode.className = "on";
 				document.getElementById("tab"+i).style.display = "block";		
 			}else{
-				document.getElementById("tab0"+i).className = "";
+				document.getElementById("tab0"+i).parentNode.className = "";
 				document.getElementById("tab"+i).style.display = "none";
 			}
 		}
@@ -106,6 +111,8 @@
 		}
 		
 	}
+	
+
 </script>
 
 <div>
@@ -137,16 +144,14 @@
 
 
 <div id = "Access">
-<div class="tab">
-			<ul id="globalnav">
-				<li class="tab1">
-					<a href="#content" onclick="displayInfo(1)" class="here" id="tab01"><%=Lanfunc.language(lan, 107)%></a>
+			<ul class="tab3" style="margin-bottom:0px">
+				<li class="on">
+					<a href="#content" onclick="displayInfo(1)" id="tab01"><%=Lanfunc.language(lan, 107)%></a>
 				</li>
-				<li class="tab2">
+				<li>
 					<a href="#content" onclick="displayInfo(2)" id="tab02"><%=Lanfunc.language(lan, 108)%></a>
 				</li>
 			</ul>
-</div>
 	<div class="info">
 		<div class="device" id="tab1">
 			<div class="InfoBox">
