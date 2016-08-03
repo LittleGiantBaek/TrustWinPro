@@ -938,8 +938,8 @@ function AccessAdd(UserID){
 					<a href="#" title="Recive" onclick="Enroll('S,U,E,1,<%=ID%>,E');"><%=Lanfunc.language(lan, 183)%></a>
 				</div>
 				<div class="InfoButtom">
-					<a href="#UserInfo" onclick="UserInfoSubmit();"><img src="/TrustWinPro/action/image/interface/add.png"></a>
-					<a href="#UserInfo" onclick="UserDelete();" ><img src="/TrustWinPro/action/image/interface/remove.png"></a>
+					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" style="margin-right:0px"><span class="icon-plus"></span>save</a>
+					<a href="#UserInfo" onclick="UserDelete();" class="button gray" style="margin-left:0px"><span class="icon-delete"></span>cancel</a>
 				</div>
 			</div>
 		</form>
