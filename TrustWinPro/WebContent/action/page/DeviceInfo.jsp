@@ -222,13 +222,18 @@ function previewImage(targetObj, View_area) {
 	}
 }
 
+$( ".tab2>li>a" ).click(function() {
+    $(this).parent().addClass("on").siblings().removeClass("on");
+    return false;
+});
+
 function displayInfo(z){
 	for(var i=1;i<10;i++){
 		if(i==z){
-			document.getElementById("tab0"+i).className = "here";
+			document.getElementById("tab0"+i).parentNode.className = "on";
 			document.getElementById("tab"+i).style.display = "block";		
 		}else{
-			document.getElementById("tab0"+i).className = "";
+			document.getElementById("tab0"+i).parentNode.className = "";
 			document.getElementById("tab"+i).style.display = "none";
 		}
 	}
@@ -383,37 +388,36 @@ function AccessDelete(deviceID){
 				</div>
 			</section>
 			
-			<div class="tab">
-				<ul id="globalnav">
-					<li class="tab1">
+			
+				<ul class="tab2" style="margin-bottom:0px">
+					<li class="on">
 						<a href="#a" onclick="displayInfo(1)" class="here" id="tab01"><%=lanFunc.language(lan, 137)%></a>
 					</li>
-					<li class="tab2">
+					<li >
 						<a href="#a" onclick="displayInfo(2)" id="tab02"><%=lanFunc.language(lan, 8)%></a>
 					</li>
-					<li class="tab3">
+					<li >
 						<a href="#a" onclick="displayInfo(3)" id="tab03"><%=lanFunc.language(lan, 9)%></a>
 					</li>
-					<li class="tab4">
+					<li >
 						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=lanFunc.language(lan, 10)%></a>
 					</li>
-					<li class="tab5">
+					<li >
 						<a href="#a" onclick="displayInfo(5)" id="tab05" ><%=lanFunc.language(lan, 11)%></a>
 					</li>
-					<li class="tab6">
+					<li >
 						<a href="#a" onclick="displayInfo(6)" id="tab06" ><%=lanFunc.language(lan, 12)%></a>
 					</li>
-					<li class="tab7">
+					<li >
 						<a href="#a" onclick="displayInfo(7)" id="tab07" ><%=lanFunc.language(lan, 13)%></a>
 					</li>
-					<li class="tab8">
+					<li >
 						<a href="#a" onclick="displayInfo(8)" id="tab08" ><%=lanFunc.language(lan, 36)%></a>
 					</li>
-					<li class="tab9">
+					<li >
 						<a href="#a" onclick="displayInfo(9)" id="tab09" ><%=lanFunc.language(lan, 37)%></a>
 					</li>
 				</ul>
-			</div>
 			<div class="Basic" id="tab1" style="display:block">
 				<div class="InfoBox1">
 					<div class="block">
@@ -2057,7 +2061,6 @@ function AccessDelete(deviceID){
 			</div>
 			
 			<div class="AccessControl" id="tab9" style="display:none">
-			
 			<div class="InfoBox">
 			<table>
 					<colgroup>
@@ -2163,17 +2166,10 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
-				
-				
-				
-				
-				
 			</div>
-			
-			
 			<div class="InfoButtom" >
-				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-				<a href="#DeviceInfo" onclick="DeviceDelete();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-plus"></span>Save</a>
+				<a href="#DeviceInfo" onclick="DeviceDelete();"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
 		</form>
 	</div>

@@ -264,7 +264,7 @@ a#web-buttons-idrmij3a {display:none}
 
 #UserInfo .basic .buttonBox {width:96%;position:relative; } 
 #UserInfo .basic .buttonBox .InfoButtom {float:right; margin-top:10px;}
-#UserInfo .basic .buttonBox .bottom {float:left; margin-top:10px;}
+#UserInfo .basic .buttonBox .bottom {position:absolute;width:200px;margin:0;padding:0;right:42px;bottom: 0;}
 #UserInfo .basic .buttonBox #web-buttons-idrmij3 a{display:inline;color:transparent;float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;} 
 #UserInfo .basic .buttonBox #web-buttons-idrmij3 a:hover{float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;}
 #UserInfo .basic .buttonBox a#web-buttons-idrmij3a {display:none}
@@ -299,7 +299,7 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Device {width:90%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
 #DeviceInfo .basic .Device table{width:100%}
 
-#DeviceInfo .basic .InfoButtom {width:70px;margin-top:10px;margin-right:50px;float:right;}
+#DeviceInfo .basic .InfoButtom {float:right; margin-top:10px; margin-right:4%}
 
 #DeviceInfo .basic .tab {width:98%;margin:0 auto;height:20px;}
 #DeviceInfo .basic .tab .tab1{float:left;padding:0;}
@@ -467,7 +467,7 @@ table.ex1 a:active{color:#000;}
     display:block; 
     position:absolute; 
     top:0; 
-    width:95px;
+    width:98px;
     height:30px;
     line-height:30px;
     text-align:center; 
@@ -481,8 +481,60 @@ table.ex1 a:active{color:#000;}
 .tab>li:first-child>a {left:0;}
 .tab>li+li>a {left:100px;}
 .tab>li+li+li>a {left:200px;}
+.tab>li+li+li+li+li>a {left:300px;}
+.tab>li+li+li+li+li+li>a {left:400px;}
 .tab>li>div {height:0; overflow:hidden; position:absolute;}
 .tab>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
+
+.tab2 {position:relative; padding-top:31px;}
+.tab2>li>a {
+    display:block; 
+    position:absolute; 
+    top:0; 
+    width:98px;
+    height:30px;
+    line-height:30px;
+    text-align:center; 
+    background:#eee; 
+    color:#555; 
+    border:1px solid #767676; 
+    border-bottom:0;
+    border-radius: 3px;
+}
+.tab2>li.on>a {background:#767676; color:#fff;}
+.tab2>li:first-child>a {left:0;}
+.tab2>li+li>a {left:100px;}
+.tab2>li+li+li>a {left:200px;}
+.tab2>li+li+li+li>a {left:300px;}
+.tab2>li+li+li+li+li>a {left:400px;}
+.tab2>li+li+li+li+li+li>a {left:500px;}
+.tab2>li+li+li+li+li+li+li>a {left:600px;}
+.tab2>li+li+li+li+li+li+li+li>a {left:700px;}
+.tab2>li+li+li+li+li+li+li+li+li>a {left:800px;}
+.tab2>li>div {height:0; overflow:hidden; position:absolute;}
+.tab2>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
+
+.tab3 {position:relative; padding-top:31px;}
+.tab3>li>a {
+    display:block; 
+    position:absolute; 
+    top:0; 
+    width:98px;
+    height:30px;
+    line-height:30px;
+    text-align:center; 
+    background:#eee; 
+    color:#555; 
+    border:1px solid #767676; 
+    border-bottom:0;
+    border-radius: 3px;
+}
+.tab3>li.on>a {background:#767676; color:#fff;}
+.tab3>li:first-child>a {left:0;}
+.tab3>li+li>a {left:100px;}
+.tab3>li>div {height:0; overflow:hidden; position:absolute;}
+.tab3>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
+
 #globalnav {position:relative;width:100%;padding:0 0 1.75em 0;margin:0;list-style:none;line-height:1em;}
 #globalnav LI {float:left;margin:0;padding:0;width:86px;height:28px;}
 #globalnav A {display:block;text-decoration:none;margin:0;padding:0.25em 0;background-image:url("/TrustWinPro/action/image/interface/tab_off.png");background-repeat: no-repeat;}

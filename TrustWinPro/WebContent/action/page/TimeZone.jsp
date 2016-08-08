@@ -853,8 +853,8 @@ function TimeZoneDelete(v){
 
 		<div class="buttom">
 			<div class="image">
-				<a href="#DeviceInfo" onclick="TimeZoneSubmit();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-				<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+				<a href="#DeviceInfo" onclick="TimeZoneSubmit();" class="button gray" ><span class="icon-plus"></span>Save</a>
+				<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
 		</div>
 	</form>
