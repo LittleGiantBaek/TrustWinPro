@@ -122,9 +122,9 @@ function mapDelete(){
 %>
 		<img src="<%=imageFile%>" class="mapImage">
 	</div>
-	<div class="bottom" id="web-buttons-idrmij3">
-		<a href="#" title="Delete" onclick="mapDelete()">Delete</a>
-		<a href="#a" title="Enroll" onclick="setupMove()">MapSetup</a>
+	<div class="bottom" >
+		<a href="#a" title="Send" onclick="setupMove()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>MapSetup</a>
+		<a href="#" title="Delete" onclick="mapDelete()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>Delete</a>
 	</div>
 </div>
 <form name="mapsetup" id="mapsetup" method="post" action="/TrustWinPro/action/index.jsp" >
