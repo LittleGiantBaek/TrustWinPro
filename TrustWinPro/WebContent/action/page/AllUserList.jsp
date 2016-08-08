@@ -178,14 +178,14 @@ function checkedF(num,v){
 				<p><div class = "headerji">
 				<%=Lanfunc.language(lan, 39)%> : 
 				</div>
-				<select name="searchDepartment" class = "hourselect">>
+				<select name="searchDepartment" class = "hourselect">
 					<option value="">== Select Option ==</option>
 <%
 	for(int i=0;i<cata.length;i++){
 
 
 %>
-
+<%-- 					<option value="<%=cata[i].getIdx()%>" <%=cata[i].getIdx() == Department ? "selected" : "" %>><%=cata[i].getName() %></option> --%>
 					<option value="<%=cata[i].getIdx()%>" <%=cata[i].getIdx() == Department ? "selected" : "" %>><%=cata[i].getName() %></option>
 <%
 	}
@@ -289,7 +289,6 @@ function checkedF(num,v){
 <%
 					String Name = Catefunc.selCategory(users[i].getDepartment()); //오류발생
 					out.println(Name);
-
 %>
 					</td>
 					<td class='date1'>
