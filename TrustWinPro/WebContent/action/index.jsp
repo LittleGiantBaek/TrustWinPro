@@ -18,6 +18,7 @@
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/icon.css" />
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/timePicker.css" />
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
@@ -49,6 +50,7 @@ $(".Loading").css("display","none");
    <jsp:include page="./include/footer.jsp" flush="false"></jsp:include>
 </div>
 
+		
 		<%
 			if(userClass != null && !userClass.equals("128")){
 		%>
