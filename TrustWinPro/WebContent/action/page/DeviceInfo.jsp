@@ -389,7 +389,7 @@ function AccessDelete(deviceID){
 			</section>
 			
 			
-				<ul class="tab2">
+				<ul class="tab2" style="margin-bottom:0px">
 					<li class="on">
 						<a href="#a" onclick="displayInfo(1)" class="here" id="tab01"><%=lanFunc.language(lan, 137)%></a>
 					</li>
@@ -2061,7 +2061,6 @@ function AccessDelete(deviceID){
 			</div>
 			
 			<div class="AccessControl" id="tab9" style="display:none">
-			
 			<div class="InfoBox">
 			<table>
 					<colgroup>
@@ -2167,17 +2166,10 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
-				
-				
-				
-				
-				
 			</div>
-			
-			
 			<div class="InfoButtom" >
-				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-				<a href="#DeviceInfo" onclick="DeviceDelete();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-plus"></span>Save</a>
+				<a href="#DeviceInfo" onclick="DeviceDelete();"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
 		</form>
 	</div>

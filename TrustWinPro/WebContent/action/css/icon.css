@@ -15,9 +15,9 @@
 .yellow{-moz-box-shadow:0 1px 4px rgba(0,0,0,.3);-webkit-box-shadow:0 1px 4px rgba(0,0,0,.3);box-shadow:0 1px 4px rgba(0,0,0,.3);border:1px solid #F7C942;background:#fadb4e;font-weight:700;color:#333;text-shadow:0 1px 0 #fff;background-image:linear-gradient(#fceda7, #fadb4e);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceda7', endColorstr='#fadb4e',GradientType=0 );}
 .yellow:hover{border:1px solid #e79952;background:#fbe26f;font-weight:700;color:#111;text-shadow:0 1px 1px #fff;background-image:linear-gradient(#fcf0b5, #fbe26f);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf0b5', endColorstr='#fbe26f',GradientType=0 );}
 .yellow:active{border:1px solid #F7C942;background:#fceda7;font-weight:700;color:#111;text-shadow:0 1px 1px #fff;background-image:linear-gradient(#fadb4e, #fceda7);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fadb4e', endColorstr='#fceda7',GradientType=0 );}
-.button .icon-plus{background-position:-0 50%;}
+.button .icon-plus{background-position:-0 50%; margin-left:0px;}
 .button .icon-minus{background-position:-36px 50%;}
-.button .icon-delete{background-position:-72px 50%;}
+.button .icon-delete{background-position:-72px 50%;margin-left:0px; }
 .button .icon-arrow-r{background-position:-108px 50%;}
 .button .icon-arrow-l{background-position:-144px 50%;}
 .button .icon-arrow-u{background-position:-180px 50%;}

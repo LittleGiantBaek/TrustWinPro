@@ -255,8 +255,8 @@ $( ".tab3>li>a" ).click(function() {
 
 	<div class="mainButtom">
 		<div class="image">
-			<a href="#DeviceInfo" onclick="GroupUpdate();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-			<a href="#DeviceInfo" onclick="GroupDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+			<a href="#DeviceInfo" onclick="GroupUpdate();"class="button gray" ><span class="icon-plus"></span>Save</a>
+			<a href="#DeviceInfo" onclick="GroupDel();"class="button gray" ><span class="icon-delete"></span>Remove</a>
 		</div>
 	</div>
 

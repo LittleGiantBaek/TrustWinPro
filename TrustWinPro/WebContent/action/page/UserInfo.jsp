@@ -925,7 +925,7 @@ function AccessAdd(UserID){
 				
 				<div class="buttom"  align="right">
 					<div class="image">
-						<a href="#" onclick="AccessAdd(<%= Integer.parseInt(ID)%>);"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
+						<a href="#" onclick="AccessAdd(<%= Integer.parseInt(ID)%>);" ><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 						<a href="#" onclick="AccessDelete(<%= Integer.parseInt(ID)%>);""><img src="/TrustWinPro/action/image/interface/delete.png"></a>
 					</div>
 				</div>
@@ -938,8 +938,8 @@ function AccessAdd(UserID){
 					<a href="#" title="Recive" onclick="Enroll('S,U,E,1,<%=ID%>,E');"><%=Lanfunc.language(lan, 183)%></a>
 				</div>
 				<div class="InfoButtom">
-					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" style="margin-right:0px"><span class="icon-plus"></span>Save</a>
-					<a href="#UserInfo" onclick="UserDelete();" class="button gray" style="margin-left:0px"><span class="icon-delete"></span>Remove</a>
+					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" ><span class="icon-plus"></span>Save</a>
+					<a href="#UserInfo" onclick="UserDelete();" class="button gray" ><span class="icon-delete"></span>Remove</a>
 				</div>
 			</div>
 		</form>
