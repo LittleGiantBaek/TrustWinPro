@@ -853,7 +853,7 @@ function TimeZoneDelete(v){
 
 		<div class="buttom">
 			<div class="image">
-				<a href="#DeviceInfo" onclick="TimeZoneSubmit();" class="button gray" ><span class="icon-plus"></span>Save</a>
+				<a href="#DeviceInfo" onclick="TimeZoneSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 				<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
 		</div>

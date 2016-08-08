@@ -264,7 +264,7 @@ a#web-buttons-idrmij3a {display:none}
 
 #UserInfo .basic .buttonBox {width:96%;position:relative; } 
 #UserInfo .basic .buttonBox .InfoButtom {float:right; margin-top:10px;}
-#UserInfo .basic .buttonBox .bottom {position:absolute;width:200px;margin:0;padding:0;right:42px;bottom: 0;}
+#UserInfo .basic .buttonBox .bottom {float:left; margin-top:10px;}
 #UserInfo .basic .buttonBox #web-buttons-idrmij3 a{display:inline;color:transparent;float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;} 
 #UserInfo .basic .buttonBox #web-buttons-idrmij3 a:hover{float:right;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;}
 #UserInfo .basic .buttonBox a#web-buttons-idrmij3a {display:none}
