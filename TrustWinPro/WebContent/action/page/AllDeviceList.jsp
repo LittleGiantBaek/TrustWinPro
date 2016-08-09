@@ -216,11 +216,11 @@ function checkedF(num,v){
 
 		</div>
 
-		<div class="bottom" id="web-buttons-idrmij3">
-			<a href="#" title="Enroll"
-				onclick="checkedF(<%=devices.length%>,2);"><%=Lanfunc.language(lan, 88)%></a>
+		<div class="bottom">
+			<a href="#" title="Send"
+				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 			<a href="#" title="Delete"
-				onclick="checkedF(<%=devices.length%>,1);"><%=Lanfunc.language(lan, 183)%></a>
+				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 	</form>
 </div>

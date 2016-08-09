@@ -932,10 +932,10 @@ function AccessAdd(UserID){
 			</div>
 			
 			<div class="buttonBox">
-				<div class="bottom" id="web-buttons-idrmij3">
-					<a href="#" title="Enroll" onclick="Recive('S,U,R,1,<%=ID%>,E');"><%=Lanfunc.language(lan, 184)%></a>
-					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');"><%=Lanfunc.language(lan, 88)%></a>
-					<a href="#" title="Recive" onclick="Enroll('S,U,E,1,<%=ID%>,E');"><%=Lanfunc.language(lan, 183)%></a>
+				<div class="bottom">
+					<a href="#" title="Send" onclick="Enroll('S,U,E,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+					<a href="#" title="Recive" onclick="Recive('S,U,R,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 184)%></a>
+					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 				</div>
 				<div class="InfoButtom">
 					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>

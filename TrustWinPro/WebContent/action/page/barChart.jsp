@@ -153,8 +153,8 @@
 %>
 				</tbody>
 			</table>
-			<div class="bottom" id="web-buttons-idrmij3">
-				<a href="#" title="Enroll" onclick="statusBar()">submit</a>
+			<div class="bottom" style="float:right">
+				<a href="#" title="Enroll" onclick="statusBar()"class="button yellow" ><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>submit</a>
 			</div>
 		</div>
 	</form>
