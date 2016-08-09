@@ -725,7 +725,7 @@ function AccessDelete(deviceID){
 					<a href="#UserInfo" onclick="">set</a>
 				</div>
 				<div class="InfoButtom" style="width:300px; float:left; margin-top:610px; position:absolute;">
-					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
+					<a href="#" title="Send" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
 			</div>
