@@ -10,7 +10,24 @@
 	  </ul>
   </div>
   
-  <div class="contextmenu conDevicetotal">
+    <div class="contextmenu conDeviceMemberGroup">
+	 <ul>
+	   <li class="menuitem">Delete Device Group</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Add Device</li>
+	 </ul>
+     </div>  
+     
+       <div class="contextmenu conDevicesubGroup">
+	 <ul>
+	   <li class="menuitem">Add Device Group</li>
+	   <li class="menuitem">Delete Device Group</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Add Device</li>
+	 </ul>
+     </div>  
+     
+      <div class="contextmenu conDevicetotal">
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
   	    <li class="menuitem">Delete Device Group</li>
@@ -20,12 +37,12 @@
 	  </ul>
   </div>
   
-  <div class="contextmenu conDevice">
+     <div class="contextmenu conDeviceDelete">
 	 <ul>
-	   <li class="menuitem">Add Device</li>
 	   <li class="menuitem">Delete Device</li>
-	 </ul>
-   </div>     
+	   </ul>
+     </div>
+  
     
  <!-- User -->
   <div class="contextmenu conUserGroup">
@@ -167,6 +184,34 @@
 		  return false;
 	});
 	
+	//Device Contextmenu
+		$(".devicespanroot").on('contextmenu', function(event) {
+		  ShowContextMenu("conDeviceGroup");
+		  CheckLocation();
+		  return false;
+	});
+	
+	$(".deviceGroupspan").on('contextmenu', function(event) {
+		//1.그룹 하위에 그룹이 존재  2.그룹 하위에 디바이스가 존재  3.그룹 하위에 아무것도 없음
+		if(GroupCheck() == 1){
+		ShowContextMenu("conDeviceGroup");
+		}else if(GroupCheck() == 2){
+		ShowContextMenu("conDeviceMemberGroup");
+		}else if(GroupCheck() == 3){
+			ShowContextMenu("conDevicesubGroup");
+		}
+		 CheckLocation();
+		  return false;
+	});
+	
+	$(".deviceIDspan").on('contextmenu', function(event) {
+		ShowContextMenu("conDeviceDelete");
+		 CheckLocation();
+		  return false;
+	});
+	
+	
+	
 	//User Contextmenu
  	$(".userspanroot").on('contextmenu', function(event) {
 		  ShowContextMenu("conUserGroup");
@@ -230,6 +275,42 @@
 	  $(".conMonitoringDelete").click(function(e){
 			var deleteID = $("#valueOfselectID").val();
 			deleteMap(deleteID);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+	  
+	  
+	//Device Function
+	  $(".conDeviceGroup").click(function(e){
+			if($(this).find(".hover").text() == "Add Device Group")
+				GroupAdd();
+			else
+				GroupDelete();
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });	  
+	  $(".conDeviceMemberGroup").click(function(e){
+			if($(this).find(".hover").text() == "Delete Device Group")
+				GroupDelete();
+			else
+				DeviceAdd(document.getElementById('GroupN').value);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+	  $(".conDevicesubGroup").click(function(e){
+			if($(this).find(".hover").text() == "Add Device Group")
+				GroupAdd();
+			else if($(this).find(".hover").text() == "Delete Device Group"){
+				GroupDelete();
+			}
+			else
+				DeviceAdd(document.getElementById('GroupN').value);
+		    $(".contextmenu").hide();
+		    $(document).unbind('mousedown');
+	  });
+	  $(".conDeviceDelete").click(function(e){
+ 		  var deleteID = $("#valueOfDeviceID").val();
+		  DeviceDelete(deleteID);
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });

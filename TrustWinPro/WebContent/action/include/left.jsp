@@ -148,6 +148,23 @@
 		}); 
 	}
 	
+	function DeviceDelete(id){
+		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
+		if(del){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/DeleteDevice.jsp",   
+			    data: "id="+id,
+			    success:function(args){
+			    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}
+	}
+	
 	
 	function GroupAdd(){
 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
@@ -198,6 +215,37 @@
 				}); 
 			}
 		}
+	}
+	
+	
+	function GroupCheck(handleData){
+ 		var ret;
+ 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
+		{
+			alert('<%=Lanfunc.language(lan, 186)%>');
+		} else {
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/CheckGroup.jsp",
+			    async:false,
+			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
+			    success:function(args){
+			    	if(args == 1){
+						ret = 1;
+			     		}
+			    	else if(args == 2){
+			     		ret = 2;
+			    	}
+			    	else if(args == 3){
+			    		ret = 3;
+			    	}
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);
+			    }  
+			}); 
+		}
+ 		return ret;
 	}
 	
 	
@@ -272,7 +320,7 @@
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
 					<span><a  href="#UserInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
-					<span onclick="changeInputBox(0)" id="text0" class="span"><%=dev[0].getGroupname() %></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span devicespanroot"><%=dev[0].getGroupname() %></span>
 					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
 					<span><a href="#UserInfo" onclick="submit('AllDevice');" >All</a></span>
 				</li>
@@ -307,7 +355,7 @@
 							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
 						</a>
 					</span>
-					<span id="text<%=i%>" class="span" >
+					<span id="text<%=i%>" class="span deviceGroupspan">
 						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a><a href="#in" onclick="swich(<%=i%>,<%=i%>)">
 						<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
 						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" />
@@ -476,7 +524,7 @@
 					<span id="text<%=i%>" class="span userGroupspan" >
 						<a href="#in" onclick="changeInputBox(<%=i%>)" ><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" /></a>
-						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
 					</span>
 	
 					<span id="input<%=i%>" class="spanInput">
@@ -636,12 +684,15 @@
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="AllDevice" name="content" />
 </form>
+<% 
+String selectdeviceID = request.getParameter("deviceID");
+String selectuserID = request.getParameter("userID");
+%>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">
 	<input type="hidden" value="Device" name="left" />
-	<input type="hidden" value="" name="deviceID" />
+	<input type="hidden" value="<%=selectdeviceID%>" name="deviceID" id="valueOfDeviceID"/>
 	<input type="hidden" value="DeviceInfo" name="content" />
 </form>
-<% String selectuserID = request.getParameter("userID");%>
 <form action="/TrustWinPro/action/index.jsp" name="RightClick" id="RightClick" method="post">
 	<input type="hidden" id="valueOfselectUserID" value="<%=selectuserID%>" name="selectUserID" />
 </form>
