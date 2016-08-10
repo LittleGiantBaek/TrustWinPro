@@ -702,7 +702,7 @@ String selectuserID = request.getParameter("userID");
 
 <script type="text/javascript">
 	function SpanDeviceClass(idx){
-		document.getElementById("dev"+idx).className = "userspan";
+		document.getElementById("dev"+idx).className = "userspan deviceIDspan";
 		document.getElementById("dev"+idx+"a").style.color = "#ffffff";
 	}
 	if(<%=request.getParameter("deviceID")%>!=null){
