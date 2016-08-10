@@ -77,7 +77,7 @@
 	</ul>
 </div>
 
-<div class="UserButtom">
+<div class="UserButtom" style="display:none">
 	<a href="#in" onclick="addMap();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
 	<a href="#in" onclick="deleteMap(<%=select_mapID%>);"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
 </div>

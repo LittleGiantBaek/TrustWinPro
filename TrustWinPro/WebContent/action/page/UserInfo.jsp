@@ -108,8 +108,8 @@ function previewImage(targetObj, View_area) {
 			img.id = "prev_" + View_area;
 			img.classList.add("obj");
 			img.file = file;
-			img.style.width = '100px'; 
-			img.style.height = '100px';
+			img.style.width = '180px'; 
+			img.style.height = '180px';
 			preview.appendChild(img);
 			if (window.FileReader) { // FireFox, Chrome, Opera Ȯ��.
 				var reader = new FileReader();
@@ -362,15 +362,12 @@ function AccessAdd(UserID){
 	}
 %>							
 
-									<div>
 										<!-- <div id="shadow" style="position:absolute;z-index:100;"> -->
 										<div>
 											<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="" >
+											<img src="/TrustWinPro/action/image/interface/search.png"  border='0' align="absmiddle">
 										</div>
-										<img src="/TrustWinPro/action/image/interface/search.png"  border='0' align="absmiddle">
-									</div>	
 									</div>
-									<p></p>				
 				</div>
 				<div class="Info">		
 							<div class="block" style="margin-left:50rem; ">

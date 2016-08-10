@@ -477,7 +477,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="DeviceButtom">
+		<div class="DeviceButtom" style="display:none">
 			<a href="#in" onclick="GroupAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
 			<a href="#in" onclick="GroupDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
 			<a href="#in" onclick="DeviceAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
@@ -635,7 +635,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="UserButtom">
+		<div class="UserButtom" style="display:none">
 			<a href="#in" onclick="DepartAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
 			<a href="#in" onclick="DepartDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
 			<a href="#in" onclick="UserAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>

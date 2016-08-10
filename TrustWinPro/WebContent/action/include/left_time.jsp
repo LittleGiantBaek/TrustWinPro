@@ -171,7 +171,7 @@ function TimeDelete(v){
 		<li><img src="/TrustWinPro/action/image/interface/Holiday.png" alt="" style="width:13px;"> <a href="#" onclick="Holidaysubmit();" onkeypress="Holidaysubmit();">Holiday</a></li>
 	</ul>
 </div>
-<div class="UserButtom">
+<div class="UserButtom" style="display:none">
 	<a href="#in" onclick="TimeAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
 	<a href="#in" onclick="TimeDelete(<%=Num%>);"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
 </div>
