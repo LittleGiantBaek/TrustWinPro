@@ -6,6 +6,7 @@
 <%
 	String group = (String)request.getParameter("group");
 	int value = 0;
+	
 	if(!group.equals("")){
 		Connection conn = null;
 		String sql = "select ID from SetupTcpip";
@@ -34,7 +35,6 @@
 		
 		String SMaxId = Integer.toString(maxID);
 		
-	
 		sql = "select * from DeviceGroup where UpNumber = " + group;
 		
 		try {

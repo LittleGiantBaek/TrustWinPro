@@ -19,20 +19,6 @@
 %>
 <script type="text/javascript">
 	
-	function UserAdd(num){
-		$.ajax({      
-		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/AddUser.jsp",   
-		    data: "depart="+num,
-		    success:function(args){
-		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
-		    },   
-		    error:function(e){  
-		        alert(e.responseText);  
-		    }  
-		}); 
-	}
-	
 	function UserDelete(id){
 		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
@@ -126,6 +112,20 @@
 	}
  	
 
+ 	function UserAdd(num){
+ 		$(".Loading").css("display","block");
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddUser.jsp",   
+		    data: "depart="+num,
+		    success:function(args){
+		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
 	
 	//device
 	function DeviceAdd(num){

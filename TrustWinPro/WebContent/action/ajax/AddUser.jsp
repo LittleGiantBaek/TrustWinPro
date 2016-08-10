@@ -6,10 +6,6 @@
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%
 	String depart = (String)request.getParameter("depart");
-
-
-
-
 	int value = 0;
 	String lan = (String)session.getAttribute("nation");
 	LanguageFunc Lanfunc = new LanguageFunc();
@@ -27,7 +23,7 @@
 	
 	while(rs.next()){
 		if(maxID < Integer.parseInt(rs.getString(1))){
-	maxID = Integer.parseInt(rs.getString(1));
+			maxID = Integer.parseInt(rs.getString(1));
 		}
 	}
 		
