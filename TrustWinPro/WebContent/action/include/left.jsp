@@ -19,20 +19,6 @@
 %>
 <script type="text/javascript">
 	
-	function UserAdd(num){
-		$.ajax({      
-		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/AddUser.jsp",   
-		    data: "depart="+num,
-		    success:function(args){
-		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
-		    },   
-		    error:function(e){  
-		        alert(e.responseText);  
-		    }  
-		}); 
-	}
-	
 	function UserDelete(id){
 		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
@@ -126,6 +112,20 @@
 	}
  	
 
+ 	function UserAdd(num){
+ 		$(".Loading").css("display","block");
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/AddUser.jsp",   
+		    data: "depart="+num,
+		    success:function(args){
+		    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		}); 
+	}
 	
 	//device
 	function DeviceAdd(num){
@@ -146,6 +146,23 @@
 		        alert(e.responseText);  
 		    }  
 		}); 
+	}
+	
+	function DeviceDelete(id){
+		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
+		if(del){
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/DeleteDevice.jsp",   
+			    data: "id="+id,
+			    success:function(args){
+			    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);  
+			    }  
+			}); 
+		}
 	}
 	
 	
@@ -198,6 +215,37 @@
 				}); 
 			}
 		}
+	}
+	
+	
+	function GroupCheck(handleData){
+ 		var ret;
+ 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
+		{
+			alert('<%=Lanfunc.language(lan, 186)%>');
+		} else {
+			$.ajax({      
+			    type:"post",  
+			    url:"/TrustWinPro/action/ajax/CheckGroup.jsp",
+			    async:false,
+			    data: "num="+document.getElementById("GroupN").value+"&dep="+document.getElementById("GroupD").value,
+			    success:function(args){
+			    	if(args == 1){
+						ret = 1;
+			     		}
+			    	else if(args == 2){
+			     		ret = 2;
+			    	}
+			    	else if(args == 3){
+			    		ret = 3;
+			    	}
+			    },   
+			    error:function(e){  
+			        alert(e.responseText);
+			    }  
+			}); 
+		}
+ 		return ret;
 	}
 	
 	
@@ -271,10 +319,10 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
-					<span><a  href="#UserInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
-					<span onclick="changeInputBox(0)" id="text0" class="span"><%=dev[0].getGroupname() %></span>
-					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
-					<span><a href="#UserInfo" onclick="submit('AllDevice');" >All</a></span>
+					<span><a  href="#DeviceInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span devicespanroot"><%=dev[0].getGroupname() %></span>
+					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
+					<span><a href="#DeviceInfo" onclick="submit('AllDevice');" >All</a></span>
 				</li>
 <%
 		int padding = 0;
@@ -297,31 +345,33 @@
 				LastDepth2 = dev[i].getDepth();
 			}
 			
-			Device[] dev2 = Devfunc.DeviceSelect(dev[i].getIdx());
 %>
 				<li style="padding-left:<%=padding%>px" >
 					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
-					<span id="span<%=i %>" >
-						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a><a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
+					<span id="span<%=i %>" class = "deviceIDspan" >
+						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
 							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
 							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
 						</a>
 					</span>
-					<span id="text<%=i%>" class="span" >
-						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a><a href="#in" onclick="swich(<%=i%>,<%=i%>)">
+					<span id="text<%=i%>" class="span deviceGroupspan">
+						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)">
 						<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
 						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" />
 						</a></span>
 					<span id="input<%=i%>" class="spanInput">
-						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=dev[i].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')" onblur="return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')"  />
+						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=dev[i].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')" onblur="UpdateDevice(this.value,'<%=dev[i].getIdx()%>')"  />
+					</span>
 <%
+			Device[] dev2 = Devfunc.DeviceSelect(dev[i].getIdx());
 			if(dev2.length>0){
 %>
-						<a href="#in" onclick="swich(<%=i%>)">-</a>
+						<%-- <a href="#in" onclick="swich(<%=i%>)">-</a> --%>
 <%
 			}
 %>
-					</> 
 <%
 			
 			if(dev2.length != 0){
@@ -439,7 +489,7 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
-					<span onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></span>
+					<span><a href="#UserInfo" onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></a></span>
 					<span onclick="changeInputBox(0)" id="text0" class="span userspanroot"><%=cata[0].getName()%></span>
 					<span id="input0" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
 					<span><a href="#UserInfo" onclick="submit('AllUser');" >All</a></span> 
@@ -476,7 +526,7 @@
 					<span id="text<%=i%>" class="span userGroupspan" >
 						<a href="#in" onclick="changeInputBox(<%=i%>)" ><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" /></a>
-						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
 					</span>
 	
 					<span id="input<%=i%>" class="spanInput">
@@ -636,19 +686,23 @@
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="AllDevice" name="content" />
 </form>
+<% 
+String selectdeviceID = request.getParameter("deviceID");
+String selectuserID = request.getParameter("userID");
+%>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">
 	<input type="hidden" value="Device" name="left" />
-	<input type="hidden" value="" name="deviceID" />
+	<input type="hidden" value="<%=selectdeviceID%>" name="deviceID" id="valueOfDeviceID"/>
 	<input type="hidden" value="DeviceInfo" name="content" />
 </form>
-<% String selectuserID = request.getParameter("userID");%>
 <form action="/TrustWinPro/action/index.jsp" name="RightClick" id="RightClick" method="post">
 	<input type="hidden" id="valueOfselectUserID" value="<%=selectuserID%>" name="selectUserID" />
+	<input type="hidden" value="<%=selectdeviceID%>" name="deviceID" id="valueOfDeviceID"/>
 </form>
 
 <script type="text/javascript">
 	function SpanDeviceClass(idx){
-		document.getElementById("dev"+idx).className = "userspan";
+		document.getElementById("dev"+idx).className = "userspan deviceIDspan";
 		document.getElementById("dev"+idx+"a").style.color = "#ffffff";
 	}
 	if(<%=request.getParameter("deviceID")%>!=null){

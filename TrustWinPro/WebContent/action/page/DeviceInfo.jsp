@@ -350,35 +350,35 @@ function AccessDelete(deviceID){
 								</div>				
 				</div>
 				<div class="Info">
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 1)%> * : 
 						</div>
 						<input type="text" class = "inputt" name="controllerName" value="<%=LangUtil.Empty(rs.getString(1)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 2)%> * : 
 						</div>
 						<input type="text" class = "inputt" name="idm" value="<%=LangUtil.Empty(rs.getString(2)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 3)%> * : </div>
 						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 4)%> * : </div>
 						<input type="text" class = "inputt" name="port" value="<%=LangUtil.Empty(rs.getString(4)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 5)%> * : </div>
 						<input type="text" name="Password" class = "inputt" value="<%=LangUtil.Empty(rs.getString(5)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 6)%> * : </div>
 						<input type="text" name="uniqueid" class = "inputt" value="<%=LangUtil.Empty(rs.getString(6)) %>" size="30um">
 					</div>
-					<div class="block" style="margin-left:45rem;">
+					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 7)%> * : </div>
 						<input type="text" name="serverport" class = "inputt" value="<%=LangUtil.Empty(rs.getString(7)) %>" size="30um">
 					</div>
@@ -725,7 +725,7 @@ function AccessDelete(deviceID){
 					<a href="#UserInfo" onclick="">set</a>
 				</div>
 				<div class="InfoButtom" style="width:300px; float:left; margin-top:610px; position:absolute;">
-					<a href="#" title="Enroll" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
+					<a href="#" title="Send" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
 			</div>
