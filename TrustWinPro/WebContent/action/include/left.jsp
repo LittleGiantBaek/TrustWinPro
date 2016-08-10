@@ -489,7 +489,7 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
-					<span onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></span>
+					<span><a href="#UserInfo" onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></a></span>
 					<span onclick="changeInputBox(0)" id="text0" class="span userspanroot"><%=cata[0].getName()%></span>
 					<span id="input0" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
 					<span><a href="#UserInfo" onclick="submit('AllUser');" >All</a></span> 
