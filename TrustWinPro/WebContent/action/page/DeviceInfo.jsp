@@ -329,7 +329,6 @@ function AccessDelete(deviceID){
 	<div class="basic">
 		<form action="/TrustWinPro/action/page/DeviceUpdate.jsp" name="DeviceInfomation" id="DeviceInfomation" method="post"  enctype="multipart/form-data" >
 			<input type="hidden" name="id" value="<%=LangUtil.Empty(LangUtil.Empty(rs.getString(2))) %>">
-			
 			<section class = "sectionji">
 				<ul class = "ulji">
 				</ul>
@@ -347,7 +346,7 @@ function AccessDelete(deviceID){
 									<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="">
 									<img src="/TrustWinPro/action/image/interface/search.png"  border='0' >
 								</div>
-								</div>				
+							</div>				
 				</div>
 				<div class="Info">
 					<div class="block" style="margin-left:50rem;">
@@ -364,7 +363,7 @@ function AccessDelete(deviceID){
 					</div>
 					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 3)%> * : </div>
-						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3)) %>" size="30um">
+						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3))%>" size="30um">
 					</div>
 					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 4)%> * : </div>

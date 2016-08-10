@@ -3,6 +3,7 @@ package com.Trustwin.Admin.Project.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Arrays;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,7 +15,6 @@ public class UserFunc {
 
 public User[] UserSelect(int dep) {
 
-		
 		Connection conn = null;
 		User[] users = null;
 		User user = null;
@@ -317,6 +317,187 @@ public User[] UserSelect(int dep) {
 		return users;
 	}
 	
+	public User[] searchUser(String FN, String MN, String LN, int DP[], String UI, String CI){
+		Connection conn = null;
+		Language language = new Language();
+		User[] users = null;
+		int count = 0;
+		for(int i = 0; i< DP.length;i++){
+		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID from dbo.Member where 1=1 ";
+		
+		if(FN !=null){
+			if(!FN.equals("")){
+				sql = sql + "and FirstName like '%" + FN + "%'"; 
+			}
+		}
+		
+		if(MN !=null){
+			if(!MN.equals("")){
+				sql = sql + "and MiddleName like '%" + MN + "%'"; 
+			}
+		}
+		
+		if(LN !=null){
+			if(!LN.equals("")){
+				sql = sql + "and LastName like '%" + LN + "%'"; 
+			}
+		}
+		
+		if(DP[i]!=0){
+			sql = sql + "and Department = '" + DP[i] + "'"; 
+		}
+		
+		if(UI !=null){
+			if(!UI.equals("")){
+				sql = sql + "and UserID like '%" + UI + "%'"; 
+			}
+		}
+		
+		if(CI !=null){
+			if(!CI.equals("")){
+				sql = sql + "and CompanyID like '%" + CI + "%'"; 
+			}
+		}
+		
+		sql = sql + " order by UserID";
+		try {
+				Context init = new InitialContext();
+				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+				conn = ds.getConnection();
+				Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+				ResultSet rs = pstmt.executeQuery(sql);
+				rs.last();
+				users = new User[rs.getRow()];
+				rs.beforeFirst();
+				
+				while(rs.next()){
+					users[count] = new User();
+					users[count].setFirstName(rs.getString(1));
+					users[count].setMiddleName(rs.getString(2));
+					users[count].setLastName(rs.getString(3));
+					users[count].setUserId(rs.getString(4));
+					users[count].setId(rs.getString(5));
+					users[count].setUserClass(rs.getString(6));
+					users[count].setPassWord(rs.getString(7));
+					users[count].setDepartment(rs.getInt(8));
+					users[count].setCompanyID(rs.getString(9));
+					count++;
+				}
+				rs.close();
+				conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		}
+		return users;
+	}
+	public int[] departmentChildarr(int idx){
+		int[][] departlist = null;
+		int [] depart = null;
+		int [] A = null;
+		int [] B = null;
+		Connection conn = null;
+		int count = 0;
+		int countA = 0;
+		int countB = 0;
+		int countcheck = 0;
+		String sql = "select idx,upnumber from depart"; 
+		try{
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			ResultSet rs = pstmt.executeQuery(sql);
+			rs.last();
+			departlist = new int[rs.getRow()][rs.getRow()];
+			rs.beforeFirst();
+			depart = new int[this.departmentcount()];
+			A  = new int[rs.getRow()];
+			B = new int[rs.getRow()];
+			//all department list (idx,upnumber)
+			while(rs.next()){
+				departlist[count][0] = Integer.parseInt(rs.getString(1));
+				departlist[count][1] = Integer.parseInt(rs.getString(2));
+				count++;
+			}
+			//initial value
+			A[0] = idx;
+			while(true){
+				for(int i = 0; i < A.length;i++){
+					for(int j = 0; j < count; j++){
+						if(departlist[j][1] == A[i]){
+							B[countB] = departlist[i][0];
+							countcheck++;
+							countB ++;
+						}
+					}
+					if(countcheck == 0){
+						B[countB] = A[i];
+						countB ++;
+					}
+					countcheck = 0;
+				}
+				for(int i = 0; i < A.length;i++){
+					for(int j = 0; j < count; j++){
+						if(departlist[j][1] == A[i]){
+							A[countA] = departlist[i][0];
+							countcheck++;
+							countA ++;
+						}
+					}
+					if(countcheck == 0){
+						A[countA] = B[i];
+						countA ++;
+					}
+					countcheck = 0;
+				}
+				if(Arrays.equals(A, B)){
+					depart = A;
+					break;
+				}
+				countcheck = 0;
+				countA = 0;
+				countB = 0;
+			}
+			
+			pstmt.close();
+			rs.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return depart;
+	}
+	
+	public int departmentcount(){
+		Connection conn = null;
+		System.out.println("111111");
+		String sql = "select count(*) from Depart ";
+		int ret = 0;
+		try{
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE,ResultSet.HOLD_CURSORS_OVER_COMMIT);
+			pstmt.executeUpdate(sql);
+			ResultSet rs = pstmt.executeQuery(sql);
+			
+			ret = rs.getInt(1);
+			System.out.println(ret);
+			System.out.println(rs.next());
+			System.out.println(rs.next());
+			pstmt.close();
+			rs.close();
+			conn.close();
+			
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
 	
 	public void departmentDelete(int idx){
 		Connection conn = null;
@@ -348,5 +529,7 @@ public User[] UserSelect(int dep) {
 			e.printStackTrace();
 		}
 	}
-
+	public void hello(){
+		System.out.println("hello111");
+	}
 }

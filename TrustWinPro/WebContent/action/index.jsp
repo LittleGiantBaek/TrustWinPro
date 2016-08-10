@@ -50,7 +50,6 @@ $(".Loading").css("display","none");
    <jsp:include page="./include/footer.jsp" flush="false"></jsp:include>
 </div>
 
-		
 		<%
 			if(userClass != null && !userClass.equals("128")){
 		%>
