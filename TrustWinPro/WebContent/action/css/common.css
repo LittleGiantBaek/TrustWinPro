@@ -24,6 +24,139 @@ ul li{list-style-type:none;}
 img {border:0;}
 
 
+.leftMainMenu {
+    position: absolute;
+    background: #594b4f;
+    left: 0px;
+    top: 0px;
+   height:1200px;
+}
+nav {
+    position: relative;
+    float: left;
+    width: 80px;
+    background: #594b4f;
+    z-index: 300;
+}
+.sm-nav {
+	padding-left:0px;
+}
+header, section, article, footer, hgroup, aside, nav, figure {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #5a5a5a;
+    font: normal 12px/0.9 Roboto, 'Nanum Gothic', '돋움', Dotum, '굴림', Gulim, sans-serif;
+}
+.sm-nav li.DASHBOARD button {
+   /*  padding: 35px 0 0 0; */
+   padding-bottom:5px;
+    background-position: 0px -33px;
+    cursor:pointer;
+}
+.sm-nav li.DASHBOARD.on button {
+    background-position: 0px -118px;
+}
+.sm-nav .on button:active, .sm-nav .on button:hover {
+    color: #fff;
+    text-shadow: none;
+}
+.sm-nav .on button {
+    color: #fff;
+    box-shadow: inset -3px 0 2px 0 #e06162;
+    background-color: #f47971;
+}
+.sm-nav button:active, .sm-nav button:hover {
+    color: #e1c855;
+    text-shadow: -2px -2px 1px #73666a;
+}
+.sm-nav button {
+    white-space: pre;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 85px;
+    margin-top:10px;
+    /* padding: 42px 0 0 0; */
+    font-size: 0.833em;
+    color: #9b9196;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #453e40;
+    background-image: url(/TrustWinPro/action/image/interface/device icon.png);
+    background-repeat: no-repeat;
+    line-height: 1.10em;
+    cursor:pointer;
+}
+button {
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background: none;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+}
+.panelAreaOpen .panelArea {
+    display: block;
+    position: relative;
+    border-top-right-radius: 8px;
+}
+/* .panelArea {
+    display: none;
+    float: left;
+    width: 240px;
+    background: #fff;
+    margin-bottom: 30px;
+    height: calc(100vh - 100px);
+    z-index: 200;
+} */
+ .ng-scope {
+    padding: 8px 2px 4px 2px;
+    text-align: center;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #b4b4b4;
+    background: #f4f3f2;
+    width:110px;
+    height:1200px;
+} 
+   .leftTreeMenu {
+        height: 800px;
+    }
+ .main-ng-view {
+    position: relative;
+    left: 80px;
+    margin-right: 0px;
+    padding-right: 80px;
+    overflow: hidden;
+    height: 1200px;
+}   
+.splitterDiv {
+    position: absolute;
+    float: right;
+    top: 90px;
+}
+.splitterRight:hover {
+    height: 62px;
+    margin-top: -31px;
+    background-position: -20px -420px;
+    z-index: 1000;
+}
+.splitterRight {
+    display: block;
+    position: absolute;
+    right: -19px;
+    width: 19px;
+    height: 32px;
+    margin-top: -16px;
+    background: url(/TrustWinPro/action/image/interface/device icon.png) no-repeat -20px -380px;
+    cursor: w-resize;
+    z-index: 1000;
+}
+
+
 .inputt {
 	display: inline-block;
     height: 28px;
@@ -115,8 +248,8 @@ img {border:0;}
 #top .main_top .top_menu .menu ul li a{color:white;}
 	
 /* left style */
-#left{padding:10px 0;width:21%;height:100%;margin:0;float:left;background-color: #dcd6d3; 
-min-height:760px;min-width:200px;position:relative;}
+#left{/* padding:10px 0; */width:21%;height:100%;margin:0;float:left;background-color: #dcd6d3; 
+min-height:760px;/* min-width:200px; */position:relative;}
 #left .left_top {width:100%;position:absolute;height:69%;min-height:500px;bottom:30px;}
 #left .left_top .left_box{border:1px solid black;margin:5px;padding-top:5px;}
 #left .left_top .left_box .left_boxlist{border:1px solid black;overflow-y:scroll; height:200px;}
@@ -131,21 +264,23 @@ min-height:760px;min-width:200px;position:relative;}
 #left .left_bottom .left_buttom .Event{position:absolute;top:95px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
 #left .left_bottom .left_buttom .Time{position:absolute;top:135px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
 #left .left_bottom .left_buttom .Monitoring{position:absolute;top:175px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
+ 
+ .left_bottom ul {padding-left:0px}
   
-#left .left_top .User {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;min-width: 150px;}
-#left .left_top .User ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .User {/* padding:10px 0; */ margin:0 auto; /* overflow-y:scroll; */ height:100%; width:98%;}
+#left .left_top .User ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .User ul li{padding:0;margin:0;}
 
-#left .left_top .Device {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;}
-#left .left_top .Device ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .Device {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%; min-height:710px}
+#left .left_top .Device ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .Device ul li{padding:0;margin:0;}
 
-#left .left_top .Event {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:710px;}
-#left .left_top .Event ul {padding:0 0 0 5px;margin:0;}
+#left .left_top .Event {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%; min-height:710px;}
+#left .left_top .Event ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .Event ul li{padding:0;margin:0;}
 
-#left .left_top .Time {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%;}
-#left .left_top .Monitoring {padding:10px 0;margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:500px;}
+#left .left_top .Time {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%;}
+#left .left_top .Monitoring {/* padding:10px 0; */margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:500px;}
 
 .open {display:none;}
 .close {} 

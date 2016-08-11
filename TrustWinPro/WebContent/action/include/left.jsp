@@ -248,11 +248,419 @@
  		return ret;
 	}
 	
+	$( ".sm-nav>li>button" ).click(function() {
+	    $(this).parent().addClass("on").siblings().removeClass("on");
+	    return false;
+	});
 	
 </script>
-
-
 <div id="left">
+	<div class="left_bottom">
+<nav class="leftMainMenu" ng-menu="" style="display: block;">
+    <ul class="sm-nav">
+        <li ng-repeat="menu in menuNames" class="DASHBOARD" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
+           <button ng-label="common.gnb.dashboard" onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
+           <br>DEVICE</button>
+        </li>
+        <li ng-repeat="menu in menuNames" class="USER" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
+            <button ng-label="common.gnb.user" onclick="location.href='/TrustWinPro/action/index.jsp?left=User&content=AllUser' "><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:13px;left:30px;"><br>USER</button>
+        </li>
+        <li ng-repeat="menu in menuNames" class="DEVICE" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
+           <button ng-label="common.gnb.device" onclick="location.href='/TrustWinPro/action/index.jsp?left=Event' "><img src="/TrustWinPro/action/image/interface/event icon.png" style="position:absolute;top:13px;left:30px;"><br>EVENT</button>
+        </li>
+        <li ng-repeat="menu in menuNames" class="DOOR" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
+            <button ng-label="common.gnb.door" onclick="location.href='/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup' "><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>ACCESS<br>CONTROL</button>
+        </li>
+        <li ng-repeat="menu in menuNames" class="ACCESS_CONTROL" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
+            <button ng-label="common.gnb.access_control" onclick="location.href='/TrustWinPro/action/index.jsp?left=Monitoring&content=Map' "><img src="/TrustWinPro/action/image/interface/monitoring_2.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>MONITORING</button>
+        </li>
+    </ul>
+</nav>
+</div>
+
+<div class="main-ng-view ng-scope" ng-view>
+<div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" >
+	<div class="left_bottom"> 
+	<%
+	// userInfo
+	Category[] category = null;
+	
+	category = Catefunc.CategoryDefind();
+
+	int length = category.length;
+	Category[] cata = new Category[length];	
+	cata = Catefunc.SortCategoryOne(category);
+
+	//DeviceInfo
+	DeviceGroup[] device = null;
+	device = Devfunc.GroupDefind();
+	
+	int lengthD = device.length;
+	DeviceGroup[] dev = new DeviceGroup[lengthD];	
+	dev = Devfunc.SortGroupOne(device);
+	
+	String left = "";
+	if(request.getParameter("left")!=null){
+		left = request.getParameter("left");
+	}else{
+		left = "Event";
+	}
+	if(left.equals("Device")){
+%>
+		<div class="Device">
+			<ul>
+				<li>
+					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
+					<span><a  href="#DeviceInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span devicespanroot"><%=dev[0].getGroupname() %></span>
+					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
+					<span><a href="#DeviceInfo" onclick="submit('AllDevice');" >All</a></span>
+				</li>
+<%
+		int padding = 0;
+		int[] depth;
+		int LastDepth = 0;
+		int LastDepth2 = 0;
+		depth = new int[100];
+		
+		int devcot = -1;
+		for(int i=1;i<lengthD;i++){
+			padding = dev[i].getDepth() * 10;
+			
+			if(i!= lengthD-1){
+				if(dev[i].getDepth()<dev[i+1].getDepth()){
+					devcot++;
+					depth[devcot] = dev[i].getIdx();
+				}
+			}else{
+				LastDepth = dev[i].getIdx();
+				LastDepth2 = dev[i].getDepth();
+			}
+			
+%>
+				<li style="padding-left:<%=padding%>px" >
+					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
+					<span id="span<%=i %>" class = "deviceIDspan" >
+						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
+							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
+							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
+						</a>
+					</span>
+					<span id="text<%=i%>" class="span deviceGroupspan">
+						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)">
+						<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
+						<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" />
+						</a></span>
+					<span id="input<%=i%>" class="spanInput">
+						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=dev[i].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[i].getIdx()%>')" onblur="UpdateDevice(this.value,'<%=dev[i].getIdx()%>')"  />
+					</span>
+<%
+			Device[] dev2 = Devfunc.DeviceSelect(dev[i].getIdx());
+			if(dev2.length>0){
+%>
+						<%-- <a href="#in" onclick="swich(<%=i%>)">-</a> --%>
+<%
+			}
+%>
+<%
+			
+			if(dev2.length != 0){
+				if(i!=lengthD-1){
+					if(dev2!=null&&dev[i+1].getUpnumber() != dev[i].getIdx()){
+						padding = (dev[i].getDepth()+1) * 15;
+						if(0<dev2.length){
+%>
+					<ul id="<%=i%>">
+<%
+						}
+						for(int j=0;j<dev2.length;j++){
+%>
+						<li id="dev<%=dev2[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev2[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev2[j].getID() %>');" id="dev<%=dev2[j].getID() %>a"><%=dev2[j].getControllerName() %></a>
+<%
+						if(j==dev2.length-1){
+%>
+							<a class = "bottom" href="#in" onclick="DeviceAdd(<%=dev2[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<%
+						}
+						if(0<dev2.length){
+%>
+					</ul>
+<%
+						}
+					}
+				}
+			}else if(i!= lengthD-1){
+				if(dev[i].getDepth()>dev[i+1].getDepth()){
+					if(dev[i+1].getDepth()<dev[i].getDepth()){
+%>
+					<ul id="<%=i%>">
+<%
+					}
+					for(int k=dev[i+1].getDepth();k<dev[i].getDepth();k++){
+						Device[] dev1 = Devfunc.DeviceSelect(depth[devcot]);
+						padding = (devcot+2) * 15;
+						for(int j=0;j<dev1.length;j++){
+%>
+						<li id="dev<%=dev1[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev1[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev1[j].getID() %>');" id="dev<%=dev1[j].getID() %>a"><%=dev1[j].getControllerName() %></a>
+<%
+						if(j==dev1.length-1){
+%>
+							<a class = "bottom" href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<% 
+						}
+						devcot--;
+					}
+					if(dev[i+1].getDepth()<dev[i].getDepth()){
+%>
+					</ul>
+<%
+					}
+				}
+			}
+%>
+				
+<%
+		}
+		
+		for(int i = 0;i<=LastDepth2;i++){
+			if(i>0){
+				LastDepth = Devfunc.GroupUpNum(LastDepth);
+			}
+			Device[] dev1 = Devfunc.DeviceSelect(LastDepth);
+			if(0<dev1.length){
+%>
+					<ul id="<%=lengthD-1%>">
+<%				
+			}
+			for(int j=0;j<dev1.length;j++){
+%>
+						<li id="dev<%=dev1[j].getID() %>" style="padding-left:15px;">
+							<img src="/TrustWinPro/action/image/interface/deviceIcon.png"><a href="#content" onclick="submitDevice('Device','<%=dev1[j].getID() %>');" onkeypress="submitDevice('Device','<%=dev1[j].getID() %>');" id="dev<%=dev1[j].getID() %>a"><%=dev1[j].getControllerName() %></a>
+<%
+						if(j==dev1.length-1){
+%>
+							<a class = "bottom"  href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+						</li>
+<% 
+			}
+			if(0<dev1.length){
+%>
+					</ul>
+<%
+			}
+		}
+%>
+					
+				</li>
+			</ul>
+		</div>
+		<div class="DeviceButtom" style="display:none">
+			<a href="#in" onclick="GroupAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
+			<a href="#in" onclick="GroupDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
+			<a href="#in" onclick="DeviceAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
+		</div>
+<%
+	}else if(left.equals("User")){
+%>
+		<div class="User">
+			<ul>
+				<li>
+					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
+					<span><a href="#UserInfo" onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></a></span>
+					<span onclick="changeInputBox(0)" id="text0" class="span userspanroot"><%=cata[0].getName()%></span>
+					<span id="input0" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
+					<span><a href="#UserInfo" onclick="submit('AllUser');" >All</a></span> 
+				</li>
+			
+<%
+		int padding = 0;
+		int[] depth;
+		int LastDepth = 0;
+		int LastDepth2 = 0;
+		depth = new int[100];
+		
+		int depcot = -1;
+		for(int i=1;i<length;i++){
+			padding = cata[i].getDepth() * 15;
+
+			if(i!= length-1){
+				if(cata[i].getDepth()<cata[i+1].getDepth()){
+					depcot++;
+					depth[depcot] = cata[i].getIdx();
+				}
+			}else{
+ 				LastDepth = cata[i].getIdx();
+				LastDepth2 = cata[i].getDepth();
+			}
+%>
+				<li style="padding-left:<%=padding%>px">
+					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
+					<span id="span<%=i %>" class = "userIDspan" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" /></a>
+						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
+					</span>
+
+					<span id="text<%=i%>" class="span userGroupspan" >
+						<a href="#in" onclick="changeInputBox(<%=i%>)" ><%=cata[i].getName() %></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" /></a>
+						<a href="#in" onclick="swich(<%=i%>,<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>" style="display:none;" /></a>
+					</span>
+	
+					<span id="input<%=i%>" class="spanInput">
+						<input type="text" name="name" id="name" class="inputText" value="<%=cata[i].getName() %>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" onblur="UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" />
+					</span> 
+
+<%
+			User[] user2 = Userfunc.UserSelect(cata[i].getIdx());
+			
+			if(i!=length-1){
+				if(user2!=null&&cata[i+1].getUpnumber() != cata[i].getIdx()){
+					if(user2.length>0){
+%>
+				<ul id="<%=i%>">
+<%
+					}
+					for(int j=0;j<user2.length;j++){
+%>
+					<li id="user<%=user2[j].getUserId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user2[j].getUserId()%>');" onkeypress="submit('User','<%=user2[j].getUserId() %>');" ><%=user2[j].getName() %></a>
+<%
+						if(j==user2.length-1){
+%>
+						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user2[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+					</li>
+<%
+					}
+					if(user2.length>0){
+%>
+				</ul>
+<%
+					}
+				}
+
+				if(cata[i].getDepth()>cata[i+1].getDepth()){
+					for(int k=cata[i+1].getDepth();k<cata[i].getDepth();k++){
+						User[] user1 = Userfunc.UserSelect(depth[depcot]);
+						if(user1.length>0){
+%>
+				<ul id="<%=i%>">
+<%
+						}
+						for(int j=0;j<user1.length;j++){
+%>
+					<li id="user<%=user1[j].getUserId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user1[j].getUserId() %>');" onkeypress="submit('User','<%=user1[j].getUserId() %>');" ><%=user1[j].getName() %></a>
+<%
+
+							if(j==user1.length-1){
+%>						
+						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+							}
+%>
+					</li>
+<% 
+						}
+						depcot--;
+						if(user1.length>0){
+%>
+				</ul>
+<%
+						}
+					}
+				}
+			}
+		}
+		for(int i = 0;i<=LastDepth2;i++){
+			if(i>0){
+				LastDepth = Catefunc.CataUpNum(LastDepth);
+			}
+			User[] user1 = Userfunc.UserSelect(LastDepth);
+		
+			if(user1.length>0){
+%>
+				<ul id="<%=length-1%>">
+<%
+			}
+
+			for(int j=0;j<user1.length;j++){
+%>
+					<li id="user<%=user1[j].getUserId()%>" style="padding-left:15px;">
+						<img src="/TrustWinPro/action/image/interface/leftusericon.png"><a href="#content" onclick="submitUser('User','<%=user1[j].getUserId() %>');" onkeypress="submit('User','<%=user1[j].getUserId() %>');" ><%=user1[j].getName() %></a>
+<%
+						if(j==user1.length-1){
+%>
+						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+<%							
+						}
+%>
+					</li>
+<% 
+			}	
+			if(user1.length>0){
+%>
+				</ul>
+<%
+			}
+		}
+		
+		
+%>
+				</li>
+			</ul>
+		</div>
+		<div class="UserButtom" style="display:none">
+			<a href="#in" onclick="DepartAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
+			<a href="#in" onclick="DepartDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
+			<a href="#in" onclick="UserAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
+		</div>
+<%
+	}else if(left.equals("Event")){
+%>
+		<jsp:include page="left_event.jsp" flush="false"></jsp:include>
+<%
+	}else if(left.equals("Monitoring")){
+%>
+		<jsp:include page="left_Monitoring.jsp" flush="false"></jsp:include>
+<%
+	}else{
+%>
+		<jsp:include page="left_time.jsp" flush="false"></jsp:include>
+<%
+	}
+		
+%>
+	</div> 
+        </div>
+    </div>
+    <!-- splitter -->
+    <div class="splitterDiv">
+        <button href="javascript:void(0);" class="splitterRight ng-isolate-scope" ng-click="splitterClicked()" ngbss-splitter=""></button>
+    </div>
+
+
+
+
+
+<!-- <div id="left">
 	<div class="left_bottom">
 		<div class="left_buttom">
 			<div>
@@ -286,9 +694,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-<div class="left_top">
+
+
+
+<%-- <div class="left_top">
 <%
 	// userInfo
 	Category[] category = null;
@@ -368,7 +779,7 @@
 			Device[] dev2 = Devfunc.DeviceSelect(dev[i].getIdx());
 			if(dev2.length>0){
 %>
-						<%-- <a href="#in" onclick="swich(<%=i%>)">-</a> --%>
+						<a href="#in" onclick="swich(<%=i%>)">-</a>
 <%
 			}
 %>
@@ -656,7 +1067,7 @@
 	}
 		
 %>
-	</div>
+	</div>  --%>
 </div>
 <form>
 	<input type="hidden" value="" name="deviceName" id="deviceName" />
