@@ -114,7 +114,9 @@ function checkedF(num,v){
 	AccessFunc Accfunc = new AccessFunc();
 	DeviceFunc Devfunc = new DeviceFunc();
 	
-	User[] users = Userfunc.searchUser(FirstName,MiddleName,LastName,Department,UserClass,CompanyID);
+	List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
+	ChildDepartmentArr = Userfunc.departmentChildarr(Department);
+	User[] users = Userfunc.searchUser(FirstName,MiddleName,LastName,ChildDepartmentArr,UserClass,CompanyID);
 	String lan = (String)session.getAttribute("nation");
 
 	int top = 0;

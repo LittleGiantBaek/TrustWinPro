@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Arrays;
+import java.util.*;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -317,12 +318,13 @@ public User[] UserSelect(int dep) {
 		return users;
 	}
 	
-	public User[] searchUser(String FN, String MN, String LN, int DP[], String UI, String CI){
+	public User[] searchUser(String FN, String MN, String LN, List <Integer> DP, String UI, String CI){
 		Connection conn = null;
 		Language language = new Language();
+		List <User> userstmp = new ArrayList<User>();;
 		User[] users = null;
 		int count = 0;
-		for(int i = 0; i< DP.length;i++){
+		for(int i = 0; i< DP.size();i++){
 		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID from dbo.Member where 1=1 ";
 		
 		if(FN !=null){
@@ -343,8 +345,8 @@ public User[] UserSelect(int dep) {
 			}
 		}
 		
-		if(DP[i]!=0){
-			sql = sql + "and Department = '" + DP[i] + "'"; 
+		if(DP.get(i)!=0){
+			sql = sql + "and Department = '" + DP.get(i) + "'"; 
 		}
 		
 		if(UI !=null){
@@ -367,20 +369,18 @@ public User[] UserSelect(int dep) {
 				Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 				ResultSet rs = pstmt.executeQuery(sql);
 				rs.last();
-				users = new User[rs.getRow()];
 				rs.beforeFirst();
-				
 				while(rs.next()){
-					users[count] = new User();
-					users[count].setFirstName(rs.getString(1));
-					users[count].setMiddleName(rs.getString(2));
-					users[count].setLastName(rs.getString(3));
-					users[count].setUserId(rs.getString(4));
-					users[count].setId(rs.getString(5));
-					users[count].setUserClass(rs.getString(6));
-					users[count].setPassWord(rs.getString(7));
-					users[count].setDepartment(rs.getInt(8));
-					users[count].setCompanyID(rs.getString(9));
+					userstmp.add(count, new User());
+					userstmp.get(count).setFirstName(rs.getString(1));
+					userstmp.get(count).setMiddleName(rs.getString(2));
+					userstmp.get(count).setLastName(rs.getString(3));
+					userstmp.get(count).setUserId(rs.getString(4));
+					userstmp.get(count).setId(rs.getString(5));
+					userstmp.get(count).setUserClass(rs.getString(6));
+					userstmp.get(count).setPassWord(rs.getString(7));
+					userstmp.get(count).setDepartment(rs.getInt(8));
+					userstmp.get(count).setCompanyID(rs.getString(9));
 					count++;
 				}
 				rs.close();
@@ -389,18 +389,20 @@ public User[] UserSelect(int dep) {
 			e.printStackTrace();
 		}
 		}
+		users = new User[userstmp.size()];
+		for(int i = 0; i< userstmp.size();i++){
+			users[i] = userstmp.get(i);
+		}
 		return users;
 	}
-	public int[] departmentChildarr(int idx){
-		int[][] departlist = null;
-		int [] depart = null;
-		int [] A = null;
-		int [] B = null;
+	public List <Integer> departmentChildarr(int idx){
 		Connection conn = null;
+		int[][] departlist = null; //all department
+		List <Integer> A = null; //tmp array
+		List <Integer> B = null; //tmp array
 		int count = 0;
-		int countA = 0;
-		int countB = 0;
 		int countcheck = 0;
+		int departmentcount = this.departmentcount();
 		String sql = "select idx,upnumber from depart"; 
 		try{
 			Context init = new InitialContext();
@@ -409,11 +411,14 @@ public User[] UserSelect(int dep) {
 			Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs = pstmt.executeQuery(sql);
 			rs.last();
-			departlist = new int[rs.getRow()][rs.getRow()];
+			departlist = new int[departmentcount][2];
 			rs.beforeFirst();
-			depart = new int[this.departmentcount()];
-			A  = new int[rs.getRow()];
-			B = new int[rs.getRow()];
+			A  = new ArrayList<Integer>();
+			B = new ArrayList<Integer>();
+			int countA = 0;
+			int countB = 0;
+			int[] Atmp;
+			int[] Btmp;
 			//all department list (idx,upnumber)
 			while(rs.next()){
 				departlist[count][0] = Integer.parseInt(rs.getString(1));
@@ -421,38 +426,51 @@ public User[] UserSelect(int dep) {
 				count++;
 			}
 			//initial value
-			A[0] = idx;
+			A.add(idx);
 			while(true){
-				for(int i = 0; i < A.length;i++){
-					for(int j = 0; j < count; j++){
-						if(departlist[j][1] == A[i]){
-							B[countB] = departlist[i][0];
+				for(int i = 0; i< B.size() ;){
+					B.remove(0);
+				}
+				for(int i = 0; i < A.size();i++){
+					for(int j = 0; j < departmentcount; j++){
+						if(departlist[j][1] == A.get(i)){
+							B.add(countB,departlist[j][0]);
 							countcheck++;
-							countB ++;
+							countB++;
 						}
 					}
 					if(countcheck == 0){
-						B[countB] = A[i];
-						countB ++;
+						B.add(countB,A.get(i));
+						countB++;
 					}
 					countcheck = 0;
 				}
-				for(int i = 0; i < A.length;i++){
-					for(int j = 0; j < count; j++){
-						if(departlist[j][1] == A[i]){
-							A[countA] = departlist[i][0];
+				for(int i = 0 ; i < A.size();){
+					A.remove(0);
+				}
+				for(int i = 0; i < B.size();i++){
+					for(int j = 0; j < departmentcount; j++){
+						if(departlist[j][1] == B.get(i)){
+							A.add(countA,departlist[j][0]);
 							countcheck++;
-							countA ++;
+							countA++;
 						}
 					}
 					if(countcheck == 0){
-						A[countA] = B[i];
-						countA ++;
+						A.add(countA,B.get(i));
+						countA++;
 					}
 					countcheck = 0;
 				}
-				if(Arrays.equals(A, B)){
-					depart = A;
+				Atmp = new int[A.size()];
+				Btmp = new int[B.size()];
+				for(int i = 0; i < A.size(); i++){
+					Atmp[i] = A.get(i);
+				}
+				for(int i = 0; i < B.size(); i++){
+					Btmp[i] = B.get(i);
+				}
+				if(Arrays.equals(Atmp,Btmp)){
 					break;
 				}
 				countcheck = 0;
@@ -466,38 +484,55 @@ public User[] UserSelect(int dep) {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return depart;
+		return A;
 	}
 	
 	public int departmentcount(){
 		Connection conn = null;
-		System.out.println("111111");
-		String sql = "select count(*) from Depart ";
+		String sql = "select count(*) from Depart";
 		int ret = 0;
 		try{
 			Context init = new InitialContext();
 			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
 			conn = ds.getConnection();
-			Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE,ResultSet.HOLD_CURSORS_OVER_COMMIT);
-			pstmt.executeUpdate(sql);
+			Statement pstmt = conn.createStatement();
 			ResultSet rs = pstmt.executeQuery(sql);
 			
-			ret = rs.getInt(1);
-			System.out.println(ret);
-			System.out.println(rs.next());
-			System.out.println(rs.next());
+			while(rs.next()){
+				ret = rs.getInt(1);
+			}
 			pstmt.close();
 			rs.close();
 			conn.close();
-			
-			
-			
+	
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return ret;
 	}
-
+	public int usercount(){
+		Connection conn = null;
+		String sql = "select count(*) from Member";
+		int ret = 0;
+		try{
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement();
+			ResultSet rs = pstmt.executeQuery(sql);
+			
+			while(rs.next()){
+				ret = rs.getInt(1);
+			}
+			pstmt.close();
+			rs.close();
+			conn.close();
+	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return ret;
+	}
 	
 	public void departmentDelete(int idx){
 		Connection conn = null;
@@ -528,8 +563,5 @@ public User[] UserSelect(int dep) {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-	}
-	public void hello(){
-		System.out.println("hello111");
 	}
 }
