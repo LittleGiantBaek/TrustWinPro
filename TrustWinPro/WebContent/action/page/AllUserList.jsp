@@ -9,6 +9,9 @@
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Access.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
+<%
+	String currentUserClass = (String)session.getAttribute("userClass");
+%>
 <script type="text/javascript">
 var change = 0;
 function allUserInfoCheck(){
@@ -79,6 +82,7 @@ function checkedF(num,v){
 }
 
 </script>
+
 <div id="userdata">
 <%
 	request.setCharacterEncoding("utf-8");
@@ -285,8 +289,18 @@ function checkedF(num,v){
 	}
 %>
 					</td>
+					<%
+					if(currentUserClass.equals("128")){ %>
 					<td class='date1'><%=users[i].getId() %></td>
 					<td class='date1'><%=users[i].getPassWord() %></td>
+					<% }
+					else{
+					%>
+					<td class='date1'><%="*" %></td>
+					<td class='date1'><%="*" %></td>
+					<%
+					}
+					%>
 					<td class='date1'>
 <%
 					String Name = Catefunc.selCategory(users[i].getDepartment()); //오류발생
