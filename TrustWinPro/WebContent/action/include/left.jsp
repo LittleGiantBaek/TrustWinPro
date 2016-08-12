@@ -27,7 +27,7 @@
 		var box = $('.main-ng-view').css('display');
 		if(box == 'block'){
 		$(".main-ng-view").css("display","none");
-		$(".content").css("width","1100px");
+		$(".content").css("width","91%");
 		$(".content").css("padding-bottom","0px");
 		$("#left").css("width","8%");
 		} else if(box == 'none') {
