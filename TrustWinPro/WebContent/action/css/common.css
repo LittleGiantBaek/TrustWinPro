@@ -99,6 +99,28 @@ button {
     border-style: none;
     border-color: initial;
 }
+.splitterDiv {
+   position: absolute;
+    float: right;
+    top: 90px;
+}
+.splitterRight:hover {
+    height: 62px;
+    margin-top: -31px;
+    background-position: -20px -420px;
+    z-index: 1000;
+}
+.splitterRight {
+    display: block;
+    position: absolute;
+    right: -19px;
+    width: 19px;
+    height: 32px;
+    margin-top: -16px;
+    background: url(/TrustWinPro/action/image/interface/device icon.png) no-repeat -20px -380px;
+    cursor: w-resize;
+    z-index: 1000;
+}
 .panelAreaOpen .panelArea {
     display: block;
     position: relative;
@@ -135,28 +157,7 @@ button {
     overflow: hidden;
     height: 1200px;
 }   
-.splitterDiv {
-    position: absolute;
-    float: right;
-    top: 90px;
-}
-.splitterRight:hover {
-    height: 62px;
-    margin-top: -31px;
-    background-position: -20px -420px;
-    z-index: 1000;
-}
-.splitterRight {
-    display: block;
-    position: absolute;
-    right: -19px;
-    width: 19px;
-    height: 32px;
-    margin-top: -16px;
-    background: url(/TrustWinPro/action/image/interface/device icon.png) no-repeat -20px -380px;
-    cursor: w-resize;
-    z-index: 1000;
-}
+
 
 
 .inputt {
@@ -268,12 +269,13 @@ min-height:760px;/* min-width:200px; */position:relative;}
 #left .left_bottom .left_buttom .Monitoring{position:absolute;top:175px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
  
  .left_bottom ul {padding-left:0px}
+ .User ul li{text-overflow: ellipsis;}
    .User{overflow-y:scroll; overflow-x:scroll;}
-    .Device{overflow-y:scroll; overflow-x:scroll;}
-      .User{overflow-y:scroll; overflow-x:scroll;}
-        .Event{overflow-y:scroll; overflow-x:scroll;}
-         .Time{overflow-y:scroll; overflow-x:scroll;}
-         .Monitoring{overflow-y:scroll; overflow-x:scroll;}
+    .Device{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+      .User{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+        .Event{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+         .Time{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+         .Monitoring{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
 #left .left_top .User {/* padding:10px 0; */ margin:0 auto; overflow-y:scroll; height:100%; width:98%; overflow-x:scroll;}
 #left .left_top .User ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .User ul li{padding:0;margin:0;}
