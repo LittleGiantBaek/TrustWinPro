@@ -351,6 +351,7 @@ function AccessDelete(deviceID){
 							</div>				
 				</div>
 				<div class="Info">
+				
 					<div class="block" style="margin-left:50rem;">
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 1)%> * : 
@@ -367,6 +368,7 @@ function AccessDelete(deviceID){
 						<p><div class="headerji"><%=lanFunc.language(lan, 3)%> * : </div>
 						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3))%>">
 					</div>
+					
 					<div class="block" style="margin-left:50rem;">
 						<p><div class="headerji"><%=lanFunc.language(lan, 4)%> * : </div>
 						<input type="text" class = "inputt" name="port" value="<%=LangUtil.Empty(rs.getString(4)) %>">
