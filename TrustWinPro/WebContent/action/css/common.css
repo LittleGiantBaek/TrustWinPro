@@ -335,7 +335,9 @@ min-height:760px;/* min-width:200px; */position:relative;}
 /* content style */
 .content{float:right; padding:0; width:78%; padding: 10px 0 100px 10px; 
     background: #dcd6d3; min-height:760px;}
-
+#Access {
+	margin-left:12px;
+}
 
 
 

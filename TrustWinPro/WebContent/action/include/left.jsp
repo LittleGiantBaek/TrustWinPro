@@ -27,8 +27,13 @@
 		var box = $('.main-ng-view').css('display');
 		if(box == 'block'){
 		$(".main-ng-view").css("display","none");
+		$(".content").css("width","1100px");
+		$(".content").css("padding-bottom","0px");
+		$("#left").css("width","8%");
 		} else if(box == 'none') {
 			$(".main-ng-view").css("display","block");
+			$(".content").css("width","78%");
+			$("#left").css("width","21%");
 		}
 		return false;
 	}
