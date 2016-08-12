@@ -669,7 +669,7 @@
         </div>
    <!--  </div> -->
     <!-- splitter -->
-  <div class="splitterDiv" style="margin-left:30%">
+  <div class="splitterDiv" style="margin-left:79px">
         <button href="javascript:void(0);" class="splitterRight ng-isolate-scope" onclick="splitterClicked()" ngbss-splitter="">+</button>
     </div>
 
