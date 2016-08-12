@@ -279,7 +279,8 @@
 </div>
 
 <div class="main-ng-view ng-scope" ng-view>
-<div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" >
+<div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" style="-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;">
 	<!-- <div class="left_bottom">  -->
 	<%
 	// userInfo

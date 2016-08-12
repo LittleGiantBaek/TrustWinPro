@@ -122,6 +122,7 @@ button {
     background: #f4f3f2;
   /*  width:100px; */
     height:1200px;
+  
 } 
    .leftTreeMenu {
         height: 800px;
@@ -267,21 +268,26 @@ min-height:760px;/* min-width:200px; */position:relative;}
 #left .left_bottom .left_buttom .Monitoring{position:absolute;top:175px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
  
  .left_bottom ul {padding-left:0px}
-  
-#left .left_top .User {/* padding:10px 0; */ margin:0 auto; /* overflow-y:scroll; */ height:100%; width:98%; overflow-x:scroll;}
+   .User{overflow-y:scroll; overflow-x:scroll;}
+    .Device{overflow-y:scroll; overflow-x:scroll;}
+      .User{overflow-y:scroll; overflow-x:scroll;}
+        .Event{overflow-y:scroll; overflow-x:scroll;}
+         .Time{overflow-y:scroll; overflow-x:scroll;}
+         .Monitoring{overflow-y:scroll; overflow-x:scroll;}
+#left .left_top .User {/* padding:10px 0; */ margin:0 auto; overflow-y:scroll; height:100%; width:98%; overflow-x:scroll;}
 #left .left_top .User ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .User ul li{padding:0;margin:0;}
 
-#left .left_top .Device {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%; min-height:710px}
+#left .left_top .Device {/* padding:10px 0; */margin:0 auto;overflow-y:scroll;overflow-x:scroll;height:100%;width:98%; min-height:710px}
 #left .left_top .Device ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .Device ul li{padding:0;margin:0;}
 
-#left .left_top .Event {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%; min-height:710px;}
+#left .left_top .Event {/* padding:10px 0; */margin:0 auto;overflow-y:scroll; overflow-x:scroll;height:100%;width:98%; min-height:710px;}
 #left .left_top .Event ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .Event ul li{padding:0;margin:0;}
 
-#left .left_top .Time {/* padding:10px 0; */margin:0 auto;/* overflow-y:scroll; */height:100%;width:98%;}
-#left .left_top .Monitoring {/* padding:10px 0; */margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:500px;}
+#left .left_top .Time {/* padding:10px 0; */margin:0 auto;overflow-y:scroll;overflow-x:scroll;height:100%;width:98%;}
+#left .left_top .Monitoring {/* padding:10px 0; */margin:0 auto;overflow-y:scroll;height:100%;width:98%; min-height:500px;overflow-x:scroll}
 
 .open {display:none;}
 .close {} 
