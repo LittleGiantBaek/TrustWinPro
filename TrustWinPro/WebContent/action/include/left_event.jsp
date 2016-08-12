@@ -25,7 +25,7 @@
 <%
 		for(int i = num[1];i<=num[0];i++){
 %>
-				<li style="padding-left:30px;"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/searchlog-2.png"><a href="#in" onclick="changeYear(<%=i%>,<%=num[0]%>,<%=num[1]%>)"><%=i %> <%=Lanfunc.language(lan, 122) %>
+				<li style="padding-left:10px;"><img src="/TrustWinPro/action/image/interface/nieun Icon.png"><img src="/TrustWinPro/action/image/interface/searchlog-2.png"><a href="#in" onclick="changeYear(<%=i%>,<%=num[0]%>,<%=num[1]%>)"><%=i %> <%=Lanfunc.language(lan, 122) %>
 				<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" style="display:none;" />
 				<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open<%=i %>"  />
 				</a>
