@@ -280,7 +280,7 @@
 
 <div class="main-ng-view ng-scope" ng-view>
 <div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" >
-	<div class="left_bottom"> 
+	<!-- <div class="left_bottom">  -->
 	<%
 	// userInfo
 	Category[] category = null;
@@ -650,7 +650,7 @@
 %>
 	</div> 
         </div>
-    </div>
+   <!--  </div> -->
     <!-- splitter -->
     <div class="splitterDiv">
         <button href="javascript:void(0);" class="splitterRight ng-isolate-scope" ng-click="splitterClicked()" ngbss-splitter=""></button>
