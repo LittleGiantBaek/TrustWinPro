@@ -336,13 +336,13 @@ function AccessDelete(deviceID){
 				</ul>
 				<div class="picture">
 							<div id='View_area' style='color: black; border: 0px solid black; dispaly: inline;float:left;'>
-<%
+<%-- <%
 	if(rs.getString(8)!=null){
-%>
+%> --%>
 									<img src="<%=realFolder %>" alt="" style="width:180px;height:180px;" id="prev_View_area" />
-<%		
+<%-- <%		
 	}
-%>									
+%>	 --%>								
 
 								<div>
 									<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="">
