@@ -87,6 +87,9 @@ header, section, article, footer, hgroup, aside, nav, figure {
     line-height: 1.10em;
     cursor:pointer;
 }
+.contextmenu {
+	z-index:100;
+}
 button {
     border-image-source: initial;
     border-image-slice: initial;
