@@ -87,6 +87,10 @@
 %>
 		<jsp:include page="/action/page/MapSetup.jsp" flush="false"></jsp:include>
 <%	
+	}else if(content.equals("Setting")){
+%>
+		<jsp:include page="/action/page/Setting.jsp" flush="false"></jsp:include>
+<%	
 	}else{
 %>
 		<jsp:include page="/action/page/main.jsp" flush="false"></jsp:include>

@@ -6,7 +6,8 @@
 	</div>
 	<div class="main_top">
 		<div class="top_right">
-			<a href="#a" onclick="submit('Language')">Language</a> | <a href="Logout.jsp">Logout</a>
+		<!-- onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice'" -->
+			<a href="#a" onclick="location.href='/TrustWinPro/action/index.jsp?content=Setting'">Setting</a> | <a href="#a" onclick="submit('Language')">Language</a> | <a href="Logout.jsp">Logout</a>
 		</div>
 	</div>
 </div>
