@@ -19,6 +19,20 @@
 %>
 <script type="text/javascript">
 	
+	function splitterClicked(){
+	/* 	$( ".sm-nav>li>button" ).click(function() {
+		    $(this).parent().addClass("on").siblings().removeClass("on");
+		    return false;
+		}); */
+		var box = $('.main-ng-view').css('display');
+		if(box == 'block'){
+		$(".main-ng-view").css("display","none");
+		} else if(box == 'none') {
+			$(".main-ng-view").css("display","block");
+		}
+		return false;
+	}
+	
 	function UserDelete(id){
 		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
@@ -277,6 +291,7 @@
     </ul>
 </nav>
 </div>
+
 
 <div class="main-ng-view ng-scope" ng-view>
 <div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" style="-webkit-box-sizing: border-box;
@@ -627,6 +642,7 @@
 %>
 				</li>
 			</ul>
+			
 		</div>
 		<div class="UserButtom" style="display:none">
 			<a href="#in" onclick="DepartAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
@@ -653,8 +669,8 @@
         </div>
    <!--  </div> -->
     <!-- splitter -->
-    <div class="splitterDiv">
-        <button href="javascript:void(0);" class="splitterRight ng-isolate-scope" ng-click="splitterClicked()" ngbss-splitter=""></button>
+  <div class="splitterDiv" style="margin-left:30%">
+        <button href="javascript:void(0);" class="splitterRight ng-isolate-scope" onclick="splitterClicked()" ngbss-splitter="">+</button>
     </div>
 
 

@@ -23,7 +23,6 @@ body{padding:0;margin:0 auto;width:100%;overflow:scroll;height:100%;}
 ul li{list-style-type:none;}
 img {border:0;}
 
-
 .leftMainMenu {
     position: absolute;
     background: #594b4f;
@@ -102,7 +101,7 @@ button {
 .splitterDiv {
    position: absolute;
     float: right;
-    top: 90px;
+    top: 110px;
 }
 .splitterRight:hover {
     height: 62px;
@@ -117,7 +116,10 @@ button {
     width: 19px;
     height: 32px;
     margin-top: -16px;
-    background: url(/TrustWinPro/action/image/interface/device icon.png) no-repeat -20px -380px;
+    /* background: url(/TrustWinPro/action/image/interface/del.png); */
+    background-color:#72c8cd;
+    color:white;
+    border-radius:2px;
     cursor: w-resize;
     z-index: 1000;
 }
@@ -174,6 +176,7 @@ button {
     /* padding-right: 80px; */
     overflow: hidden;
     height: 1200px;
+    display:block;
 }   
 
 
