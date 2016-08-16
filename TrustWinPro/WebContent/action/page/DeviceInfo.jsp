@@ -389,7 +389,7 @@ function AccessDelete(deviceID){
 						<p><div class="headerji"><%=lanFunc.language(lan, 7)%> * : </div>
 						<input type="text" name="serverport" class = "inputt" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
 					
-					<div class="block" style="float:right; margin-right:10rem;">
+					<div class="block" style="float:right; margin-right:6rem;">
 						<p><div >required *</div>
 					</div>
 				</div>

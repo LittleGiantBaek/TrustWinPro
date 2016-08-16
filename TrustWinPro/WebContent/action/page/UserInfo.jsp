@@ -408,7 +408,7 @@ function AccessAdd(UserID){
 								<%=Lanfunc.language(lan, 5)%> * : 
 								</div>
 								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
-							<div class="block" style="float:right; margin-right:10rem;">
+							<div class="block" style="float:right; margin-right:6rem;">
 								<p><div >required *</div>
 							</div>
 					</div>
