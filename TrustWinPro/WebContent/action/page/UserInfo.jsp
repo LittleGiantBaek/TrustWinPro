@@ -370,56 +370,48 @@ function AccessAdd(UserID){
 									</div>
 				</div>
 				<div class="Info">		
-							<div class="block" style="margin-left:50rem; ">
+				
+							<div class="userbox1">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 29)%> * : 
 								</div>		
 								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"   disabled>				
-							</div>
-							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 26)%> * : 
 								</div>
 								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  >
-							</div>
-							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 27)%> : 
 								</div>
 								<input class = "inputt" type="text" name="middleName" value="<%=LangUtil.Empty(rs.getString(2)) %>" >
-							</div>					
-							<div class="block" style="margin-left:50rem;">
+							</div>
+							
+							<div class="userbox2">			
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 28)%> : 
 								</div>
 								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" >
-							</div>				
-							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 30)%> * : 
 								</div>
-								<div class="main" size="30um">
+								<!-- <div class="main" size="30um"> -->
 								<select name="userClass" class="mainselect">
 								<option value="1" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("1")){out.print("selected");}} %>><%=Lanfunc.language(lan, 170)%></option>
 								<option value="128" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("128")){out.print("selected");}}  %>><%=Lanfunc.language(lan, 171)%></option>
 								</select>
-								</div>
-							</div>			
-							<div class="block" style="margin-left:50rem;">
+								<!-- </div> -->
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 2)%> * : 
 								</div>
 								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" >
-							</div>				
-							<div class="block" style="margin-left:50rem;">
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 5)%> * : 
 								</div>
 								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
-							</div>	
 							<div class="block" style="float:right; margin-right:10rem;">
 								<p><div >required *</div>
 							</div>
+					</div>
 					</div>
 			</section>
 			

@@ -353,43 +353,48 @@ function AccessDelete(deviceID){
 				</div>
 				<div class="Info">
 				
-					<div class="block" style="margin-left:50rem;">
+					<div class="box1">
+					
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 1)%> * : 
 						</div>
 						<input type="text" class = "inputt" name="controllerName" value="<%=LangUtil.Empty(rs.getString(1)) %>" >
-					</div>
-					<div class="block" style="margin-left:50rem;">
+					
+					
 						<p><div class = "headerji">
 						<%=lanFunc.language(lan, 2)%> * : 
 						</div>
 						<input type="text" class = "inputt" name="idm" value="<%=LangUtil.Empty(rs.getString(2)) %>" >
-					</div>
-					<div class="block" style="margin-left:50rem;">
+					
+					
 						<p><div class="headerji"><%=lanFunc.language(lan, 3)%> * : </div>
 						<input type="text" class = "inputt" name="address" value="<%=LangUtil.Empty(rs.getString(3))%>">
+					
 					</div>
 					
-					<div class="block" style="margin-left:50rem;">
+					<div class="box2">
+					
 						<p><div class="headerji"><%=lanFunc.language(lan, 4)%> * : </div>
 						<input type="text" class = "inputt" name="port" value="<%=LangUtil.Empty(rs.getString(4)) %>">
-					</div>
-					<div class="block" style="margin-left:50rem;">
+					
+					
 						<p><div class="headerji"><%=lanFunc.language(lan, 5)%> * : </div>
 						<input type="text" name="Password" class = "inputt" value="<%=LangUtil.Empty(rs.getString(5)) %>" >
-					</div>
-					<div class="block" style="margin-left:50rem;">
+					
+					
 						<p><div class="headerji"><%=lanFunc.language(lan, 6)%> * : </div>
 						<input type="text" name="uniqueid" class = "inputt" value="<%=LangUtil.Empty(rs.getString(6)) %>" >
-					</div>
-					<div class="block" style="margin-left:50rem;">
+					
+				
 						<p><div class="headerji"><%=lanFunc.language(lan, 7)%> * : </div>
 						<input type="text" name="serverport" class = "inputt" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
-					</div>
+					
 					<div class="block" style="float:right; margin-right:10rem;">
 						<p><div >required *</div>
 					</div>
 				</div>
+				</div>
+				
 			</section>
 			
 			
