@@ -119,7 +119,7 @@
 				<tbody>
 <%
 	DeviceFunc DFunc = new DeviceFunc();
-	Device[] dev = DFunc.searchDevice(null,null,null,null);
+	Device[] dev = DFunc.searchDevice(null,null,null,null,null);
 	EventFunc EFunc = new EventFunc();
 	String piechart = EFunc.pieChartVal();
 	String[] piecharts = piechart.split(",");

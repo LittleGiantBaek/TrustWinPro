@@ -32,7 +32,7 @@
 		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 	}
 
-	Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID); 
+	Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, null); 
 	String lan = (String)session.getAttribute("nation");
 %>
 	<table border=1 cellspacing="0"  class="titleEx1">

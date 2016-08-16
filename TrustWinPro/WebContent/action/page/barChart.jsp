@@ -131,7 +131,7 @@
 				<tbody>
 <%
 	DeviceFunc DFunc = new DeviceFunc();
-	Device[] dev = DFunc.searchDevice(null,null,null,null);
+	Device[] dev = DFunc.searchDevice(null,null,null,null,null);
 	EventFunc EFunc = new EventFunc();
 	String barchart = EFunc.barChartVal();
 	String[] barcharts = barchart.split(",");

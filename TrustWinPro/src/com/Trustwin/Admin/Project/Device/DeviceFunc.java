@@ -3,6 +3,7 @@ package com.Trustwin.Admin.Project.Device;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -336,7 +337,7 @@ public class DeviceFunc {
 		}
 		
 		
-		public Device[] searchDevice(String CN, String Addr, String ID, String UID){
+		public Device[] searchDevice(String CN, String Addr, String ID, String UID, List <Integer> GroupID){
 			Connection conn = null;
 			Device[] devices = null;
 			String sql = "select ControllerName, ID, Address, Port, Password, UniqueID, ServerPort, groupIdx from dbo.SetupTcpip where 1=1 ";
@@ -358,13 +359,28 @@ public class DeviceFunc {
 					sql = sql + "and ID like '%" + ID + "%'"; 
 				}
 			}
-			
+
 			if(UID !=null){
 				if(!UID.equals("")){
 					sql = sql + "and UniqueID = '" + UID + "'"; 
 				}
 			}
 			
+			if(GroupID !=null){
+				if(GroupID.size() != 0){
+					sql = sql + "and (1=0 "; 
+					for(int i = 0; i<GroupID.size(); i++){
+						sql = sql + " or groupIdx = '" + GroupID.get(i) + "'"; 
+					}
+					sql = sql + ")"; 
+				}
+			}
+			/*if(GroupID !=null){
+				if(!GroupID.equals("")){
+					sql = sql + "and groupIdx = '" + GroupID + "'"; 
+				}
+			}
+			*/
 			sql = sql + " order by ID;";
 			try {
 					Context init = new InitialContext();
@@ -596,4 +612,29 @@ public class DeviceFunc {
 				}
 			return device;
 		}
+		
+		public void departmentChildarr(int idx, List<Integer> ary) {
+			ary.add(idx);
+			Connection conn = null;
+			String sql = "select idx from dbo.DeviceGroup where UpNumber = '"+idx+"';";
+				try {
+					Context init = new InitialContext();
+					DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+					conn = ds.getConnection();
+					Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+					ResultSet rs = pstmt.executeQuery(sql);
+						
+					while(rs.next()){
+						 int temp = rs.getInt(1);
+						 System.out.println(temp);
+						 departmentChildarr(temp, ary);
+					}
+					rs.close();
+					conn.close();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			return ;
+		}
+		
 }

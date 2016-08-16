@@ -68,6 +68,10 @@ function checkedF(num,v){
 </script>
 <div id="userdata">
 	<%
+
+		CategoryFunc Catefunc = new CategoryFunc();
+		LanguageFunc Lanfunc = new LanguageFunc();
+		DeviceFunc Devfunc = new DeviceFunc();
 		request.setCharacterEncoding("utf-8");
 		Connection conn = null;
 		String ControllerName = (String) request.getParameter("searchControllerName");
@@ -88,11 +92,18 @@ function checkedF(num,v){
 		if ((String) request.getParameter("searchUniqueID") != null) {
 			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 		}
-
-		CategoryFunc Catefunc = new CategoryFunc();
-		LanguageFunc Lanfunc = new LanguageFunc();
-		DeviceFunc Devfunc = new DeviceFunc();
-		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID);
+		
+		String GroupID = (String) request.getParameter("deviceGroupID");
+		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
+		if ((String) request.getParameter("deviceGroupID") != null) {
+			System.out.println((String)request.getParameter("deviceGroupID"));
+		    System.out.println(ChildDepartmentArr.size());
+			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
+		    System.out.println(ChildDepartmentArr.size());		    
+		}
+		
+		
+		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
 		String lan = (String) session.getAttribute("nation");
 	%>
 
