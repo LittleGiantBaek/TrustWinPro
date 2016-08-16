@@ -24,6 +24,7 @@
 	   <li class="menuitem">Delete Device Group</li>
 	   <li class="divider"></li>
 	   <li class="menuitem">Add Device</li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
      </div>  
      
@@ -303,8 +304,13 @@
 			else if($(this).find(".hover").text() == "Delete Device Group"){
 				GroupDelete();
 			}
-			else
+			else if($(this).find(".hover").text() == "Add Device"){
 				DeviceAdd(document.getElementById('GroupN').value);
+			}
+			else if($(this).find(".hover").text() == "Edit Name"){
+				changeInputBox(document.getElementById("valueOfi").value);
+			}
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });

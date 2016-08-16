@@ -363,7 +363,7 @@
 					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
 					<%-- <span id="span<%=i %>" class = "deviceIDspan" > --%>
 					<span id="span<%=i %>" class ="" >
-						<a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="submitDeviceGroup('DeviceList','<%=dev[i].getIdx() %>','<%=dev[i].getDepth() %>');changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
+						<a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="submitDeviceGroup('DeviceList','<%=dev[i].getIdx() %>','<%=dev[i].getDepth() %>','<%=i %>');changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
 						<%-- <a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
 						 --%>
 						 <a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
@@ -1127,6 +1127,7 @@
 <% 
 String selectdeviceGroupID = request.getParameter("deviceGroupID");
 String selectdeviceGroupDepth = request.getParameter("deviceGroupDepth");
+String selectdeviceGroupi = request.getParameter("deviceGroupi");
 String selectdeviceID = request.getParameter("deviceID");
 String selectuserID = request.getParameter("userID");
 %>
@@ -1135,6 +1136,7 @@ String selectuserID = request.getParameter("userID");
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="<%=selectdeviceGroupID%>" name="deviceGroupID" id="valueOfDeviceGroupID"/>
 	<input type="hidden" value="<%=selectdeviceGroupDepth%>" name="deviceGroupDepth" id="valueOfDeviceGroupDepth"/>
+	<input type="hidden" value="<%=selectdeviceGroupi%>" name="deviceGroupi" id="valueOfi"/>
 	<input type="hidden" value="AllDevice" name="content" />
 </form>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">

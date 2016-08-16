@@ -37,10 +37,11 @@ function submitDevice(v,i){
 	form.deviceID.value = i;
 	form.submit();
 }
-function submitDeviceGroup(v,i,d){
+function submitDeviceGroup(v,id,depth,i){
 	var form = document.getElementById(v);
-	form.deviceGroupID.value = i;
-	form.deviceGroupDepth.value =  parseInt(d,10) + 1;
+	form.deviceGroupID.value = id;
+	form.deviceGroupDepth.value =  parseInt(depth,10) + 1;
+	form.deviceGroupi.value = i;
 	form.submit();
 }
 
