@@ -869,6 +869,38 @@ table.ex1 a:active{color:#000;}
 #Access .info .user .InfoBox {width:100%;padding:20px;position:relative;height:400px;}  
 #Access .mainButtom {float:right;margin:10px 50px 0 0;}
 
+.window-mask {
+    position: fixed;
+    background: #000;
+    z-index: 10000;
+}
+.window-proxy-mask, .window-mask {
+    background: #ccc;
+}
+.window-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=40);
+    opacity: 0.40;
+    font-size: 1px;
+    overflow: hidden;
+}
+
+
+.postitDevice {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitDevice .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:295px;background-color:white;}
+.postitDevice .deviceSortPop table{width:100%}
+.postitDevice .deviceSortPop table tr th{padding:0;margin:0;}
+.postitDevice .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitDevice .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitDevice .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitDevice .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitDevice .deviceSortPop .buttom {bottom:10px;margin-left:80%; margin-top:10%}
+
+
 .postitDevice {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
 .postitDevice .accessDevice {width:99%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:295px;background-color:#f1e5e7;}
 .postitDevice .accessDevice table{width:100%}
@@ -1076,7 +1108,7 @@ table.titleEx1{background:#8c8282;  width:100%; margin:0;padding:0; color:#fff;}
     border-width: 0 0 1px 1px;
     border-color: #8c8282 #988f90;
     border-style: solid;
-    background: #e6b2b2;
+    background: #a49c9e;
 }
 
 #popmenus{
