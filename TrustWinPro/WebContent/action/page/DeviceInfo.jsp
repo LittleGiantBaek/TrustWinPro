@@ -142,9 +142,10 @@ function previewImage(targetObj, View_area) {
 	}
 }
 
-var change = 0;
+
+
 function allA_GroupInfoCheck() {
-	var check = document.DeviceInfomation.check;
+	var check = document.DeviceInfomation.check; 
 	if(change == 0){
 		for(var i = 0 ; i < check.length;i++ ){
 			check[i].checked = true;	
@@ -158,7 +159,7 @@ function allA_GroupInfoCheck() {
 		
 		change = 0;
 	}
-}
+} 
 
 
 function DeviceInfoSubmit(){
@@ -2141,7 +2142,7 @@ function AccessDelete(deviceID){
 			AccessGroup accessGroup2 = Accfunc.SelAccessGroup(accessDevice[j].getAccess());
 			out.println("<tr id='tr"+ accessGroup2.getIdx() +"'>");
 
-			out.println("<td><input class='access_class' type='checkbox' name='check' value='"+accessGroup2.getIdx()+"'></td>");
+			out.println("<td><input type='checkbox' name='check' value='"+accessGroup2.getIdx()+"'></td>");
 
 			
 			out.println("<td>" + accessGroup2.getName() + "</td>");
