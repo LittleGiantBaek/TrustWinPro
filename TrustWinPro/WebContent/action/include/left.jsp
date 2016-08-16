@@ -361,7 +361,8 @@
 %>
 				<li style="padding-left:<%=padding%>px" >
 					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
-					<span id="span<%=i %>" class = "deviceIDspan" >
+					<%-- <span id="span<%=i %>" class = "deviceIDspan" > --%>
+					<span id="span<%=i %>" class = "" >
 						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
 							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
@@ -531,7 +532,9 @@
 %>
 				<li style="padding-left:<%=padding%>px">
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
-					<span id="span<%=i %>" class = "userIDspan" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+					<%-- <span id="span<%=i %>" class="userIDspan" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+					 --%>
+					 <span id="span<%=i %>" class="" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" /></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
 					</span>
