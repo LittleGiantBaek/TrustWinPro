@@ -154,7 +154,7 @@ function checkedF(num,v){
 	</div>
 	<!--<div class="searchForm">
 	</div> !-->
-
+	<a href="#" title="list" onclick="DevicePrint();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
 	<form action="" name="deviceInfo" id="deviceInfo" method="post">
 
 		<div class="tablebor">

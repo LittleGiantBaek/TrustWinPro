@@ -207,7 +207,7 @@ function checkedF(num,v){
 
 	</section>
 </div>
-
+	<a href="#" title="list" onclick="UserPrint();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
 	<form action="" name="userInfo" id="userInfo" method="post">
 
 	<div class = "tablebor">
