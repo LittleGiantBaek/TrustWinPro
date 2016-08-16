@@ -8,6 +8,11 @@
 <%@ page import="com.Trustwin.Admin.Project.Device.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Language.*"%>
 <script type="text/javascript">
+function deviceSort(){
+	document.getElementById("postitDevice").style.display = "block";
+	document.getElementById("postitDevice").style.top = "200px";
+}
+
 var change = 0;
 function allDeviceInfoCheck(){
 	var check = document.deviceInfo.check;
@@ -165,7 +170,7 @@ function checkedF(num,v){
 	</div>
 	<!--<div class="searchForm">
 	</div> !-->
-	<a href="#" title="list" onclick="DevicePrint();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
+	<a href="#" title="list" onclick="deviceSort();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
 	<form action="" name="deviceInfo" id="deviceInfo" method="post">
 
 		<div class="tablebor">
@@ -233,6 +238,12 @@ function checkedF(num,v){
 			<a href="#" title="Delete"
 				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
+		
+		<div class="postitDevice" id="postitDevice">
+		<jsp:include page="DeviceSort.jsp" flush="false"></jsp:include>
+		</div>
+		
+		
 	</form>
 </div>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device"
@@ -241,5 +252,7 @@ function checkedF(num,v){
 		type="hidden" value="" name="deviceID" /> <input type="hidden"
 		value="DeviceInfo" name="content" />
 </form>
+
+
 
 
