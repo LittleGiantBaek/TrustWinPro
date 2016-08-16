@@ -3,6 +3,15 @@
     
 <link href="/TrustWinPro/action/css/contextmenu.css" rel="stylesheet" type="text/css" />
 
+	<div class="contextmenu conDeviceMenu">
+	  <ul>
+	    <li class="menuitem">Print</li>
+  	    <li class="menuitem">Excel</li>
+  	    <li class="menuitem">Sort</li>
+	  </ul>
+  </div>
+
+
   <div class="contextmenu conDeviceGroup">
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
@@ -24,6 +33,7 @@
 	   <li class="menuitem">Delete Device Group</li>
 	   <li class="divider"></li>
 	   <li class="menuitem">Add Device</li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
      </div>  
      
@@ -184,6 +194,13 @@
 		  return false;
 	});
 	
+	//sort Device Contextmenu
+	$("#sort1").on('contextmenu', function(event) {
+		  ShowContextMenu("conDeviceMenu");
+		  CheckLocation();
+		  return false;
+	});
+	
 	//Device Contextmenu
 		$(".devicespanroot").on('contextmenu', function(event) {
 		  ShowContextMenu("conDeviceGroup");
@@ -303,8 +320,13 @@
 			else if($(this).find(".hover").text() == "Delete Device Group"){
 				GroupDelete();
 			}
-			else
+			else if($(this).find(".hover").text() == "Add Device"){
 				DeviceAdd(document.getElementById('GroupN').value);
+			}
+			else if($(this).find(".hover").text() == "Edit Name"){
+				changeInputBox(document.getElementById("valueOfi").value);
+			}
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });

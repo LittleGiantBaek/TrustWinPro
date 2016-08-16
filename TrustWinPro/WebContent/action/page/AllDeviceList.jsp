@@ -8,6 +8,29 @@
 <%@ page import="com.Trustwin.Admin.Project.Device.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Language.*"%>
 <script type="text/javascript">
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
 function deviceSort(){
 	document.getElementById("postitDevice").style.display = "block";
 	document.getElementById("postitDevice").style.top = "200px";
@@ -73,6 +96,10 @@ function checkedF(num,v){
 </script>
 <div id="userdata">
 	<%
+
+		CategoryFunc Catefunc = new CategoryFunc();
+		LanguageFunc Lanfunc = new LanguageFunc();
+		DeviceFunc Devfunc = new DeviceFunc();
 		request.setCharacterEncoding("utf-8");
 		Connection conn = null;
 		String ControllerName = (String) request.getParameter("searchControllerName");
@@ -93,11 +120,23 @@ function checkedF(num,v){
 		if ((String) request.getParameter("searchUniqueID") != null) {
 			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 		}
-
-		CategoryFunc Catefunc = new CategoryFunc();
-		LanguageFunc Lanfunc = new LanguageFunc();
+	
 		DeviceFunc Devfunc = new DeviceFunc();
-		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID);
+		LanguageFunc Lanfunc = new LanguageFunc();
+		
+		String GroupID = (String) request.getParameter("deviceGroupID");
+		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
+		if ((String) request.getParameter("deviceGroupID") != null) {
+			System.out.println((String)request.getParameter("deviceGroupID"));
+		    System.out.println(ChildDepartmentArr.size());
+			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
+		    System.out.println(ChildDepartmentArr.size());		    
+		}
+		
+		
+		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
+		
+	
 		String lan = (String) session.getAttribute("nation");
 	%>
 
@@ -159,7 +198,14 @@ function checkedF(num,v){
 	</div>
 	<!--<div class="searchForm">
 	</div> !-->
-	<a href="#" title="list" onclick="deviceSort();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
+	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#" onclick="deviceSort();">Print</a>
+    <a href="#" onclick="deviceSort();">Excel</a>
+    <a href="#" onclick="deviceSort();">Sort</a>
+  </div>
+</div>
 	<form action="" name="deviceInfo" id="deviceInfo" method="post">
 
 		<div class="tablebor">
@@ -241,6 +287,7 @@ function checkedF(num,v){
 		type="hidden" value="" name="deviceID" /> <input type="hidden"
 		value="DeviceInfo" name="content" />
 </form>
+<jsp:include page="/action/include/rightclickmenu.jsp" flush="false"></jsp:include>	
 
 
 

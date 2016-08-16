@@ -96,6 +96,25 @@
 		
 	}
 	
+	var change = 0;
+	function allDeviceInfoCheck(){
+		var check = document.deviceInfo.check;
+		if(change == 0){
+			for(var i = 0 ; i < check.length;i++ ){
+				check[i].checked = true;	
+			}
+				
+			change = 1;
+		}else{
+			for(var i = 0 ; i < check.length;i++ ){
+				check[i].checked = false;
+			}
+			
+			change = 0;
+		}
+		
+	}
+	
 	function accessDevice(){
 		document.getElementById("AccessDevice").submit();
 	}
@@ -109,7 +128,7 @@
 <div class="selectBox">
 <form name="devicelist" id="devicelist" method="post" action="">
 <!-- <div class="printPage"> -->
-		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e"><%=Lanfunc.language(lan, 176)%></div>
+		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort</div>
 		<!-- <hr width="100%"> -->
 		<table border="1" cellspacing="0" class="titleEx2" style="text-align:center">
 				<colgroup>
@@ -119,7 +138,7 @@
 					<tbody>
 					<tr>
 						<th>Select  <input type="checkbox" name="allcheck" onclick="allDeviceCheck();"></th>
-						<th><%=Lanfunc.language(lan, 177)%> </th>
+						<th>Column</th>
 					</tr>
 			</tbody>
 		</table>
