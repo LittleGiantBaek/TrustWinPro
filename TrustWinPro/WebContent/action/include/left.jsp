@@ -18,7 +18,6 @@
 
 %>
 <script type="text/javascript">
-	
 	function splitterClicked(){
 	/* 	$( ".sm-nav>li>button" ).click(function() {
 		    $(this).parent().addClass("on").siblings().removeClass("on");
@@ -54,7 +53,7 @@
 			}); 
 		}
 	}
-	
+
 	function DepartAdd(){
 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
 		{
@@ -239,7 +238,8 @@
 	
 	function GroupCheck(handleData){
  		var ret;
- 		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
+ 		
+		if(document.getElementById("GroupN").value == '' || document.getElementById("GroupD").value == '')
 		{
 			alert('<%=Lanfunc.language(lan, 186)%>');
 		} else {
@@ -277,21 +277,21 @@
 	<div class="left_bottom">
 <nav class="leftMainMenu" ng-menu="" style="display: block;">
     <ul class="sm-nav">
-        <li ng-repeat="menu in menuNames" class="DASHBOARD" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
-           <button ng-label="common.gnb.dashboard" onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
+        <li  class="DEVICE leftmenu" >
+           <button  onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
            <br>DEVICE</button>
         </li>
-        <li ng-repeat="menu in menuNames" class="USER" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
-            <button ng-label="common.gnb.user" onclick="location.href='/TrustWinPro/action/index.jsp?left=User&content=AllUser' "><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:13px;left:30px;"><br>USER</button>
+        <li  class="USER leftmenu" >
+            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=User&content=AllUser' "><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:13px;left:30px;"><br>USER</button>
         </li>
-        <li ng-repeat="menu in menuNames" class="DEVICE" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
-           <button ng-label="common.gnb.device" onclick="location.href='/TrustWinPro/action/index.jsp?left=Event' "><img src="/TrustWinPro/action/image/interface/event icon.png" style="position:absolute;top:13px;left:30px;"><br>EVENT</button>
+        <li class="EVENT leftmenu" >
+           <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Event' "><img src="/TrustWinPro/action/image/interface/event icon.png" style="position:absolute;top:13px;left:30px;"><br>EVENT</button>
         </li>
-        <li ng-repeat="menu in menuNames" class="DOOR" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
-            <button ng-label="common.gnb.door" onclick="location.href='/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup' "><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>ACCESS<br>CONTROL</button>
+        <li  class="ACCESS_CONTROL leftmenu" >
+            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup' "><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>ACCESS<br>CONTROL</button>
         </li>
-        <li ng-repeat="menu in menuNames" class="ACCESS_CONTROL" ng-click="doMenuClick(menus[menu].id, menus[menu].url)" ng-class="{'on' : menus[menu].id === selectedMenuIdx}">
-            <button ng-label="common.gnb.access_control" onclick="location.href='/TrustWinPro/action/index.jsp?left=Monitoring&content=Map' "><img src="/TrustWinPro/action/image/interface/monitoring_2.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>MONITORING</button>
+        <li  class="MORNITORING leftmenu" >
+            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Monitoring&content=Map' "><img src="/TrustWinPro/action/image/interface/monitoring_2.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>MONITORING</button>
         </li>
     </ul>
 </nav>
@@ -362,9 +362,11 @@
 				<li style="padding-left:<%=padding%>px" >
 					<span><img src="/TrustWinPro/action/image/interface/device.png" /></span>
 					<%-- <span id="span<%=i %>" class = "deviceIDspan" > --%>
-					<span id="span<%=i %>" class = "" >
-						<a href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>)"><%=dev[i].getGroupname() %></a>
-						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
+					<span id="span<%=i %>" class ="" >
+						<a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="submitDeviceGroup('DeviceList','<%=dev[i].getIdx() %>','<%=dev[i].getDepth() %>','<%=i %>');changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
+						<%-- <a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
+						 --%>
+						 <a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
 							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
 							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
 						</a>
@@ -1123,9 +1125,20 @@
 	<input type="hidden" value="AllDevice" name="content" />
 </form>
 <% 
+String selectdeviceGroupID = request.getParameter("deviceGroupID");
+String selectdeviceGroupDepth = request.getParameter("deviceGroupDepth");
+String selectdeviceGroupi = request.getParameter("deviceGroupi");
 String selectdeviceID = request.getParameter("deviceID");
 String selectuserID = request.getParameter("userID");
 %>
+
+<form action="/TrustWinPro/action/index.jsp" name="DeviceList" id="DeviceList" method="post">
+	<input type="hidden" value="Device" name="left" />
+	<input type="hidden" value="<%=selectdeviceGroupID%>" name="deviceGroupID" id="valueOfDeviceGroupID"/>
+	<input type="hidden" value="<%=selectdeviceGroupDepth%>" name="deviceGroupDepth" id="valueOfDeviceGroupDepth"/>
+	<input type="hidden" value="<%=selectdeviceGroupi%>" name="deviceGroupi" id="valueOfi"/>
+	<input type="hidden" value="AllDevice" name="content" />
+</form>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="<%=selectdeviceID%>" name="deviceID" id="valueOfDeviceID"/>
@@ -1141,8 +1154,18 @@ String selectuserID = request.getParameter("userID");
 		document.getElementById("dev"+idx).className = "userspan deviceIDspan";
 		document.getElementById("dev"+idx+"a").style.color = "#ffffff";
 	}
+	function SpanDeviceGroupClass(idx){
+		document.getElementById("dev"+idx+"g").style.color = "#ffffff";
+		document.getElementById("dev"+idx+"g").style.backgroundColor  = "#5c5c5b";
+		document.getElementById("dev"+idx+"g").className = "deviceGroupspan";
+	}
 	if(<%=request.getParameter("deviceID")%>!=null){
 		SpanDeviceClass(<%=request.getParameter("deviceID")%>);
+	}
+	if(<%=request.getParameter("deviceGroupID")%>!=null){
+		SpanDeviceGroupClass(<%=request.getParameter("deviceGroupID")%>);
+		document.getElementById("GroupN").value = <%=request.getParameter("deviceGroupID")%>;
+		document.getElementById("GroupD").value = <%=request.getParameter("deviceGroupDepth")%>;
 	}
 	
 	function SpanUserClass(idx){

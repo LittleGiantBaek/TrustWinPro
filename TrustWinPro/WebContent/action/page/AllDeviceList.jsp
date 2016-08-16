@@ -120,9 +120,8 @@ function checkedF(num,v){
 		if ((String) request.getParameter("searchUniqueID") != null) {
 			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 		}
+
 	
-		DeviceFunc Devfunc = new DeviceFunc();
-		LanguageFunc Lanfunc = new LanguageFunc();
 		
 		String GroupID = (String) request.getParameter("deviceGroupID");
 		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
@@ -134,9 +133,8 @@ function checkedF(num,v){
 		}
 		
 		
-		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
 		
-	
+		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
 		String lan = (String) session.getAttribute("nation");
 	%>
 
