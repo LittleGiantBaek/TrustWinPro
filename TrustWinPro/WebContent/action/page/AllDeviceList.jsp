@@ -210,53 +210,53 @@ function checkedF(num,v){
 		<div class="tablebor">
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="14%">
-					<col width="12%">
-					<col width="12%">
+					<col width="10%" class="deviceSelect">
+					<col width="10%" class="deviceName">
+					<col width="10%" class="deviceId">
+					<col width="10%" class="deviceAddress">
+					<col width="10%" class="devicePortNumber">
+					<col width="14%" class="devicePassword">
+					<col width="12%" class="deviceUniqueId">
+					<col width="12%" class="deviceServerPort">
 				</colgroup>
 				<tr>
-					<th><%=Lanfunc.language(lan, 85)%><input type="checkbox"
+					<th class="deviceSelect"><%=Lanfunc.language(lan, 85)%><input type="checkbox"
 						name="allcheck" onclick="allDeviceInfoCheck();" value=""></th>
-					<th><%=Lanfunc.language(lan, 1)%></th>
-					<th><%=Lanfunc.language(lan, 2)%></th>
-					<th><%=Lanfunc.language(lan, 3)%></th>
-					<th><%=Lanfunc.language(lan, 4)%></th>
-					<th><%=Lanfunc.language(lan, 5)%></th>
-					<th><%=Lanfunc.language(lan, 6)%></th>
-					<th><%=Lanfunc.language(lan, 7)%></th>
+					<th class="deviceName"><%=Lanfunc.language(lan, 1)%></th>
+					<th class="deviceId"><%=Lanfunc.language(lan, 2)%></th>
+					<th class="deviceAddress"><%=Lanfunc.language(lan, 3)%></th>
+					<th class="devicePortNumber"><%=Lanfunc.language(lan, 4)%></th>
+					<th class="devicePassword"><%=Lanfunc.language(lan, 5)%></th>
+					<th class="deviceUniqueId"><%=Lanfunc.language(lan, 6)%></th>
+					<th class="deviceServerPort"><%=Lanfunc.language(lan, 7)%></th>
 				</tr>
 			</table>
 			<table cellspacing="0" class="ex1">
 				<colgroup>
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="14%">
-					<col width="12%">
-					<col width="12%">
+					<col width="10%" class="deviceSelect">
+					<col width="10%" class="deviceName">
+					<col width="10%" class="deviceId">
+					<col width="10%" class="deviceAddress">
+					<col width="10%" class="devicePortNumber">
+					<col width="14%" class="devicePassword">
+					<col width="12%" class="deviceUniqueId">
+					<col width="12%" class="deviceServerPort">
 				</colgroup>
 				<tbody>
 					<%
 						for (int i = 0; i < devices.length; i++) {
 					%>
 					<tr>
-						<td><input type="checkbox" name="check"
+						<td class="deviceSelect"><input type="checkbox" name="check"
 							value="<%=devices[i].getID()%>"></td>
-						<td class='date1'><a href="#a"
+						<td class='date1 deviceName'><a href="#a"
 							onclick="submitDevice('Device','<%=devices[i].getID()%>')"><%=devices[i].getControllerName()%></a></td>
-						<td class='date1'><%=devices[i].getID()%></td>
-						<td class='date1'><%=devices[i].getAddress()%></td>
-						<td class='date1'><%=devices[i].getPort()%></td>
-						<td class='date1'><%=devices[i].getPassword()%></td>
-						<td class='date1'><%=devices[i].getUniqueID()%></td>
-						<td class='date1'><%=devices[i].getServerPort()%></td>
+						<td class='date1 deviceId'><%=devices[i].getID()%></td>
+						<td class='date1 deviceAddress'><%=devices[i].getAddress()%></td>
+						<td class='date1 devicePortNumber'><%=devices[i].getPort()%></td>
+						<td class='date1 devicePassword'><%=devices[i].getPassword()%></td>
+						<td class='date1 deviceUniqueId'><%=devices[i].getUniqueID()%></td>
+						<td class='date1 deviceServerPort'><%=devices[i].getServerPort()%></td>
 					</tr>
 					<%
 						}

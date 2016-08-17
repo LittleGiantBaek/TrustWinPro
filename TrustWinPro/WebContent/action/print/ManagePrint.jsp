@@ -59,7 +59,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		alert("항목을 선택하세요");
 		return false;
 	}else{
-		$.ajax({      
+		$.ajax({   
 		    type:"post",  
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
 		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,

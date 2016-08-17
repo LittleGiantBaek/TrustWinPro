@@ -36,7 +36,8 @@
 <script type="text/javascript">
 
 function DeviceSorts(form,CN,Add,ID,UID){
-	var arrayObj = "";
+	
+	/* var arrayObj = "";
 	var count = 0;
 	for(i=0;i<form.info.length;i++){
 		if(form.info[i].checked){
@@ -47,21 +48,25 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	if(count==0){
 		alert("항목을 선택하세요");
 		return false;
-	}else{
+	} */ //* else{ */
 		$.ajax({      
 		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    data: "div=" + "sort" + "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    //url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
+		    url:"/TrustWinPro/action/page/AllDeviceList.jsp",
+		    //data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    //data: "searchControllerName="+CN+"searchAddress="+Add+"searchID="+ID+"searchUniqueID="+UID,
+		    data:  ({"searchControllerName": CN, "searchAddress": Add, "searchID": ID, "searchUniqueID": UID}),
 		    success:function(args){   
-		        $("#DeviceSorts").html(args);     
-				/* $(".Loading").css("display","none");  */
-				$("#hiddenSort").css("display","none");   
+		    	location.href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice#";
+		    	//window.location.reload(true);
+		        //$("#hiddenSort").html(args);     
+				/* $("#hiddenSort").css("display","none");    */
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
 		    }  
 		});
-	}
+	/* } */
 }
 	
 	
@@ -112,8 +117,8 @@ function DeviceSorts(form,CN,Add,ID,UID){
 
 </script>
 <div class="deviceSortPop">
-<div class="selectBox" style="height:400px">
-<form name="devicelist" id="devicelist2" method="post" action="">
+<div class="selectBox">
+<form name="devicelist" id="devicelist" method="post" action="">
 <!-- <div class="printPage"> -->
 		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort
 		<a href="#DeviceInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
@@ -142,39 +147,39 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="devicename/1"></td>
+<td><input type="checkbox" name="info" value="devicename/1" class="deviceName"></td>
 <td ><%=Lanfunc.language(lan, 1)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2"></td>
+<td ><input type="checkbox" name="info" value="ID/2" class="deviceId"></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Address/3"></td>
+<td ><input type="checkbox" name="info" value="Address/3" class="deviceAddress"></td>
 <td ><%=Lanfunc.language(lan, 3)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="Port Number/4"></td>
+<td ><input type="checkbox" name="info" value="Port Number/4" class="devicePortNumber"></td>
 <td ><%=Lanfunc.language(lan, 4)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5"></td>
+<td ><input type="checkbox" name="info" value="Password/5" class="devicePassword"></td>
 <td> <%=Lanfunc.language(lan, 5)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UniqueID/6"></td>
+<td ><input type="checkbox" name="info" value="UniqueID/6" class="deviceUniqueId"></td>
 <td ><%=Lanfunc.language(lan, 6)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Server Port/7"></td>
+<td ><input type="checkbox" name="info" value="Server Port/7" class="deviceServerPort"></td>
 <td > <%=Lanfunc.language(lan, 7)%></td>
 </tr>
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" onclick="DeviceSorts(document.getElementById('devicelist2'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" onclick="DeviceSorts(document.getElementById('devicelist'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
-<div id="DeviceSorts" class="tableList2"></div>
+<<!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
 <!-- 	</div> -->
 </div>
