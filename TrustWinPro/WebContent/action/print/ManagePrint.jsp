@@ -64,7 +64,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
 		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
 		    success:function(args){   
-		        $("#DeviceList").html(args);      
+		        $("#DeviceList").html(args);     
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
@@ -72,6 +72,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		});
 	}
 }
+
 
 
 function EventList(form,SDate,EDate,STime,ETime,Name,User,Top){
@@ -174,8 +175,10 @@ function allEventCheck(){
 %>
 		<jsp:include page="/action/print/EventPrint.jsp" flush="false"></jsp:include>
 <%			
-	}
+	} else if(div.equals("sort")){
 %>
+<jsp:include page="/action/page/DeviceSort.jsp" flush="true"></jsp:include>
+<% }%>
 	</div>
 </body>
 </html>

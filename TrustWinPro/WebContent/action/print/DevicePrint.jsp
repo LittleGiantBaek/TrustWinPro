@@ -57,9 +57,6 @@
 			<a href="#in" onclick="ieExecWB()">print</a> / <a href="#in" onclick="DeviceExcel(document.getElementById('devicelist'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');">excel</a>
 		</div>
 		<div id="DeviceList" class="tableList">
-		
-		
 		</div>
-		
 	</div>
  </div>

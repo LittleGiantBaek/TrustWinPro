@@ -1389,4 +1389,46 @@ public class DBCheck {
 		}
 	}
 	
+	public void AccountModeCheck() {
+		
+		Connection conn = null;
+		try {
+				Context init = new InitialContext();
+				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+				conn = ds.getConnection();
+				Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+				String sql = "select name from sysobjects where name=";
+				sql = sql + "'AccountMode'";
+				ResultSet rs = pstmt.executeQuery(sql);
+				int cout = 0;
+				if(rs.next()){
+					String[] Columns = {};		
+					String[] attribute = {};		
+					for(int i=0;i<Columns.length;i++){
+						if(ColumnCheck(Columns[i])==1){
+							String update = "alter table AccountMode add("+Columns[i]+" "+attribute[i]+");";
+							Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+							pstmt2.executeUpdate(update);
+						}else{
+							
+						}
+					}
+				}else{
+					Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+					String create = "CREATE TABLE [dbo].[AccountMode]([idx] [int] NOT NULL,"
+							+ "[Menu] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[ReadOnly] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[ReadWrite] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[Hide] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ ") ON [PRIMARY]";
+					pstmt2.executeUpdate(create);
+				}
+				
+				rs.close();
+				conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
 }

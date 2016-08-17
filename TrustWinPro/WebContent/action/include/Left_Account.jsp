@@ -35,7 +35,7 @@
 	}
 	
 	function deleteMap(v){
-		$.ajax({      
+		$.ajax({
 		    type:"post",  
 		    url:"/TrustWinPro/action/ajax/DeleteMap.jsp",   
 		    data: "mapID="+v,

@@ -34,8 +34,7 @@
 %>
 
 <script type="text/javascript">
-
-function DeviceSorts(form,CN,Add,ID,UID){
+function DeviceList(form,CN,Add,ID,UID){
 	var arrayObj = "";
 	var count = 0;
 	for(i=0;i<form.info.length;i++){
@@ -51,11 +50,9 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		$.ajax({      
 		    type:"post",  
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    data: "div=" + "sort" + "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
 		    success:function(args){   
-		        $("#DeviceSorts").html(args);     
-				/* $(".Loading").css("display","none");  */
-				$("#hiddenSort").css("display","none");   
+		        $("#DeviceList").html(args);      
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
@@ -64,7 +61,8 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	}
 }
 	
-	
+	var change = 0;
+
 	
 	
 	function allDeviceCheck(){
@@ -104,22 +102,25 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		
 	}
 	
-	function accessDeviceClose2(){
-		document.getElementById("postitDeviceSort").style.display = "none";
+	function accessDevice(){
+		document.getElementById("AccessDevice").submit();
 	}
 	
-	
+	function accessDeviceClose(){
+		document.getElementById("postitDeviceExcel").style.display = "none";
+	}
 
 </script>
 <div class="deviceSortPop">
-<div class="selectBox" style="height:400px">
-<form name="devicelist" id="devicelist2" method="post" action="">
+<form name="devicelist1" id="devicelist1" method="post" action="">
+<div class="selectBox">
 <!-- <div class="printPage"> -->
-		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort
-		<a href="#DeviceInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
-		</div>
+		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Excel
+		<a href="#DeviceInfo" onclick="accessDeviceClose();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
+		</div >
 		<!-- <hr width="100%"> -->
-		<table border="1" cellspacing="0" class="titleEx2" style="text-align:center" >
+		<!-- <div id="DeviceList" class="tableList"> -->
+		<table border="1" cellspacing="0" class="titleEx2" style="text-align:center">
 				<colgroup>
 						<col width="10%">
 						<col width="30%">
@@ -131,7 +132,7 @@ function DeviceSorts(form,CN,Add,ID,UID){
 					</tr>
 			</tbody>
 		</table>
-		<table cellspacing="0" class="ex1" id="hiddenSort">
+		<table cellspacing="0" class="ex1">
 		<colgroup>
 			<col width="10%">
 			<col width="30%">
@@ -171,12 +172,12 @@ function DeviceSorts(form,CN,Add,ID,UID){
 </tr>
 </tbody>
 </table>
-<div class="buttom">
-<a href="#" onclick="DeviceSorts(document.getElementById('devicelist2'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<div class="buttom" >
+<a href="#DeviceInfo" onclick="DeviceExcel(document.getElementById('devicelist1'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Excel</a>
 </div>
-<div id="DeviceSorts" class="tableList2"></div>
+
+</div>
 </form>
 <!-- 	</div> -->
-</div>
 	</div>
 	</div>
