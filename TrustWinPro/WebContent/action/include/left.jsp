@@ -332,7 +332,7 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/device.png" alt=""></span>
-					<span><a  href="#DeviceInfo"  onclick="changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
+					<span><a  id="dev1g" href="#DeviceInfo"  onclick="submitDeviceGroup('DeviceList','1','0','0');changeSpanDev(0,<%=lengthD %>,<%=dev[0].getDepth() %>,<%=dev[0].getIdx() %>,<%=request.getParameter("deviceID")%>)" id="span0" ><%=dev[0].getGroupname() %></a></span>
 					<span onclick="changeInputBox(0)" id="text0" class="span devicespanroot"><%=dev[0].getGroupname() %></span>
 					<span id="input0" class="spanInput"><input type="text" name="GroupName" id="GroupName0" class="inputText" value="<%=dev[0].getGroupname() %>" size="5" onkeypress="if(event.keyCode == 13) return UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" onblur="UpdateDevice(this.value,'<%=dev[0].getIdx()%>')" /></span>
 					<span><a href="#DeviceInfo" onclick="submit('AllDevice');" >All</a></span>
@@ -364,14 +364,15 @@
 					<%-- <span id="span<%=i %>" class = "deviceIDspan" > --%>
 					<span id="span<%=i %>" class ="" >
 						<a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="submitDeviceGroup('DeviceList','<%=dev[i].getIdx() %>','<%=dev[i].getDepth() %>','<%=i %>');changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
-						<%-- <a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
+						 
+						<%--  <a id="dev<%=dev[i].getIdx() %>g" href="#in" onclick="changeSpanDev(<%=i %>,<%=lengthD %>,<%=dev[i].getDepth() %>,<%=dev[i].getIdx() %>,<%=request.getParameter("deviceID")%>);"><%=dev[i].getGroupname() %></a>
 						 --%>
 						 <a href="#in" onclick="swich('0<%=i%>',<%=i%>)">
 							<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" />
 							<img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" />
 						</a>
 					</span>
-					<span id="text<%=i%>" class="span deviceGroupspan">
+					<span id="text<%=i%>" class="span">
 						<a href="#in" onclick="changeInputBox(<%=i%>)"><%=dev[i].getGroupname() %></a>
 						<a href="#in" onclick="swich(<%=i%>,<%=i%>)">
 						<img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close<%=i %>" />
@@ -493,11 +494,11 @@
 				</li>
 			</ul>
 		</div>
-		<div class="DeviceButtom" style="display:none">
+<!-- 		<div class="DeviceButtom" style="display:none">
 			<a href="#in" onclick="GroupAdd();"><img src="/TrustWinPro/action/image/interface/add.jpg" /></a>
 			<a href="#in" onclick="GroupDelete();"><img src="/TrustWinPro/action/image/interface/del.png" /></a>
 			<a href="#in" onclick="DeviceAdd(document.getElementById('GroupN').value)"><img src="/TrustWinPro/action/image/interface/modify.png" /></a>
-		</div>
+		</div> -->
 <%
 	}else if(left.equals("User")){
 %>
@@ -1159,6 +1160,7 @@ String selectuserID = request.getParameter("userID");
 		document.getElementById("dev"+idx+"g").style.backgroundColor  = "#5c5c5b";
 		document.getElementById("dev"+idx+"g").className = "deviceGroupspan";
 	}
+	
 	if(<%=request.getParameter("deviceID")%>!=null){
 		SpanDeviceClass(<%=request.getParameter("deviceID")%>);
 	}

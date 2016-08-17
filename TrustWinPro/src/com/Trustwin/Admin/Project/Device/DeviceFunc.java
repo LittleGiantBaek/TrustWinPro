@@ -626,7 +626,6 @@ public class DeviceFunc {
 						
 					while(rs.next()){
 						 int temp = rs.getInt(1);
-						 System.out.println(temp);
 						 departmentChildarr(temp, ary);
 					}
 					rs.close();
