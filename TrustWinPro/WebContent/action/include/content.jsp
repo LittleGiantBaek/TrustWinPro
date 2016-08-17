@@ -91,6 +91,10 @@
 %>
 		<jsp:include page="/action/page/Setting.jsp" flush="false"></jsp:include>
 <%	
+	}else if(content.equals("SettingAccount")){
+%>
+		<jsp:include page="/action/page/SettingAccount.jsp" flush="false"></jsp:include>
+<%	
 	}else{
 %>
 		<jsp:include page="/action/page/main.jsp" flush="false"></jsp:include>
