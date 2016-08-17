@@ -64,7 +64,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
 		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
 		    success:function(args){   
-		        $("#DeviceList").html(args);      
+		        $("#DeviceList").html(args);     
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
@@ -73,6 +73,35 @@ function DeviceList(form,CN,Add,ID,UID){
 	}
 }
 
+
+function DeviceList2(form,CN,Add,ID,UID){
+	var arrayObj = "";
+	var count = 0;
+	for(i=0;i<form.info.length;i++){
+		if(form.info[i].checked){
+			arrayObj = arrayObj + form.info[i].value + ",";
+			count++;
+		}
+	}
+	if(count==0){
+		alert("항목을 선택하세요");
+		return false;
+	}else{
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
+		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    success:function(args){   
+		        $("#DeviceSorts").html(args);     
+				/* $(".Loading").css("display","none"); */ 
+				$("#hiddenSort").css("display","none");   
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		});
+	}
+}
 
 function EventList(form,SDate,EDate,STime,ETime,Name,User,Top){
 	var arrayObj = "";

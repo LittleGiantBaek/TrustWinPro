@@ -32,8 +32,13 @@ window.onclick = function(event) {
 
 
 function deviceSort(){
-	document.getElementById("postitDevice").style.display = "block";
-	document.getElementById("postitDevice").style.top = "200px";
+	document.getElementById("postitDeviceSort").style.display = "block";
+	document.getElementById("postitDeviceSort").style.top = "200px";
+}
+
+function deviceExcel(){
+	document.getElementById("postitDeviceExcel").style.display = "block";
+	document.getElementById("postitDeviceExcel").style.top = "200px";
 }
 
 var change = 0;
@@ -125,13 +130,8 @@ function checkedF(num,v){
 		
 		String GroupID = (String) request.getParameter("deviceGroupID");
 		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
-		if ((String) request.getParameter("deviceGroupID") != null) {
-			System.out.println((String)request.getParameter("deviceGroupID"));
-		    System.out.println(ChildDepartmentArr.size());
+		if ((String) request.getParameter("deviceGroupID") != null) 
 			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
-		    System.out.println(ChildDepartmentArr.size());		    
-		}
-		
 		
 		
 		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
@@ -199,13 +199,14 @@ function checkedF(num,v){
 	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
   <button onclick="myFunction()" class="dropbtn">•••</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#" onclick="deviceSort();">Print</a>
-    <a href="#" onclick="deviceSort();">Excel</a>
+    <a href="#" onclick="ieExecWB();">Print</a>
+    <a href="#" onclick="deviceExcel();">Excel</a>
     <a href="#" onclick="deviceSort();">Sort</a>
   </div>
 </div>
+	
+	
 	<form action="" name="deviceInfo" id="deviceInfo" method="post">
-
 		<div class="tablebor">
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
@@ -272,10 +273,23 @@ function checkedF(num,v){
 				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 		
-		<div class="postitDevice" id="postitDevice">
-		<jsp:include page="DeviceSort.jsp" flush="false"></jsp:include>
+		<div class="postitDeviceSort" id="postitDeviceSort">
+		<jsp:include page="DeviceSort.jsp" flush="true">
+			<jsp:param name="searchControllerName" value="<%=LangUtil.Empty(ControllerName)%>"/>
+			<jsp:param name="searchAddress" value="<%=LangUtil.Empty(Address)%>"/>
+			<jsp:param name="searchID" value="<%=LangUtil.Empty(ID)%>"/>
+			<jsp:param name="searchUniqueID" value="<%=LangUtil.Empty(UniqueID)%>"/>
+		</jsp:include>
 		</div>
 		
+		<div class="postitDeviceExcel" id="postitDeviceExcel">
+		<jsp:include page="DeviceExcel.jsp" flush="true">
+			<jsp:param name="searchControllerName" value="<%=LangUtil.Empty(ControllerName)%>"/>
+			<jsp:param name="searchAddress" value="<%=LangUtil.Empty(Address)%>"/>
+			<jsp:param name="searchID" value="<%=LangUtil.Empty(ID)%>"/>
+			<jsp:param name="searchUniqueID" value="<%=LangUtil.Empty(UniqueID)%>"/>
+		</jsp:include>
+		</div>
 		
 	</form>
 </div>
@@ -285,8 +299,6 @@ function checkedF(num,v){
 		type="hidden" value="" name="deviceID" /> <input type="hidden"
 		value="DeviceInfo" name="content" />
 </form>
-<jsp:include page="/action/include/rightclickmenu.jsp" flush="false"></jsp:include>	
-
 
 
 
