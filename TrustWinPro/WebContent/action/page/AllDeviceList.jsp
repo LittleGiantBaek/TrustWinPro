@@ -125,13 +125,8 @@ function checkedF(num,v){
 		
 		String GroupID = (String) request.getParameter("deviceGroupID");
 		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
-		if ((String) request.getParameter("deviceGroupID") != null) {
-			System.out.println((String)request.getParameter("deviceGroupID"));
-		    System.out.println(ChildDepartmentArr.size());
+		if ((String) request.getParameter("deviceGroupID") != null) 
 			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
-		    System.out.println(ChildDepartmentArr.size());		    
-		}
-		
 		
 		
 		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
@@ -285,8 +280,6 @@ function checkedF(num,v){
 		type="hidden" value="" name="deviceID" /> <input type="hidden"
 		value="DeviceInfo" name="content" />
 </form>
-<jsp:include page="/action/include/rightclickmenu.jsp" flush="false"></jsp:include>	
-
 
 
 

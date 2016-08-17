@@ -16,6 +16,8 @@
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
   	    <li class="menuitem">Delete Device Group</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Edit Name</li>
 	  </ul>
   </div>
   
@@ -24,6 +26,7 @@
 	   <li class="menuitem">Delete Device Group</li>
 	   <li class="divider"></li>
 	   <li class="menuitem">Add Device</li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
      </div>  
      
@@ -37,7 +40,7 @@
 	 </ul>
      </div>  
      
-      <div class="contextmenu conDevicetotal">
+       <div class="contextmenu conDevicetotal">
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
   	    <li class="menuitem">Delete Device Group</li>
@@ -45,7 +48,7 @@
 	    <li class="menuitem">Add Device</li>
 	    <li class="menuitem">Delete Device</li>
 	  </ul>
-  </div>
+ 	 </div>
   
      <div class="contextmenu conDeviceDelete">
 	 <ul>
@@ -202,7 +205,7 @@
 	});
 	
 	//Device Contextmenu
-		$(".devicespanroot").on('contextmenu', function(event) {
+	$(".devicespanroot").on('contextmenu', function(event) {
 		  ShowContextMenu("conDeviceGroup");
 		  CheckLocation();
 		  return false;
@@ -299,24 +302,32 @@
 	  
 	//Device Function
 	  $(".conDeviceGroup").click(function(e){
-			if($(this).find(".hover").text() == "Add Device Group")
-				GroupAdd();
-			else
+			if($(this).find(".hover").text() == "Add Device Group"){
+				GroupAdd();  
+				}
+			else if($(this).find(".hover").text() == "Delete Device Group"){
 				GroupDelete();
+				}
+			else if($(this).find(".hover").text() == "Edit Name")
+				changeInputBox(document.getElementById("valueOfi").value);
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });	  
 	  $(".conDeviceMemberGroup").click(function(e){
 			if($(this).find(".hover").text() == "Delete Device Group")
 				GroupDelete();
-			else
+			else if($(this).find(".hover").text() == "Add Device")
 				DeviceAdd(document.getElementById('GroupN').value);
+			else if($(this).find(".hover").text() == "Edit Name")
+				changeInputBox(document.getElementById("valueOfi").value);
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });
 	  $(".conDevicesubGroup").click(function(e){
-			if($(this).find(".hover").text() == "Add Device Group")
+			if($(this).find(".hover").text() == "Add Device Group"){
 				GroupAdd();
+			}
 			else if($(this).find(".hover").text() == "Delete Device Group"){
 				GroupDelete();
 			}
