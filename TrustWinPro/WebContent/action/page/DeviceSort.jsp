@@ -32,29 +32,10 @@
 		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 	}
 %>
-<%-- <%
-	AccessFunc Accfunc = new AccessFunc();
-	DeviceFunc Devfunc = new DeviceFunc();
-	TimeZoneFunc Timezonefunc = new TimeZoneFunc();
-	LanguageFunc lanfunc = new LanguageFunc();
-	
-	int idxs = 0;
-	if(request.getParameter("num") == null || request.getParameter("num").equals("")){
-		AccessGroup[] group =  Accfunc.AccessGroupMenu();
-		idxs = group[0].getIdx();
-	}else{
-		idxs = Integer.parseInt(request.getParameter("num"));
-	}
 
-	//DeviceInfo
-	DeviceGroup[] device = null;
-	device = Devfunc.GroupDefind();
-	TimeZone[] time = null;
-	time = Timezonefunc.TimeMenu();
-	String lan = (String)session.getAttribute("nation");
-%> --%>
 <script type="text/javascript">
-function DeviceList(form,CN,Add,ID,UID){
+
+function DeviceSorts(form,CN,Add,ID,UID){
 	var arrayObj = "";
 	var count = 0;
 	for(i=0;i<form.info.length;i++){
@@ -70,9 +51,11 @@ function DeviceList(form,CN,Add,ID,UID){
 		$.ajax({      
 		    type:"post",  
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    data: "div=" + "sort" + "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
 		    success:function(args){   
-		        $("#DeviceList").html(args);      
+		        $("#DeviceSorts").html(args);     
+				/* $(".Loading").css("display","none");  */
+				$("#hiddenSort").css("display","none");   
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
@@ -83,28 +66,6 @@ function DeviceList(form,CN,Add,ID,UID){
 	
 	
 	
-	var change = 0;
-
-	function accessDeviceList(v){
-		if(v!=0){
-			$(".Loading").css("display","block");
-			$.ajax({      
-			    type:"post",  
-			    url:"/TrustWinPro/action/ajax/AccessDeviceList.jsp",   
-			    data: "group=" + v,
-			    success:function(args){   
-			        $("#devicelist").html(args);
-					$(".Loading").css("display","none"); 
-					$("#default_devicelist").css("display","none");    
-			    },   
-			    error:function(e){  
-			        alert("AcceessDeviceList Error!" + e.responseText);  
-			    }  
-			}); 
-		}else{
-			
-		}
-	}
 	
 	function allDeviceCheck(){
 		var check = document.getElementsByName("checkD");
@@ -143,10 +104,6 @@ function DeviceList(form,CN,Add,ID,UID){
 		
 	}
 	
-	function accessDevice(){
-		document.getElementById("AccessDevice").submit();
-	}
-	
 	function accessDeviceClose2(){
 		document.getElementById("postitDeviceSort").style.display = "none";
 	}
@@ -155,8 +112,8 @@ function DeviceList(form,CN,Add,ID,UID){
 
 </script>
 <div class="deviceSortPop">
-<div class="selectBox">
-<form name="devicelist2" id="devicelist2" method="post" action="/TrustWinPro/action/page/AllDeviceList.jsp">
+<div class="selectBox" style="height:400px">
+<form name="devicelist" id="devicelist2" method="post" action="">
 <!-- <div class="printPage"> -->
 		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort
 		<a href="#DeviceInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
@@ -214,11 +171,10 @@ function DeviceList(form,CN,Add,ID,UID){
 </tr>
 </tbody>
 </table>
-<div id="DeviceList" class="tableList2"></div>
 <div class="buttom">
-<a href="#in" onclick="DeviceList2(document.getElementById('devicelist2'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>')" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" onclick="DeviceSorts(document.getElementById('devicelist2'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
-
+<div id="DeviceSorts" class="tableList2"></div>
 </form>
 <!-- 	</div> -->
 </div>
