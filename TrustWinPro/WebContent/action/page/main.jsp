@@ -10,7 +10,8 @@
 		
 		<div class="new_block">
 			<div class="new_block_b">
-				<jsp:include page="/action/page/pieChart.jsp" flush="false"></jsp:include>
+			<%--<jsp:include page="/action/page/pieChart.jsp" flush="false"></jsp:include> --%>
+				<jsp:include page="/action/page/pieChart2.jsp" flush="false"></jsp:include>
 			</div>
 			<div class="new_block_b">
 				<jsp:include page="/action/page/Geolocation.html" flush="false"></jsp:include>
