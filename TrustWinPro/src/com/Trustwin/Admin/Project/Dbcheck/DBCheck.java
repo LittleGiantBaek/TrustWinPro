@@ -1416,10 +1416,11 @@ public class DBCheck {
 				}else{
 					Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 					String create = "CREATE TABLE [dbo].[AccountMode]([idx] [int] NOT NULL,"
-							+ "[Menu] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
-							+ "[ReadOnly] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
-							+ "[ReadWrite] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
-							+ "[Hide] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[UserClass] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[Device] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[User] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[AccessControl] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[Monitoring] [nvarchar](100) COLLATE Korean_Wansung_CI_AS NULL,"
 							+ ") ON [PRIMARY]";
 					pstmt2.executeUpdate(create);
 				}
