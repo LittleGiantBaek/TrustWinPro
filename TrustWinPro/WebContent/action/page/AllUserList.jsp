@@ -230,8 +230,8 @@ function userExcel(){
 				<p><div class = "headerji">
 				<%=Lanfunc.language(lan, 39)%> : 
 				</div>
-				<select name="searchDepartment" class = "hourselect">>
-					<option value="">== Select Option ==</option>
+				<select name="searchDepartment" class = "hourselect">
+					<option value="<%=Department%>">== Select Option ==</option>
 <%
 	for(int i=0;i<cata.length;i++){
 
@@ -239,6 +239,7 @@ function userExcel(){
 %>
 
 					<option value="<%=cata[i].getIdx()%>" <%=cata[i].getIdx() == Department ? "selected" : "" %>><%=cata[i].getName() %></option>
+					
 <%
 	}
 %>
@@ -397,6 +398,7 @@ function userExcel(){
 			<a href="#" title="Delete" onclick="checkedF(<%=users.length %>,2);"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 	</form>
+	
 	
 	<div class="postitUserSort" id="postitUserSort" style="display:none">
 		<jsp:include page="UserSort.jsp" flush="true">
