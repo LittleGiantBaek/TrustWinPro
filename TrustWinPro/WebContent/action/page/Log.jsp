@@ -248,6 +248,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 		</div>
 	</section>
 	
+	
 	<div class="colorOption" id="colorOption">
 	<form action="/TrustWinPro/action/index.jsp" name="colorO" id="colorO" method="post">
 		<table cellspacing="0"  class="titleEx1">

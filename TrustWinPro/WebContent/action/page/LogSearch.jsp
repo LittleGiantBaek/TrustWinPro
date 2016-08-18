@@ -1,11 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+
+<script type="text/javascript">
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function eventSort(){
+	document.getElementById("postitEventSort").style.display = "block";
+	document.getElementById("postitEventSort").style.top = "200px";
+}
+
+function eventExcel(){
+	document.getElementById("postitEventExcel").style.display = "block";
+	document.getElementById("postitEventExcel").style.top = "200px";
+}
+
+</script>
 <%
 	Connection conn = null;
 	String SDate = (String)request.getParameter("searchStartDate");
@@ -99,11 +133,11 @@
 	}
 	
 	 
-	int maxPageNum=-1;                 // ÀüÃ¼ ÆäÀÌÁöÀÇ ¼ö.
-	int limitPage,pagerSize = 10;              // limitPage : ¸¶Áö¸· ÆäÀÌÁö ³Ñ¹ö. pageSize : ÆäÀÌÁö ³Ñ¹ö°¡ º¸¿©Áö´Â °£°Ý.
+	int maxPageNum=-1;                 // ì „ì²´ íŽ˜ì´ì§€ì˜ ìˆ˜.
+	int limitPage,pagerSize = 10;              // limitPage : ë§ˆì§€ë§‰ íŽ˜ì´ì§€ ë„˜ë²„. pageSize : íŽ˜ì´ì§€ ë„˜ë²„ê°€ ë³´ì—¬ì§€ëŠ” ê°„ê²©.
 	int currentPage = 0;
 	if(request.getAttribute("currentPage")!=null){
-		currentPage = Integer.parseInt((String)request.getAttribute("currentPage")); // ÇöÀç ÆäÀÌÁö 
+		currentPage = Integer.parseInt((String)request.getAttribute("currentPage")); // í˜„ìž¬ íŽ˜ì´ì§€ 
 	}
 	
 	int top = 0;
@@ -235,6 +269,14 @@
 			</div>
 		</section>
 		
+	<!-- <div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
+  	<button onclick="myFunction()" class="dropbtn">â€¢â€¢â€¢</button>
+ 	 <div id="myDropdown" class="dropdown-content">
+    <a href="#" onclick="ieExecWB();">Print</a>
+    <a href="#" onclick="eventExcel();">Excel</a>
+    <a href="#" onclick="eventSort();">Sort</a>
+  	</div>
+	</div> -->	
 	<div  class="tablebor" id="logdata">
 	<table border=1 cellspacing="0" class="titleEx1">
 		<colgroup>
@@ -310,3 +352,16 @@
 			e.printStackTrace();
 		}
 %>
+
+
+<%-- <div class="postitEventSort" id="postitEventSort" style="display:none">
+		<jsp:include page="EventSort.jsp" flush="true">
+			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>
+		</jsp:include>
+		</div>
+		
+		<div class="postitEventExcel" id="postitEventExcel">
+		<jsp:include page="EventExcel.jsp" flush="true">
+			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>
+		</jsp:include>
+		</div> --%>
