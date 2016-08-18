@@ -75,8 +75,8 @@ img {border:0;}
     background: #594b4f;
     left: 0px;
     top: 0px;
-   /* height:1200px; */
-   min-height:760px;
+    height:auto;
+    min-height:760px;
 }
 nav {
     position: relative;
@@ -207,28 +207,28 @@ button {
     z-index: 200;
 } */
  .ng-scope {
+ 	margin-right:15px;
     padding: 8px 2px 4px 2px;
     padding-left : 8%;
-  /*   text-align: center; */
     border-top-right-radius: 8px;
     border-bottom: 1px solid #b4b4b4;
     background: #f4f3f2;
-  /*  width:100px; */
-  min-height:760px;
-   /*  height:1200px; */
-  
+  	min-height:760px;
+    height:auto;
 } 
    .leftTreeMenu {
         height: 800px;
+   		 height:auto;
     }
  .main-ng-view {
     position: relative;
+    padding-left : 8%;
+    padding: 8px 0px 4px 20px;
     left: 10px;
     margin-right: 0px;
-    /* padding-right: 80px; */
     overflow: hidden;
-    min-height:760px;
-   /*  height: 1200px; */
+    min-height:1000px;
+    height:auto;
     display:block;
 }   
 
@@ -330,7 +330,7 @@ button {
 #top .main_top .top_menu .menu ul li a{color:white;}
 	
 /* left style */
-#left{/* padding:10px 0; */width:21%;height:100%;margin:0;float:left;background-color: #dcd6d3; 
+#left{  margin-right: -10px; width:22%;height:100%;float:left;background-color: #dcd6d3; 
 min-height:760px;/* min-width:200px; */position:relative;}
 #left .left_top {width:100%;position:absolute;height:69%;min-height:500px;bottom:30px;}
 #left .left_top .left_box{border:1px solid black;margin:5px;padding-top:5px;}
@@ -392,7 +392,7 @@ min-height:760px;/* min-width:200px; */position:relative;}
 
 /* content style */
 .content{float:right; padding:0; width:78%; padding: 10px 0 100px 10px; 
-    background: #dcd6d3; min-height:760px;}
+    background: #dcd6d3; min-height:760px;height:auto;}
 #Access {
 	margin-left:12px;
 }
@@ -949,6 +949,16 @@ table.ex1 a:active{color:#000;}
 .postitDeviceExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitDeviceExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
 
+.postitUserExcel {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitUserExcel .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:270px; */background-color:white;}
+.postitUserExcel .deviceSortPop table{width:100%}
+.postitUserExcel .deviceSortPop table tr th{padding:0;margin:0;}
+.postitUserExcel .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitUserExcel .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitUserExcel .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitUserExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitUserExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
 
 .postitDeviceSort {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;/* height:300px; */position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
 .postitDeviceSort .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:400px; */background-color:white;}
@@ -959,6 +969,24 @@ table.ex1 a:active{color:#000;}
 .postitDeviceSort .deviceSortPop .timeZone {position:absolute;bottom:10%;}
 .postitDeviceSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitDeviceSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
+.postitUserSort {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;/* height:300px; */position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitUserSort .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:400px; */background-color:white;}
+.postitUserSort .deviceSortPop table{width:100%}
+.postitUserSort .deviceSortPop table tr th{padding:0;margin:0;}
+.postitUserSort .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitUserSort .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitUserSort .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitUserSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitUserSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
+.postitUser {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);;left:35%;top:5%;}
+.postitUser .accessUser {width:99%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:295px;background-color:#f1e5e7;}
+.postitUser .accessUser table{width:100%}
+.postitUser .accessUser table tr th{padding:0;margin:0;}
+.postitUser .accessUser table tr th input {margin:0;padding:0;}
+.postitUser .accessUser .infoBox {height:260px;overflow:hidden;}
+.postitUser .accessUser .buttom {position:absolute;right:30px;bottom:10px;}
 
 
 .postitDevice {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
@@ -971,13 +999,7 @@ table.ex1 a:active{color:#000;}
 .postitDevice .accessDevice .timeZone .title{margin:0 70px 0 0;}
 .postitDevice .accessDevice .buttom {position:absolute;right:10px;bottom:10px;}
 
-.postitUser {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);;left:35%;top:5%;}
-.postitUser .accessUser {width:99%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:295px;background-color:#f1e5e7;}
-.postitUser .accessUser table{width:100%}
-.postitUser .accessUser table tr th{padding:0;margin:0;}
-.postitUser .accessUser table tr th input {margin:0;padding:0;}
-.postitUser .accessUser .infoBox {height:260px;overflow:hidden;}
-.postitUser .accessUser .buttom {position:absolute;right:30px;bottom:10px;}
+
 
 /* Language */
 #Language {width:100%;padding:0 0 0 10px;margin:0;}

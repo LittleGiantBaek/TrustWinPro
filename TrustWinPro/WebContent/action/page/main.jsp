@@ -6,7 +6,7 @@
 
 		<div class="block_b" style="width:96%">
 			<%-- 		<jsp:include page="/action/page/barChart.jsp" flush="false"></jsp:include> --%>
-			<jsp:include page="/action/page/barChart.jsp" flush="false"></jsp:include>
+			<jsp:include page="/action/page/barChart3.jsp" flush="false"></jsp:include>
 		</div>
 		
 		<div class="new_block">

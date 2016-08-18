@@ -143,9 +143,10 @@ function previewImage(targetObj, View_area) {
 }
 
 
-
+var change = 0;
 function allA_GroupInfoCheck() {
-	var check = document.DeviceInfomation.check; 
+	//var check = document.DeviceInfomation.check; 
+	var check = document.getElementsByName("check");
 	if(change == 0){
 		for(var i = 0 ; i < check.length;i++ ){
 			check[i].checked = true;	
@@ -431,11 +432,13 @@ function AccessDelete(deviceID){
 				<div class="InfoBox1">
 					<div class="block">
 						<div class="header"><%=lanFunc.language(lan, 138)%></div>
+
 						<div class="main">
 							<select name="DoorRelay" class="mainselect">
-								<option value = "" >--- Select Option ---</option>
-								<option value = "Relay1" <%="Relay1".equals(rs.getString(9)) ? "selected" : "" %>>Relay 1</option>
-								<option value = "Relay2" <%="Relay2".equals(rs.getString(9)) ? "selected" : "" %>>Relay 2</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!-- Relay 1 : 1  / Relay 2 : 2 -->
+								<option value = "1" <%="1".equals(rs.getString(9)) ? "selected" : "" %>>Relay 1</option>
+								<option value = "2" <%="2".equals(rs.getString(9)) ? "selected" : "" %>>Relay 2</option>
 							</select>
 						</div>
 					</div>
@@ -443,22 +446,23 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 139)%></div>
 						<div class="main">
 							<select name="DoorMode" class="mainselect">
-								<option value = "" >--- Select Option ---</option>
-								<option value = "[ANY MODE]" <%="[ANY MODE]".equals(rs.getString(10)) ? "selected" : "" %>>[ANY MODE]</option>
-								<option value = "[FINGER]" <%="[FINGER]".equals(rs.getString(10)) ? "selected" : "" %>>[FINGER]</option>
-								<option value = "[CD]or[FP]" <%="[CD]or[FP]".equals(rs.getString(10)) ? "selected" : "" %>>[CD] or [FP]</option>
-								<option value = "[ID&FP]or[CD]" <%="[ID&FP]or[CD]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [CD]</option>
-								<option value = "[ID&FP]or[ID&CD]" <%="[ID&FP]or[ID&CD]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [ID&CD]</option>
-								<option value = "[ID&FP]or[CD&FP]" <%="[ID&FP]or[CD&FP]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [CD&FP]</option>
-								<option value = "[OPEN]" <%="[OPEN]".equals(rs.getString(10)) ? "selected" : "" %>>[OPEN]</option>
-								<option value = "[CLOSE]" <%="[CLOSE]".equals(rs.getString(10)) ? "selected" : "" %>>[CLOSE]</option>
-								<option value = "[CD]" <%="[CD]".equals(rs.getString(10)) ? "selected" : "" %>>[CD]</option>
-								<option value = "[ID]or[FP]" <%="[ID]or[FP]".equals(rs.getString(10)) ? "selected" : "" %>>[ID] or [FP]</option>
-								<option value = "[ID]or[CD]" <%="[ID]or[CD]".equals(rs.getString(10)) ? "selected" : "" %>>[ID] or [CD]</option>
-								<option value = "[ID&CD]" <%="[ID&CD]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&CD]</option>
-								<option value = "[CD&FP]" <%="[CD&FP]".equals(rs.getString(10)) ? "selected" : "" %>>[CD&FP]</option>
-								<option value = "[ID&FP]" <%="[ID&FP]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP]</option>
-								<option value = "[ID&CD&FP]" <%="[ID&CD&FP]".equals(rs.getString(10)) ? "selected" : "" %>>[ID&CD&FP]</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!-- [ANY MODE] : 0  / [FINGER] : 1 / [CD]or[FP] : 3 ... -->
+								<option value = "0" <%="0".equals(rs.getString(10)) ? "selected" : "" %>>[ANY MODE]</option>
+								<option value = "1" <%="1".equals(rs.getString(10)) ? "selected" : "" %>>[FINGER]</option>
+								<option value = "2" <%="2".equals(rs.getString(10)) ? "selected" : "" %>>[CD] or [FP]</option>
+								<option value = "3" <%="3".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [CD]</option>
+								<option value = "4" <%="4".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [ID&CD]</option>
+								<option value = "5" <%="5".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP] or [CD&FP]</option>
+								<option value = "6" <%="6".equals(rs.getString(10)) ? "selected" : "" %>>[OPEN]</option>
+								<option value = "7" <%="7".equals(rs.getString(10)) ? "selected" : "" %>>[CLOSE]</option>
+								<option value = "8" <%="8".equals(rs.getString(10)) ? "selected" : "" %>>[CD]</option>
+								<option value = "9" <%="9".equals(rs.getString(10)) ? "selected" : "" %>>[ID] or [FP]</option>
+								<option value = "10" <%="10".equals(rs.getString(10)) ? "selected" : "" %>>[ID] or [CD]</option>
+								<option value = "11" <%="11".equals(rs.getString(10)) ? "selected" : "" %>>[ID&CD]</option>
+								<option value = "12" <%="12".equals(rs.getString(10)) ? "selected" : "" %>>[CD&FP]</option>
+								<option value = "13" <%="13".equals(rs.getString(10)) ? "selected" : "" %>>[ID&FP]</option>
+								<option value = "14" <%="14".equals(rs.getString(10)) ? "selected" : "" %>>[ID&CD&FP]</option>
 							</select>
 						</div>
 					</div>
@@ -466,7 +470,7 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 140)%></div>
 						<div class="main">
 							<select name="DoorTime" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "999" >--- Select Option ---</option>
 <%
 	for(int i=1;i<100;i++){
 %>
@@ -481,7 +485,7 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 141)%></div>
 						<div class="main">
 							<select name="DoorAlarm" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "999" >--- Select Option ---</option>
 <%
 	for(int i=1;i<100;i++){
 %>
@@ -496,11 +500,12 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 142)%></div>
 						<div class="main">
 							<select name="CdType" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "26bit Wiegand" <%="26bit Wiegand".equals(rs.getString(13)) ? "selected" : "" %>>26bit Wiegand</option>
-								<option value = "34bit Wiegand" <%="34bit Wiegand".equals(rs.getString(13)) ? "selected" : "" %>>34bit Wiegand</option>
-								<option value = "35bit Wiegand" <%="35bit Wiegand".equals(rs.getString(13)) ? "selected" : "" %>>35bit Wiegand</option>
-								<option value = "37bit Wiegand" <%="37bit Wiegand".equals(rs.getString(13)) ? "selected" : "" %>>37bit Wiegand</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!-- 26bit Wiegand : 1  / 34bit Wiegand : 2  / 35bit Wiegand : 3 / 37bit Wiegand : 4 -->
+								<option value = "1" <%="1".equals(rs.getString(13)) ? "selected" : "" %>>26bit Wiegand</option>
+								<option value = "2" <%="2".equals(rs.getString(13)) ? "selected" : "" %>>34bit Wiegand</option>
+								<option value = "3" <%="3".equals(rs.getString(13)) ? "selected" : "" %>>35bit Wiegand</option>
+								<option value = "4" <%="4".equals(rs.getString(13)) ? "selected" : "" %>>37bit Wiegand</option>
 							</select>
 						</div>
 					</div>
@@ -508,7 +513,7 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 143) %></div>
 						<div class="main">
 							<select name="ReAccess" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "999" >--- Select Option ---</option>
 <%
 	for(int i=1;i<10;i++){
 %>
@@ -516,7 +521,7 @@ function AccessDelete(deviceID){
 <%
 	}
 %>
-								<option value = "None" <%="None".equals(rs.getString(14)) ? "selected" : "" %>>None</option>
+								<option value = "10" <%="10".equals(rs.getString(14)) ? "selected" : "" %>>None</option>
 							</select>
 						</div>
 					</div>
@@ -524,17 +529,25 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 144) %></div>
 						<div class="main">
 							<select name="Cd2Fun" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "NULL" >--- Select Option ---</option>
 <%
 	for(int i=1;i<5;i++){
 		for(int j=0;j<10;j++){
+			if(i==1){
 %>
-								<option value = "F<%=i%>-<%=j%>" <%=("F" + i + "-" + j).equals(rs.getString(15)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+				<option value = "<%=j%>" <%=(String.valueOf(j)).equals(rs.getString(15)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
 <%
-
+			}else{
+%>
+				<option value = "<%=i-1%><%=j%>" <%=(String.valueOf(i-1) + String.valueOf(j)).equals(rs.getString(15)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+				<%-- <option value = "F<%=i%>-<%=j%>" <%=("F" + i + "-" + j).equals(rs.getString(15)) ? "selected" : "" %>>F<%=i%>-<%=j%></option> --%>
+<%
+			}
 		}
 	}
 %>
+				<option value = "40" <%=("40").equals(rs.getString(15)) ? "selected" : "" %>>None</option>
+				
 							</select>
 						</div>
 					</div>
@@ -542,17 +555,23 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 145) %></div>
 						<div class="main">
 							<select name="AlmRelayFun" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "NULL" >--- Select Option ---</option>
 <%
 	for(int i=1;i<5;i++){
 		for(int j=0;j<10;j++){
+			if(i==1){
 %>
-								<option value = "F<%=i%>-<%=j%>" <%=("F" + i + "-" + j).equals(rs.getString(16)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+				<option value = "<%=j%>" <%=(String.valueOf(j)).equals(rs.getString(16)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
 <%
-
+			}else{
+%>
+				<option value = "<%=i-1%><%=j%>" <%=(String.valueOf(i-1) + String.valueOf(j)).equals(rs.getString(16)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+<%
+			}
 		}
 	}
 %>
+				<option value = "40" <%=("40").equals(rs.getString(16)) ? "selected" : "" %>>None</option>
 							</select>
 						</div>
 					</div>
@@ -560,17 +579,23 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 146) %></div>
 						<div class="main">
 							<select name="AlmBuzzFun" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "NULL" >--- Select Option ---</option>
 <%
 	for(int i=1;i<5;i++){
 		for(int j=0;j<10;j++){
+			if(i==1){
 %>
-								<option value = "F<%=i%>-<%=j%>" <%=("F" + i + "-" + j).equals(rs.getString(17)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+								<option value = "<%=j%>" <%=(String.valueOf(j)).equals(rs.getString(17)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
 <%
-
+			}else{
+%>
+								<option value = "<%=i-1%><%=j%>" <%=(String.valueOf(i-1) + String.valueOf(j)).equals(rs.getString(17)) ? "selected" : "" %>>F<%=i%>-<%=j%></option>
+<%
+			}
 		}
 	}
 %>
+								<option value = "40" <%=("40").equals(rs.getString(17)) ? "selected" : "" %>>None</option>
 							</select>
 						</div>
 					</div>
@@ -578,9 +603,10 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 147) %>3</div>
 						<div class="main">
 							<select name="AntiPass" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "NO" <%="NO".equals(rs.getString(18)) ? "selected" : "" %>>NO</option>
-								<option value = "YES" <%="YES".equals(rs.getString(18)) ? "selected" : "" %>>YES</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!--  NO : 0 / YES : 1 -->
+								<option value = "0" <%="0".equals(rs.getString(18)) ? "selected" : "" %>>NO</option>
+								<option value = "1" <%="1".equals(rs.getString(18)) ? "selected" : "" %>>YES</option>
 							</select>
 						</div>
 					</div>
@@ -588,9 +614,10 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 148) %></div>
 						<div class="main">
 							<select name="Fire" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "Intrusion" <%="Intrusion".equals(rs.getString(19)) ? "selected" : "" %>>Intrusion</option>
-								<option value = "Fire" <%="Fire".equals(rs.getString(19)) ? "selected" : "" %>>Fire</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!--  Intrusion : 0 / Fire : 1 -->
+								<option value = "0" <%="0".equals(rs.getString(19)) ? "selected" : "" %>>Intrusion</option>
+								<option value = "1" <%="1".equals(rs.getString(19)) ? "selected" : "" %>>Fire</option>
 							</select>
 						</div>
 					</div>
@@ -598,9 +625,10 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 149) %></div>
 						<div class="main">
 							<select name="IdSecret" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "Off" <%="Off".equals(rs.getString(20)) ? "selected" : "" %>>Off</option>
-								<option value = "On" <%="On".equals(rs.getString(20)) ? "selected" : "" %>>On</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!--  Off : 0 / On : 1 -->
+								<option value = "0" <%="0".equals(rs.getString(20)) ? "selected" : "" %>>Off</option>
+								<option value = "1" <%="1".equals(rs.getString(20)) ? "selected" : "" %>>On</option>
 							</select>
 						</div>
 					</div>
@@ -608,11 +636,12 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 150)%></div>
 						<div class="main">
 							<select name="Limit" class="mainselect">
-								<option value = "None" <%="None".equals(rs.getString(21)) ? "selected" : "" %>>None</option>
+								<!--  None : 0 / On : 1 -->
+								<option value = "0" <%="0".equals(rs.getString(21)) ? "selected" : "" %>>None</option>
 <%
 	for(int i=1;i<601;i++){
 %>
-								<option value = "<%=i%>" <%=Integer.toString(i).equals(rs.getString(21)) ? "selected" : "" %>><%=i%></option>
+								<option value = "<%=i%>" <%=Integer.toString(i).equals(rs.getString(21)) ? "selected" : "" %>><%=i%> Min</option>
 <%
 	}
 %>
@@ -624,9 +653,10 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 151)%></div>
 						<div class="main">
 							<select name="VoiceOut" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "Off" <%="Off".equals(rs.getString(22)) ? "selected" : "" %>>Off</option>
-								<option value = "On" <%="On".equals(rs.getString(22)) ? "selected" : "" %>>On</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!--  Off : 0 / On : 1 -->
+								<option value = "0" <%="0".equals(rs.getString(22)) ? "selected" : "" %>>Off</option>
+								<option value = "1" <%="1".equals(rs.getString(22)) ? "selected" : "" %>>On</option>
 							</select>
 						</div>
 					</div>
@@ -634,7 +664,7 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 152)%></div>
 						<div class="main"> 
 							<select name="MachineID" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
+								<option value = "999" >--- Select Option ---</option>
 <%
 	for(int i=1;i<501;i++){
 %>
@@ -652,12 +682,13 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 153)%></div>
 						<div class="main">
 							<select name="Baudrate" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "9600 bps" <%="9600 bps".equals(rs.getString(24)) ? "selected" : "" %>>9600 bps</option>
-								<option value = "19200 bps" <%="19200 bps".equals(rs.getString(24)) ? "selected" : "" %>>19200 bps</option>
-								<option value = "38400 bps" <%="38400 bps".equals(rs.getString(24)) ? "selected" : "" %>>38400 bps</option>
-								<option value = "57600 bps" <%="57600 bps".equals(rs.getString(24)) ? "selected" : "" %>>57600 bps</option>
-								<option value = "115200 bps" <%="115200 bps".equals(rs.getString(24)) ? "selected" : "" %>>115200 bps</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!--  9600 bps : 0 / 19200 bps : 1 ... -->
+								<option value = "0" <%="0".equals(rs.getString(24)) ? "selected" : "" %>>9600 bps</option>
+								<option value = "1" <%="1".equals(rs.getString(24)) ? "selected" : "" %>>19200 bps</option>
+								<option value = "2" <%="2".equals(rs.getString(24)) ? "selected" : "" %>>38400 bps</option>
+								<option value = "3" <%="3".equals(rs.getString(24)) ? "selected" : "" %>>57600 bps</option>
+								<option value = "4" <%="4".equals(rs.getString(24)) ? "selected" : "" %>>115200 bps</option>
 							</select>
 						</div>
 					</div>
@@ -721,10 +752,11 @@ function AccessDelete(deviceID){
 						<div class="header"><%=lanFunc.language(lan, 166) %></div>
 						<div class="main">
 							<select name="BGI" class="mainselect">
-								<option value = "0" >--- Select Option ---</option>
-								<option value = "Image-1" <%="Image-1".equals(rs.getString(37)) ? "selected" : "" %>>Image-1</option>
-								<option value = "Image-2" <%="Image-2".equals(rs.getString(37)) ? "selected" : "" %>>Image-2</option>
-								<option value = "Image-Custom" <%="Image-Custom".equals(rs.getString(37)) ? "selected" : "" %>>Image-Custom</option>
+								<option value = "NULL" >--- Select Option ---</option>
+								<!-- Image-1 : 0 / Image-2 : 1 / Image-Custome : 2 -->
+								<option value = "0" <%="0".equals(rs.getString(37)) ? "selected" : "" %>>Image-1</option>
+								<option value = "1" <%="1".equals(rs.getString(37)) ? "selected" : "" %>>Image-2</option>
+								<option value = "2" <%="2".equals(rs.getString(37)) ? "selected" : "" %>>Image-Custom</option>
 							</select>
 						</div>
 					</div>

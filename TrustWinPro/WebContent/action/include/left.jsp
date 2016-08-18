@@ -23,16 +23,19 @@
 		    $(this).parent().addClass("on").siblings().removeClass("on");
 		    return false;
 		}); */
-		var box = $('.main-ng-view').css('display');
+		//var box = $('.main-ng-view').css('display');
+		var box = $('#pnlLNB').css('display');
+		
 		if(box == 'block'){
-		$(".main-ng-view").css("display","none");
-		$(".content").css("width","91%");
+		$("#pnlLNB").css("display","none");
+		$(".content").css("width","92%");
 		$(".content").css("padding-bottom","0px");
 		$("#left").css("width","8%");
-		} else if(box == 'none') {
-			$(".main-ng-view").css("display","block");
+		} else if(box == 'none') {			
+			$("#pnlLNB").css("display","block");
 			$(".content").css("width","78%");
-			$("#left").css("width","21%");
+			/* $(".content").css("height","100%"); */
+			$("#left").css("width","22%");
 		}
 		return false;
 	}
@@ -275,7 +278,7 @@
 </script>
 <div id="left">
 	<div class="left_bottom">
-<nav class="leftMainMenu" ng-menu="" style="display: block;">
+<nav class="leftMainMenu" style="display: block;">
     <ul class="sm-nav">
         <li  class="DEVICE leftmenu" >
            <button  onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
@@ -298,9 +301,8 @@
 </div>
 
 
-<div class="main-ng-view ng-scope" ng-view>
-<div class="panelArea ng-scope" id="pnlLNB" ng-controller="UserGroupTreeController" ng-init="init()" ng-hide="selectedUserInfo" style="-webkit-box-sizing: border-box;
--moz-box-sizing: border-box;">
+<div class="main-ng-view">
+<div class="panelArea ng-scope" id="pnlLNB" style="-webkit-box-sizing: border-box;-moz-box-sizing: border-box;display:block;">
 	<!-- <div class="left_bottom">  -->
 	<%
 	// userInfo
