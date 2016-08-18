@@ -13,6 +13,29 @@
 	String currentUserClass = (String)session.getAttribute("userClass");
 %>
 <script type="text/javascript">
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+
 var change = 0;
 function allUserInfoCheck(){
 	var check = document.userInfo.check;
@@ -79,6 +102,17 @@ function checkedF(num,v){
 	}
 	
 	
+}
+
+
+function userSort(){
+	document.getElementById("postitUserSort").style.display = "block";
+	document.getElementById("postitUserSort").style.top = "200px";
+}
+
+function userExcel(){
+	document.getElementById("postitUserExcel").style.display = "block";
+	document.getElementById("postitUserExcel").style.top = "200px";
 }
 
 </script>
@@ -198,19 +232,24 @@ function checkedF(num,v){
 %>
 				</select>
 				<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white"  style ="margin-left:5rem"/>
-				<div style="float:right; margin-right:20px">
+				<!-- <div style="float:right; margin-right:20px">
 					<a href="#a" onclick="UserPrint();"><img src="/TrustWinPro/action/image/interface/printImage.jpg" alt="" ></a>
-				</div>
+				</div> -->
 			</form>
 		</div>
-
-
 	</section>
 </div>
-	<a href="#" title="list" onclick="UserPrint();" class="button white" style="float:right; margin-right:3%"><span style="margin-left: 0px;" class="icon-arrow-r"></span>sort</a>
-	<form action="" name="userInfo" id="userInfo" method="post">
 
-	<div class = "tablebor">
+	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
+  	<button onclick="myFunction()" class="dropbtn">•••</button>
+ 	 <div id="myDropdown" class="dropdown-content">
+    <a href="#" onclick="ieExecWB();">Print</a>
+    <a href="#" onclick="userExcel();">Excel</a>
+    <a href="#" onclick="userSort();">Sort</a>
+  	</div>
+	</div>
+	<form action="" name="userInfo" id="userInfo" method="post">
+	<div class = "tablebor" id="alluserlist">
 		<table cellspacing="0" class="titleEx1">
 			<colgroup>
 				<col width="8%">
@@ -346,6 +385,30 @@ function checkedF(num,v){
 			<a href="#" title="Delete" onclick="checkedF(<%=users.length %>,2);"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 	</form>
+	
+	<div class="postitUserSort" id="postitUserSort" style="display:none">
+		<jsp:include page="UserSort.jsp" flush="true">
+			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>
+			<jsp:param name="searchMiddelName" value="<%=LangUtil.Empty(MiddleName)%>"/>
+			<jsp:param name="searchLastName" value="<%=LangUtil.Empty(LastName)%>"/>
+			<jsp:param name="searchUserclass" value="<%=LangUtil.Empty(UserClass)%>"/>
+			<jsp:param name="searchCompanyID" value="<%=LangUtil.Empty(CompanyID)%>"/>
+			<jsp:param name="searchDepartment" value="<%=Department%>"/>
+		</jsp:include>
+		</div>
+		
+		<div class="postitUserExcel" id="postitUserExcel">
+		<jsp:include page="UserExcel.jsp" flush="true">
+			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>
+			<jsp:param name="searchMiddelName" value="<%=LangUtil.Empty(MiddleName)%>"/>
+			<jsp:param name="searchLastName" value="<%=LangUtil.Empty(LastName)%>"/>
+			<jsp:param name="searchUserclass" value="<%=LangUtil.Empty(UserClass)%>"/>
+			<jsp:param name="searchCompanyID" value="<%=LangUtil.Empty(CompanyID)%>"/>
+			<jsp:param name="searchDepartment" value="<%=Department%>"/>
+		</jsp:include>
+		</div>
+	
+	
 </div>
 <form action="/TrustWinPro/action/index.jsp" name="User" id="User" method="post">
 	<input type="hidden" value="User" name="left" />

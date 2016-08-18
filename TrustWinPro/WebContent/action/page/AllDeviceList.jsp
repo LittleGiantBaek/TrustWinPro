@@ -185,10 +185,10 @@ function checkedF(num,v){
 						name="submit" value="<%=Lanfunc.language(lan, 182)%>"
 						class="ct-btn white" style="margin-left: 3rem" />
 
-					<div style="float: right; margin-right: 20px"">
+					<!-- <div style="float: right; margin-right: 20px"">
 						<a href="#a" onclick="DevicePrint();"><img
 							src="/TrustWinPro/action/image/interface/printImage.jpg" alt=""></a>
-					</div>
+					</div> -->
 				</form>
 			</div>
 

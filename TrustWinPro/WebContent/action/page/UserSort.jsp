@@ -13,24 +13,31 @@
 	LanguageFunc Lanfunc = new LanguageFunc();
 	
 	String lan = (String)session.getAttribute("nation");
-	String ControllerName = (String)request.getParameter("searchControllerName");
-	if(ControllerName != null){
-		ControllerName = new String(ControllerName.getBytes("8859_1"), "UTF-8");	
+
+	String FirstName = (String)request.getParameter("searchFirstName");
+	if(FirstName != null){
+		FirstName = new String(FirstName .getBytes("8859_1"), "UTF-8");	
 	}
-	String Address = (String)request.getParameter("searchAddress");
-	if(Address != null){
-		Address = new String(Address.getBytes("8859_1"), "UTF-8");	
-	}
-	
-	String ID = (String)request.getParameter("searchID");
-	if(ID != null){
-		ID = new String(ID.getBytes("8859_1"), "UTF-8");	
+	String MiddleName = (String)request.getParameter("searchMiddelName");
+	if(MiddleName != null){
+		MiddleName = new String(MiddleName .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	String UniqueID = (String)request.getParameter("searchUniqueID");
-	if((String)request.getParameter("searchUniqueID")!=null){
-		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
+	String LastName = (String)request.getParameter("searchLastName");
+	if(LastName != null){
+		LastName = new String(LastName .getBytes("8859_1"), "UTF-8");	
 	}
+
+	int Department = 0;
+	if((String)request.getParameter("searchDepartment")!=null){
+		String temp = (String)request.getParameter("searchDepartment");
+		if(!temp.equals("")){
+			Department = Integer.parseInt((String)request.getParameter("searchDepartment"));
+		}
+	}
+	
+	String UserClass = (String)request.getParameter("searchUserClass");
+	String CompanyID = (String)request.getParameter("searchCompanyID");
 	
 	String status = "";
 	/* for(int i=0;i<dev.length;i++){
@@ -46,8 +53,7 @@
 
 <script type="text/javascript">
 
-function DeviceSorts(form,CN,Add,ID,UID){
-	
+function UserSorts(form,FN,MN,LN,DP){
 	var arrayObj = "";
 	var count = 0;
 	for(i=0;i<form.info.length;i++){
@@ -63,16 +69,9 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	}else{ 
 		$.ajax({      
 		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    //url:"/TrustWinPro/action/page/AllDeviceList.jsp",
-		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
-		    //data: "searchControllerName="+CN+"searchAddress="+Add+"searchID="+ID+"searchUniqueID="+UID,
-		    //data:  ({"array": arrayObj ,"searchControllerName": CN, "searchAddress": Add, "searchID": ID, "searchUniqueID": UID}),
+		    url:"/TrustWinPro/action/ajax/PrintUserList.jsp",
+		    data: "array=" + arrayObj + "&FN="+FN+"&MN="+MN+"&LN="+LN+"&DP="+DP,
 		    success:function(args){   
-		    	//$("#DeviceList").html(args);    
-		    	//location.href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice#";
-		    	//window.location.reload(true);
-		        //$("#hiddenSort").html(args);     
 				$(".tablebor").html(args);
 		    },   
 		    error:function(e){  
@@ -86,7 +85,7 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	
 	var change = 0;
 	function allDeviceCheck(){
-		//var check = document.getElementsByName("checkD");
+		//var check = document.devicelist1.check;
 		var check = document.getElementsByName("info");
 		if(change == 0){
 			for(var i = 0 ; i < check.length;i++ ){
@@ -105,26 +104,9 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	}
 	
 	
-/* 	function allDeviceInfoCheck(){
-		var check = document.deviceInfo.check;
-		if(change == 0){
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = true;	
-			}
-				
-			change = 1;
-		}else{
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = false;
-			}
-			
-			change = 0;
-		}
-		
-	} */
 	
 	function accessDeviceClose2(){
-		document.getElementById("postitDeviceSort").style.display = "none";
+		document.getElementById("postitUserSort").style.display = "none";
 	}
 	
 	/* if($("input[name=info]").is(":checked"))	{
@@ -153,10 +135,10 @@ function DeviceSorts(form,CN,Add,ID,UID){
 </script>
 <div class="deviceSortPop">
 <div class="selectBox">
-<form name="devicelist" id="devicelist" method="post" action="">
+<form name="userlist" id="userlist" method="post" action="">
 <!-- <div class="printPage"> -->
-		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort
-		<a href="#DeviceInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
+		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">User Sort
+		<a href="#UserInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
 		</div>
 		<!-- <hr width="100%"> -->
 		<table border="1" cellspacing="0" class="titleEx2" style="text-align:center" >
@@ -171,48 +153,54 @@ function DeviceSorts(form,CN,Add,ID,UID){
 					</tr>
 			</tbody>
 		</table>
-		<table cellspacing="0" class="ex1" id="hiddenSort">
+		<table cellspacing="0" class="ex1">
 		<colgroup>
 			<col width="10%">
 			<col width="30%">
 			<col width="20%">
 			<col width="20%">
 			<col width="20%">
+			<col width="20%">
+			
 		</colgroup>
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="devicename/1" id="deviceName" ></td>
-<td ><%=Lanfunc.language(lan, 1)%></td>
+<td><input type="checkbox" name="info" value="FirstName/26" id="deviceName" ></td>
+<td ><%=Lanfunc.language(lan, 26)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2" id="deviceId" ></td>
+<td ><input type="checkbox" name="info" value="MiddleName/27" id="deviceId" ></td>
+<td ><%=Lanfunc.language(lan, 27)%></td>
+</tr>
+<tr class="odd">
+<td ><input type="checkbox" name="info" value="LastName/28" id="deviceAddress" ></td>
+<td ><%=Lanfunc.language(lan, 28)%></td>
+</tr>
+<tr >
+<td ><input type="checkbox" name="info" value="UserID/29" id="devicePortNumber" ></td>
+<td ><%=Lanfunc.language(lan, 29)%></td>
+</tr>
+<tr class="odd">
+<td ><input type="checkbox" name="info" value="UserClass/30" id="devicePassword" ></td>
+<td> <%=Lanfunc.language(lan, 30)%></td>
+</tr>
+<tr >
+<td ><input type="checkbox" name="info" value="ID/2" id="deviceUniqueId" ></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Address/3" id="deviceAddress" ></td>
-<td ><%=Lanfunc.language(lan, 3)%></td>
+<td ><input type="checkbox" name="info" value="Password/5" id="deviceServerPort" ></td>
+<td > <%=Lanfunc.language(lan, 5)%></td>
 </tr>
-<tr >
-<td ><input type="checkbox" name="info" value="Port Number/4" id="devicePortNumber" ></td>
-<td ><%=Lanfunc.language(lan, 4)%></td>
-</tr>
-<tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5" id="devicePassword" ></td>
-<td> <%=Lanfunc.language(lan, 5)%></td>
-</tr>
-<tr >
-<td ><input type="checkbox" name="info" value="UniqueID/6" id="deviceUniqueId" ></td>
-<td ><%=Lanfunc.language(lan, 6)%></td>
-</tr>
-<tr class="odd">
-<td ><input type="checkbox" name="info" value="Server Port/7" id="deviceServerPort" ></td>
-<td > <%=Lanfunc.language(lan, 7)%></td>
+<tr>
+<td ><input type="checkbox" name="info" value="Department/39" id="deviceServerPort" ></td>
+<td > <%=Lanfunc.language(lan, 39)%></td>
 </tr>
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" id="sortBtn" onclick="DeviceSorts(document.getElementById('devicelist'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" id="sortBtn" onclick="UserSorts(document.getElementById('userlist'),'<%=FirstName%>','<%=MiddleName%>','<%=LastName%>','<%=Department%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
 <!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
