@@ -75,7 +75,8 @@ img {border:0;}
     background: #594b4f;
     left: 0px;
     top: 0px;
-   height:1200px;
+   /* height:1200px; */
+   min-height:760px;
 }
 nav {
     position: relative;
@@ -213,7 +214,8 @@ button {
     border-bottom: 1px solid #b4b4b4;
     background: #f4f3f2;
   /*  width:100px; */
-    height:1200px;
+  min-height:760px;
+   /*  height:1200px; */
   
 } 
    .leftTreeMenu {
@@ -225,7 +227,8 @@ button {
     margin-right: 0px;
     /* padding-right: 80px; */
     overflow: hidden;
-    height: 1200px;
+    min-height:760px;
+   /*  height: 1200px; */
     display:block;
 }   
 

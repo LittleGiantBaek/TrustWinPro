@@ -35,8 +35,10 @@
 	Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, null); 
 	String lan = (String)session.getAttribute("nation");
 %>
+	
 	<table border=1 cellspacing="0"  class="titleEx1">
 		<colgroup>
+			<col width="10%" class="deviceSelect">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -47,10 +49,12 @@
 			
 		</colgroup>
 		<tr>
+		<th class="deviceSelect"><%=Lanfunc.language(lan, 85)%><input type="checkbox"
+						name="allcheck" onclick="allDeviceInfoCheck();" value=""></th>
 <%
 	for(int i=0;i<List.length;i++){
 %>
-			<td align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
+			<th align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
 <%
 	}
 %>
@@ -58,6 +62,7 @@
 	</table>
 	<table cellspacing="0"  class="ex1">
 		<colgroup>
+		<col width="10%" class="deviceSelect">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -73,11 +78,14 @@
 	for(int i=0;i<devices.length;i++){
 %>	
 		<tr>
+		<td class="deviceSelect"><input type="checkbox" name="check"
+							value="<%=devices[i].getID()%>"></td>
 <%
 		for(int j=0;j<List.length;j++){
 			if(List[j].split("/")[1].equals("1")){
 %>
-			<td><%=devices[i].getControllerName() %></td>
+			<td><a href="#a"
+							onclick="submitDevice('Device','<%=devices[i].getID()%>')"><%=devices[i].getControllerName() %></a></td>
 <%
 			}else if(List[j].split("/")[1].equals("2")){
 %>
