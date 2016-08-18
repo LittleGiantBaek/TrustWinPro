@@ -4,7 +4,7 @@
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
 <%
-	String id = (String)request.getParameter("mapID");
+/* 	String id = (String)request.getParameter("mapID");
 	
 	Connection conn = null;
 	String sql = "UPDATE AccountMode SET Read =" + Read + "WHERE [Á¶°Ç] from map where idx = '" + id + "'"; 
@@ -21,5 +21,5 @@
 			out.println("DB error!!.");
 			e.printStackTrace();
 		}
-	
+	 */
 %>
