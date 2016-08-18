@@ -143,9 +143,10 @@ function previewImage(targetObj, View_area) {
 }
 
 
-
+var change = 0;
 function allA_GroupInfoCheck() {
-	var check = document.DeviceInfomation.check; 
+	//var check = document.DeviceInfomation.check; 
+	var check = document.getElementsByName("check");
 	if(change == 0){
 		for(var i = 0 ; i < check.length;i++ ){
 			check[i].checked = true;	
