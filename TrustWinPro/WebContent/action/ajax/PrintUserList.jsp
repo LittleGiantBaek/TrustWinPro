@@ -40,6 +40,7 @@
 %>
 	<table border=1 cellspacing="0"  class="titleEx1">
 		<colgroup>
+		<col width="8%">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -50,10 +51,11 @@
 			
 		</colgroup>
 		<tr>
+		<th><%=Lanfunc.language(lan, 85)%> <input type="checkbox" name="allcheck" onclick="allUserInfoCheck();" style="z-index:100;"></th>
 <%
 	for(int i=0;i<List.length;i++){
 %>
-			<td align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
+			<th align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
 <%
 	}
 %>
@@ -61,6 +63,7 @@
 	</table>
 	<table cellspacing="0"  class="ex1">
 		<colgroup>
+		<col width="8%">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -76,23 +79,24 @@
 	for(int i=0;i<users.length;i++){
 %>	
 		<tr>
+		<td class='date1'><input type="checkbox" name="check" value="<%=users[i].getId()%>"></td>
 <%
 		for(int j=0;j<List.length;j++){
 			if(List[j].split("/")[1].equals("26")){
 %>
-			<td><%=users[i].getFirstName() %></td>
+			<td><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getFirstName() %></a></td>
 <%
 			}else if(List[j].split("/")[1].equals("27")){
 %>
-			<td><%=users[i].getMiddleName() %></td>
+			<td><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getMiddleName() %></a></td>
 <%				
 			}else if(List[j].split("/")[1].equals("28")){
 %>
-			<td><%=users[i].getLastName() %></td>
+			<td><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getLastName() %></a></td>
 <%				
 			}else if(List[j].split("/")[1].equals("29")){
 %>
-			<td><%=users[i].getUserId() %></td>
+			<td><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getUserId() %></a></td>
 <%				
 			}else if(List[j].split("/")[1].equals("30")){
 %>
