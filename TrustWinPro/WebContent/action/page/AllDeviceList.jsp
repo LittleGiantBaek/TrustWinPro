@@ -33,7 +33,7 @@ window.onclick = function(event) {
 
 function deviceSort(){
 	document.getElementById("postitDeviceSort").style.display = "block";
-	document.getElementById("postitDeviceSort").style.top = "100px";
+	document.getElementById("postitDeviceSort").style.top = "200px";
 }
 
 function deviceExcel(){
@@ -272,7 +272,7 @@ function checkedF(num,v){
 			<a href="#" title="Delete"
 				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
-		
+	</form>
 		<div class="postitDeviceSort" id="postitDeviceSort" style="display:none">
 		<jsp:include page="DeviceSort.jsp" flush="true">
 			<jsp:param name="searchControllerName" value="<%=LangUtil.Empty(ControllerName)%>"/>
@@ -290,8 +290,6 @@ function checkedF(num,v){
 			<jsp:param name="searchUniqueID" value="<%=LangUtil.Empty(UniqueID)%>"/>
 		</jsp:include>
 		</div>
-		
-	</form>
 </div>
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device"
 	method="post">
