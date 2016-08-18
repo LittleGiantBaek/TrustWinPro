@@ -10,7 +10,7 @@ body {
   font-family: "Open Sans", Arial;
   background: #EEE;
 }
-main {
+.main_div{
   width: 400px;
   margin: 10px auto;
 }
@@ -116,7 +116,7 @@ section {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     background: #fff;">
-	<main>
+	<div class="main_div">
 	  <!-- <h1>Event Names</h1> -->
 	  <section>
 	    <div class="pieID pie">
@@ -124,7 +124,7 @@ section {
 	    <ul class="pieID legend" id="pieChartData">
 	    </ul>
 	  </section>
-	</main>
+	</div>
 </div>
 
 <div class="chart_div_S" id="piechart_div_S" style = "position: relative;
