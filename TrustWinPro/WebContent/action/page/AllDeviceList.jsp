@@ -8,7 +8,18 @@
 <%@ page import="com.Trustwin.Admin.Project.Device.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Language.*"%>
 <script type="text/javascript">
-
+function printPage(){
+	 var initBody;
+	 window.onbeforeprint = function(){
+	  initBody = document.body.innerHTML;
+	  document.body.innerHTML =  document.getElementById('TrustPrint').innerHTML;
+	 };
+	 window.onafterprint = function(){
+	  document.body.innerHTML = initBody;
+	 };
+	 window.print();
+	 return false;
+	}
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -199,7 +210,8 @@ function checkedF(num,v){
 	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
   <button onclick="myFunction()" class="dropbtn">•••</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#" onclick="ieExecWB();">Print</a>
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
     <a href="#" onclick="deviceExcel();">Excel</a>
     <a href="#" onclick="deviceSort();">Sort</a>
   </div>
@@ -207,7 +219,7 @@ function checkedF(num,v){
 	
 	
 	<form action="" name="deviceInfo" id="deviceInfo" method="post">
-		<div class="tablebor">
+		<div class="tablebor" id="TrustPrint">
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
 					<col width="10%" class="deviceSelect">

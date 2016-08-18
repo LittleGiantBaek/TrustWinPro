@@ -13,6 +13,18 @@
 	String currentUserClass = (String)session.getAttribute("userClass");
 %>
 <script type="text/javascript">
+function printPage(){
+	 var initBody;
+	 window.onbeforeprint = function(){
+	  initBody = document.body.innerHTML;
+	  document.body.innerHTML =  document.getElementById('TrustPrint').innerHTML;
+	 };
+	 window.onafterprint = function(){
+	  document.body.innerHTML = initBody;
+	 };
+	 window.print();
+	 return false;
+	}
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -243,13 +255,13 @@ function userExcel(){
 	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
   	<button onclick="myFunction()" class="dropbtn">•••</button>
  	 <div id="myDropdown" class="dropdown-content">
-    <a href="#" onclick="ieExecWB();">Print</a>
+    <a href="#" onclick="printPage();">Print</a>
     <a href="#" onclick="userExcel();">Excel</a>
     <a href="#" onclick="userSort();">Sort</a>
   	</div>
 	</div>
 	<form action="" name="userInfo" id="userInfo" method="post">
-	<div class = "tablebor" id="alluserlist">
+	<div class = "tablebor" id="TrustPrint">
 		<table cellspacing="0" class="titleEx1">
 			<colgroup>
 				<col width="8%">
