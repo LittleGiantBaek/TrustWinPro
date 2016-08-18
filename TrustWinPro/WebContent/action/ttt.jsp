@@ -34,7 +34,7 @@
 			sb.append("[['device','count']");
 			for(int i=0;i<devVal.length;i++){
 				//temp_dv = DFunc.selDevice(devVal[i]);
-				//sb.append(temp_dv.getControllerName());
+				//saab.append(temp_dv.getControllerName());
 				
 				
 				 sb.append(",['"+devVal[i]+"',"+cnt[i]+"]");

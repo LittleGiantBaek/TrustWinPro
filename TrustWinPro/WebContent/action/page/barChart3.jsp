@@ -45,7 +45,7 @@
     display: inline-block;
     padding: 8px;
     width: 30px;
-    animation: grow-padding-right 1s;
+   /*  animation: grow-padding-right 1s; */
   }
   
 </style>
