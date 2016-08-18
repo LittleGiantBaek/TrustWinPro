@@ -178,7 +178,6 @@ function userExcel(){
 	}
 	
 	Category[] catagory = null;
-	
 	catagory = Catefunc.CategoryDefind();
 	
 	int length = catagory.length;
@@ -191,7 +190,6 @@ function userExcel(){
 		<section class = "sectionji">
 			<ul class = "ulji">
 				</ul>
-
 <!--  class="searchForm" !-->
 		<div>
 			<form action="/TrustWinPro/action/index.jsp" name="allUser" id="allUser" method="post">
