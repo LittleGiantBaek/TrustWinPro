@@ -31,42 +31,55 @@
 	if((String)request.getParameter("searchUniqueID")!=null){
 		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 	}
+	
+	String status = "";
+	/* for(int i=0;i<dev.length;i++){
+		String status = "";
+		for(int j=0;j<barcharts.length;j++){
+			if(dev[i].getID().equals(barcharts[j])){
+				status = "checked";
+				break;
+			}
+		} */
+
 %>
 
 <script type="text/javascript">
 
 function DeviceSorts(form,CN,Add,ID,UID){
 	
-	/* var arrayObj = "";
+	var arrayObj = "";
 	var count = 0;
 	for(i=0;i<form.info.length;i++){
 		if(form.info[i].checked){
 			arrayObj = arrayObj + form.info[i].value + ",";
 			count++;
+			console.log(arrayObj);
 		}
 	}
 	if(count==0){
 		alert("항목을 선택하세요");
 		return false;
-	} */ //* else{ */
+	}else{ 
 		$.ajax({      
 		    type:"post",  
-		    //url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    url:"/TrustWinPro/action/page/AllDeviceList.jsp",
-		    //data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
+		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
+		    //url:"/TrustWinPro/action/page/AllDeviceList.jsp",
+		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
 		    //data: "searchControllerName="+CN+"searchAddress="+Add+"searchID="+ID+"searchUniqueID="+UID,
-		    data:  ({"searchControllerName": CN, "searchAddress": Add, "searchID": ID, "searchUniqueID": UID}),
+		    //data:  ({"array": arrayObj ,"searchControllerName": CN, "searchAddress": Add, "searchID": ID, "searchUniqueID": UID}),
 		    success:function(args){   
-		    	location.href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice#";
+		    	//$("#DeviceList").html(args);    
+		    	//location.href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice#";
 		    	//window.location.reload(true);
 		        //$("#hiddenSort").html(args);     
-				/* $("#hiddenSort").css("display","none");    */
+				$(".tablebor").html(args);
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
 		    }  
 		});
-	/* } */
+	 }
 }
 	
 	
@@ -113,7 +126,28 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		document.getElementById("postitDeviceSort").style.display = "none";
 	}
 	
+	/* if($("input[name=info]").is(":checked"))	{
+		status = "checked";
+	} */
 	
+	
+	$(document).ready( function(){
+		   // read the current/previous setting
+		    $("input.box[type=checkbox]").each(function() {
+		        var name = $(this).attr('id');
+		        if ($.cookie(name) && $.cookie(name) == "true") {
+		            $(this).prop('checked', $.cookie(name));
+		        }
+		    });
+		   // event management
+		    $("input.box[type=checkbox]").change(function() {
+		        var name = $(this).attr('id');
+		        $.cookie(name, $(this).prop('checked'), {
+		            path: '/',
+		            expires: 365
+		        });
+		    });
+		});
 
 </script>
 <div class="deviceSortPop">
@@ -147,39 +181,39 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="devicename/1" class="deviceName"></td>
+<td><input type="checkbox" name="info" value="devicename/1" id="deviceName" ></td>
 <td ><%=Lanfunc.language(lan, 1)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2" class="deviceId"></td>
+<td ><input type="checkbox" name="info" value="ID/2" id="deviceId" ></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Address/3" class="deviceAddress"></td>
+<td ><input type="checkbox" name="info" value="Address/3" id="deviceAddress" ></td>
 <td ><%=Lanfunc.language(lan, 3)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="Port Number/4" class="devicePortNumber"></td>
+<td ><input type="checkbox" name="info" value="Port Number/4" id="devicePortNumber" ></td>
 <td ><%=Lanfunc.language(lan, 4)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5" class="devicePassword"></td>
+<td ><input type="checkbox" name="info" value="Password/5" id="devicePassword" ></td>
 <td> <%=Lanfunc.language(lan, 5)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UniqueID/6" class="deviceUniqueId"></td>
+<td ><input type="checkbox" name="info" value="UniqueID/6" id="deviceUniqueId" ></td>
 <td ><%=Lanfunc.language(lan, 6)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Server Port/7" class="deviceServerPort"></td>
+<td ><input type="checkbox" name="info" value="Server Port/7" id="deviceServerPort" ></td>
 <td > <%=Lanfunc.language(lan, 7)%></td>
 </tr>
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" onclick="DeviceSorts(document.getElementById('devicelist'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" id="sortBtn" onclick="DeviceSorts(document.getElementById('devicelist'),'<%=ControllerName%>','<%=Address%>','<%=ID%>','<%=UniqueID%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
-<<!-- div id="DeviceSorts" class="tableList2"></div> -->
+<!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
 <!-- 	</div> -->
 </div>
