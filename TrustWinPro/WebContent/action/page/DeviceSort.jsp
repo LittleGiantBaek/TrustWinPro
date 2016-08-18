@@ -84,9 +84,10 @@ function DeviceSorts(form,CN,Add,ID,UID){
 	
 	
 	
-	
+	var change = 0;
 	function allDeviceCheck(){
-		var check = document.getElementsByName("checkD");
+		//var check = document.getElementsByName("checkD");
+		var check = document.getElementsByName("info");
 		if(change == 0){
 			for(var i = 0 ; i < check.length;i++ ){
 				check[i].checked = true;	
@@ -103,8 +104,8 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		
 	}
 	
-	var change = 0;
-	function allDeviceInfoCheck(){
+	
+/* 	function allDeviceInfoCheck(){
 		var check = document.deviceInfo.check;
 		if(change == 0){
 			for(var i = 0 ; i < check.length;i++ ){
@@ -120,7 +121,7 @@ function DeviceSorts(form,CN,Add,ID,UID){
 			change = 0;
 		}
 		
-	}
+	} */
 	
 	function accessDeviceClose2(){
 		document.getElementById("postitDeviceSort").style.display = "none";

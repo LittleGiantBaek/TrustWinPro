@@ -83,28 +83,10 @@ function UserSorts(form,FN,MN,LN,DP){
 	
 	
 	
-	
-	function allDeviceCheck(){
-		var check = document.getElementsByName("checkD");
-		if(change == 0){
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = true;	
-			}
-				
-			change = 1;
-		}else{
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = false;
-			}
-			
-			change = 0;
-		}
-		
-	}
-	
 	var change = 0;
-	function allDeviceInfoCheck(){
-		var check = document.deviceInfo.check;
+	function allDeviceCheck(){
+		//var check = document.devicelist1.check;
+		var check = document.getElementsByName("info");
 		if(change == 0){
 			for(var i = 0 ; i < check.length;i++ ){
 				check[i].checked = true;	
@@ -120,6 +102,8 @@ function UserSorts(form,FN,MN,LN,DP){
 		}
 		
 	}
+	
+	
 	
 	function accessDeviceClose2(){
 		document.getElementById("postitUserSort").style.display = "none";

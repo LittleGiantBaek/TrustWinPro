@@ -232,9 +232,9 @@ function userExcel(){
 %>
 				</select>
 				<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white"  style ="margin-left:5rem"/>
-				<div style="float:right; margin-right:20px">
+				<!-- <div style="float:right; margin-right:20px">
 					<a href="#a" onclick="UserPrint();"><img src="/TrustWinPro/action/image/interface/printImage.jpg" alt="" ></a>
-				</div>
+				</div> -->
 			</form>
 		</div>
 	</section>
