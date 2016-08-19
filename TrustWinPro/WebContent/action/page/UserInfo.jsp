@@ -373,11 +373,11 @@ function AccessAdd(UserID){
 				
 							<div class="userbox1">
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 29)%> * : 
+								<span style="color:red">*</span> <%=Lanfunc.language(lan, 29)%> : 
 								</div>		
 								<input class="inputt" type="text" value="<%=LangUtil.Empty(rs.getString(4)) %>"   disabled>				
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 26)%> * : 
+								<span style="color:red">*</span> <%=Lanfunc.language(lan, 26)%> : 
 								</div>
 								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  >
 								<p><div class = "headerji">
@@ -392,7 +392,7 @@ function AccessAdd(UserID){
 								</div>
 								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" >
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 30)%> * : 
+								<span style="color:red">*</span> <%=Lanfunc.language(lan, 30)%> : 
 								</div>
 								<!-- <div class="main" size="30um"> -->
 								<select name="userClass" class="mainselect">
@@ -401,15 +401,15 @@ function AccessAdd(UserID){
 								</select>
 								<!-- </div> -->
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 2)%> * : 
+								<span style="color:red">*</span> <%=Lanfunc.language(lan, 2)%> : 
 								</div>
 								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" >
 								<p><div class = "headerji">
-								<%=Lanfunc.language(lan, 5)%> * : 
+								<span style="color:red">*</span> <%=Lanfunc.language(lan, 5)%> : 
 								</div>
 								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
 							<div class="block" style="float:right; margin-right:6rem;">
-								<p><div >required *</div>
+								<p><div ><span style="color:red"> required *</span></div>
 							</div>
 					</div>
 					</div>

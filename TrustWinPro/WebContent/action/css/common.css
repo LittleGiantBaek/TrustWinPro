@@ -11,6 +11,7 @@ scrollbar-arrow-color:#afafaf;
 scrollbar-track-color:#ffffff;
 }
 
+
 /* Dropdown Button */
 .dropbtn {
     background-color: white;
@@ -78,8 +79,8 @@ img {border:0;}
     background: #594b4f;
     left: 0px;
     top: 0px;
-    height:auto;
-    min-height:760px;
+    height:100%;
+    min-height:700px;
 }
 nav {
     position: relative;
@@ -259,8 +260,9 @@ button {
 }
 
 .mainselect {
+	 height: 28px;
 	/* 	display: inline-block;
-    height: 28px;
+   
     padding: 0 14px;
     margin: 0px;
     font-size: 12px;
@@ -334,7 +336,7 @@ button {
 	
 /* left style */
 #left{  margin-right: -10px; width:22%;height:100%;float:left;background-color: #dcd6d3; 
-min-height:760px;/* min-width:200px; */position:relative;}
+min-height:100%;/* min-width:200px; */position:relative;}
 #left .left_top {width:100%;position:absolute;height:69%;min-height:500px;bottom:30px;}
 #left .left_top .left_box{border:1px solid black;margin:5px;padding-top:5px;}
 #left .left_top .left_box .left_boxlist{border:1px solid black;overflow-y:scroll; height:200px;}
@@ -342,7 +344,7 @@ min-height:760px;/* min-width:200px; */position:relative;}
 #left .left_top .left_box .left_boxlist ul li{list-style-type:none;}
 #left .left_top .left_box .left_boxlist ul li ul{margin-left:5px 5px 5px 15px;display:none;}
 #left .left_top .left_box .left_boxlist ul li ul li{list-style-type:none;}
-#left .left_bottom{position:absolute;width:100%;margin:0;padding:0;top:0;}
+#left .left_bottom{position:absolute;width:100%;margin:0;padding:0;top:0;height:100%}
 #left .left_bottom .left_buttom{width:100%;height:auto;}
 #left .left_bottom .left_buttom .Device{position:absolute;top:15px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
 #left .left_bottom .left_buttom .User{position:absolute;top:55px;left:70px;font-weight:bold;color:#383838 !important;letter-spacing:-1px;}
@@ -352,12 +354,11 @@ min-height:760px;/* min-width:200px; */position:relative;}
  
  .left_bottom ul {padding-left:0px}
  .User ul li{text-overflow: ellipsis;}
-   .User{overflow-y:scroll; overflow-x:scroll;}
-    .Device{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-      .User{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-        .Event{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-         .Time{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-         .Monitoring{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+ .Device{overflow-y:auto; overflow-x:auto;text-overflow: ellipsis;}
+ .User{overflow-y:auto; overflow-x:auto;text-overflow: ellipsis;}
+ .Event{overflow-y:auto; overflow-x:auto;text-overflow: ellipsis;}
+ .Time{overflow-y:auto; overflow-x:auto;text-overflow: ellipsis;}
+
 #left .left_top .User {/* padding:10px 0; */ margin:0 auto; overflow-y:scroll; height:100%; width:98%; overflow-x:scroll;}
 #left .left_top .User ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .User ul li{padding:0;margin:0;}
@@ -778,7 +779,7 @@ table.ex1 a:active{color:#000;}
 .spanInput .inputText {border:none;height:13px;background-color: black;color:#ffffff;}
 .span {display:none;width:100%;background-color: #5c5c5b;color:#ffffff}
 .span a{color:#ffffff}
-.userspan {width:100%;background-color: #5c5c5b;color:#ffffff}
+.userspan {width:80%;background-color: #5c5c5b;color:#ffffff}
 .userspan a {color:#ffffff}
 /*subnav*/
 #globalnav UL {position:absolute;left:0;top:1.5em;float:left;background:#bbb;width:100%;margin:0;list-style:none;border-top:1px solid #fff;}

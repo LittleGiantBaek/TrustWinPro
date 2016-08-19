@@ -49,6 +49,10 @@ $(".Loading").css("display","none");
    <jsp:include page="./include/content.jsp" flush="false"></jsp:include>        
    <jsp:include page="./include/footer.jsp" flush="false"></jsp:include>
 </div>
+<script>
+
+	$("#pnlLNB").css("height",$(".leftMainMenu").css("height"));
+</script>
 		<%
 			if(userClass != null && !userClass.equals("128")){
 		%>

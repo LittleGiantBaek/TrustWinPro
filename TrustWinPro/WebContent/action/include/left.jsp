@@ -278,27 +278,28 @@
 </script>
 <div id="left">
 	<div class="left_bottom">
-<nav class="leftMainMenu" style="display: block;">
-    <ul class="sm-nav">
-        <li  class="DEVICE leftmenu" >
-           <button  onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
-           <br>DEVICE</button>
-        </li>
-        <li  class="USER leftmenu" >
-            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=User&content=AllUser' "><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:13px;left:30px;"><br>USER</button>
-        </li>
-        <li class="EVENT leftmenu" >
-           <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Event' "><img src="/TrustWinPro/action/image/interface/event icon.png" style="position:absolute;top:13px;left:30px;"><br>EVENT</button>
-        </li>
-        <li  class="ACCESS_CONTROL leftmenu" >
-            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup' "><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>ACCESS<br>CONTROL</button>
-        </li>
-        <li  class="MORNITORING leftmenu" >
-            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Monitoring&content=Map' "><img src="/TrustWinPro/action/image/interface/monitoring_2.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>MONITORING</button>
-        </li>
-    </ul>
-</nav>
-</div>
+		<nav class="leftMainMenu" style="display: block;">
+		    <ul class="sm-nav">
+		        <li  class="DEVICE leftmenu" >
+		           <button  onclick="location.href='/TrustWinPro/action/index.jsp?left=Device&content=AllDevice' "><img src="/TrustWinPro/action/image/interface/device icon.png" style="position:absolute;top:11px;left:30px;">
+		           <br>DEVICE</button>
+		        </li>
+		        <li  class="USER leftmenu" >
+		            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=User&content=AllUser' "><img src="/TrustWinPro/action/image/interface/user icon.png" style="position:absolute;top:13px;left:30px;"><br>USER</button>
+		        </li>
+		        <li class="EVENT leftmenu" >
+		           <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Event' "><img src="/TrustWinPro/action/image/interface/event icon.png" style="position:absolute;top:13px;left:30px;"><br>EVENT</button>
+		        </li>
+		        <li  class="ACCESS_CONTROL leftmenu" >
+		            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup' "><img src="/TrustWinPro/action/image/interface/time icon.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>ACCESS<br>CONTROL</button>
+		        </li>
+		        <li  class="MORNITORING leftmenu" >
+		            <button onclick="location.href='/TrustWinPro/action/index.jsp?left=Monitoring&content=Map' "><img src="/TrustWinPro/action/image/interface/monitoring_2.png" style="position:absolute;top:13px;left:30px;width:22px;"><br>MONITORING</button>
+		        </li>
+		    </ul>
+		</nav>
+		
+	</div>
 
 
 <div class="main-ng-view">
@@ -440,7 +441,7 @@
 <%
 						if(j==dev1.length-1){
 %>
-							<a class = "bottom" href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+							<a class ="bottom" href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
