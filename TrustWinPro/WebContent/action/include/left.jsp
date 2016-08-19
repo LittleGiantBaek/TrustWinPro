@@ -1233,6 +1233,10 @@ String selectuserID = request.getParameter("userID");
 	
 </script>
 
+<script>
+	$("#pnlLNB").css("height",$(".leftMainMenu").css("height"));
+</script>
+
 <%
 			if(userClass != null && userClass.equals("128")){
 		%>
