@@ -251,7 +251,7 @@ function userExcel(){
 	</section>
 </div>
 
-	<div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
+	<div class="dropdown" style="margin-left:1%; font-size:13px">
   	<button onclick="myFunction()" class="dropbtn">•••</button>
  	 <div id="myDropdown" class="dropdown-content">
     <a href="#" onclick="printPage();">Print</a>

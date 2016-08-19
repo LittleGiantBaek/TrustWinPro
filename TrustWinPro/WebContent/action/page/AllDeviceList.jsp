@@ -205,7 +205,7 @@ function checkedF(num,v){
 	</div>
 	<!--<div class="searchForm">
 	</div> !-->
-	<div class="dropdown" style="margin-left:1%; font-size:13px; margin-right: 30%">
+	<div class="dropdown" style="margin-left:1%; font-size:13px;">
   <button onclick="myFunction()" class="dropbtn">•••</button>
   <div id="myDropdown" class="dropdown-content">
   <!--ieExecWB();  -->
