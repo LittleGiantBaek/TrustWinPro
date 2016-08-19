@@ -32,11 +32,12 @@
 		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 	}
 	
-	String status = "";
-	/* for(int i=0;i<dev.length;i++){
+	/* EventFunc EFunc = new EventFunc();
+	String barchart = EFunc.deviceVal();
+	String[] barcharts = barchart.split(",");
 		String status = "";
 		for(int j=0;j<barcharts.length;j++){
-			if(dev[i].getID().equals(barcharts[j])){
+			if(($("input[name=info]").attr("id")).equals(barcharts[j])){
 				status = "checked";
 				break;
 			}
@@ -64,22 +65,39 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		$.ajax({      
 		    type:"post",  
 		    url:"/TrustWinPro/action/ajax/PrintDeviceList.jsp",
-		    //url:"/TrustWinPro/action/page/AllDeviceList.jsp",
 		    data: "array=" + arrayObj + "&CN="+CN+"&Add="+Add+"&ID="+ID+"&UID="+UID,
-		    //data: "searchControllerName="+CN+"searchAddress="+Add+"searchID="+ID+"searchUniqueID="+UID,
-		    //data:  ({"array": arrayObj ,"searchControllerName": CN, "searchAddress": Add, "searchID": ID, "searchUniqueID": UID}),
 		    success:function(args){   
-		    	//$("#DeviceList").html(args);    
-		    	//location.href="/TrustWinPro/action/index.jsp?left=Device&content=AllDevice#";
-		    	//window.location.reload(true);
-		        //$("#hiddenSort").html(args);     
 				$(".tablebor").html(args);
+				statusDevice();
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
 		    }  
 		});
 	 }
+}
+
+
+function statusDevice()
+{
+	var array = document.devicelist.info;
+	var val = "";
+	for(var i=0;i<array.length;i++){
+		if(array[i].checked == true){
+			val = val + array[i].id + ",";
+			
+		}
+	}
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/deviceStatusProc.jsp',
+         data: 'val='+val,
+         cache: false,
+         success: function(res) {
+      	  /* alert("StatusBar : " +val); */
+      	  location.reload();
+        document.getElementById("devicelist").submit();
+         }
+    });
 }
 	
 	
@@ -182,31 +200,31 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="devicename/1" id="deviceName" ></td>
+<td><input type="checkbox" name="info" value="devicename/1" id="1" ></td>
 <td ><%=Lanfunc.language(lan, 1)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2" id="deviceId" ></td>
+<td ><input type="checkbox" name="info" value="ID/2" id="2" ></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Address/3" id="deviceAddress" ></td>
+<td ><input type="checkbox" name="info" value="Address/3" id="3" ></td>
 <td ><%=Lanfunc.language(lan, 3)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="Port Number/4" id="devicePortNumber" ></td>
+<td ><input type="checkbox" name="info" value="Port Number/4" id="4" ></td>
 <td ><%=Lanfunc.language(lan, 4)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5" id="devicePassword" ></td>
+<td ><input type="checkbox" name="info" value="Password/5" id="5" ></td>
 <td> <%=Lanfunc.language(lan, 5)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UniqueID/6" id="deviceUniqueId" ></td>
+<td ><input type="checkbox" name="info" value="UniqueID/6" id="6" ></td>
 <td ><%=Lanfunc.language(lan, 6)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Server Port/7" id="deviceServerPort" ></td>
+<td ><input type="checkbox" name="info" value="Server Port/7" id="7" ></td>
 <td > <%=Lanfunc.language(lan, 7)%></td>
 </tr>
 </tbody>
