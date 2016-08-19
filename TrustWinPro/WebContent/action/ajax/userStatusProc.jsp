@@ -8,7 +8,7 @@
 	
 	Connection conn = null;
 	String sql = "";
-	sql = "update Sort set deviceSort = '" + vals + "'where idx=1;"; 
+	sql = "update Sort set userSort = '" + vals + "'where idx=1;"; 
 
 	out.println("AAAAAAAAAAAAAAAA");
 	try {

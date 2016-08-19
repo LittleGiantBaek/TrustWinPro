@@ -1,3 +1,4 @@
+<%@page import="com.Trustwin.Admin.Project.Event.EventFunc"%>
 <%@ page contentType="text/html; charset=euc-kr" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
@@ -8,6 +9,7 @@
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 <%
 	CategoryFunc func = new CategoryFunc();
 	LanguageFunc Lanfunc = new LanguageFunc();
@@ -32,17 +34,36 @@
 		UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 	}
 	
-	/* EventFunc EFunc = new EventFunc();
-	String barchart = EFunc.deviceVal();
-	String[] barcharts = barchart.split(",");
-		String status = "";
-		for(int j=0;j<barcharts.length;j++){
-			if(($("input[name=info]").attr("id")).equals(barcharts[j])){
-				status = "checked";
-				break;
+	String[] dev = {"1","2", "3", "4", "5", "6", "7"};
+	EventFunc EFunc = new EventFunc();
+	String device = EFunc.deviceVal();
+	String[] devices = device.split(",");
+	String status1 = "";
+	String status2 = "";
+	String status3 = "";
+	String status4 = "";
+	String status5 = "";
+	String status6 = "";
+	String status7 = "";
+		for(int i=0;i<dev.length;i++){
+			for(int j=0;j<devices.length;j++){
+				if(dev[0].equals(devices[j])){
+					status1 = "checked";
+				} else if(dev[1].equals(devices[j])) {
+					status2 = "checked";
+				} else if(dev[2].equals(devices[j])) {
+					status3 = "checked";
+				} else if(dev[3].equals(devices[j])) {
+					status4 = "checked";
+				} else if(dev[4].equals(devices[j])) {
+					status5 = "checked";
+				} else if(dev[5].equals(devices[j])) {
+					status6 = "checked";
+				} else if(dev[6].equals(devices[j])) {
+					status7 = "checked";
+				}
 			}
-		} */
-
+		}
 %>
 
 <script type="text/javascript">
@@ -85,7 +106,6 @@ function statusDevice()
 	for(var i=0;i<array.length;i++){
 		if(array[i].checked == true){
 			val = val + array[i].id + ",";
-			
 		}
 	}
      $.ajax({
@@ -94,8 +114,9 @@ function statusDevice()
          cache: false,
          success: function(res) {
       	  /* alert("StatusBar : " +val); */
-      	  location.reload();
-        document.getElementById("devicelist").submit();
+      	/* location.reload(); */
+        /* 	document.getElementById("devicelist").submit(); */
+        	$(".tablebor").html(args);
          }
     });
 }
@@ -174,7 +195,7 @@ function statusDevice()
 <form name="devicelist" id="devicelist" method="post" action="">
 <!-- <div class="printPage"> -->
 		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Device Sort
-		<a href="#DeviceInfo" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
+		<a href="#" onclick="accessDeviceClose2();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
 		</div>
 		<!-- <hr width="100%"> -->
 		<table border="1" cellspacing="0" class="titleEx2" style="text-align:center" >
@@ -200,33 +221,34 @@ function statusDevice()
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="devicename/1" id="1" ></td>
+<td><input type="checkbox" name="info" value="devicename/1" id="1" <%=status1%>></td>
 <td ><%=Lanfunc.language(lan, 1)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2" id="2" ></td>
+<td ><input type="checkbox" name="info" value="ID/2" id="2" <%=status2%>></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Address/3" id="3" ></td>
+<td ><input type="checkbox" name="info" value="Address/3" id="3" <%=status3%>></td>
 <td ><%=Lanfunc.language(lan, 3)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="Port Number/4" id="4" ></td>
+<td ><input type="checkbox" name="info" value="Port Number/4" id="4" <%=status4%>></td>
 <td ><%=Lanfunc.language(lan, 4)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5" id="5" ></td>
+<td ><input type="checkbox" name="info" value="Password/5" id="5" <%=status5%>></td>
 <td> <%=Lanfunc.language(lan, 5)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UniqueID/6" id="6" ></td>
+<td ><input type="checkbox" name="info" value="UniqueID/6" id="6" <%=status6%>></td>
 <td ><%=Lanfunc.language(lan, 6)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Server Port/7" id="7" ></td>
+<td ><input type="checkbox" name="info" value="Server Port/7" id="7" <%=status7%>></td>
 <td > <%=Lanfunc.language(lan, 7)%></td>
 </tr>
+
 </tbody>
 </table>
 <div class="buttom">

@@ -8,6 +8,26 @@
 <%@ page import="com.Trustwin.Admin.Project.Device.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Language.*"%>
 <script type="text/javascript">
+$( document ).ready(function() {
+	drawDevice();
+}); 
+
+function drawDevice()
+{
+     var data = null;
+     var table_data = null;
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/deviceStatusProc.jsp',
+         data: 'idx=',
+         cache: false,
+         success: function(res) {
+        	table_data = eval("(" + res + ")");
+        	$(".tablebor").html(args);
+         }
+    });
+}
+
+
 function printPage(){
 	 var initBody;
 	 window.onbeforeprint = function(){
@@ -20,8 +40,7 @@ function printPage(){
 	 window.print();
 	 return false;
 	}
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+	
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -116,6 +135,7 @@ function checkedF(num,v){
 		DeviceFunc Devfunc = new DeviceFunc();
 		request.setCharacterEncoding("utf-8");
 		Connection conn = null;
+		
 		String ControllerName = (String) request.getParameter("searchControllerName");
 		if (ControllerName != null) {
 			ControllerName = new String(ControllerName.getBytes("8859_1"), "UTF-8");
@@ -134,7 +154,7 @@ function checkedF(num,v){
 		if ((String) request.getParameter("searchUniqueID") != null) {
 			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 		}
-
+		
 	
 		
 		String GroupID = (String) request.getParameter("deviceGroupID");

@@ -39,7 +39,6 @@
 	String UserClass = (String)request.getParameter("searchUserClass");
 	String CompanyID = (String)request.getParameter("searchCompanyID");
 	
-	String status = "";
 	/* for(int i=0;i<dev.length;i++){
 		String status = "";
 		for(int j=0;j<barcharts.length;j++){
@@ -73,12 +72,36 @@ function UserSorts(form,FN,MN,LN,DP){
 		    data: "array=" + arrayObj + "&FN="+FN+"&MN="+MN+"&LN="+LN+"&DP="+DP,
 		    success:function(args){   
 				$(".tablebor").html(args);
+				statusUser();
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
 		    }  
 		});
 	 }
+}
+
+
+function statusUser()
+{
+	var array = document.userlist.info;
+	var val = "";
+	for(var i=0;i<array.length;i++){
+		if(array[i].checked == true){
+			val = val + array[i].id + ",";
+			
+		}
+	}
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/userStatusProc.jsp',
+         data: 'val='+val,
+         cache: false,
+         success: function(res) {
+      	  /* alert("StatusBar : " +val); */
+      	/*   location.reload(); */
+        document.getElementById("userlist").submit();
+         }
+    });
 }
 	
 	
