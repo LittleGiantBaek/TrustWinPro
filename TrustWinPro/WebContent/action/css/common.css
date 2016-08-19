@@ -352,12 +352,11 @@ min-height:760px;/* min-width:200px; */position:relative;}
  
  .left_bottom ul {padding-left:0px}
  .User ul li{text-overflow: ellipsis;}
-   .User{overflow-y:scroll; overflow-x:scroll;}
-    .Device{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-      .User{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-        .Event{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-         .Time{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
-         .Monitoring{overflow-y:scroll; overflow-x:scroll;text-overflow: ellipsis;}
+    .Device{/* overflow-y:scroll; overflow-x:scroll; */text-overflow: ellipsis;}
+      .User{/* overflow-y:scroll; overflow-x:scroll; */text-overflow: ellipsis;}
+        .Event{/* overflow-y:scroll; overflow-x:scroll; */text-overflow: ellipsis;}
+         .Time{/* overflow-y:scroll; overflow-x:scroll; */text-overflow: ellipsis;}
+         .Monitoring{/* overflow-y:scroll; overflow-x:scroll; */text-overflow: ellipsis;}
 #left .left_top .User {/* padding:10px 0; */ margin:0 auto; overflow-y:scroll; height:100%; width:98%; overflow-x:scroll;}
 #left .left_top .User ul {/* padding:0 0 0 5px; */margin:0;}
 #left .left_top .User ul li{padding:0;margin:0;}
