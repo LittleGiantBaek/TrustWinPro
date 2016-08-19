@@ -166,35 +166,35 @@ function UserSorts(form,FN,MN,LN,DP){
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="FirstName/26" id="deviceName" ></td>
+<td><input type="checkbox" name="info" value="FirstName/26" id="1" ></td>
 <td ><%=Lanfunc.language(lan, 26)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="MiddleName/27" id="deviceId" ></td>
+<td ><input type="checkbox" name="info" value="MiddleName/27" id="2" ></td>
 <td ><%=Lanfunc.language(lan, 27)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="LastName/28" id="deviceAddress" ></td>
+<td ><input type="checkbox" name="info" value="LastName/28" id="3" ></td>
 <td ><%=Lanfunc.language(lan, 28)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UserID/29" id="devicePortNumber" ></td>
+<td ><input type="checkbox" name="info" value="UserID/29" id="4" ></td>
 <td ><%=Lanfunc.language(lan, 29)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="UserClass/30" id="devicePassword" ></td>
+<td ><input type="checkbox" name="info" value="UserClass/30" id="5" ></td>
 <td> <%=Lanfunc.language(lan, 30)%></td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2" id="deviceUniqueId" ></td>
+<td ><input type="checkbox" name="info" value="ID/2" id="6" ></td>
 <td ><%=Lanfunc.language(lan, 2)%></td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5" id="deviceServerPort" ></td>
+<td ><input type="checkbox" name="info" value="Password/5" id="7" ></td>
 <td > <%=Lanfunc.language(lan, 5)%></td>
 </tr>
 <tr>
-<td ><input type="checkbox" name="info" value="Department/39" id="deviceServerPort" ></td>
+<td ><input type="checkbox" name="info" value="Department/39" id="8" ></td>
 <td > <%=Lanfunc.language(lan, 39)%></td>
 </tr>
 </tbody>
