@@ -168,7 +168,8 @@
 		    }  
 		}); 
 	}
-	
+
+
 	function DeviceDelete(id){
 		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
@@ -509,9 +510,9 @@
 			<ul>
 				<li>
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
-					<span><a href="#UserInfo" onclick="changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></a></span>
+					<span><a  id="user1g" href="#UserInfo" onclick="submitUserGroup('UserList','1','0','0');changeSpanUser(0,<%=length %>,<%=cata[0].getDepth() %>,<%=cata[0].getIdx() %>,<%=request.getParameter("userID")%>)" id="span0" ><%=cata[0].getName() %></a></span>
 					<span onclick="changeInputBox(0)" id="text0" class="span userspanroot"><%=cata[0].getName()%></span>
-					<span id="input0" class="spanInput"><input type="text" name="name" id="name" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
+					<span id="input0" class="spanInput"><input type="text"  name="GroupName" id="GroupName0" class="inputText" value="<%=cata[0].getName()%>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[0].getIdx()%>')" onblur="UpdateDepart(this.value,'<%=cata[0].getIdx()%>');"  /></span>
 					<span><a href="#UserInfo" onclick="submit('AllUser');" >All</a></span> 
 				</li>
 			
@@ -540,7 +541,8 @@
 					<span><img src="/TrustWinPro/action/image/interface/user.png" /></span>
 					<%-- <span id="span<%=i %>" class="userIDspan" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
 					 --%>
-					 <span id="span<%=i %>" class="" ><a href="#in" onclick="changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
+		     		<span id="span<%=i %>" class="" >
+					 	<a id="user<%=cata[i].getIdx() %>g"  href="#in" onclick="submitUserGroup('UserList','<%=cata[i].getIdx() %>','<%=cata[i].getDepth() %>','<%=i %>');changeSpanUser(<%=i %>,<%=length %>,<%=cata[i].getDepth() %>,<%=cata[i].getIdx() %>,<%=request.getParameter("userID")%>)"><%=cata[i].getName() %></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/close.png" class="close<%=i %>" id="close0<%=i %>" /></a>
 						<a href="#in" onclick="swich('0<%=i%>',<%=i%>)"><img src="/TrustWinPro/action/image/interface/open.png" class="open<%=i %>" id="open0<%=i %>" style="display:none;" /></a>
 					</span>
@@ -552,7 +554,7 @@
 					</span>
 	
 					<span id="input<%=i%>" class="spanInput">
-						<input type="text" name="name" id="name" class="inputText" value="<%=cata[i].getName() %>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" onblur="UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" />
+						<input type="text" name="GroupName" id="GroupName<%=i%>" class="inputText" value="<%=cata[i].getName() %>" size="10" onkeypress="if(event.keyCode == 13) return UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" onblur="UpdateDepart(this.value,'<%=cata[i].getIdx()%>');" />
 					</span> 
 
 <%
@@ -1133,16 +1135,31 @@ String selectdeviceGroupID = request.getParameter("deviceGroupID");
 String selectdeviceGroupDepth = request.getParameter("deviceGroupDepth");
 String selectdeviceGroupi = request.getParameter("deviceGroupi");
 String selectdeviceID = request.getParameter("deviceID");
+
+
+String selectuserGroupID = request.getParameter("userGroupID");
+String selectuserGroupDepth = request.getParameter("userGroupDepth");
+String selectuserGroupi = request.getParameter("userGroupi");
 String selectuserID = request.getParameter("userID");
 %>
+
+
+<form action="/TrustWinPro/action/index.jsp" name="UserList" id="UserList" method="post">
+	<input type="hidden" value="User" name="left" />
+	<input type="hidden" value="<%=selectuserGroupID%>" name="userGroupID" id="valueOfUserGroupID"/>
+	<input type="hidden" value="<%=selectuserGroupDepth%>" name="userGroupDepth" id="valueOfUserGroupDepth"/>
+	<input type="hidden" value="<%=selectuserGroupi%>" name="userGroupi" id="valueOfUseri"/>
+	<input type="hidden" value="AllUser" name="content" />
+</form>
 
 <form action="/TrustWinPro/action/index.jsp" name="DeviceList" id="DeviceList" method="post">
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="<%=selectdeviceGroupID%>" name="deviceGroupID" id="valueOfDeviceGroupID"/>
 	<input type="hidden" value="<%=selectdeviceGroupDepth%>" name="deviceGroupDepth" id="valueOfDeviceGroupDepth"/>
-	<input type="hidden" value="<%=selectdeviceGroupi%>" name="deviceGroupi" id="valueOfi"/>
+	<input type="hidden" value="<%=selectdeviceGroupi%>" name="deviceGroupi" id="valueOfDevicei"/>
 	<input type="hidden" value="AllDevice" name="content" />
 </form>
+
 <form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">
 	<input type="hidden" value="Device" name="left" />
 	<input type="hidden" value="<%=selectdeviceID%>" name="deviceID" id="valueOfDeviceID"/>
@@ -1177,9 +1194,20 @@ String selectuserID = request.getParameter("userID");
 		document.getElementById("user" +  idx).className = "userspan userIDspan";
 		//document.getElementById("user" +  parseInt(idx,10)).className = "userspan";
 	}
-	
+
+	function SpanUserGroupClass(idx){
+		document.getElementById("user"+idx+"g").style.color = "#ffffff";
+		document.getElementById("user"+idx+"g").style.backgroundColor  = "#5c5c5b";
+		document.getElementById("user"+idx+"g").className = "userGroupspan";
+	}
 	if(<%=request.getParameter("userID")%>!=null){
 		SpanUserClass("<%=request.getParameter("userID")%>");
+	}
+
+	if(<%=request.getParameter("userGroupID")%>!=null){
+		SpanUserGroupClass(<%=request.getParameter("userGroupID")%>);
+		document.getElementById("GroupN").value = <%=request.getParameter("userGroupID")%>;
+		document.getElementById("GroupD").value = <%=request.getParameter("userGroupDepth")%>;
 	}
 	
 	function swich(num,num2){
@@ -1194,7 +1222,7 @@ String selectuserID = request.getParameter("userID");
 		}
 		
 	}
-	
+	<%-- 
 	function Buttom(val){
 		if(val == "User"){
 			document.getElementById("userButtom").src = "/TrustWinPro/action/image/interface/leftButtom_on.png";
@@ -1230,7 +1258,7 @@ String selectuserID = request.getParameter("userID");
 	}
 	
 	Buttom('<%=request.getParameter("left")%>')
-	
+	 --%>
 </script>
 
 <script>

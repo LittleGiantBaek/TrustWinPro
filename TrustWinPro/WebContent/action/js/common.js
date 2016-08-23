@@ -45,6 +45,15 @@ function submitDeviceGroup(v,id,depth,i){
 	form.submit();
 }
 
+
+function submitUserGroup(v,id,depth,i){
+	var form = document.getElementById(v);
+	form.userGroupID.value = id;
+	form.userGroupDepth.value =  parseInt(depth,10) + 1;
+	form.userGroupi.value = i;
+	form.submit();
+}
+
 function check(value){
 	value = value.replace(/\r\n/g, "");
     return value;

@@ -62,15 +62,10 @@
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
+	   <li class="divider"></li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
 	 </div>
-    <div class="contextmenu conUserAdd">
-	 <ul>
-	  <li class="menuitem">Delete Group</li>
-	  <li class="divider"></li>
-      <li class="menuitem">Add User</li>
-	   </ul>
-     </div>
          <div class="contextmenu conUserDelete">
 	 <ul>
 	   <li class="menuitem">Delete User</li>
@@ -85,13 +80,14 @@
 	   <li class="menuitem">Add User</li>
 	   <li class="menuitem">Delete User</li>
 	 </ul>
-     </div>
+    </div>
   <div class="contextmenu conUsersubGroup">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
 	   <li class="divider"></li>
 	   <li class="menuitem">Add User</li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
      </div>     
   
@@ -100,6 +96,7 @@
 	   <li class="menuitem">Delete User Group</li>
 	   <li class="divider"></li>
 	   <li class="menuitem">Add User</li>
+	   <li class="menuitem">Edit Name</li>
 	 </ul>
      </div> 
        
@@ -309,7 +306,8 @@
 				GroupDelete();
 				}
 			else if($(this).find(".hover").text() == "Edit Name")
-				changeInputBox(document.getElementById("valueOfi").value);
+				changeInputBox(document.getElementById("valueOfDevicei").value);
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });	  
@@ -319,7 +317,7 @@
 			else if($(this).find(".hover").text() == "Add Device")
 				DeviceAdd(document.getElementById('GroupN').value);
 			else if($(this).find(".hover").text() == "Edit Name")
-				changeInputBox(document.getElementById("valueOfi").value);
+				changeInputBox(document.getElementById("valueOfDevicei").value);
 			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
@@ -335,7 +333,7 @@
 				DeviceAdd(document.getElementById('GroupN').value);
 			}
 			else if($(this).find(".hover").text() == "Edit Name"){
-				changeInputBox(document.getElementById("valueOfi").value);
+				changeInputBox(document.getElementById("valueOfDevicei").value);
 			}
 			
 		    $(".contextmenu").hide();
@@ -351,29 +349,38 @@
 	  
 	  //User Function
 	  $(".conUserGroup").click(function(e){
-			if($(this).find(".hover").text() == "Add User Group")
+			if($(this).find(".hover").text() == "Add User Group"){
 				DepartAdd();
-			else
+			} else  if($(this).find(".hover").text() == "Delete User Group"){
 				DepartDelete();
+			} else if($(this).find(".hover").text() == "Edit Name")
+				changeInputBox(document.getElementById("valueOfUseri").value);
+		
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });	  
 	  $(".conUserMemberGroup").click(function(e){
 			if($(this).find(".hover").text() == "Delete User Group")
 				DepartDelete();
-			else
+			else if($(this).find(".hover").text() == "Add User")
 				UserAdd(document.getElementById('GroupN').value);
+			else if($(this).find(".hover").text() == "Edit Name")
+				changeInputBox(document.getElementById("valueOfUseri").value);
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });
 	  $(".conUsersubGroup").click(function(e){
 			if($(this).find(".hover").text() == "Add User Group")
 				DepartAdd();
-			else if($(this).find(".hover").text() == "Delete User Group"){
+			else if($(this).find(".hover").text() == "Delete User Group")
 				DepartDelete();
-			}
-			else
+			else if($(this).find(".hover").text() == "Add User")
 				UserAdd(document.getElementById('GroupN').value);
+			else if($(this).find(".hover").text() == "Edit Name")
+				changeInputBox(document.getElementById("valueOfUseri").value);
+			
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });
