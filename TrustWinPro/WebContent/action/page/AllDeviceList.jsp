@@ -7,10 +7,87 @@
 <%@ page import="com.Trustwin.Admin.Project.Category.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*"%>
 <%@ page import="com.Trustwin.Admin.Project.Language.*"%>
+<%@ page import="com.Trustwin.Admin.Project.Event.*" %>
+	<%
+
+		CategoryFunc Catefunc = new CategoryFunc();
+		LanguageFunc Lanfunc = new LanguageFunc();
+		DeviceFunc Devfunc = new DeviceFunc();
+		request.setCharacterEncoding("utf-8");
+		Connection conn = null;
+		
+		String ControllerName = (String) request.getParameter("searchControllerName");
+		if (ControllerName != null) {
+			ControllerName = new String(ControllerName.getBytes("8859_1"), "UTF-8");
+		}
+		String Address = (String) request.getParameter("searchAddress");
+		if (Address != null) {
+			Address = new String(Address.getBytes("8859_1"), "UTF-8");
+		}
+
+		String ID = (String) request.getParameter("searchID");
+		if (ID != null) {
+			ID = new String(ID.getBytes("8859_1"), "UTF-8");
+		}
+
+		String UniqueID = (String) request.getParameter("searchUniqueID");
+		if ((String) request.getParameter("searchUniqueID") != null) {
+			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
+		}
+		
+	
+		
+		String GroupID = (String) request.getParameter("deviceGroupID");
+		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
+		if ((String) request.getParameter("deviceGroupID") != null) 
+			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
+		
+		
+		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
+		String lan = (String) session.getAttribute("nation");
+		
+		String[] dev = {"1","2", "3", "4", "5", "6", "7"};
+		EventFunc EFunc = new EventFunc();
+		String device = EFunc.deviceVal();
+		String[] devicess = device.split(",");
+		String statuss1 = "notcheck";
+		String statuss2 = "notcheck";
+		String statuss3 = "notcheck";
+		String statuss4 = "notcheck";
+		String statuss5 = "notcheck";
+		String statuss6 = "notcheck";
+		String statuss7 = "notcheck";
+			for(int i=0;i<dev.length;i++){
+				for(int j=0;j<devicess.length;j++){
+					if(dev[0].equals(devicess[j])){
+						 statuss1 = "checked";
+					} else if(dev[1].equals(devicess[j])) {
+						 statuss2 = "checked";
+					} else if(dev[2].equals(devicess[j])) {
+						 statuss3 = "checked";
+					} else if(dev[3].equals(devicess[j])) {
+						 statuss4 = "checked";
+					} else if(dev[4].equals(devicess[j])) {
+						 statuss5 = "checked";
+					} else if(dev[5].equals(devicess[j])) {
+						 statuss6 = "checked";
+					} else if(dev[6].equals(devicess[j])) {
+						 statuss7 = "checked";
+					}
+				}
+			}
+	%>
 <script type="text/javascript">
-$( document ).ready(function() {
-	drawDevice();
+$(window).load(function() {
+	$(".notcheck").css("display", "none");
+	//alert("hello")
+	//drawDevice();
 }); 
+
+/* $( ".tab>li>a" ).click(function() {
+    $(this).parent().addClass("on").siblings().removeClass("on");
+    return false;
+}); */
 
 function drawDevice()
 {
@@ -126,46 +203,11 @@ function checkedF(num,v){
 	
 	
 }
+
+
 </script>
 <div id="userdata">
-	<%
 
-		CategoryFunc Catefunc = new CategoryFunc();
-		LanguageFunc Lanfunc = new LanguageFunc();
-		DeviceFunc Devfunc = new DeviceFunc();
-		request.setCharacterEncoding("utf-8");
-		Connection conn = null;
-		
-		String ControllerName = (String) request.getParameter("searchControllerName");
-		if (ControllerName != null) {
-			ControllerName = new String(ControllerName.getBytes("8859_1"), "UTF-8");
-		}
-		String Address = (String) request.getParameter("searchAddress");
-		if (Address != null) {
-			Address = new String(Address.getBytes("8859_1"), "UTF-8");
-		}
-
-		String ID = (String) request.getParameter("searchID");
-		if (ID != null) {
-			ID = new String(ID.getBytes("8859_1"), "UTF-8");
-		}
-
-		String UniqueID = (String) request.getParameter("searchUniqueID");
-		if ((String) request.getParameter("searchUniqueID") != null) {
-			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
-		}
-		
-	
-		
-		String GroupID = (String) request.getParameter("deviceGroupID");
-		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
-		if ((String) request.getParameter("deviceGroupID") != null) 
-			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
-		
-		
-		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
-		String lan = (String) session.getAttribute("nation");
-	%>
 
 	<div>
 		<section class="sectionji">
@@ -241,36 +283,50 @@ function checkedF(num,v){
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
 					<col width="10%" class="deviceSelect">
-					<col width="10%" class="deviceName">
-					<col width="10%" class="deviceId">
-					<col width="10%" class="deviceAddress">
-					<col width="10%" class="devicePortNumber">
-					<col width="14%" class="devicePassword">
-					<col width="12%" class="deviceUniqueId">
-					<col width="12%" class="deviceServerPort">
+					<%
+						for(int i=0;i<devicess.length;i++){
+					%>
+						<col width="<%=100/devicess.length%>%" >
+					<%
+							}
+					%>
+			<%-- 		<col width="10%" class="deviceName" id="<%=statuss1%>">
+					<col width="10%" class="deviceId" id="<%=statuss2%>">
+					<col width="10%" class="deviceAddress" id="<%=statuss3%>">
+					<col width="10%" class="devicePortNumber" id="<%=statuss4%>">
+					<col width="14%" class="devicePassword" id="<%=statuss5%>">
+					<col width="12%" class="deviceUniqueId" id="<%=statuss6%>">
+					<col width="12%" class="deviceServerPort" id="<%=statuss7%>"> --%>
 				</colgroup>
 				<tr>
 					<th class="deviceSelect"><%=Lanfunc.language(lan, 85)%><input type="checkbox"
 						name="allcheck" onclick="allDeviceInfoCheck();" value=""></th>
-					<th class="deviceName"><%=Lanfunc.language(lan, 1)%></th>
-					<th class="deviceId"><%=Lanfunc.language(lan, 2)%></th>
-					<th class="deviceAddress"><%=Lanfunc.language(lan, 3)%></th>
-					<th class="devicePortNumber"><%=Lanfunc.language(lan, 4)%></th>
-					<th class="devicePassword"><%=Lanfunc.language(lan, 5)%></th>
-					<th class="deviceUniqueId"><%=Lanfunc.language(lan, 6)%></th>
-					<th class="deviceServerPort"><%=Lanfunc.language(lan, 7)%></th>
+					<th class="deviceName <%=statuss1%>" ><%=Lanfunc.language(lan, 1)%></th>
+					<th class="deviceId <%=statuss2%>"><%=Lanfunc.language(lan, 2)%></th>
+					<th class="deviceAddress <%=statuss3%>" ><%=Lanfunc.language(lan, 3)%></th>
+					<th class="devicePortNumber <%=statuss4%>"><%=Lanfunc.language(lan, 4)%></th>
+					<th class="devicePassword <%=statuss5%>" "><%=Lanfunc.language(lan, 5)%></th>
+					<th class="deviceUniqueId <%=statuss6%>" "><%=Lanfunc.language(lan, 6)%></th>
+					<th class="deviceServerPort <%=statuss7%>" ><%=Lanfunc.language(lan, 7)%></th>
 				</tr>
 			</table>
 			<table cellspacing="0" class="ex1">
 				<colgroup>
 					<col width="10%" class="deviceSelect">
-					<col width="10%" class="deviceName">
-					<col width="10%" class="deviceId">
-					<col width="10%" class="deviceAddress">
-					<col width="10%" class="devicePortNumber">
-					<col width="14%" class="devicePassword">
-					<col width="12%" class="deviceUniqueId">
-					<col width="12%" class="deviceServerPort">
+					<%
+						for(int i=0;i<devicess.length;i++){
+					%>
+						<col width="<%=100/devicess.length%>%" >
+					<%
+							}
+					%>
+			<%-- 		<col width="10%" class="deviceName"  id="<%=statuss1%>">
+					<col width="10%" class="deviceId"  id="<%=statuss2%>">
+					<col width="10%" class="deviceAddress"  id="<%=statuss3%>">
+					<col width="10%" class="devicePortNumber"  id="<%=statuss4%>">
+					<col width="14%" class="devicePassword"  id="<%=statuss5%>">
+					<col width="12%" class="deviceUniqueId"  id="<%=statuss6%>">
+					<col width="12%" class="deviceServerPort"  id="<%=statuss7%>"> --%>
 				</colgroup>
 				<tbody>
 					<%
@@ -279,14 +335,14 @@ function checkedF(num,v){
 					<tr>
 						<td class="deviceSelect"><input type="checkbox" name="check"
 							value="<%=devices[i].getID()%>"></td>
-						<td class='date1 deviceName'><a href="#a"
+						<td class='date1 deviceName <%=statuss1%>' ><a href="#a"
 							onclick="submitDevice('Device','<%=devices[i].getID()%>')"><%=devices[i].getControllerName()%></a></td>
-						<td class='date1 deviceId'><%=devices[i].getID()%></td>
-						<td class='date1 deviceAddress'><%=devices[i].getAddress()%></td>
-						<td class='date1 devicePortNumber'><%=devices[i].getPort()%></td>
-						<td class='date1 devicePassword'><%=devices[i].getPassword()%></td>
-						<td class='date1 deviceUniqueId'><%=devices[i].getUniqueID()%></td>
-						<td class='date1 deviceServerPort'><%=devices[i].getServerPort()%></td>
+						<td class='date1 deviceId <%=statuss2%>' ><%=devices[i].getID()%></td>
+						<td class='date1 deviceAddress <%=statuss3%>' ><%=devices[i].getAddress()%></td>
+						<td class='date1 devicePortNumber <%=statuss4%>' ><%=devices[i].getPort()%></td>
+						<td class='date1 devicePassword <%=statuss5%>' "><%=devices[i].getPassword()%></td>
+						<td class='date1 deviceUniqueId <%=statuss6%>'><%=devices[i].getUniqueID()%></td>
+						<td class='date1 deviceServerPort <%=statuss7%>' ><%=devices[i].getServerPort()%></td>
 					</tr>
 					<%
 						}

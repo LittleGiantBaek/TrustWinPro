@@ -171,7 +171,7 @@ function statusDevice()
 	} */
 	
 	
-	$(document).ready( function(){
+/* 	$(document).ready( function(){
 		   // read the current/previous setting
 		    $("input.box[type=checkbox]").each(function() {
 		        var name = $(this).attr('id');
@@ -187,7 +187,7 @@ function statusDevice()
 		            expires: 365
 		        });
 		    });
-		});
+		}); */
 
 </script>
 <div class="deviceSortPop">

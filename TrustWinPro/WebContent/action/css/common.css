@@ -11,7 +11,10 @@ scrollbar-arrow-color:#afafaf;
 scrollbar-track-color:#ffffff;
 }
 
-
+/* #notcheck {
+	display : none;
+}
+ */
 /* Dropdown Button */
 .dropbtn {
     background-color: white;
@@ -231,7 +234,7 @@ button {
     left: 10px;
     margin-right: 0px;
     overflow: hidden;
-    min-height:1000px;
+    min-height:1100px;
     height:auto;
     display:block;
 }   
