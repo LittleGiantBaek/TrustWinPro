@@ -939,19 +939,19 @@ function AccessDelete(deviceID){
 							<tr>
 								<td>
 									<select name="WeekO<%=k%>" class="hourselect">
-										<option value = "1" <%=week == 1 ? "selected" : "" %>>None</option>
-										<option value = "2" <%=week == 2 ? "selected" : "" %>>All Day</option>
-										<option value = "3" <%=week == 3 ? "selected" : "" %>>Holiday</option>
-										<option value = "4" <%=week == 4 ? "selected" : "" %>>Sunday</option>
-										<option value = "5" <%=week == 5 ? "selected" : "" %>>Holiday+Sunday</option>
-										<option value = "6" <%=week == 6 ? "selected" : "" %>>Monday</option>
-										<option value = "7" <%=week == 7 ? "selected" : "" %>>Tuesday</option>
-										<option value = "8" <%=week == 8 ? "selected" : "" %>>Wednesday</option>
-										<option value = "9" <%=week == 9 ? "selected" : "" %>>Thursday</option>
-										<option value = "10" <%=week == 10 ? "selected" : "" %>>Friday</option>
-										<option value = "11" <%=week == 11 ? "selected" : "" %>>Saturday</option>
-										<option value = "12" <%=week == 12 ? "selected" : "" %>>Monday-Friday</option>
-										<option value = "13" <%=week == 13 ? "selected" : "" %>>Monday-Saturday</option>
+										<option value = "0" <%=week == 0 ? "selected" : "" %>>None</option>
+										<option value = "255" <%=week == 255 ? "selected" : "" %>>All Day</option>
+										<option value = "1" <%=week == 1 ? "selected" : "" %>>Holiday</option>
+										<option value = "2" <%=week == 2 ? "selected" : "" %>>Sunday</option>
+										<option value = "3" <%=week == 3 ? "selected" : "" %>>Holiday+Sunday</option>
+										<option value = "4" <%=week == 4 ? "selected" : "" %>>Monday</option>
+										<option value = "5" <%=week == 5 ? "selected" : "" %>>Tuesday</option>
+										<option value = "6" <%=week == 6 ? "selected" : "" %>>Wednesday</option>
+										<option value = "7" <%=week == 7 ? "selected" : "" %>>Thursday</option>
+										<option value = "8" <%=week == 8 ? "selected" : "" %>>Friday</option>
+										<option value = "9" <%=week == 9 ? "selected" : "" %>>Saturday</option>
+										<option value = "10" <%=week == 10 ? "selected" : "" %>>Monday-Friday</option>
+										<option value = "11" <%=week == 11 ? "selected" : "" %>>Monday-Saturday</option>
 									</select>
 								</td>
 								<td>
@@ -1111,21 +1111,21 @@ function AccessDelete(deviceID){
 				}
 %>	
 									<select name="OperateModeO<%=k%>" class="hourselect">
-										<option value = "1" <%=Manage == 1 ? "Selected" : "" %> >[Any]</option>
-										<option value = "2" <%=Manage == 2 ? "Selected" : "" %> >[Finger]</option>
-										<option value = "3" <%=Manage == 3 ? "Selected" : "" %> >[CD or FP]</option>
-										<option value = "4" <%=Manage == 4 ? "Selected" : "" %> >[ID&FP] or [CD]</option>
-										<option value = "5" <%=Manage == 5 ? "Selected" : "" %> >[ID&FP] or [ID&CD]</option>
-										<option value = "6" <%=Manage == 6 ? "Selected" : "" %> >[ID&FP] or [CD&FP]</option>
-										<option value = "7" <%=Manage == 7 ? "Selected" : "" %> >[Open]</option>
-										<option value = "8" <%=Manage == 8 ? "Selected" : "" %> >[Close]</option>
-										<option value = "9" <%=Manage == 9 ? "Selected" : "" %> >[Card]</option>
-										<option value = "10" <%=Manage == 10 ? "Selected" : "" %> >[ID or FP]</option>
-										<option value = "11" <%=Manage == 11 ? "Selected" : "" %> >[ID or CD]</option>
-										<option value = "12" <%=Manage == 12 ? "Selected" : "" %> >[ID&CD]</option>
-										<option value = "13" <%=Manage == 13 ? "Selected" : "" %> >[CD&FP]</option>
-										<option value = "14" <%=Manage == 14 ? "Selected" : "" %> >[ID&FP]</option>
-										<option value = "15" <%=Manage == 15 ? "Selected" : "" %> >[ID&CD&FP]</option>
+										<option value = "0" <%=Manage == 0 ? "Selected" : "" %> >[Any]</option>
+										<option value = "1" <%=Manage == 1 ? "Selected" : "" %> >[Finger]</option>
+										<option value = "2" <%=Manage == 2 ? "Selected" : "" %> >[CD or FP]</option>
+										<option value = "3" <%=Manage == 3 ? "Selected" : "" %> >[ID&FP] or [CD]</option>
+										<option value = "4" <%=Manage == 4 ? "Selected" : "" %> >[ID&FP] or [ID&CD]</option>
+										<option value = "5" <%=Manage == 5 ? "Selected" : "" %> >[ID&FP] or [CD&FP]</option>
+										<option value = "6" <%=Manage == 6 ? "Selected" : "" %> >[Open]</option>
+										<option value = "7" <%=Manage == 7 ? "Selected" : "" %> >[Close]</option>
+										<option value = "8" <%=Manage == 8 ? "Selected" : "" %> >[Card]</option>
+										<option value = "9" <%=Manage == 9 ? "Selected" : "" %> >[ID or FP]</option>
+										<option value = "10" <%=Manage == 10 ? "Selected" : "" %> >[ID or CD]</option>
+										<option value = "11" <%=Manage == 11 ? "Selected" : "" %> >[ID&CD]</option>
+										<option value = "12" <%=Manage == 12 ? "Selected" : "" %> >[CD&FP]</option>
+										<option value = "13" <%=Manage == 13 ? "Selected" : "" %> >[ID&FP]</option>
+										<option value = "14" <%=Manage == 14 ? "Selected" : "" %> >[ID&CD&FP]</option>
 									</select>
 								</td>
 							</tr>
@@ -1192,19 +1192,19 @@ function AccessDelete(deviceID){
 							<tr>
 								<td>
 									<select name="WeekA1<%=k%>" class="hourselect">
-										<option value = "1" <%=weeka==1?"Selected" : "" %>>None</option>
-										<option value = "2" <%=weeka==2?"Selected" : "" %>>All Day</option>
-										<option value = "3" <%=weeka==3?"Selected" : "" %>>Holiday</option>
-										<option value = "4" <%=weeka==4?"Selected" : "" %>>Sunday</option>
-										<option value = "5" <%=weeka==5?"Selected" : "" %>>Holiday+Sunday</option>
-										<option value = "6" <%=weeka==6?"Selected" : "" %>>Monday</option>
-										<option value = "7" <%=weeka==7?"Selected" : "" %>>Tuesday</option>
-										<option value = "8" <%=weeka==8?"Selected" : "" %>>Wednesday</option>
-										<option value = "9" <%=weeka==9?"Selected" : "" %>>Thursday</option>
-										<option value = "10" <%=weeka==10?"Selected" : "" %>>Friday</option>
-										<option value = "11" <%=weeka==11?"Selected" : "" %>>Saturday</option>
-										<option value = "12" <%=weeka==12?"Selected" : "" %>>Monday-Friday</option>
-										<option value = "13" <%=weeka==13?"Selected" : "" %>>Monday-Saturday</option>
+										<option value = "0" <%=weeka==0?"Selected" : "" %>>None</option>
+										<option value = "255" <%=weeka==255?"Selected" : "" %>>All Day</option>
+										<option value = "1" <%=weeka==1?"Selected" : "" %>>Holiday</option>
+										<option value = "2" <%=weeka==2?"Selected" : "" %>>Sunday</option>
+										<option value = "3" <%=weeka==3?"Selected" : "" %>>Holiday+Sunday</option>
+										<option value = "4" <%=weeka==4?"Selected" : "" %>>Monday</option>
+										<option value = "5" <%=weeka==5?"Selected" : "" %>>Tuesday</option>
+										<option value = "6" <%=weeka==6?"Selected" : "" %>>Wednesday</option>
+										<option value = "7" <%=weeka==7?"Selected" : "" %>>Thursday</option>
+										<option value = "8" <%=weeka==8?"Selected" : "" %>>Friday</option>
+										<option value = "9" <%=weeka==9?"Selected" : "" %>>Saturday</option>
+										<option value = "10" <%=weeka==10?"Selected" : "" %>>Monday-Friday</option>
+										<option value = "11" <%=weeka==11?"Selected" : "" %>>Monday-Saturday</option>
 									</select>
 								</td>
 								<td>
@@ -1331,19 +1331,19 @@ function AccessDelete(deviceID){
 				}
 %>
 									<select name="WeekA2<%=k%>" class="hourselect">
-										<option value = "1" <%=weeka2==1?"Selected" : "" %>>None</option>
-										<option value = "2" <%=weeka2==2?"Selected" : "" %>>All Day</option>
-										<option value = "3" <%=weeka2==3?"Selected" : "" %>>Holiday</option>
-										<option value = "4" <%=weeka2==4?"Selected" : "" %>>Sunday</option>
-										<option value = "5" <%=weeka2==5?"Selected" : "" %>>Holiday+Sunday</option>
-										<option value = "6" <%=weeka2==6?"Selected" : "" %>>Monday</option>
-										<option value = "7" <%=weeka2==7?"Selected" : "" %>>Tuesday</option>
-										<option value = "8" <%=weeka2==8?"Selected" : "" %>>Wednesday</option>
-										<option value = "9" <%=weeka2==9?"Selected" : "" %>>Thursday</option>
-										<option value = "10" <%=weeka2==10?"Selected" : "" %>>Friday</option>
-										<option value = "11" <%=weeka2==11?"Selected" : "" %>>Saturday</option>
-										<option value = "12" <%=weeka2==12?"Selected" : "" %>>Monday-Friday</option>
-										<option value = "13" <%=weeka2==13?"Selected" : "" %>>Monday-Saturday</option>
+										<option value = "0" <%=weeka2==0?"Selected" : "" %>>None</option>
+										<option value = "255" <%=weeka2==255?"Selected" : "" %>>All Day</option>
+										<option value = "1" <%=weeka2==1?"Selected" : "" %>>Holiday</option>
+										<option value = "2" <%=weeka2==2?"Selected" : "" %>>Sunday</option>
+										<option value = "3" <%=weeka2==3?"Selected" : "" %>>Holiday+Sunday</option>
+										<option value = "4" <%=weeka2==4?"Selected" : "" %>>Monday</option>
+										<option value = "5" <%=weeka2==5?"Selected" : "" %>>Tuesday</option>
+										<option value = "6" <%=weeka2==6?"Selected" : "" %>>Wednesday</option>
+										<option value = "7" <%=weeka2==7?"Selected" : "" %>>Thursday</option>
+										<option value = "8" <%=weeka2==8?"Selected" : "" %>>Friday</option>
+										<option value = "9" <%=weeka2==9?"Selected" : "" %>>Saturday</option>
+										<option value = "10" <%=weeka2==10?"Selected" : "" %>>Monday-Friday</option>
+										<option value = "11" <%=weeka2==11?"Selected" : "" %>>Monday-Saturday</option>
 									</select>
 								</td>
 								<td>
@@ -1505,19 +1505,19 @@ function AccessDelete(deviceID){
 							<tr>
 								<td>
 									<select name="WeekAD<%=k%>" class="hourselect">
-										<option value = "1" <%=weekad==1?"Selected" : "" %>>None</option>
-										<option value = "2" <%=weekad==2?"Selected" : "" %>>All Day</option>
-										<option value = "3" <%=weekad==3?"Selected" : "" %>>Holiday</option>
-										<option value = "4" <%=weekad==4?"Selected" : "" %>>Sunday</option>
-										<option value = "5" <%=weekad==5?"Selected" : "" %>>Holiday+Sunday</option>
-										<option value = "6" <%=weekad==6?"Selected" : "" %>>Monday</option>
-										<option value = "7" <%=weekad==7?"Selected" : "" %>>Tuesday</option>
-										<option value = "8" <%=weekad==8?"Selected" : "" %>>Wednesday</option>
-										<option value = "9" <%=weekad==9?"Selected" : "" %>>Thursday</option>
-										<option value = "10" <%=weekad==10?"Selected" : "" %>>Friday</option>
-										<option value = "11" <%=weekad==11?"Selected" : "" %>>Saturday</option>
-										<option value = "12" <%=weekad==12?"Selected" : "" %>>Monday-Friday</option>
-										<option value = "13" <%=weekad==13?"Selected" : "" %>>Monday-Saturday</option>
+										<option value = "0" <%=weekad==0?"Selected" : "" %>>None</option>
+										<option value = "255" <%=weekad==255?"Selected" : "" %>>All Day</option>
+										<option value = "1" <%=weekad==1?"Selected" : "" %>>Holiday</option>
+										<option value = "2" <%=weekad==2?"Selected" : "" %>>Sunday</option>
+										<option value = "3" <%=weekad==3?"Selected" : "" %>>Holiday+Sunday</option>
+										<option value = "4" <%=weekad==4?"Selected" : "" %>>Monday</option>
+										<option value = "5" <%=weekad==5?"Selected" : "" %>>Tuesday</option>
+										<option value = "6" <%=weekad==6?"Selected" : "" %>>Wednesday</option>
+										<option value = "7" <%=weekad==7?"Selected" : "" %>>Thursday</option>
+										<option value = "8" <%=weekad==8?"Selected" : "" %>>Friday</option>
+										<option value = "9" <%=weekad==9?"Selected" : "" %>>Saturday</option>
+										<option value = "10" <%=weekad==10?"Selected" : "" %>>Monday-Friday</option>
+										<option value = "11" <%=weekad==11?"Selected" : "" %>>Monday-Saturday</option>
 									</select>
 								</td>
 								<td>
@@ -1709,19 +1709,19 @@ function AccessDelete(deviceID){
 							<tr>
 								<td>
 									<select name="WeekAK<%=k%>" class="hourselect">
-										<option value = "1" <%=weeak==1?"Selected" : "" %>>None</option>
-										<option value = "2" <%=weeak==2?"Selected" : "" %>>All Day</option>
-										<option value = "3" <%=weeak==3?"Selected" : "" %>>Holiday</option>
-										<option value = "4" <%=weeak==4?"Selected" : "" %>>Sunday</option>
-										<option value = "5" <%=weeak==5?"Selected" : "" %>>Holiday+Sunday</option>
-										<option value = "6" <%=weeak==6?"Selected" : "" %>>Monday</option>
-										<option value = "7" <%=weeak==7?"Selected" : "" %>>Tuesday</option>
-										<option value = "8" <%=weeak==8?"Selected" : "" %>>Wednesday</option>
-										<option value = "9" <%=weeak==9?"Selected" : "" %>>Thursday</option>
-										<option value = "10" <%=weeak==10?"Selected" : "" %>>Friday</option>
-										<option value = "11" <%=weeak==11?"Selected" : "" %>>Saturday</option>
-										<option value = "12" <%=weeak==12?"Selected" : "" %>>Monday-Friday</option>
-										<option value = "13" <%=weeak==13?"Selected" : "" %>>Monday-Saturday</option>
+										<option value = "0" <%=weeak==0?"Selected" : "" %>>None</option>
+										<option value = "255" <%=weeak==255?"Selected" : "" %>>All Day</option>
+										<option value = "1" <%=weeak==1?"Selected" : "" %>>Holiday</option>
+										<option value = "2" <%=weeak==2?"Selected" : "" %>>Sunday</option>
+										<option value = "3" <%=weeak==3?"Selected" : "" %>>Holiday+Sunday</option>
+										<option value = "4" <%=weeak==4?"Selected" : "" %>>Monday</option>
+										<option value = "5" <%=weeak==5?"Selected" : "" %>>Tuesday</option>
+										<option value = "6" <%=weeak==6?"Selected" : "" %>>Wednesday</option>
+										<option value = "7" <%=weeak==7?"Selected" : "" %>>Thursday</option>
+										<option value = "8" <%=weeak==8?"Selected" : "" %>>Friday</option>
+										<option value = "9" <%=weeak==9?"Selected" : "" %>>Saturday</option>
+										<option value = "10" <%=weeak==10?"Selected" : "" %>>Monday-Friday</option>
+										<option value = "11" <%=weeak==11?"Selected" : "" %>>Monday-Saturday</option>
 									</select>
 								</td>
 								<td>
@@ -1883,10 +1883,16 @@ function AccessDelete(deviceID){
 				for(int i=1;i<5;i++)
 				{
 					for(int j=1;j<10;j++){
-						String value = Integer.toString(i) + Integer.toString(j); 
+						String value = Integer.toString(i-1) + Integer.toString(j); 
+							if(i==1){
 %>
-										<option value = "<%=i%><%=j%>" <%=keyak ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+								<option value = "<%=j%>" <%=keyak ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
 <%		
+							} else {
+%>
+								<option value = "<%=i-1%><%=j%>" <%=keyak ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+<%									
+							}
 					}
 					
 				}
@@ -1919,10 +1925,16 @@ function AccessDelete(deviceID){
 			for(int i=1;i<5;i++)
 			{
 				for(int j=1;j<10;j++){
-					String value = Integer.toString(i) + Integer.toString(j); 
+					String value = Integer.toString(i-1) + Integer.toString(j); 
+					if(i==1){
 %>
-								<option value = "<%=i%><%=j%>" <%=nak.getFirstKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+								<option value = "<%=j%>" <%=nak.getFirstKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+<%
+					}else{
+%>
+								<option value = "<%=i-1%><%=j%>" <%=nak.getFirstKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
 <%		
+					}
 				}
 			}
 %>		
@@ -1937,10 +1949,17 @@ function AccessDelete(deviceID){
 			for(int i=1;i<5;i++)
 			{
 				for(int j=1;j<10;j++){
-					String value = Integer.toString(i) + Integer.toString(j); 
+					String value = Integer.toString(i-1) + Integer.toString(j); 
+					if(i==1){
 %>
-								<option value = "<%=i%><%=j%>" <%=nak.getSecondKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+								<option value = "<%=j%>" <%=nak.getSecondKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
 <%		
+					}else{
+%>
+								<option value = "<%=i-1%><%=j%>" <%=nak.getSecondKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+<%					
+					}
+					
 				}
 			}
 %>		
@@ -1955,11 +1974,20 @@ function AccessDelete(deviceID){
 			for(int i=1;i<5;i++)
 			{
 				for(int j=1;j<10;j++){
-					String value = Integer.toString(i) + Integer.toString(j); 
-%>
-								<option value = "<%=i%><%=j%>" <%=nak.getThirdKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+					String value = Integer.toString(i-1) + Integer.toString(j); 
+					if(i==1){
+%>			
+								<option value = "<%=j%>" <%=nak.getThirdKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
 <%		
+					}else{
+%>			
+						<option value = "<%=i-1%><%=j%>" <%=nak.getThirdKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+<%							
+					}
+					
 				}
+					
+					
 			}
 %>		
 							</select>
@@ -1973,10 +2001,17 @@ function AccessDelete(deviceID){
 			for(int i=1;i<5;i++)
 			{
 				for(int j=1;j<10;j++){
-					String value = Integer.toString(i) + Integer.toString(j); 
+					String value = Integer.toString(i-1) + Integer.toString(j); 
+					if(i==1){
 %>
-								<option value = "<%=i%><%=j%>" <%=nak.getFourthKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+								<option value = "<%=j%>" <%=nak.getFourthKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
 <%		
+					}else{
+%>
+								<option value = "<%=i-1%><%=j%>" <%=nak.getFourthKey() ==Integer.parseInt(value)?"Selected" : "" %>>F<%=i%>-<%=j%></option>
+<%							
+					}
+					
 				}
 				
 			}

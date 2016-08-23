@@ -168,7 +168,8 @@
 		    }  
 		}); 
 	}
-	
+
+
 	function DeviceDelete(id){
 		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
