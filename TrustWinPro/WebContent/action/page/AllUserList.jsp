@@ -146,13 +146,19 @@ function userExcel(){
 	if(LastName != null){
 		LastName = new String(LastName .getBytes("8859_1"), "UTF-8");	
 	}
-
+	
+	
 	int Department = 0;
-	if((String)request.getParameter("searchDepartment")!=null){
-		String temp = (String)request.getParameter("searchDepartment");
-		if(!temp.equals("")){
+	if((String) request.getParameter("userGroupID") != null) {
+		if(!((String)request.getParameter("userGroupID")).equals("")){
+			Department = Integer.parseInt((String)request.getParameter("userGroupID"));
+		} 
+	}
+	
+	if((String)request.getParameter("searchDepartment")!=null ){
+		if(!((String)request.getParameter("searchDepartment")).equals("")){
 			Department = Integer.parseInt((String)request.getParameter("searchDepartment"));
-		}
+		} 
 	}
 	
 	String UserClass = (String)request.getParameter("searchUserClass");
