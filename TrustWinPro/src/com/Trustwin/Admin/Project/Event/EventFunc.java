@@ -468,6 +468,30 @@ public class EventFunc {
 	}
 	
 	
+	public String userVal(){
+		Connection conn = null;
+		String val = "";
+		String sql = "select userSort from dbo.Sort where idx = 1; ";
+			try {
+					Context init = new InitialContext();
+					DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+					conn = ds.getConnection();
+					Statement pstmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+					ResultSet rs = pstmt.executeQuery(sql);
+					if(rs.next()){
+						val = rs.getString(1);
+					}
+					rs.close();
+					conn.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		
+		
+		return val; 
+	}
+	
+	
 	public String barChartVal(){
 		Connection conn = null;
 		String val = "";

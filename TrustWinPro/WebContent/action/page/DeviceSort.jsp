@@ -114,7 +114,7 @@ function statusDevice()
          cache: false,
          success: function(res) {
       	  /* alert("StatusBar : " +val); */
-      	/* location.reload(); */
+      	location.reload(); 
         /* 	document.getElementById("devicelist").submit(); */
         	$(".tablebor").html(args);
          }
@@ -166,28 +166,6 @@ function statusDevice()
 		document.getElementById("postitDeviceSort").style.display = "none";
 	}
 	
-	/* if($("input[name=info]").is(":checked"))	{
-		status = "checked";
-	} */
-	
-	
-/* 	$(document).ready( function(){
-		   // read the current/previous setting
-		    $("input.box[type=checkbox]").each(function() {
-		        var name = $(this).attr('id');
-		        if ($.cookie(name) && $.cookie(name) == "true") {
-		            $(this).prop('checked', $.cookie(name));
-		        }
-		    });
-		   // event management
-		    $("input.box[type=checkbox]").change(function() {
-		        var name = $(this).attr('id');
-		        $.cookie(name, $(this).prop('checked'), {
-		            path: '/',
-		            expires: 365
-		        });
-		    });
-		}); */
 
 </script>
 <div class="deviceSortPop">

@@ -9,10 +9,32 @@
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Access.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 <%
 	String currentUserClass = (String)session.getAttribute("userClass");
 %>
 <script type="text/javascript">
+$(window).load(function() {
+	$(".notcheck").css("display", "none");
+	//alert("hello")
+	//drawDevice();
+}); 
+
+function drawUser()
+{
+     var data = null;
+     var table_data = null;
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/userStatusProc.jsp',
+         data: 'idx=',
+         cache: false,
+         success: function(res) {
+        	table_data = eval("(" + res + ")");
+        	$(".tablebor").html(args);
+         }
+    });
+}
+
 function printPage(){
 	 var initBody;
 	 window.onbeforeprint = function(){
@@ -189,6 +211,43 @@ function userExcel(){
 	int length = catagory.length;
 	Category[] cata = new Category[length];	
 	cata = Catefunc.SortCategoryOne(catagory);
+	
+	String[] dev = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+	EventFunc EFunc = new EventFunc();
+	String user = EFunc.userVal();
+	String[] userss = user.split(",");
+	String statuss1 = "notcheck";
+	String statuss2 = "notcheck";
+	String statuss3 = "notcheck";
+	String statuss4 = "notcheck";
+	String statuss5 = "notcheck";
+	String statuss6 = "notcheck";
+	String statuss7 = "notcheck";
+	String statuss8 = "notcheck";
+	String statuss9 = "notcheck";
+		for(int i=0;i<dev.length;i++){
+			for(int j=0;j<userss.length;j++){
+				if(dev[0].equals(userss[j])){
+					 statuss1 = "checked";
+				} else if(dev[1].equals(userss[j])) {
+					 statuss2 = "checked";
+				} else if(dev[2].equals(userss[j])) {
+					 statuss3 = "checked";
+				} else if(dev[3].equals(userss[j])) {
+					 statuss4 = "checked";
+				} else if(dev[4].equals(userss[j])) {
+					 statuss5 = "checked";
+				} else if(dev[5].equals(userss[j])) {
+					 statuss6 = "checked";
+				} else if(dev[6].equals(userss[j])) {
+					 statuss7 = "checked";
+				} else if(dev[7].equals(userss[j])) {
+					 statuss8 = "checked";
+				} else if(dev[8].equals(userss[j])) {
+					 statuss9 = "checked";
+				}
+			}
+		}
 
 %>
 
@@ -270,46 +329,46 @@ function userExcel(){
 		<table cellspacing="0" class="titleEx1">
 			<colgroup>
 				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
+				<col width="8%" class="<%=statuss1%>">
+				<col width="8%" class="<%=statuss2%>">
+				<col width="8%" class="<%=statuss3%>">
+				<col width="8%" class="<%=statuss4%>">
+				<col width="8%" class="<%=statuss5%>">
+				<col width="8%" class="<%=statuss6%>">
+				<col width="8%" class="<%=statuss7%>">
+				<col width="8%" class="<%=statuss8%>">
+				<col width="8%" class="<%=statuss9%>">
+				<col width="8%" >
 				<col width="8%">
 			</colgroup>
 			<tr>
 				<th><%=Lanfunc.language(lan, 85)%> <input type="checkbox" name="allcheck" onclick="allUserInfoCheck();" style="z-index:100;"></th>
-				<th><%=Lanfunc.language(lan, 26)%></th>
-				<th><%=Lanfunc.language(lan, 27)%></th>
-				<th><%=Lanfunc.language(lan, 28)%></th>
-				<th><%=Lanfunc.language(lan, 29)%></th>
-				<th><%=Lanfunc.language(lan, 38)%></th>
-				<th><%=Lanfunc.language(lan, 30)%></th>
-				<th><%=Lanfunc.language(lan, 31)%></th>
-				<th><%=Lanfunc.language(lan, 5)%></th>
-				<th><%=Lanfunc.language(lan, 39)%></th>
+				<th class="<%=statuss1%>"><%=Lanfunc.language(lan, 26)%></th>
+				<th class="<%=statuss2%>"><%=Lanfunc.language(lan, 27)%></th>
+				<th class="<%=statuss3%>"><%=Lanfunc.language(lan, 28)%></th>
+				<th class="<%=statuss4%>"><%=Lanfunc.language(lan, 29)%></th>
+				<th class="<%=statuss5%>"><%=Lanfunc.language(lan, 38)%></th>
+				<th class="<%=statuss6%>"><%=Lanfunc.language(lan, 30)%></th>
+				<th class="<%=statuss7%>"><%=Lanfunc.language(lan, 31)%></th>
+				<th class="<%=statuss8%>"><%=Lanfunc.language(lan, 5)%></th>
+				<th class="<%=statuss9%>"><%=Lanfunc.language(lan, 39)%></th>
 				<th><%=Lanfunc.language(lan, 81)%></th>
 				<th><%=Lanfunc.language(lan, 82)%></th>
 			</tr>
 		</table>
 		<table cellspacing="0"  class="ex1">
 			<colgroup>
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
-				<col width="8%">
+				<col width="8%" >
+				<col width="8%" class="<%=statuss1%>">
+				<col width="8%" class="<%=statuss2%>">
+				<col width="8%" class="<%=statuss3%>">
+				<col width="8%" class="<%=statuss4%>">
+				<col width="8%" class="<%=statuss5%>">
+				<col width="8%" class="<%=statuss6%>">
+				<col width="8%" class="<%=statuss7%>">
+				<col width="8%" class="<%=statuss8%>">
+				<col width="8%" class="<%=statuss9%>">
+				<col width="8%" >
 				<col width="8%">
 			</colgroup>
 			<tbody>
@@ -319,12 +378,12 @@ function userExcel(){
 
 				<tr>
 					<td class='date1'><input type="checkbox" name="check" value="<%=users[i].getId()%>"></td>
-					<td class='date1'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getFirstName() %></a></td>
-					<td class='date1'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getMiddleName() %></a></td>
-					<td class='date1'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getLastName() %></a></td>
-					<td class='date1'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getUserId() %></a></td>
-					<td class='date1'><%=users[i].getCompanyID() %></td>
-					<td class='date1'>
+					<td class='date1 <%=statuss1%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getFirstName() %></a></td>
+					<td class='date1 <%=statuss2%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getMiddleName() %></a></td>
+					<td class='date1 <%=statuss3%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getLastName() %></a></td>
+					<td class='date1 <%=statuss4%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getUserId() %></a></td>
+					<td class='date1 <%=statuss5%>'><%=users[i].getCompanyID() %></td>
+					<td class='date1 <%=statuss6%>'>
 <%
 	if(users[i].getUserClass()==null){
 %>
@@ -347,8 +406,8 @@ function userExcel(){
 					</td>
 					<%
 					if(currentUserClass.equals("128")){ %>
-					<td class='date1'><%=users[i].getId() %></td>
-					<td class='date1'><%=users[i].getPassWord() %></td>
+					<td class='date1 <%=statuss7%>'><%=users[i].getId() %></td>
+					<td class='date1 <%=statuss8%>'><%=users[i].getPassWord() %></td>
 					<% }
 					else{
 					%>
@@ -357,7 +416,7 @@ function userExcel(){
 					<%
 					}
 					%>
-					<td class='date1'>
+					<td class='date1 <%=statuss9%>'>
 <%
 					String Name = Catefunc.selCategory(users[i].getDepartment()); //오류발생
 					out.println(Name);
@@ -412,6 +471,8 @@ function userExcel(){
 			<jsp:param name="searchUserclass" value="<%=LangUtil.Empty(UserClass)%>"/>
 			<jsp:param name="searchCompanyID" value="<%=LangUtil.Empty(CompanyID)%>"/>
 			<jsp:param name="searchDepartment" value="<%=Department%>"/>
+			<jsp:param name="searchName" value="accessGroup.getName()"/>
+			<jsp:param name="searchContollerName" value="device.getControllerName()"/>
 		</jsp:include>
 		</div>
 		
@@ -423,6 +484,8 @@ function userExcel(){
 			<jsp:param name="searchUserclass" value="<%=LangUtil.Empty(UserClass)%>"/>
 			<jsp:param name="searchCompanyID" value="<%=LangUtil.Empty(CompanyID)%>"/>
 			<jsp:param name="searchDepartment" value="<%=Department%>"/>
+			<jsp:param name="searchName" value="accessGroup.getName()"/>
+			<jsp:param name="searchContollerName" value="device.getControllerName()"/>
 		</jsp:include>
 		</div>
 	

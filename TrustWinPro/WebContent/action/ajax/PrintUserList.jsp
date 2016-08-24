@@ -1,12 +1,19 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Access.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%@ page import="com.Trustwin.Admin.Project.User.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%
+AccessFunc Accfunc = new AccessFunc();
+DeviceFunc Devfunc = new DeviceFunc();
+
 	String[] List= request.getParameter("array").split(",");
 	int[] listNum = new int[List.length];
 	for(int i=0;i<List.length;i++){
@@ -35,12 +42,28 @@
 	if((String)request.getParameter("DP")!=null){
 		Department = Integer.parseInt((String)request.getParameter("DP"));
 	}
-	User[] users = Userfunc.UserList(FirstName, MiddleName, LastName, Department); 
+	
+	String ControllerName = (String)request.getParameter("CN");
+	if(ControllerName != null){
+		ControllerName = new String(ControllerName.getBytes("8859_1"), "UTF-8");	
+	}
+	String Name = (String)request.getParameter("N");
+	if(Name != null){
+		Name = new String(Name.getBytes("8859_1"), "UTF-8");	
+	}
+	String UserClass = (String)request.getParameter("searchUserClass");
+	String CompanyID = (String)request.getParameter("searchCompanyID");
+	
+	
+	List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
+	ChildDepartmentArr = Userfunc.departmentChildarr(Department);
+	User[] users = Userfunc.searchUser(FirstName,MiddleName,LastName,ChildDepartmentArr,UserClass,CompanyID);
+	//User[] users = Userfunc.searchUser(FirstName, MiddleName, LastName, Department); 
 	String lan = (String)session.getAttribute("nation");
 %>
 	<table border=1 cellspacing="0"  class="titleEx1">
 		<colgroup>
-		<col width="8%">
+		<col width="6%">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -63,7 +86,7 @@
 	</table>
 	<table cellspacing="0"  class="ex1">
 		<colgroup>
-		<col width="8%">
+		<col width="6%">
 <%
 	for(int i=0;i<List.length;i++){
 %>
@@ -98,7 +121,11 @@
 %>
 			<td><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getUserId() %></a></td>
 <%				
-			}else if(List[j].split("/")[1].equals("30")){
+			}else if(List[j].split("/")[1].equals("3")){
+%>
+			<td><%=users[i].getCompanyID()%></td>
+<%				
+		}else if(List[j].split("/")[1].equals("30")){
 %>
 			<td><%=users[i].getUserClass() %></td>
 <%				
@@ -115,7 +142,7 @@
 %>
 			<td><%=name %></td>
 <%				
-			}else{
+					}else{
 				j--;
 			}
 		}
