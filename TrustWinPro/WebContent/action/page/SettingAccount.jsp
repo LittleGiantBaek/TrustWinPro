@@ -54,13 +54,13 @@
 	function SetAccount() {
 
 		var queryString = $("form[name=Account]").serialize();
-		alert(queryString);
+		//alert(queryString);		
 		$.ajax({
 					type : "post",
 					url : "/TrustWinPro/action/ajax/AccountMode.jsp",
-					data : "queryString="+queryString,
+					data : "queryString=&"+queryString,
 					success : function(args) {
-						location.href = "/TrustWinPro/WebContent/action/page/SettingAccount.jsp";
+						alert("저장되었습니다.");
 					},
 					error : function(e) {
 						alert(e.responseText);
@@ -96,7 +96,7 @@
 					<input type="radio" name="ACAccount" value="see" <%=Account[2].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="ACAccount" value="edit" <%=Account[2].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="ACAccount" value="hide" <%=Account[2].equals("3") ? "checked" : ""%>> 숨김 <br> <br>
 					<h5>Monitoring</h5>
 					<input type="radio" name="MonitoringAccount" value="see" <%=Account[3].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="MonitoringAccount" value="edit" <%=Account[3].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="MonitoringAccount" value="hide" <%=Account[3].equals("3") ? "checked" : ""%>> 숨김 <br> <br> 
-					<input type="button" value="확인" onclick="SetAccount();">
+					<input type="button" value="저장" onclick="SetAccount();">
 				</form>
 			</div>
 	</article>
