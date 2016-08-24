@@ -965,6 +965,16 @@ table.ex1 a:active{color:#000;}
 .postitUserExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitUserExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
 
+.postitEventExcel {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitEventExcel .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:270px; */background-color:white;}
+.postitEventExcel .deviceSortPop table{width:100%}
+.postitEventExcel .deviceSortPop table tr th{padding:0;margin:0;}
+.postitEventExcel .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitEventExcel .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitEventExcel .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitEventExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitEventExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
 
 .postitDeviceSort {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;/* height:300px; */position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
 .postitDeviceSort .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:400px; */background-color:white;}
@@ -985,6 +995,16 @@ table.ex1 a:active{color:#000;}
 .postitUserSort .deviceSortPop .timeZone {position:absolute;bottom:10%;}
 .postitUserSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitUserSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
+.postitEventSort {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;/* height:300px; */position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitEventSort .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:400px; */background-color:white;}
+.postitEventSort .deviceSortPop table{width:100%}
+.postitEventSort .deviceSortPop table tr th{padding:0;margin:0;}
+.postitEventSort .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitEventSort .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitEventSort .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitEventSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitEventSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
 
 .postitUser {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);;left:35%;top:5%;}
 .postitUser .accessUser {width:99%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:295px;background-color:#f1e5e7;}

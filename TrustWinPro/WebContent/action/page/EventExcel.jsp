@@ -14,31 +14,72 @@
 	
 	String lan = (String)session.getAttribute("nation");
 	
-	String FirstName = (String)request.getParameter("searchFirstName");
-	if(FirstName != null){
-		FirstName = new String(FirstName .getBytes("8859_1"), "UTF-8");	
+	String EventType = (String)request.getParameter("EventType");
+	if(EventType != null){
+		EventType = new String(EventType .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	String MiddleName = (String)request.getParameter("searchMiddelName");
-	if(MiddleName != null){
-		MiddleName = new String(MiddleName .getBytes("8859_1"), "UTF-8");	
+	String EventDate = (String)request.getParameter("EventDate");
+	if(EventDate != null){
+		EventDate = new String(EventDate .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	String LastName = (String)request.getParameter("searchLastName");
-	if(LastName != null){
-		LastName = new String(LastName .getBytes("8859_1"), "UTF-8");	
+	String EventTime = (String)request.getParameter("EventTime");
+	if(EventTime != null){
+		EventTime = new String(EventTime .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String EventPlace = (String)request.getParameter("EventPlace");
+	if(EventPlace != null){
+		EventPlace = new String(EventPlace .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String EventName = (String)request.getParameter("EventName");
+	if(EventName != null){
+		EventName = new String(EventName .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	
+	String searchUser = (String)request.getParameter("searchUser");
+	if(searchUser != null){
+		searchUser = new String(EventDate .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String searchName = (String)request.getParameter("searchName");
+	if(searchName != null){
+		searchName = new String(searchName .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String EventDoorState= (String)request.getParameter("EventDoorState");
+	if(EventDoorState != null){
+		EventDoorState = new String(EventDoorState .getBytes("8859_1"), "UTF-8");	
 	}
 
-	int Department = 0;
-	if((String)request.getParameter("searchDepartment")!=null){
-		String temp = (String)request.getParameter("searchDepartment");
-		if(!temp.equals("")){
-			Department = Integer.parseInt((String)request.getParameter("searchDepartment"));
-		}
+	
+	String EventCompanyID= (String)request.getParameter("EventCompanyID");
+	if(EventCompanyID != null){
+		EventCompanyID = new String(EventCompanyID .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	String UserClass = (String)request.getParameter("searchUserClass");
-	String CompanyID = (String)request.getParameter("searchCompanyID");
+	String searchStartDate= (String)request.getParameter("searchStartDate");
+	if(searchStartDate != null){
+		searchStartDate = new String(searchStartDate .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String searchEndDate= (String)request.getParameter("searchEndDate");
+	if(searchEndDate != null){
+		searchEndDate = new String(searchEndDate .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	String searchEndTime= (String)request.getParameter("searchEndTime");
+	if(searchEndTime != null){
+		searchEndTime = new String(searchEndTime .getBytes("8859_1"), "UTF-8");	
+	}
+	
+	int top = 0;
+	if((String)request.getParameter("top")!=null){
+			top = Integer.parseInt((String)request.getParameter("top"));
+	}
 %>
 
 <script type="text/javascript">
@@ -73,7 +114,7 @@
 	}
 	
 	function accessDeviceClose(){
-		document.getElementById("postitUserExcel").style.display = "none";
+		document.getElementById("postitEventExcel").style.display = "none";
 	}
 
 </script>
@@ -81,8 +122,8 @@
 <form name="userlist1" id="userlist1" method="post" action="">
 <div class="selectBox">
 <!-- <div class="printPage"> -->
-		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">User Excel
-		<a href="#UserInfo" onclick="accessDeviceClose();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
+		<div class="Title" style="text-align:center;color:white;padding-top:5px;height:30px;font-size:15px;background-color:#a49c9e">Event Excel
+		<a href="#EventInfo" onclick="accessDeviceClose();" style="float:right"><img src="/TrustWinPro/action/image/interface/delete.png"></a>	
 		</div >
 		<!-- <hr width="100%"> -->
 		<!-- <div id="DeviceList" class="tableList"> -->
@@ -106,45 +147,52 @@
 			<col width="20%">
 			<col width="20%">
 			<col width="20%">
+			<col width="20%">
+			<col width="20%">
+			<col width="20%">
 		</colgroup>
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="FirstName/26"></td>
-<td ><%=Lanfunc.language(lan, 26)%></td>
+<td><input type="checkbox" name="info" value="FirstName/72" id="1" ></td>
+<td >EventType</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="MiddleName/27"></td>
-<td ><%=Lanfunc.language(lan, 27)%></td>
+<td ><input type="checkbox" name="info" value="MiddleName/73" id="2" ></td>
+<td >EventDate</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="LastName/28"></td>
-<td ><%=Lanfunc.language(lan, 28)%></td>
+<td ><input type="checkbox" name="info" value="LastName/74" id="3" ></td>
+<td >EventTime</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="UserID/29"></td>
-<td ><%=Lanfunc.language(lan, 29)%></td>
+<td ><input type="checkbox" name="info" value="UserID/75" id="4" ></td>
+<td >EventPlace</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="UserClass/30"></td>
-<td> <%=Lanfunc.language(lan, 30)%></td>
+<td ><input type="checkbox" name="info" value="UserClass/76" id="5" ></td>
+<td> EventName</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="ID/2"></td>
-<td ><%=Lanfunc.language(lan, 2)%></td>
+<td ><input type="checkbox" name="info" value="ID/77" id="6" ></td>
+<td >EventUserID</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="Password/5"></td>
-<td > <%=Lanfunc.language(lan, 5)%></td>
+<td ><input type="checkbox" name="info" value="Password/78" id="7" ></td>
+<td >EventUserName</td>
 </tr>
 <tr>
-<td ><input type="checkbox" name="info" value="Department/39"></td>
-<td > <%=Lanfunc.language(lan, 39)%></td>
+<td ><input type="checkbox" name="info" value="Department/79" id="8" ></td>
+<td >EventDoorState</td>
+</tr>
+<tr class="odd">
+<td ><input type="checkbox" name="info" value="Password/80" id="9" ></td>
+<td >EventCompanyID</td>
 </tr>
 </tbody>
 </table>
 <div class="buttom" >
-<a href="#UserInfo" onclick="UserExcel(document.getElementById('userlist1'),'<%=FirstName%>','<%=MiddleName%>','<%=LastName%>','<%=Department%>');" class="button gray"><span class="icon-check"></span>Excel</a>
+<a href="#EventInfo" onclick="EventExcel(document.getElementById('userlist1'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Excel</a>
 </div>
 
 </div>

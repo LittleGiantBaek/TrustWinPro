@@ -6,8 +6,30 @@
 <%@ page import="java.util.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
+<%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 
 <script type="text/javascript">
+
+$(window).load(function() {
+	$(".notcheck").css("display", "none");
+	//alert("hello")
+	//drawDevice();
+}); 
+
+function drawEvent()
+{
+     var data = null;
+     var table_data = null;
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/eventStatusProc.jsp',
+         data: 'idx=',
+         cache: false,
+         success: function(res) {
+        	table_data = eval("(" + res + ")");
+        	$(".tablebor").html(args);
+         }
+    });
+}
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -28,6 +50,19 @@ window.onclick = function(event) {
     }
   }
 }
+
+function printPage(){
+	 var initBody;
+	 window.onbeforeprint = function(){
+	  initBody = document.body.innerHTML;
+	  document.body.innerHTML =  document.getElementById('TrustPrint').innerHTML;
+	 };
+	 window.onafterprint = function(){
+	  document.body.innerHTML = initBody;
+	 };
+	 window.print();
+	 return false;
+	}
 
 function eventSort(){
 	document.getElementById("postitEventSort").style.display = "block";
@@ -53,11 +88,14 @@ function eventExcel(){
 	String Name = (String)request.getParameter("searchName");
 	String User = (String)request.getParameter("searchUser");
 	String Month = (String)request.getParameter("month");
-	
+	String STime = "";
+	String ETime = "";
 	CategoryFunc func = new CategoryFunc();
 	LanguageFunc Lanfunc = new LanguageFunc();
+	EventFunc Eventfunc = new EventFunc();
 	
-	String lan = (String)session.getAttribute("nation");
+	
+	
 	if(Month != null){
 		if(Integer.parseInt(Month) > 9){
 	
@@ -104,6 +142,8 @@ function eventExcel(){
 	if(Integer.parseInt(ESec)<10){
 		ESec = "0" + ESec;
 	}
+	STime = SHour + ":"+SMin+":"+SSec;
+	 ETime = EHour + ":"+EMin+":"+ESec;
 	where = where + " and EventTime between '" + SHour + ":"+SMin+":"+SSec+"' and '" + EHour + ":"+EMin+":"+ESec+"'";
 		}
 	}
@@ -148,6 +188,9 @@ function eventExcel(){
 	 	top = Integer.parseInt(request.getParameter("Num"));
 	}
 	
+	
+	
+	
 	 
 	String sql = "select top "+top+" EventType,EventDate,EventTime,EventPlace,EventName,EventUserID,EventUserName,EventDoorState,EventCompanyID from dbo.History  ";
 	sql = sql + where;
@@ -159,6 +202,48 @@ function eventExcel(){
 		Statement pstmt = conn.createStatement();
 		
 		ResultSet rs = pstmt.executeQuery(sql);
+		
+		
+		Event[] devices = Eventfunc.searchEvent(SDate, EDate, STime, ETime, Name, User, Integer.toString(top));
+		String lan = (String)session.getAttribute("nation");
+		
+		String[] dev = {"1","2", "3", "4", "5", "6", "7","8", "9"};
+		EventFunc EFunc = new EventFunc();
+		String device = EFunc.eventVal();
+		String[] devicess = device.split(",");
+		String statuss1 = "notcheck";
+		String statuss2 = "notcheck";
+		String statuss3 = "notcheck";
+		String statuss4 = "notcheck";
+		String statuss5 = "notcheck";
+		String statuss6 = "notcheck";
+		String statuss7 = "notcheck";
+		String statuss8 = "notcheck";
+		String statuss9 = "notcheck";
+			for(int i=0;i<dev.length;i++){
+				for(int j=0;j<devicess.length;j++){
+					if(dev[0].equals(devicess[j])){
+						 statuss1 = "checked";
+					} else if(dev[1].equals(devicess[j])) {
+						 statuss2 = "checked";
+					} else if(dev[2].equals(devicess[j])) {
+						 statuss3 = "checked";
+					} else if(dev[3].equals(devicess[j])) {
+						 statuss4 = "checked";
+					} else if(dev[4].equals(devicess[j])) {
+						 statuss5 = "checked";
+					} else if(dev[5].equals(devicess[j])) {
+						 statuss6 = "checked";
+					} else if(dev[6].equals(devicess[j])) {
+						 statuss7 = "checked";
+					} else if(dev[7].equals(devicess[j])) {
+						 statuss8 = "checked";
+					} else if(dev[8].equals(devicess[j])) {
+						 statuss9 = "checked";
+					}
+				}
+			}
+		
 %>
 <div id="userdata">
 		<section class="sectionji">
@@ -269,50 +354,52 @@ function eventExcel(){
 			</div>
 		</section>
 		
-	<!-- <div class="dropdown" style="float:left; margin-left:1%; font-size:13px">
-  	<button onclick="myFunction()" class="dropbtn">•••</button>
- 	 <div id="myDropdown" class="dropdown-content">
-    <a href="#" onclick="ieExecWB();">Print</a>
+			<div class="dropdown" style="margin-left:1%; font-size:13px;">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
     <a href="#" onclick="eventExcel();">Excel</a>
     <a href="#" onclick="eventSort();">Sort</a>
-  	</div>
-	</div> -->	
+  </div>
+</div>
+
 	<div  class="tablebor" id="logdata">
 	<table border=1 cellspacing="0" class="titleEx1">
 		<colgroup>
-			<col width="9%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="14%">
-			<col width="10%">
-			<col width="12%">
-			<col width="12%">
-			<col width="13%">
+			<col width="9%" class="<%=statuss1%>">
+			<col width="10%" class="<%=statuss2%>">
+			<col width="10%" class="<%=statuss3%>">
+			<col width="10%" class="<%=statuss4%>">
+			<col width="14%" class="<%=statuss5%>">
+			<col width="10%" class="<%=statuss6%>">
+			<col width="12%" class="<%=statuss7%>">
+			<col width="12%" class="<%=statuss8%>">
+			<col width="13%" class="<%=statuss9%>">
 		</colgroup>
 		<tr>
-			<th><%=Lanfunc.language(lan, 72)%></th>
-			<th><%=Lanfunc.language(lan, 73)%></th>
-			<th><%=Lanfunc.language(lan, 74)%></th>
-			<th><%=Lanfunc.language(lan, 75)%></th>
-			<th><%=Lanfunc.language(lan, 76)%></th>
-			<th><%=Lanfunc.language(lan, 77)%></th>
-			<th><%=Lanfunc.language(lan, 78)%></th>
-			<th><%=Lanfunc.language(lan, 79)%></th>
-			<th><%=Lanfunc.language(lan, 80)%></th>
+			<th class="<%=statuss1%>"><%=Lanfunc.language(lan, 72)%></th>
+			<th class="<%=statuss2%>"><%=Lanfunc.language(lan, 73)%></th>
+			<th class="<%=statuss3%>"><%=Lanfunc.language(lan, 74)%></th>
+			<th class="<%=statuss4%>"><%=Lanfunc.language(lan, 75)%></th>
+			<th class="<%=statuss5%>"><%=Lanfunc.language(lan, 76)%></th>
+			<th class="<%=statuss6%>"><%=Lanfunc.language(lan, 77)%></th>
+			<th class="<%=statuss7%>"><%=Lanfunc.language(lan, 78)%></th>
+			<th class="<%=statuss8%>"><%=Lanfunc.language(lan, 79)%></th>
+			<th class="<%=statuss9%>"><%=Lanfunc.language(lan, 80)%></th>
 		</tr>
 	</table>
 	<table cellspacing="0"  class="ex1">
 		<colgroup>
-			<col width="9%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="14%">
-			<col width="10%">
-			<col width="12%">
-			<col width="12%">
-			<col width="13%">
+			<col width="9%" class="<%=statuss1%>">
+			<col width="10%" class="<%=statuss2%>">
+			<col width="10%" class="<%=statuss3%>">
+			<col width="10%" class="<%=statuss4%>">
+			<col width="14%" class="<%=statuss5%>">
+			<col width="10%" class="<%=statuss6%>">
+			<col width="12%" class="<%=statuss7%>">
+			<col width="12%" class="<%=statuss8%>">
+			<col width="13%" class="<%=statuss9%>">
 		</colgroup>
 		<tbody>
 <%			
@@ -324,28 +411,32 @@ function eventExcel(){
 						out.println("<tr>");	
 					}
 %>
-				<td class='date1'><%=rs.getString(1) %></td>
-				<td class='date1'><%=rs.getString(2) %></td>
-				<td class='date1'><%=rs.getString(3) %></td>
-				<td class='date1'><%=rs.getString(4) %></td>
-				<td class='date1'><%=rs.getString(5) %></td>
-				<td class='date1'><%=rs.getString(6) %></td>
-				<td class='date1'><%=rs.getString(7) %></td>
-				<td class='date1'><%=rs.getString(8) %></td>
-				<td class='date1'><%=rs.getString(9) %></td>
+				<td class='date1 <%=statuss1%>'><%=rs.getString(1) %></td>
+				<td class='date1 <%=statuss2%>'><%=rs.getString(2) %></td>
+				<td class='date1 <%=statuss3%>'><%=rs.getString(3) %></td>
+				<td class='date1 <%=statuss4%>'><%=rs.getString(4) %></td>
+				<td class='date1 <%=statuss5%>'><%=rs.getString(5) %></td>
+				<td class='date1 <%=statuss6%>'><%=rs.getString(6) %></td>
+				<td class='date1 <%=statuss7%>'><%=rs.getString(7) %></td>
+				<td class='date1 <%=statuss8%>'><%=rs.getString(8) %></td>
+				<td class='date1 <%=statuss9%>'><%=rs.getString(9) %></td>
 			</tr>
-<%
-					i++;
+		</tbody>
+		<%
+i++;
 				}
+%>
+	</table>
+	</div>
+</div>
+
+
+<% 				
+	
 				rs.close();
 				conn.close();
 				
 %>	
-		</tbody>
-	</table>
-	</div>
-	
-</div>
 <%
 		}catch(Exception e){
 			out.println("DB error!!.");
@@ -353,7 +444,41 @@ function eventExcel(){
 		}
 %>
 
+<div class="postitEventSort" id="postitEventSort" style="display:none">
+		<jsp:include page="EventSort.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value="<%=User%>"/>
+			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="top" value="<%=top %>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
+			<jsp:param name="searchEndTime" value=""/>
+		</jsp:include>
+</div>
 
+<div class="postitEventExcel" id="postitEventExcel">
+		<jsp:include page="EventExcel.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value="<%=User%>"/>
+			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="top" value="<%=top %>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
+			<jsp:param name="searchEndTime" value=""/>
+		</jsp:include>
+		</div>
 <%-- <div class="postitEventSort" id="postitEventSort" style="display:none">
 		<jsp:include page="EventSort.jsp" flush="true">
 			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>

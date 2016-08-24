@@ -13,6 +13,7 @@
 	String Name = (String)request.getParameter("Name");
 	String User = (String)request.getParameter("User");
 	String Top = (String)request.getParameter("Num");
+	
 	String[] List= request.getParameter("array").split(",");
 	int[] listNum = new int[List.length];
 	for(int i=0;i<List.length;i++){
@@ -46,7 +47,7 @@
 <%
 	for(int i=0;i<List.length;i++){
 %>
-			<td align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
+			<th align="center"><%=Lanfunc.language(lan, listNum[i]) %></th>
 <%
 	}
 %>

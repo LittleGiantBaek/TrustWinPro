@@ -54,7 +54,7 @@
 <%
 	for(int i=0;i<List.length;i++){
 %>
-			<th align="center"><%=Lanfunc.language(lan, listNum[i]) %></td>
+			<th align="center"><%=Lanfunc.language(lan, listNum[i]) %></th>
 <%
 	}
 %>
