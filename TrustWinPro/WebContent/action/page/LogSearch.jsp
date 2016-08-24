@@ -252,6 +252,14 @@ function eventExcel(){
 			<form action="/TrustWinPro/action/index.jsp" name="searchLog" method="post">
 				<input type="hidden" value="searchLog" name="logtype" />
 				<input type="hidden" value="Log" name="content" />
+				<input type="hidden" value="" name="EventType" />
+				<input type="hidden" value="" name="EventPlace" />
+				<input type="hidden" value="" name="EventName" />
+				<input type="hidden" value="" name="EventDoorState" />
+				<input type="hidden" value="" name="EventCompanyID" />
+				<input type="hidden" value="" name="EventDate" />
+				<input type="hidden" value="" name="EventTime" />
+				<input type="hidden" value="" name="searchEndTime" />
 				
 				<p><div class = "headerji">
 				<%=Lanfunc.language(lan, 71)%> : 
@@ -347,7 +355,7 @@ function eventExcel(){
 				<%=Lanfunc.language(lan, 91)%>
 				</div> 
 				<input name="content" type="hidden" value="Log" />
-				<input name="Num" class="inputt" type="text" value="<%=top %>" size="20" />
+				<input name="top" class="inputt" type="text" value="<%=top %>" size="20" />
 				<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
 				</p>
 			</form>
