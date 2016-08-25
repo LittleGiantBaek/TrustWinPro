@@ -171,7 +171,7 @@
 
 
 	function DeviceDelete(id){
-		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
+		var del = confirm("<%=Lanfunc.language(lan, 103)%>")
 		if(del){
 			$.ajax({      
 			    type:"post",  

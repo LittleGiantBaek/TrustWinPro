@@ -14,8 +14,8 @@
 				conn = ds.getConnection();
 				Statement pstmt = conn.createStatement();
 				pstmt.executeUpdate(sql);
-				
-				
+				sql = "Delete from AccessUser where userID = '" + id + "'"; 
+				pstmt.executeUpdate(sql);
 				conn.close();
 		}catch(Exception e){
 			out.println("DB error!!.");

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
@@ -19,7 +19,7 @@
 	ServletContext scontext = getServletContext();
 	realFolder = scontext.getRealPath("upload/image/device/");
 	String realFileName = "";
-	MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	MultipartRequest multi=new MultipartRequest(request, realFolder, maxSize, "utf-8", new DefaultFileRenamePolicy());
 	
 	try{
 		Enumeration<?> files = multi.getFileNames();
@@ -29,7 +29,7 @@
 		String now = new SimpleDateFormat("yyyyMMddHmsS").format(new Date()); 
 	    int i = -1;
 		if(filename1 != null){
-        	i = filename1.lastIndexOf("."); // ���� Ȯ���� ��ġ
+        	i = filename1.lastIndexOf("."); 
 	        realFileName = now + filename1.substring(i, filename1.length());  
 		}
         

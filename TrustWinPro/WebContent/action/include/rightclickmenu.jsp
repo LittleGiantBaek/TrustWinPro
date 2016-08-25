@@ -339,6 +339,8 @@
 		    $(".contextmenu").hide();
 		    $(document).unbind('mousedown');
 	  });
+	  
+	  
 	  $(".conDeviceDelete").click(function(e){
  		  var deleteID = $("#valueOfDeviceID").val();
 		  DeviceDelete(deleteID);

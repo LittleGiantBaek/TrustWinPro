@@ -206,14 +206,14 @@ function UserInfoSubmit(){
 	UserInfomation.submit();
 	
 }
-
+<%-- 
 function UserDelete(){
 	var del = confirm("<%=Lanfunc.language(lan, 103)%>")
 	if(del){
 		userDelete.submit();
 	}
 }
-
+ --%>
 function deviceList(v){
 	if(v!=0){
 		$(".Loading").css("display","block");
@@ -928,7 +928,7 @@ function AccessAdd(UserID){
 				</div>
 				<div class="InfoButtom">
 					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
-					<a href="#UserInfo" onclick="UserDelete();" class="button gray" ><span class="icon-delete"></span>Remove</a>
+					<a href="#UserInfo" onclick="UserDelete('<%= ID%>');" class="button gray" ><span class="icon-delete"></span>Remove</a>
 				</div>
 			</div>
 		</form>

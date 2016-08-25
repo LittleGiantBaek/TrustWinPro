@@ -216,15 +216,15 @@ function RedundancyCard(num,userid){
 	}); 
 }
 
-
+<%-- 
 function DeviceDelete(){
 	$(".Loading").css("display","block");
 	var del = confirm("<%=lanFunc.language(lan, 103)%>");
 	if(del){
 		deviceDelete.submit();
 	}else{}
-}
-
+} 
+ --%>
 
 $( ".tab2>li>a" ).click(function() {
     $(this).parent().addClass("on").siblings().removeClass("on");
@@ -2245,7 +2245,7 @@ function AccessDelete(deviceID){
 			</div>
 			<div class="InfoButtom" >
 				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
-				<a href="#DeviceInfo" onclick="DeviceDelete();"class="button gray" ><span class="icon-delete"></span>Remove</a>
+				<a href="#DeviceInfo" onclick="DeviceDelete('<%= Integer.parseInt(UID)%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
 		</form>
 	</div>
