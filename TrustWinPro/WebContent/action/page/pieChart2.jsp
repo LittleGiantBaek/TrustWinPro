@@ -8,7 +8,7 @@
 
 body {
   font-family: "Open Sans", Arial;
-  background: #EEE;
+  background: #dcd6d3;
 }
 .main_div{
   width: 400px;

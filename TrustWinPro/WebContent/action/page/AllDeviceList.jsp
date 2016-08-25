@@ -190,7 +190,7 @@ function checkedF(num,v){
 			count++;
 		}
 	}
-	
+
 	if(v==1){ // 전송
 		if(num==count){
 			Enroll('S,D,E,0,E');

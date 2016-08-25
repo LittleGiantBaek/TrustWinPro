@@ -293,6 +293,33 @@ function Enroll(value){
 	}); 
 }
 
+
+function AllEnroll(){ 
+	var count = 0;
+	var array = new Array();
+	 $('input:checkbox[name="check"]').each(function() {
+	      if(this.checked){ 
+				array[count] = this.value;
+				count++;
+	      }
+	 });
+	 
+	 if(count !=0){	 
+		$.ajax({      
+		   type:"post",
+		   url:"/TrustWinPro/action/ajax/SendServerAllList.jsp",   
+		   data: "Data="+array,
+		   success:function(args){
+		    },   
+		    error:function(e){  
+	        alert(e.responseText);
+		    }  
+		}); 
+	 } else {
+		 alert("0000");
+	 }
+}
+
 function Delete(value){
 	$.ajax({      
 	    type:"post",  

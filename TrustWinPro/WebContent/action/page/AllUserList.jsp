@@ -99,9 +99,15 @@ function checkedF(num,v){
 			count++;
 		}
 	}
+
 	
 	if(v==1){ // 전송
-		if(num==count){
+
+		$(".Loading").css("display","inline");
+		$("#progressbar").css("width","80%");
+		//AllEnroll('userInfo');
+
+	/* 	if(num==count){
 			Enroll('S,U,E,0,E');
 		}else{
 			var value = 'S,U,E,1,';
@@ -109,8 +115,9 @@ function checkedF(num,v){
 				value = value + array[i] + ',';
 			}
 			value = value + 'E';
+			alert(value);
 			Enroll(value);
-		}
+		} */
 	}else if(v==2){	// 삭제
 		if(num==count){
 			Delete('S,U,D,0,E');
@@ -120,6 +127,7 @@ function checkedF(num,v){
 				value = value + array[i] + ',';
 			}
 			value = value + 'E';
+			alert(value);
 			Delete(value);
 		}
 	}else{	// 수신
@@ -250,7 +258,11 @@ function userExcel(){
 		}
 
 %>
-
+<!-- 
+<div class="meter">
+  <span id="progressbar" style="width: 25%">25%</span>
+</div>
+ -->
 <div>
 		<section class = "sectionji">
 			<ul class = "ulji">
@@ -377,7 +389,7 @@ function userExcel(){
 %>
 
 				<tr>
-					<td class='date1'><input type="checkbox" name="check" value="<%=users[i].getId()%>"></td>
+					<td class='date1'><input type="checkbox" name="check" value="'<%=users[i].getUserId()%>'"></td>
 					<td class='date1 <%=statuss1%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getFirstName() %></a></td>
 					<td class='date1 <%=statuss2%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getMiddleName() %></a></td>
 					<td class='date1 <%=statuss3%>'><a href="#a" onclick="submitUser('User','<%=users[i].getUserId() %>')"><%=users[i].getLastName() %></a></td>
