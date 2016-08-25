@@ -74,8 +74,14 @@ function eventExcel(){
 	document.getElementById("postitEventExcel").style.top = "200px";
 }
 
+function hi() {
+	
+}
+
 </script>
+
 <%
+request.setCharacterEncoding("utf-8");
 	Connection conn = null;
 	String SDate = (String)request.getParameter("searchStartDate");
 	String EDate = (String)request.getParameter("searchEndDate");
@@ -245,7 +251,7 @@ function eventExcel(){
 			}
 		
 %>
-<div id="userdata">
+
 		<section class="sectionji">
 		<ul class="ulji"></ul>
 		<div>
@@ -356,7 +362,7 @@ function eventExcel(){
 				</div> 
 				<input name="content" type="hidden" value="Log" />
 				<input name="top" class="inputt" type="text" value="<%=top %>" size="20" />
-				<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
+				<input type="submit" name="submit" onclick="hi();"  value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
 				</p>
 			</form>
 			</div>
@@ -464,9 +470,15 @@ i++;
 			<jsp:param name="top" value="<%=top %>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>
-			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
 			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
 			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
 		</jsp:include>
 </div>
 
@@ -482,9 +494,15 @@ i++;
 			<jsp:param name="top" value="<%=top %>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>
-			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
 			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
 			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
 		</jsp:include>
 		</div>
 <%-- <div class="postitEventSort" id="postitEventSort" style="display:none">
