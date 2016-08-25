@@ -35,14 +35,28 @@
 			UniqueID = new String(UniqueID.getBytes("8859_1"), "UTF-8");
 		}
 		
-	
 		
-		String GroupID = (String) request.getParameter("deviceGroupID");
+		
+		int GroupID = 0;
 		List <Integer> ChildDepartmentArr = new ArrayList<Integer>();
-		if ((String) request.getParameter("deviceGroupID") != null) 
-			Devfunc.departmentChildarr(Integer.parseInt(GroupID), ChildDepartmentArr);
 		
-		
+		if ((String) request.getParameter("deviceGroupID") != null) {
+			if(!((String)request.getParameter("deviceGroupID")).equals("")){
+				GroupID = Integer.parseInt((String)request.getParameter("deviceGroupID"));
+				Devfunc.departmentChildarr(GroupID, ChildDepartmentArr);
+			} 
+		}
+
+		if((String) request.getParameter("searchDeviceGroup") != null) {
+			if(!((String)request.getParameter("searchDeviceGroup")).equals("")){
+				GroupID = Integer.parseInt((String)request.getParameter("searchDeviceGroup"));
+				Devfunc.departmentChildarr(GroupID, ChildDepartmentArr);
+			} 
+		}
+		//DeviceInfo
+		DeviceGroup[] deviceGroup = null;
+		deviceGroup = Devfunc.GroupDefind();
+				
 		Device[] devices = Devfunc.searchDevice(ControllerName, Address, ID, UniqueID, ChildDepartmentArr);
 		String lan = (String) session.getAttribute("nation");
 		
@@ -251,8 +265,32 @@ function checkedF(num,v){
 						<%=Lanfunc.language(lan, 6)%>
 						:
 					</div>
+					</p>
+					
+					
 					<input type="text" name="searchUniqueID" class="inputt"
-						value="<%=LangUtil.Empty(UniqueID)%>" /> <input type="submit"
+						value="<%=LangUtil.Empty(UniqueID)%>" /> 
+						
+					<p><div class = "headerji">
+				<%=Lanfunc.language(lan, 39)%> : 
+				</div>
+				<select name="searchDeviceGroup" class = "hourselect">
+					<option value="<%=0%>">== Select Option ==</option>
+<%
+	for(int i=0;i<deviceGroup.length;i++){
+
+
+%>
+
+					<option value="<%=deviceGroup[i].getIdx()%>" <%=deviceGroup[i].getIdx() == GroupID ? "selected" : "" %>><%=deviceGroup[i].getGroupname() %></option>
+					
+<%
+	}
+%>
+				</select>	
+						
+						
+				    <input type="submit"
 						name="submit" value="<%=Lanfunc.language(lan, 182)%>"
 						class="ct-btn white" style="margin-left: 3rem" />
 
