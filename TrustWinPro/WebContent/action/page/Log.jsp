@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
@@ -68,6 +68,70 @@
 	}
 %>
 <script type="text/javascript">
+$(window).load(function() {
+	$(".notcheck").css("display", "none");
+	//alert("hello")
+	//drawDevice();
+}); 
+
+function drawEvent()
+{
+     var data = null;
+     var table_data = null;
+     $.ajax({
+         url:'/TrustWinPro/action/ajax/eventStatusProc.jsp',
+         data: 'idx=',
+         cache: false,
+         success: function(res) {
+        	table_data = eval("(" + res + ")");
+        	$(".tablebor").html(args);
+         }
+    });
+}
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function printPage(){
+	 var initBody;
+	 window.onbeforeprint = function(){
+	  initBody = document.body.innerHTML;
+	  document.body.innerHTML =  document.getElementById('TrustPrint').innerHTML;
+	 };
+	 window.onafterprint = function(){
+	  document.body.innerHTML = initBody;
+	 };
+	 window.print();
+	 return false;
+	}
+
+function eventSort(){
+	document.getElementById("postitEventSort").style.display = "block";
+	document.getElementById("postitEventSort").style.top = "200px";
+}
+
+function eventExcel(){
+	document.getElementById("postitEventExcel").style.display = "block";
+	document.getElementById("postitEventExcel").style.top = "200px";
+}
+
 
 function refresh(){
 	$.ajax({      
@@ -240,7 +304,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 					<input name="Num" class="inputt" type="text" value="<%=Num%>" size="20" />
 					<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
 					<div style="float:right; margin-right:20px">
-						<a href="#a" onclick="UserPrint();"><img src="/TrustWinPro/action/image/interface/printImage.jpg" alt="" ></a>
+						<!-- <a href="#a" onclick="UserPrint();"><img src="/TrustWinPro/action/image/interface/printImage.jpg" alt="" ></a> -->
 						<a href="#" onclick="openColor();" ><img src="/TrustWinPro/action/image/interface/option.png" alt="" height="24" width="24" /></a>
 					</div>
 					</p>
@@ -290,7 +354,65 @@ $(document).attr("timer",setInterval(refresh,1000));
 	</form>
 	</div>
 	
+	<div class="dropdown" style="margin-left:1%; font-size:13px;">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
+    <a href="#" onclick="eventExcel();">Excel</a>
+    <a href="#" onclick="eventSort();">Sort</a>
+  </div>
+</div>
 	<div  class="tablebor" id="logdata">
-	
 	</div>
 </div>
+
+
+
+<div class="postitEventSort" id="postitEventSort" style="display:none">
+		<jsp:include page="EventSort.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value="<%=User%>"/>
+			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="top" value="<%=Num%>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
+			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
+			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
+		</jsp:include>
+</div>
+
+<div class="postitEventExcel" id="postitEventExcel">
+		<jsp:include page="EventExcel.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value="<%=User%>"/>
+			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="top" value="<%=Num%>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
+			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
+			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
+		</jsp:include>
+		</div>

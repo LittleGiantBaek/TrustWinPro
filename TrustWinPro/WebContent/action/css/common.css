@@ -11,6 +11,10 @@ scrollbar-arrow-color:#afafaf;
 scrollbar-track-color:#ffffff;
 }
 
+.conf {
+	background-color : gray;
+}
+
 /* #notcheck {
 	display : none;
 }
@@ -143,7 +147,7 @@ header, section, article, footer, hgroup, aside, nav, figure {
     cursor:pointer;
 }
 .contextmenu {
-	z-index:100;
+	z-index:200;
 }
 button {
     border-image-source: initial;

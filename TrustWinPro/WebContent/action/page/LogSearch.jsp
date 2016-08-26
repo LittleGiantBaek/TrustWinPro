@@ -8,6 +8,180 @@
 <%@ page import="com.Trustwin.Admin.Project.Language.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 
+
+
+<%
+request.setCharacterEncoding("utf-8");
+	Connection conn = null;
+	String SDate = (String)request.getParameter("searchStartDate");
+	String EDate = (String)request.getParameter("searchEndDate");
+	String SHour = (String)request.getParameter("searchStartHour");
+	String SMin = (String)request.getParameter("searchStartMinute");
+	String SSec = (String)request.getParameter("searchStartSec");
+	String EHour = (String)request.getParameter("searchEndHour");
+	String EMin = (String)request.getParameter("searchEndMinute");
+	String ESec = (String)request.getParameter("searchEndSec");
+	String Name = (String)request.getParameter("searchName");
+	String User = (String)request.getParameter("searchUser");
+	String Month = (String)request.getParameter("month");
+	String STime = "";
+	String ETime = "";
+	
+	CategoryFunc func = new CategoryFunc();
+	LanguageFunc Lanfunc = new LanguageFunc();
+	EventFunc Eventfunc = new EventFunc();
+	
+	
+	
+	if(Month != null){
+		if(Integer.parseInt(Month) > 9){
+	
+		}else{
+	Month = "0" + Month;
+		}
+	}
+	String Year = (String)request.getParameter("year");
+	String where = " where 1=1 ";
+	
+	if(SDate == null || EDate ==null){
+		SDate = "";
+		EDate = "";
+	}else{
+		if((!SDate.equals("")&&!SDate.equals("null"))||(!EDate.equals("")&&!EDate.equals("null"))){
+	where = where + " and EventDate between '" + SDate + "' and '"+EDate+"'";
+		}
+	} 
+	
+	if(SHour == null || SMin == null || SSec == null || EHour == null || EMin == null || ESec == null){
+		SHour = "0";
+		SMin = "0";
+		SSec = "0";
+		EHour = "0";
+		EMin = "0";
+		ESec = "0";
+	}else{
+		if((!SHour.equals("")&&!SHour.equals("null"))||(!SMin.equals("")&&!SMin.equals("null"))||(!SSec.equals("")&&!SSec.equals("null"))||(!EHour.equals("")&&!EHour.equals("null"))||(!EMin.equals("")&&!EMin.equals("null"))||(!ESec.equals("")&&!ESec.equals("null"))){
+	if(Integer.parseInt(SHour)<10){
+		SHour = "0" + SHour;
+	}
+	if(Integer.parseInt(SMin)<10){
+		SMin = "0" + SMin;
+	}
+	if(Integer.parseInt(SSec)<10){
+		SSec = "0" + SSec;
+	}
+	if(Integer.parseInt(EHour)<10){
+		EHour = "0" + EHour;
+	}
+	if(Integer.parseInt(EMin)<10){
+		EMin = "0" + EMin;
+	}
+	if(Integer.parseInt(ESec)<10){
+		ESec = "0" + ESec;
+	}
+	STime = SHour + ":"+SMin+":"+SSec;
+	ETime = EHour + ":"+EMin+":"+ESec;
+	where = where + " and EventTime between '" + SHour + ":"+SMin+":"+SSec+"' and '" + EHour + ":"+EMin+":"+ESec+"'";
+		}
+	}
+	
+	if(Name == null){
+		Name = "";
+	}else{
+		if(!Name.equals("")){
+	where = where + " and EventName = '" + Name + "'";
+		}
+	}
+	
+	if(User == null){
+		User = "";		
+	}else{
+		if(!User.equals("")){
+	where = where + " and EventUserName = '" + User + "'";
+		}
+	}
+	
+	if(Month==null||Year==null){
+		
+	}else{
+		if(!Month.equals("")&&!Year.equals("")){
+	where = where + " and EventDate like '" + Year + "-" + Month + "-%' ";
+		}
+	}
+	
+	 
+	int maxPageNum=-1;                 // 전체 페이지의 수.
+	int limitPage,pagerSize = 10;              // limitPage : 마지막 페이지 넘버. pageSize : 페이지 넘버가 보여지는 간격.
+	int currentPage = 0;
+	if(request.getAttribute("currentPage")!=null){
+		currentPage = Integer.parseInt((String)request.getAttribute("currentPage")); // 현재 페이지 
+	}
+	
+	int top = 0;
+	
+	if(request.getParameter("Num")==null){
+		top = 40;
+	}else{
+	 	top = Integer.parseInt(request.getParameter("Num"));
+	}
+		
+	System.out.println(User);
+	String sql = "select top "+top+" EventType,EventDate,EventTime,EventPlace,EventName,EventUserID,EventUserName,EventDoorState,EventCompanyID from dbo.History  ";
+	sql = sql + where;
+	sql = sql +	" order by EventDate desc; ";
+		try {
+		Context init = new InitialContext();
+		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+		conn = ds.getConnection();
+		Statement pstmt = conn.createStatement();
+		
+		ResultSet rs = pstmt.executeQuery(sql);
+		
+		
+		Event[] devices = Eventfunc.searchEvent(SDate, EDate, STime, ETime, Name, User, Integer.toString(top));
+		String lan = (String)session.getAttribute("nation");
+		
+		String[] dev = {"1","2", "3", "4", "5", "6", "7","8", "9"};
+		EventFunc EFunc = new EventFunc();
+		String device = EFunc.eventVal();
+		String[] devicess = device.split(",");
+		String statuss1 = "notcheck";
+		String statuss2 = "notcheck";
+		String statuss3 = "notcheck";
+		String statuss4 = "notcheck";
+		String statuss5 = "notcheck";
+		String statuss6 = "notcheck";
+		String statuss7 = "notcheck";
+		String statuss8 = "notcheck";
+		String statuss9 = "notcheck";
+			for(int i=0;i<dev.length;i++){
+				for(int j=0;j<devicess.length;j++){
+					if(dev[0].equals(devicess[j])){
+						 statuss1 = "checked";
+					} else if(dev[1].equals(devicess[j])) {
+						 statuss2 = "checked";
+					} else if(dev[2].equals(devicess[j])) {
+						 statuss3 = "checked";
+					} else if(dev[3].equals(devicess[j])) {
+						 statuss4 = "checked";
+					} else if(dev[4].equals(devicess[j])) {
+						 statuss5 = "checked";
+					} else if(dev[5].equals(devicess[j])) {
+						 statuss6 = "checked";
+					} else if(dev[6].equals(devicess[j])) {
+						 statuss7 = "checked";
+					} else if(dev[7].equals(devicess[j])) {
+						 statuss8 = "checked";
+					} else if(dev[8].equals(devicess[j])) {
+						 statuss9 = "checked";
+					}
+				}
+			}
+			
+			
+		
+		
+%>
 <script type="text/javascript">
 
 $(window).load(function() {
@@ -15,6 +189,21 @@ $(window).load(function() {
 	//alert("hello")
 	//drawDevice();
 }); 
+
+<%-- function refresh(){
+	$.ajax({      
+	    type:"post",  
+	    url:"/TrustWinPro/action/ajax/PrintEventList.jsp",   
+	    data: "num=<%=top%>&searchStartDate=<%=SDate%>&searchEndDate=<%=EDate%>&searchStartHour=<%=SHour%>&searchStartMinute=<%=SMin%>&searchStartSec=<%=SSec%>&searchEndHour=<%=EHour%>&searchEndMinute=<%=EMin%>&searchEndSec=<%=ESec%>&searchName=<%=Name%>&searchUser=<%=User%>&month=<%=Month%>",
+	    success:function(args){
+	    	$(".tablebor").html(args);
+	        //$("#logdata").html(args);      
+	    },   
+	    error:function(e){  
+	        //alert("refresh" + e.responseText);  
+	    }  
+	});  
+} --%>
 
 function drawEvent()
 {
@@ -73,184 +262,9 @@ function eventExcel(){
 	document.getElementById("postitEventExcel").style.display = "block";
 	document.getElementById("postitEventExcel").style.top = "200px";
 }
-
-function hi() {
-	
-}
-
+/* refresh();
+$(document).attr("timer",setInterval(refresh,1000)); */
 </script>
-
-<%
-request.setCharacterEncoding("utf-8");
-	Connection conn = null;
-	String SDate = (String)request.getParameter("searchStartDate");
-	String EDate = (String)request.getParameter("searchEndDate");
-	String SHour = (String)request.getParameter("searchStartHour");
-	String SMin = (String)request.getParameter("searchStartMinute");
-	String SSec = (String)request.getParameter("searchStartSec");
-	String EHour = (String)request.getParameter("searchEndHour");
-	String EMin = (String)request.getParameter("searchEndMinute");
-	String ESec = (String)request.getParameter("searchEndSec");
-	String Name = (String)request.getParameter("searchName");
-	String User = (String)request.getParameter("searchUser");
-	String Month = (String)request.getParameter("month");
-	String STime = "";
-	String ETime = "";
-	CategoryFunc func = new CategoryFunc();
-	LanguageFunc Lanfunc = new LanguageFunc();
-	EventFunc Eventfunc = new EventFunc();
-	
-	
-	
-	if(Month != null){
-		if(Integer.parseInt(Month) > 9){
-	
-		}else{
-	Month = "0" + Month;
-		}
-	}
-	String Year = (String)request.getParameter("year");
-	String where = " where 1=1 ";
-	
-	if(SDate == null || EDate ==null){
-		SDate = "";
-		EDate = "";
-	}else{
-		if((!SDate.equals("")&&!SDate.equals("null"))||(!EDate.equals("")&&!EDate.equals("null"))){
-	where = where + " and EventDate between '" + SDate + "' and '"+EDate+"'";
-		}
-	} 
-	
-	if(SHour == null || SMin == null || SSec == null || EHour == null || EMin == null || ESec == null){
-		SHour = "0";
-		SMin = "0";
-		SSec = "0";
-		EHour = "0";
-		EMin = "0";
-		ESec = "0";
-	}else{
-		if((!SHour.equals("")&&!SHour.equals("null"))||(!SMin.equals("")&&!SMin.equals("null"))||(!SSec.equals("")&&!SSec.equals("null"))||(!EHour.equals("")&&!EHour.equals("null"))||(!EMin.equals("")&&!EMin.equals("null"))||(!ESec.equals("")&&!ESec.equals("null"))){
-	if(Integer.parseInt(SHour)<10){
-		SHour = "0" + SHour;
-	}
-	if(Integer.parseInt(SMin)<10){
-		SMin = "0" + SMin;
-	}
-	if(Integer.parseInt(SSec)<10){
-		SSec = "0" + SSec;
-	}
-	if(Integer.parseInt(EHour)<10){
-		EHour = "0" + EHour;
-	}
-	if(Integer.parseInt(EMin)<10){
-		EMin = "0" + EMin;
-	}
-	if(Integer.parseInt(ESec)<10){
-		ESec = "0" + ESec;
-	}
-	STime = SHour + ":"+SMin+":"+SSec;
-	 ETime = EHour + ":"+EMin+":"+ESec;
-	where = where + " and EventTime between '" + SHour + ":"+SMin+":"+SSec+"' and '" + EHour + ":"+EMin+":"+ESec+"'";
-		}
-	}
-	
-	if(Name == null){
-		Name = "";
-	}else{
-		if(!Name.equals("")){
-	where = where + " and EventName = '" + Name + "'";
-		}
-	}
-	
-	if(User == null){
-		User = "";		
-	}else{
-		if(!User.equals("")){
-	where = where + " and EventUserName = '" + User + "'";
-		}
-	}
-	
-	if(Month==null||Year==null){
-		
-	}else{
-		if(!Month.equals("")&&!Year.equals("")){
-	where = where + " and EventDate like '" + Year + "-" + Month + "-%' ";
-		}
-	}
-	
-	 
-	int maxPageNum=-1;                 // 전체 페이지의 수.
-	int limitPage,pagerSize = 10;              // limitPage : 마지막 페이지 넘버. pageSize : 페이지 넘버가 보여지는 간격.
-	int currentPage = 0;
-	if(request.getAttribute("currentPage")!=null){
-		currentPage = Integer.parseInt((String)request.getAttribute("currentPage")); // 현재 페이지 
-	}
-	
-	int top = 0;
-	
-	if(request.getParameter("Num")==null){
-		top = 40;
-	}else{
-	 	top = Integer.parseInt(request.getParameter("Num"));
-	}
-	
-	
-	
-	
-	 
-	String sql = "select top "+top+" EventType,EventDate,EventTime,EventPlace,EventName,EventUserID,EventUserName,EventDoorState,EventCompanyID from dbo.History  ";
-	sql = sql + where;
-	sql = sql +	" order by EventDate desc; ";
-		try {
-		Context init = new InitialContext();
-		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
-		conn = ds.getConnection();
-		Statement pstmt = conn.createStatement();
-		
-		ResultSet rs = pstmt.executeQuery(sql);
-		
-		
-		Event[] devices = Eventfunc.searchEvent(SDate, EDate, STime, ETime, Name, User, Integer.toString(top));
-		String lan = (String)session.getAttribute("nation");
-		
-		String[] dev = {"1","2", "3", "4", "5", "6", "7","8", "9"};
-		EventFunc EFunc = new EventFunc();
-		String device = EFunc.eventVal();
-		String[] devicess = device.split(",");
-		String statuss1 = "notcheck";
-		String statuss2 = "notcheck";
-		String statuss3 = "notcheck";
-		String statuss4 = "notcheck";
-		String statuss5 = "notcheck";
-		String statuss6 = "notcheck";
-		String statuss7 = "notcheck";
-		String statuss8 = "notcheck";
-		String statuss9 = "notcheck";
-			for(int i=0;i<dev.length;i++){
-				for(int j=0;j<devicess.length;j++){
-					if(dev[0].equals(devicess[j])){
-						 statuss1 = "checked";
-					} else if(dev[1].equals(devicess[j])) {
-						 statuss2 = "checked";
-					} else if(dev[2].equals(devicess[j])) {
-						 statuss3 = "checked";
-					} else if(dev[3].equals(devicess[j])) {
-						 statuss4 = "checked";
-					} else if(dev[4].equals(devicess[j])) {
-						 statuss5 = "checked";
-					} else if(dev[5].equals(devicess[j])) {
-						 statuss6 = "checked";
-					} else if(dev[6].equals(devicess[j])) {
-						 statuss7 = "checked";
-					} else if(dev[7].equals(devicess[j])) {
-						 statuss8 = "checked";
-					} else if(dev[8].equals(devicess[j])) {
-						 statuss9 = "checked";
-					}
-				}
-			}
-		
-%>
 
 		<section class="sectionji">
 		<ul class="ulji"></ul>
@@ -266,6 +280,11 @@ request.setCharacterEncoding("utf-8");
 				<input type="hidden" value="" name="EventDate" />
 				<input type="hidden" value="" name="EventTime" />
 				<input type="hidden" value="" name="searchEndTime" />
+				<input type="hidden" value="<%=STime %>" name="STime" />
+				<input type="hidden" value="<%=ETime %>" name="ETime" />
+				<input type="hidden" value="<%=SDate %>" name="SDate" />
+				<input type="hidden" value="<%=EDate %>" name="EDate" />
+				
 				
 				<p><div class = "headerji">
 				<%=Lanfunc.language(lan, 71)%> : 
@@ -362,7 +381,7 @@ request.setCharacterEncoding("utf-8");
 				</div> 
 				<input name="content" type="hidden" value="Log" />
 				<input name="top" class="inputt" type="text" value="<%=top %>" size="20" />
-				<input type="submit" name="submit" onclick="hi();"  value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
+				<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
 				</p>
 			</form>
 			</div>
@@ -516,3 +535,9 @@ i++;
 			<jsp:param name="searchFirstName" value="<%=LangUtil.Empty(FirstName)%>"/>
 		</jsp:include>
 		</div> --%>
+<!-- <form action="/TrustWinPro/action/index.jsp" name="Event" id="Event"
+	method="post">
+	<input type="hidden" value="Event" name="left" /> <input type="hidden"
+		value="" name="eventID" /> <input type="hidden" value="EventInfo"
+		name="content" />
+</form>		 -->

@@ -21,6 +21,8 @@
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/icon.css" />
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/timePicker.css" />
+<link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/alertify.core.css" />
+<link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/alertify.default.css" />
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/common.js"></script>
@@ -32,6 +34,7 @@
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.event.drop.live-2.2.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jscolor/jscolor.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/contextmunu.js"></script>
+<script type="text/javascript" src="/TrustWinPro/action/js/alertify.js"></script>
 
 
 <title>Trust</title>

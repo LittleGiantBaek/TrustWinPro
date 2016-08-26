@@ -78,6 +78,11 @@
 		searchEndTime = new String(searchEndTime .getBytes("8859_1"), "UTF-8");	
 	}
 	
+	String searchStartTime= (String)request.getParameter("searchStartTime");
+	if(searchEndTime != null){
+		searchEndTime = new String(searchEndTime .getBytes("8859_1"), "UTF-8");	
+	}
+	
 	int top = 0;
 	if((String)request.getParameter("top")!=null){
 			top = Integer.parseInt((String)request.getParameter("top"));

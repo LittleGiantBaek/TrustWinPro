@@ -41,7 +41,24 @@
 	}
 	
 	function UserDelete(id){
-		var del = confirm("<%=Lanfunc.language(lan, 103)%>");
+		alertify.confirm("<%=Lanfunc.language(lan, 103)%>", function (e) {
+			if (e) {
+				$.ajax({      
+				    type:"post",  
+				    url:"/TrustWinPro/action/ajax/DeleteUser.jsp",   
+				    data: "id="+id,
+				    success:function(args){
+				    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+				    },   
+				    error:function(e){  
+				        alert(e.responseText);  
+				    }  
+				}); 
+			    } else {
+			        //location.reload();
+			    }
+			});
+	<%-- 	var del = confirm("<%=Lanfunc.language(lan, 103)%>");
 		if(del){
 			$.ajax({      
 			    type:"post",  
@@ -54,7 +71,7 @@
 			        alert(e.responseText);  
 			    }  
 			}); 
-		}
+		} --%>
 	}
 
 	function DepartAdd(){
@@ -84,7 +101,26 @@
 		{
 			alert('<%=Lanfunc.language(lan, 186)%>');
 		} else {
-			var del = confirm("<%=Lanfunc.language(lan, 188)%>");
+			
+			alertify.confirm("<%=Lanfunc.language(lan, 188)%>", function (e) {
+				if (e) {
+					$.ajax({      
+					    type:"post",  
+					    url:"/TrustWinPro/action/ajax/DeleteDepart.jsp",   
+					    data: "idx="+document.getElementById("GroupN").value,
+					    success:function(args){   
+					    	location.href = "/TrustWinPro/action/index.jsp?left=User&content=AllUser";
+					    },   
+					    error:function(e){  
+					        alert(e.responseText);  
+					    }  
+					}); 
+				    } else {
+				        //location.reload();
+				    }
+				});
+			
+			<%-- var del = confirm("<%=Lanfunc.language(lan, 188)%>");
 			$(".Loading").css("display","block");
 			if(del){
 				$.ajax({      
@@ -98,7 +134,7 @@
 				        alert(e.responseText);  
 				    }  
 				}); 
-			}
+			} --%>
 		}
 	}
 
@@ -171,8 +207,28 @@
 
 
 	function DeviceDelete(id){
-		var del = confirm("<%=Lanfunc.language(lan, 103)%>")
-		if(del){
+		
+		
+		
+		alertify.confirm("<%=Lanfunc.language(lan, 103)%>", function (e) {
+			if (e) {
+				$.ajax({      
+				    type:"post",  
+				    url:"/TrustWinPro/action/ajax/DeleteDevice.jsp",   
+				    data: "id="+id,
+				    success:function(args){
+				    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+				    },   
+				    error:function(e){  
+				        alert(e.responseText);  
+				    }  
+				}); 
+			    } else {
+			        //location.reload();
+			    }
+			});
+		<%-- var del = alertify.confirm("<%=Lanfunc.language(lan, 103)%>") --%>
+	/* 	if(del){
 			$.ajax({      
 			    type:"post",  
 			    url:"/TrustWinPro/action/ajax/DeleteDevice.jsp",   
@@ -184,7 +240,7 @@
 			        alert(e.responseText);  
 			    }  
 			}); 
-		}
+		} */
 	}
 	
 	
@@ -212,9 +268,33 @@
 		{
 			alert('<%=Lanfunc.language(lan, 189)%>');
 		} else {
-			$(".Loading").css("display","block");
+			//$(".Loading").css("display","block");
+			var idx = "";
+			var Didx = "";
+			if(document.getElementById("GroupN").value==""){
+				Didx = <%=request.getParameter("deviceID")%>;
+			}else{
+				idx =  document.getElementById("GroupN").value;
+			}
+			alertify.confirm("<%=Lanfunc.language(lan, 103)%>", function (e) {
+				if (e) {
+					$.ajax({      
+					    type:"post",  
+					    url:"/TrustWinPro/action/ajax/DeleteGroup.jsp",   
+					    data: "idx="+idx + "&Didx=" + Didx,
+					    success:function(args){   
+					    	location.href = "/TrustWinPro/action/index.jsp?left=Device&content=AllDevice";
+					    },   
+					    error:function(e){  
+					        alert(e.responseText);  
+					    }  
+					}); 
+				    } else {
+				        //location.reload();
+				    }
+				});
 			
-			var del = confirm('<%=Lanfunc.language(lan, 103)%>');
+	<%-- 		var del = confirm('<%=Lanfunc.language(lan, 103)%>');
 			var idx = "";
 			var Didx = "";
 			if(document.getElementById("GroupN").value==""){
@@ -235,7 +315,7 @@
 				        alert(e.responseText);  
 				    }  
 				}); 
-			}
+			} --%>
 		}
 	}
 	

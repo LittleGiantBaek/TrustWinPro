@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
@@ -89,6 +89,15 @@ $(document).attr("timer",setInterval(refresh,1000));
 
 </script>
 
+		<div class="dropdown" style="margin-left:1%; font-size:13px;">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
+    <a href="#" onclick="eventExcel();">Excel</a>
+    <a href="#" onclick="eventSort();">Sort</a>
+  </div>
+</div>
 
 <div id="userdata">
 	<div class="colorOption" id="colorOption">

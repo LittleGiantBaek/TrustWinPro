@@ -5,6 +5,7 @@ encoding//WebContent/action/css/common.css=UTF-8
 encoding//WebContent/action/js/calendar.jsdd=UTF-8
 encoding//WebContent/action/page/Log.jsp=UTF-8
 encoding//WebContent/action/page/LogSearch.jsp=UTF-8
+encoding//WebContent/action/page/MainLog.jsp=UTF-8
 encoding//src/com/Trustwin/Admin/Project/socket/Client.java=UTF-8
 encoding//src/com/Trustwin/Admin/Project/socket/TCPClient.java=UTF-8
 encoding//work/org/apache/jsp/action/page/pieChartHour_jsp.java=UTF-8
