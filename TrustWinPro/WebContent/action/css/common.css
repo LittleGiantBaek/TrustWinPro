@@ -673,6 +673,9 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .AccessControl {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
 #DeviceInfo .basic .AccessControl table{width:100%}
 
+#DeviceInfo .basic .UserList {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#DeviceInfo .basic .UserList table{width:100%}
+
 
 .Year{display:none;}
 
@@ -781,6 +784,7 @@ table.ex1 a:active{color:#000;}
 .tab2>li+li+li+li+li+li+li>a {left:600px;}
 .tab2>li+li+li+li+li+li+li+li>a {left:700px;}
 .tab2>li+li+li+li+li+li+li+li+li>a {left:800px;}
+.tab2>li+li+li+li+li+li+li+li+li+li>a {left:900px;}
 .tab2>li>div {height:0; overflow:hidden; position:absolute;}
 .tab2>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
 

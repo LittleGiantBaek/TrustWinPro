@@ -293,6 +293,25 @@ function Enroll(value){
 	}); 
 }
 
+function EnrollUserList(value){
+	$.ajax({      
+	    type:"post",
+	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+	    data: "Data="+value,
+	    success:function(args){
+	    	if(args.trim() == 'success'){
+	    		alert("success");
+	    		location.reload();
+	    	}else{
+	    		alert("fail");
+	    	}
+	    },   
+	    error:function(e){  
+	        alert(e.responseText);
+	    }  
+	}); 
+}
+
 
 function AllEnroll(ary, depth){ 
 	if(depth != ary.length)
