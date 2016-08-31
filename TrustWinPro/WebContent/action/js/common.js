@@ -274,6 +274,19 @@ function EventExcel(form,SDate,EDate,STime,ETime,Name,User,Num){
 	window.open("/TrustWinPro/action/print/ExcelEvent.jsp?array="+arrayObj+"&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num+"","printpopup","width=800, height=800, menubar=no, status=no, toolbar=no");
 }
 
+function RealEventExcel(form,SDate,EDate,STime,ETime,Name,User,Num){
+	var arrayObj = "";
+	var count = 0;
+	for(var i=0;i<form.info.length;i++){
+		if(form.info[i].checked){
+			arrayObj = arrayObj + form.info[i].value + ",";
+			count++;
+		}
+	}
+	window.open("/TrustWinPro/action/print/ExcelRealEvent.jsp?array="+arrayObj+"&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num+"","printpopup","width=800, height=800, menubar=no, status=no, toolbar=no");
+}
+
+
 
 function Enroll(value){
 	$.ajax({      
@@ -293,31 +306,70 @@ function Enroll(value){
 	}); 
 }
 
-
-function AllEnroll(){ 
-	var count = 0;
-	var array = new Array();
-	 $('input:checkbox[name="check"]').each(function() {
-	      if(this.checked){ 
-				array[count] = this.value;
-				count++;
-	      }
-	 });
-	 
-	 if(count !=0){	 
-		$.ajax({      
-		   type:"post",
-		   url:"/TrustWinPro/action/ajax/SendServerAllList.jsp",   
-		   data: "Data="+array,
-		   success:function(args){
-		    },   
-		    error:function(e){  
+function EnrollUserList(value){
+	$.ajax({      
+	    type:"post",
+	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+	    data: "Data="+value,
+	    success:function(args){
+	    	if(args.trim() == 'success'){
+	    		alert("success");
+	    		location.reload();
+	    	}else{
+	    		alert("fail");
+	    	}
+	    },   
+	    error:function(e){  
 	        alert(e.responseText);
-		    }  
-		}); 
-	 } else {
-		 alert("0000");
-	 }
+	    }  
+	}); 
+}
+
+
+function AllEnroll(ary, depth){ 
+	if(depth != ary.length)
+	{
+		var user_id = ary[depth].replace("\'", "");
+		user_id = user_id.replace("\'", "");
+		data = "S,U,E,1," + user_id + ",E";
+		var progress_bar = ((depth + 1)   * 100) / ary.length;
+		$.ajax({      
+			   type:"post",
+			   url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+			   data: "Data="+data,
+			   success:function(args){
+			    	if(args.trim() == 'success'){
+						$("#progressbar").css("width", parseInt(progress_bar) + "%");
+						$("#progressbar").text(parseInt(progress_bar) + "%");	
+						AllEnroll(ary, depth+1);
+			    	}else if(args.trim() == 'false'){
+			    		if (confirm("User ID " + ary[depth] + " send fail. Are you want continue?")) {
+			    			progress_bar = ((depth + 1)   * 100) / ary.length;
+							$("#progressbar").css("width", parseInt(progress_bar) + "%");
+							$("#progressbar").text(parseInt(progress_bar) + "%");
+			    			AllEnroll(ary, depth+1);
+			    		} else {
+							$(".Loading").css("display","none");
+							$(".progress_meter").css("display","none");
+			    		}
+			    	} else if(args.trim() == 'socket'){
+						alert("Connetion time out!");
+			    	} else if(args.trim() == 'db error'){
+						alert("DB Error!");
+			    	}
+			    },   
+			    error:function(e){  
+					alert(e.responseText);
+			    }  
+		});
+
+	} else {
+		$("#progressbar").css("width", "100%");
+		$("#progressbar").text("100%");
+		alert("Send Complete")
+		$(".Loading").css("display","none");
+		$(".progress_meter").css("display","none");
+	}
 }
 
 function Delete(value){
@@ -336,6 +388,51 @@ function Delete(value){
 	        alert(e.responseText);  
 	    }  
 	}); 
+}
+
+function AllDelete(ary, depth){ 
+	if(depth != ary.length)
+	{
+		var user_id = ary[depth].replace("\'", "");
+		user_id = user_id.replace("\'", "");
+		data = "S,U,D,1," + user_id + ",E";
+		var progress_bar = ((depth + 1)   * 100) / ary.length;
+		$.ajax({      
+			   type:"post",
+			   url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+			   data: "Data="+data,
+			   success:function(args){
+			    	if(args.trim() == 'success'){
+						$("#progressbar").css("width", parseInt(progress_bar) + "%");
+						$("#progressbar").text(parseInt(progress_bar) + "%");	
+						AllDelete(ary, depth+1);
+			    	}else if(args.trim() == 'false'){
+			    		if (confirm("User ID " + ary[depth] + " Delete fail. Are you want continue?")) {
+			    			progress_bar = ((depth + 1)   * 100) / ary.length;
+							$("#progressbar").css("width", parseInt(progress_bar) + "%");
+							$("#progressbar").text(parseInt(progress_bar) + "%");
+							AllDelete(ary, depth+1);
+			    		} else {
+							$(".Loading").css("display","none");
+							$(".progress_meter").css("display","none");
+			    		}
+			    	} else if(args.trim() == 'socket'){
+						alert("Connetion time out!");
+			    	} else if(args.trim() == 'db error'){
+						alert("DB Error!");
+			    	}
+			    },   
+			    error:function(e){  
+					alert(e.responseText);
+			    }  
+		});
+	} else {
+		$("#progressbar").css("width", "100%");
+		$("#progressbar").text("100%");
+		alert("Delete Complete")
+		$(".Loading").css("display","none");
+		$(".progress_meter").css("display","none");
+	}
 }
 
 function Recive(value){

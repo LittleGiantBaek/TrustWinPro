@@ -113,7 +113,7 @@ function printPage(){
 	 var initBody;
 	 window.onbeforeprint = function(){
 	  initBody = document.body.innerHTML;
-	  document.body.innerHTML =  document.getElementById('TrustPrint').innerHTML;
+	  document.body.innerHTML =  document.getElementById('logdata').innerHTML;
 	 };
 	 window.onafterprint = function(){
 	  document.body.innerHTML = initBody;
@@ -123,13 +123,13 @@ function printPage(){
 	}
 
 function eventSort(){
-	document.getElementById("postitEventSort").style.display = "block";
-	document.getElementById("postitEventSort").style.top = "200px";
+	document.getElementById("postitRealEventSort").style.display = "block";
+	document.getElementById("postitRealEventSort").style.top = "200px";
 }
 
 function eventExcel(){
-	document.getElementById("postitEventExcel").style.display = "block";
-	document.getElementById("postitEventExcel").style.top = "200px";
+	document.getElementById("postitRealEventExcel").style.display = "block";
+	document.getElementById("postitRealEventExcel").style.top = "200px";
 }
 
 
@@ -369,7 +369,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 
 
 
-<div class="postitEventSort" id="postitEventSort" style="display:none">
+<div class="postitEventSort" id="postitRealEventSort" style="display:none">
 		<jsp:include page="EventSort.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>
@@ -378,7 +378,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 			<jsp:param name="EventName" value=""/>
 			<jsp:param name="searchUser" value="<%=User%>"/>
 			<jsp:param name="searchName" value="<%=Name%>"/>
-			<jsp:param name="top" value="<%=Num%>"/>
+			<jsp:param name="Num" value="<%=Num%>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>
 			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
@@ -393,8 +393,8 @@ $(document).attr("timer",setInterval(refresh,1000));
 		</jsp:include>
 </div>
 
-<div class="postitEventExcel" id="postitEventExcel">
-		<jsp:include page="EventExcel.jsp" flush="true">
+<div class="postitEventExcel" id="postitRealEventExcel">
+		<jsp:include page="RealEventExcel.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>
 			<jsp:param name="EventTime" value=""/>
@@ -402,11 +402,11 @@ $(document).attr("timer",setInterval(refresh,1000));
 			<jsp:param name="EventName" value=""/>
 			<jsp:param name="searchUser" value="<%=User%>"/>
 			<jsp:param name="searchName" value="<%=Name%>"/>
-			<jsp:param name="top" value="<%=Num%>"/>
+			<jsp:param name="Num" value="<%=Num%>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>
-			<jsp:param name="searchStartDate" value="<%=LangUtil.Empty(SDate)%>"/>
-			<jsp:param name="searchEndDate" value="<%=LangUtil.Empty(EDate)%>"/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value=""/>
 			<jsp:param name="searchEndTime" value=""/>
 			<jsp:param name="searchStartHour" value=""/>
 			<jsp:param name="searchStartMinute" value=""/>
