@@ -31,7 +31,7 @@
 			int result = 0; 
 			
 			String send = request.getParameter("Data");
-			
+			System.out.println(send);
 		
 			client.output(send);
 			
@@ -39,21 +39,24 @@
 			
 			System.out.println(result);
 			
-			if(result != 0){
+			if(result == 1){
 				out.print("success");
 				client.end();
-			}else{
+			}else if(result == 0){
 				out.print("false");
 				client.end();
+			} else {
+				out.print("socket");
+				client.end();				
 			}
 		}catch (Exception e){
-			out.print("false");
+			out.print("socket");
 			System.out.println(e);
 		}
 		
 	}
 	catch(Exception e){
-			out.println("DB error!!.");
+			out.println("db error");
 			e.printStackTrace();
 	}
 	

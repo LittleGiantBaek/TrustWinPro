@@ -232,7 +232,7 @@ $( ".tab2>li>a" ).click(function() {
 });
 
 function displayInfo(z){
-	for(var i=1;i<10;i++){
+	for(var i=1;i<11;i++){
 		if(i==z){
 			document.getElementById("tab0"+i).parentNode.className = "on";
 			document.getElementById("tab"+i).style.display = "block";		
@@ -426,6 +426,9 @@ function AccessDelete(deviceID){
 					</li>
 					<li >
 						<a href="#a" onclick="displayInfo(9)" id="tab09" ><%=lanFunc.language(lan, 37)%></a>
+					</li>
+					<li >
+						<a href="#a" onclick="displayInfo(10)" id="tab010" ><%=lanFunc.language(lan, 190)%></a>
 					</li>
 				</ul>
 			<div class="Basic" id="tab1" style="display:block">
@@ -2242,6 +2245,94 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
+			</div>
+	
+<%
+	UserList[] userlist = null;
+	userlist = devFunc.DeviceUserList(UID);
+	
+%>		
+			<div class="UserList" id="tab10" style="display:none">
+			
+				<div class="InfoBox">
+				<table>
+					<colgroup>
+						<col width="20%" align="center" >
+						<col width="80%">
+					</colgroup>
+					<tr>
+						<td colspan="1">
+							<div id="devicelist">
+								<table border=1 cellspacing="0"  class="titleEx1">
+									<colgroup>
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="14%">
+										<col width="10%">
+										<col width="12%">
+										<col width="12%">
+										<col width="10%">
+									</colgroup>
+									<tr>
+										<th>No</th>
+										<th><%=lanFunc.language(lan, 29) %></th>
+										<th><%=lanFunc.language(lan, 81) %></th>
+										<th><%=lanFunc.language(lan, 39) %></th>
+										<th><%=lanFunc.language(lan, 30) %></th>
+										<th><%=lanFunc.language(lan, 34) %></th>
+										<th>FP1</th>
+										<th>FP2</th>
+										<th>성명(Device)</th>
+										<th>사원번호(Device)</th>
+									</tr>
+								</table>
+								<table class="ex1" cellspacing="0" >
+									<colgroup>
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
+										<col width="14%">
+										<col width="10%">
+										<col width="12%">
+										<col width="12%">
+										<col width="10%">
+									</colgroup>
+									<tbody>
+
+<%
+		for(int i=0;i < userlist.length;i++){
+				out.println("<tr>");
+				out.println("<td>" + userlist[i].getNo() + "</td>");
+				out.println("<td>" + userlist[i].getUserID() + "</td>");
+				out.println("<td>" + userlist[i].getName() + "</td>");
+				out.println("<td>" + userlist[i].getDepartment() + "</td>");
+				out.println("<td>" + userlist[i].getUserClass() + "</td>");
+				out.println("<td>" + userlist[i].getCard() + "</td>");
+				out.println("<td>" + userlist[i].getFP1() + "</td>");
+				out.println("<td>" + userlist[i].getFP2() + "</td>");
+				out.println("<td>" + userlist[i].getDeviceName() + "</td>");
+				out.println("<td>" + userlist[i].getDeviceID() + "</td>");
+				out.println("</tr>");
+			}
+%>
+									</tbody>
+								</table>
+<%
+		
+%>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</div>
+			
+			
+			<div class="InfoButtom" style="width:300px; float:left; margin-top:10px; margin-left:5px;position:absolute;">
+					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E');"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 			</div>
 			<div class="InfoButtom" >
 				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>

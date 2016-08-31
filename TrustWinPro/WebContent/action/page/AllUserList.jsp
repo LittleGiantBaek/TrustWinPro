@@ -16,6 +16,7 @@
 <script type="text/javascript">
 $(window).load(function() {
 	$(".notcheck").css("display", "none");
+	$(".progress_meter").css("display","none");
 	//alert("hello")
 	//drawDevice();
 }); 
@@ -100,36 +101,29 @@ function checkedF(num,v){
 		}
 	}
 
-	
+
 	if(v==1){ // 전송
-
-		$(".Loading").css("display","inline");
-		$("#progressbar").css("width","80%");
-		//AllEnroll('userInfo');
-
-	/* 	if(num==count){
-			Enroll('S,U,E,0,E');
-		}else{
-			var value = 'S,U,E,1,';
-			for(var i=0;i<count;i++){
-				value = value + array[i] + ',';
-			}
-			value = value + 'E';
-			alert(value);
-			Enroll(value);
-		} */
+		 if(array.length !=0){	
+				$(".Loading").css("display","block");
+				$(".progress_meter").css("display","block");
+				$("#progressbar").css("width","1%");
+				$("#progressbar").val("1");
+				$("#progressbar").text("0%");
+				AllEnroll(array, 0);
+		 } else {
+			 alert("Please Select User");
+		 }
 	}else if(v==2){	// 삭제
-		if(num==count){
-			Delete('S,U,D,0,E');
-		}else{
-			var value = 'S,U,D,1,';
-			for(var i=0;i<count;i++){
-				value = value + array[i] + ',';
-			}
-			value = value + 'E';
-			alert(value);
-			Delete(value);
-		}
+		 if(array.length !=0){	
+				$(".Loading").css("display","block");
+				$(".progress_meter").css("display","block");
+				$("#progressbar").css("width","1%");
+				$("#progressbar").val("1");
+				$("#progressbar").text("0%");
+				AllDelete(array, 0);
+		 } else {
+			 alert("Please Select User");
+		 }
 	}else{	// 수신
 		if(num==count){
 			Recive('S,U,R,0,E');
@@ -142,8 +136,6 @@ function checkedF(num,v){
 			Recive(value);
 		}
 	}
-	
-	
 }
 
 
@@ -256,12 +248,7 @@ function userExcel(){
 				}
 			}
 		}
-	%>
-	<!-- 
-<div class="meter">
-  <span id="progressbar" style="width: 25%">25%</span>
-</div>
- -->
+	%> 
 	<div>
 		<section class="sectionji">
 			<ul class="ulji">
@@ -344,6 +331,11 @@ function userExcel(){
 			</div>
 		</section>
 	</div>
+	
+<div class="progress_meter" style="display: none;">
+  <span id="progressbar" style="width: 1%;" value="1">0%</span>
+</div>
+
 
 	<div class="dropdown" style="margin-left: 1%; font-size: 13px">
 		<button onclick="myFunction()" class="dropbtn">•••</button>
@@ -352,6 +344,7 @@ function userExcel(){
 				onclick="userExcel();">Excel</a> <a href="#" onclick="userSort();">Sort</a>
 		</div>
 	</div>
+	
 	<form action="" name="userInfo" id="userInfo" method="post">
 		<div class="tablebor" id="TrustPrint">
 			<table cellspacing="0" class="titleEx1">
@@ -536,12 +529,41 @@ function userExcel(){
 				value="device.getControllerName()" />
 		</jsp:include>
 	</div>
-
-
 </div>
+
+
 <form action="/TrustWinPro/action/index.jsp" name="User" id="User"
 	method="post">
 	<input type="hidden" value="User" name="left" /> <input type="hidden"
 		value="" name="userID" /> <input type="hidden" value="UserInfo"
 		name="content" />
 </form>
+
+
+<script>
+$(document).ready(function() {
+	var progressbar = $('#progress_bar');
+
+	max = progressbar.attr('max');
+
+	time = (1000 / max) * 5;
+
+	value = progressbar.val();
+
+	var loading = function() {
+	value += 1;
+
+	addValue = progressbar.val(value);
+
+	$('.progress-value').html(value + '%');
+
+	if (value == max) {
+	clearInterval(animate);
+	}
+	};
+
+	var animate = setInterval(function() {
+	loading();
+	}, time);
+	});
+</script>
