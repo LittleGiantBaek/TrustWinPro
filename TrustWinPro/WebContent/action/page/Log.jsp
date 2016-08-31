@@ -377,7 +377,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 			<jsp:param name="EventPlace" value=""/>
 			<jsp:param name="EventName" value=""/>
 			<jsp:param name="searchUser" value="<%=User%>"/>
-			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="searchName" value=""/>
 			<jsp:param name="Num" value="<%=Num%>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>
@@ -401,7 +401,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 			<jsp:param name="EventPlace" value=""/>
 			<jsp:param name="EventName" value=""/>
 			<jsp:param name="searchUser" value="<%=User%>"/>
-			<jsp:param name="searchName" value="<%=Name%>"/>
+			<jsp:param name="searchName" value=""/>
 			<jsp:param name="Num" value="<%=Num%>"/>
 			<jsp:param name="EventDoorState" value=""/>
 			<jsp:param name="EventCompanyID" value=""/>

@@ -193,7 +193,7 @@ function accessDeviceClose(){
 </tbody>
 </table>
 <div class="buttom" >
-<a href="#EventInfo" onclick="RealEventExcel(document.getElementById('userlist1'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Excel</a>
+<a href="#EventInfo" onclick="RealEventExcel(document.getElementById('userlist1'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName%>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Excel</a>
 </div>
 
 </div>
