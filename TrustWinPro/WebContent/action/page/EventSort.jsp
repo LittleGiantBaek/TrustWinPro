@@ -305,7 +305,7 @@ function statusEvent()
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" id="sortBtn" onclick="EventSorts(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" id="sortBtn" onclick="EventSorts(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
 <!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
