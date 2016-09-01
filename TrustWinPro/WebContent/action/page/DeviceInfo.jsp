@@ -2252,9 +2252,9 @@ function AccessDelete(deviceID){
 	userlist = devFunc.DeviceUserList(UID);
 	
 %>		
-			<div class="UserList" id="tab10" style="display:none">
+			<div class="UserList" id="tab10" style="display:none; overflow:auto;">
 			
-				<div class="InfoBox">
+				<div class="InfoBox" style="height:350px;">
 				<table>
 					<colgroup>
 						<col width="20%" align="center" >
@@ -2269,10 +2269,10 @@ function AccessDelete(deviceID){
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="14%">
 										<col width="10%">
-										<col width="12%">
-										<col width="12%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
 										<col width="10%">
 									</colgroup>
 									<tr>
@@ -2288,16 +2288,16 @@ function AccessDelete(deviceID){
 										<th>사원번호(Device)</th>
 									</tr>
 								</table>
-								<table class="ex1" cellspacing="0" >
+								<table class="ex1" cellspacing="0" id="DeviceUserList" >
 									<colgroup>
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="14%">
 										<col width="10%">
-										<col width="12%">
-										<col width="12%">
+										<col width="10%">
+										<col width="10%">
+										<col width="10%">
 										<col width="10%">
 									</colgroup>
 									<tbody>
@@ -2328,8 +2328,8 @@ function AccessDelete(deviceID){
 					</tr>
 				</table>
 			</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:235px; margin-left:5px;position:absolute;">
-					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E');"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
+				<div class="InfoButtom" style="width:300px; float:left; margin-top:5px; margin-left:5px;position:absolute;">
+					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E','<%=UID%>');"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 				</div>
 			</div>
 			

@@ -306,7 +306,7 @@ function Enroll(value){
 	}); 
 }
 
-function EnrollUserList(value){
+function EnrollUserList(value, deviceId){
 	$.ajax({      
 	    type:"post",
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
@@ -314,7 +314,8 @@ function EnrollUserList(value){
 	    success:function(args){
 	    	if(args.trim() == 'success'){
 	    		alert("success");
-	    		location.reload();
+	    		$("#DeviceUserList").empty();
+	    		RefreshUserList(deviceId);
 	    	}else{
 	    		alert("fail");
 	    	}
@@ -325,6 +326,20 @@ function EnrollUserList(value){
 	}); 
 }
 
+
+function RefreshUserList(deviceID){
+	$.ajax({      
+	    type:"post",
+	    url:"/TrustWinPro/action/ajax/DeviceUserList.jsp",   
+	    data: "deviceID="+deviceID,
+	    success:function(args){
+	    	 $("#DeviceUserList").append(args);
+	    },   
+	    error:function(e){  
+	        alert(e.responseText);
+	    }  
+	}); 
+}
 
 function AllEnroll(ary, depth){ 
 	if(depth != ary.length)
