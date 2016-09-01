@@ -29,6 +29,17 @@ $(window).load(function() {
 	refresh();
 }); 
 
+function eventSort(){
+	document.getElementById("postitMainEventSort").style.display = "block";
+	document.getElementById("postitMainEventSort").style.top = "200px";
+}
+
+function eventExcel(){
+	document.getElementById("postitMainEventExcel").style.display = "block";
+	//document.getElementById("postitMainEventExcel").style.top = "200px";
+}
+
+
 function refresh(){
 	$.ajax({      
 	    type:"post",  
@@ -124,21 +135,14 @@ function printPage(){
 	}
 
 
-function eventSort(){
-	document.getElementById("postitMainEventSort").style.display = "block";
-	document.getElementById("postitMainEventSort").style.top = "200px";
-}
-
-function eventExcel(){
-	document.getElementById("postitMainEventExcel").style.display = "block";
-	document.getElementById("postitMainEventExcel").style.top = "200px";
-}
 
 
 //refresh();
 $(document).attr("timer",setInterval(refresh,1000));
 
 </script>
+
+
 
 		<div class="dropdown" style="margin-left:1%; font-size:13px;">
   <button onclick="myFunction()" class="dropbtn">•••</button>
@@ -201,32 +205,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 	</div>
 </div>
 
-
-<div class="postitEventSort" id="postitMainEventSort" style="display:none">
-		<jsp:include page="MainEventSort.jsp" flush="true">
-			<jsp:param name="EventType" value=""/>
-			<jsp:param name="EventDate" value=""/>
-			<jsp:param name="EventTime" value=""/>
-			<jsp:param name="EventPlace" value=""/>
-			<jsp:param name="EventName" value=""/>
-			<jsp:param name="searchUser" value=""/>
-			<jsp:param name="searchName" value=""/>
-			<jsp:param name="Num" value="<%=Num%>"/>
-			<jsp:param name="EventDoorState" value=""/>
-			<jsp:param name="EventCompanyID" value=""/>
-			<jsp:param name="searchStartDate" value=""/>
-			<jsp:param name="searchEndDate" value=""/>
-			<jsp:param name="searchEndTime" value=""/>
-			<jsp:param name="searchStartHour" value=""/>
-			<jsp:param name="searchStartMinute" value=""/>
-			<jsp:param name="searchStartSec" value=""/>
-			<jsp:param name="searchEndHour" value=""/>
-			<jsp:param name="searchEndMinute" value=""/>
-			<jsp:param name="searchEndSec" value=""/>
-		</jsp:include>
-</div>
-
-<div class="postitEventExcel" id="postitMainEventExcel">
+<div class="postitEventExcel" id="postitMainEventExcel" style="display:none; width:65%; top:0%; left:20%;">
 		<jsp:include page="MainEventExcel.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>
@@ -249,3 +228,30 @@ $(document).attr("timer",setInterval(refresh,1000));
 			<jsp:param name="searchEndSec" value=""/>
 		</jsp:include>
 		</div>
+		 
+<div class="postitMainEventSort" id="postitMainEventSort" style="display:none;">
+		<jsp:include page="MainEventSort.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value=""/>
+			<jsp:param name="searchName" value=""/>
+			<jsp:param name="Num" value="<%=Num%>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value=""/>
+			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
+		</jsp:include>
+</div>	
+
+
+	

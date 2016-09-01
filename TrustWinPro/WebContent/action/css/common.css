@@ -1051,6 +1051,26 @@ table.ex1 a:active{color:#000;}
 .postitEventSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitEventSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
 
+.postitMainEventSort {padding:0;margin:0;width:60%;overflow: hidden;z-index:100;/* height:300px; */position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitMainEventSort .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:400px; */background-color:white;}
+.postitMainEventSort .deviceSortPop table{width:100%}
+.postitMainEventSort .deviceSortPop table tr th{padding:0;margin:0;}
+.postitMainEventSort .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitMainEventSort .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitMainEventSort .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitMainEventSort .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitMainEventSort .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
+.postitMainEventExcel {padding:0;margin:0;width:60%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitMainEventExcel .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:270px; */background-color:white;}
+.postitMainEventExcel .deviceSortPop table{width:100%}
+.postitMainEventExcel .deviceSortPop table tr th{padding:0;margin:0;}
+.postitMainEventExcel .deviceSortPop table tr th input {margin:0;padding:0;}
+.postitMainEventExcel .deviceSortPop .infoBox {height:260px;overflow:hidden;}
+.postitMainEventExcel .deviceSortPop .timeZone {position:absolute;bottom:10%;}
+.postitMainEventExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
+.postitMainEventExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
+
 .postitUser {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);;left:35%;top:5%;}
 .postitUser .accessUser {width:99%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:295px;background-color:#f1e5e7;}
 .postitUser .accessUser table{width:100%}
@@ -1163,7 +1183,7 @@ table.ex1 a:active{color:#000;}
 .main_chart .block .block_b{width:48%;float:left;padding:0 2px;}
 
 
-.new_block { width:100%; height:300px;}
+.new_block { width:100%; /* height:300px; */}
 .new_block_b {width:48%; float:left; padding: 2rem 0 0 0;}
 
 
