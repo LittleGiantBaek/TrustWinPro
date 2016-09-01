@@ -1480,7 +1480,7 @@ function AccessDelete(deviceID){
 								<th><%=lanFunc.language(lan, 20)%></th>
 							</tr>
 <%
-			for(int k=1;k<11;k++){
+			for(int k=1;k<7;k++){
 				int weekad = 0;
 				if(k==1){
 					weekad = ad.getWeek1();
@@ -1660,7 +1660,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom"  style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom"  style="width:300px; float:left; margin-top:183px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,5,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,5,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -1685,7 +1685,7 @@ function AccessDelete(deviceID){
 								<th><%=lanFunc.language(lan, 22)%></th>
 							</tr>
 <%
-			for(int k=1;k<11;k++){
+			for(int k=1;k<6;k++){
 				int weeak = 0;
 				if(k==1){
 					weeak = ak.getWeek1();
@@ -1909,7 +1909,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom" style="width:300px; float:left; margin-top:215px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,6,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,6,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -2328,12 +2328,13 @@ function AccessDelete(deviceID){
 					</tr>
 				</table>
 			</div>
-			</div>
-			
-			
-			<div class="InfoButtom" style="width:300px; float:left; margin-top:10px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom" style="width:300px; float:left; margin-top:235px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E');"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
+				</div>
 			</div>
+			
+			
+		
 			<div class="InfoButtom" >
 				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 				<a href="#DeviceInfo" onclick="DeviceDelete('<%= Integer.parseInt(UID)%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>

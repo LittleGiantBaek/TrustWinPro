@@ -218,7 +218,7 @@ public User[] UserSelect(int dep) {
 	public User[] UserSelect2(int count){
 		User[] user = null;
 		Connection conn = null;
-		String sql = "select ID,FirstName,MiddleName,LastName,UserClass,Department from dbo.Member where Department = "+count+" order by ID asc; ";
+		String sql = "select UserID,FirstName,MiddleName,LastName,UserClass,Department from dbo.Member where Department = "+count+" order by ID asc; ";
 		try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
@@ -231,7 +231,7 @@ public User[] UserSelect(int dep) {
 				int num = 0;
 				while(rs.next()){
 					user[num] = new User();
-					user[num].setId(rs.getString(1));
+					user[num].setUserId(rs.getString(1));
 					user[num].setName(rs.getString(2) + rs.getString(3) + rs.getString(4));
 					user[num].setUserClass(rs.getString(5));
 					user[num].setDepartment(rs.getInt(6));

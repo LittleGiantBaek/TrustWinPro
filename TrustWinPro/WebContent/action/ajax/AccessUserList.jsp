@@ -64,7 +64,7 @@
 				out.println("<tr>");	
 			}
 			out.println("<td class='date1'><input type='checkbox' name='checkU'  value='"+user[j].getId()+"' > </td>");
-			out.println("<td class='date1'>" + user[j].getId() + "</td>");
+			out.println("<td class='date1'>" + user[j].getUserId() + "</td>");
 			out.println("<td class='date1'>" + user[j].getName() + "</td>");
 			out.println("<td class='date1'>" + user[j].getUserClass() + "</td>");
 			out.println("<td class='date1'>" + user[j].getDepartment() + "</td>");
