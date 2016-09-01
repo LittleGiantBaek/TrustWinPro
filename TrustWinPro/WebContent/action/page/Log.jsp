@@ -66,10 +66,14 @@
 	}
 		}
 	}
+	
+	
+	
 %>
 <script type="text/javascript">
 $(window).load(function() {
-	$(".notcheck").css("display", "none");
+	refresh();
+	//$(".notcheck").css("display", "none");
 	//alert("hello")
 	//drawDevice();
 }); 
@@ -79,15 +83,45 @@ function drawEvent()
      var data = null;
      var table_data = null;
      $.ajax({
-         url:'/TrustWinPro/action/ajax/eventStatusProc.jsp',
+         url:'/TrustWinPro/action/ajax/realeventStatusProc.jsp',
          data: 'idx=',
          cache: false,
          success: function(res) {
         	table_data = eval("(" + res + ")");
-        	$(".tablebor").html(args);
+        	$("#logdata").html(args);
          }
     });
 }
+
+function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
+	var arrayObj = "";
+	var count = 0;
+	for(i=0;i<form.info2.length;i++){
+		if(form.info2[i].checked){
+			arrayObj = arrayObj + form.info2[i].value + ",";
+			count++;
+			console.log(arrayObj);
+		}
+	}
+	if(count==0){
+		alert("항목을 선택하세요");
+		return false;
+	}else{ 
+		$.ajax({      
+		    type:"post",  
+		    url:"/TrustWinPro/action/ajax/PrintRealEventList.jsp",
+		    data: "array=" + arrayObj + "&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num,
+		    success:function(args){   
+				$("#logdata").html(args);
+				statusEvent2();
+		    },   
+		    error:function(e){  
+		        alert(e.responseText);  
+		    }  
+		});
+	 }
+}
+	
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -138,8 +172,9 @@ function refresh(){
 	    type:"post",  
 	    url:"/TrustWinPro/action/ajax/LogA.jsp",   
 	    data: "num=<%=Num%>&searchStartDate=<%=SDate%>&searchEndDate=<%=EDate%>&searchStartHour=<%=SHour%>&searchStartMinute=<%=SMin%>&searchStartSec=<%=SSec%>&searchEndHour=<%=EHour%>&searchEndMinute=<%=EMin%>&searchEndSec=<%=ESec%>&searchName=<%=Name%>&searchUser=<%=User%>&month=<%=Month%>",
-	    success:function(args){   
+	    success:function(args){ 
 	        $("#logdata").html(args);      
+	        //EventSorts2();
 	    },   
 	    error:function(e){  
 	        //alert("refresh" + e.responseText);  
@@ -192,8 +227,8 @@ function openColor(){
 	
 }
 
-refresh();
-$(document).attr("timer",setInterval(refresh,1000));
+
+//$(document).attr("timer",setInterval(refresh,1000));
 
 </script>
 <div id="userdata">
@@ -370,7 +405,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 
 
 <div class="postitEventSort" id="postitRealEventSort" style="display:none">
-		<jsp:include page="EventSort.jsp" flush="true">
+		<jsp:include page="RealEventSort.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>
 			<jsp:param name="EventTime" value=""/>

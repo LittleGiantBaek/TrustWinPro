@@ -1461,12 +1461,12 @@ public class DBCheck {
 				}else{
 					Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 					
-					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL,"
-							+ "[deviceSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT '1,2,3,4,5,6,7,',"
-							+ "[userSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT '1,2,3,4,5,6,7,8,9,',"
-							+ "[eventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT '1,2,3,4,5,6,7,8,9,',"
-							+ "[realeventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT '1,2,3,4,5,6,7,8,9,',"
-							+ "[maineventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT '1,2,3,4,5,6,7,8,9,',"
+					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL DEFAULT ((1)),"
+							+ "[deviceSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,')),"
+							+ "[userSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
+							+ "[eventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
+							+ "[realeventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
+							+ "[maineventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
 							+ ") ON [PRIMARY]";
 					pstmt2.executeUpdate(create);
 				}
