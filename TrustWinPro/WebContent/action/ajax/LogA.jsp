@@ -210,17 +210,18 @@ $(window).load(function() {
 								}else{
 									out.println("<tr>");	
 								}
-							}
-							out.println("<td class='date1"+ statuss1+"'>" + rs.getString(1) + "</td>");
-							out.println("<td class='date1"+ statuss2+"'>" + rs.getString(2) + "</td>");
-							out.println("<td class='date1"+ statuss3+"'>" + rs.getString(3) + "</td>");
-							out.println("<td class='date1"+ statuss4+"'>" + rs.getString(4) + "</td>");
-							out.println("<td class='date1"+ statuss5+"'>" + rs.getString(5) + "</td>");
-							out.println("<td class='date1"+ statuss6+"'>" + rs.getString(6) + "</td>");
-							out.println("<td class='date1"+ statuss7+"'>" + rs.getString(7) + "</td>");
-							out.println("<td class='date1"+ statuss8+"'>" + rs.getString(8) + "</td>");
-							out.println("<td class='date1"+ statuss9+"'>" + rs.getString(9) + "</td>");
-							out.println("</tr>");
+							}%>
+							<td class='date1 <%=statuss1%>'><%=rs.getString(1) %></td>
+							<td class='date1 <%=statuss2%>'><%=rs.getString(2) %></td>
+							<td class='date1 <%=statuss3%>'><%=rs.getString(3) %></td>
+							<td class='date1 <%=statuss4%>'><%=rs.getString(4) %></td>
+							<td class='date1 <%=statuss5%>'><%=rs.getString(5) %></td>
+							<td class='date1 <%=statuss6%>'><%=rs.getString(6) %></td>
+							<td class='date1 <%=statuss7%>'><%=rs.getString(7) %></td>
+							<td class='date1 <%=statuss8%>'><%=rs.getString(8) %></td>
+							<td class='date1 <%=statuss9%>'><%=rs.getString(9) %></td>
+							</tr>
+							<%
 							i++;
 						}else{
 							

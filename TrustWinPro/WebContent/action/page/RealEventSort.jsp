@@ -147,7 +147,7 @@ function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 		    url:"/TrustWinPro/action/ajax/PrintRealEventList.jsp",
 		    data: "array=" + arrayObj + "&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num,
 		    success:function(args){   
-				$("#logdata").html(args);
+				$(".tablebor").html(args);
 				statusEvent2();
 		    },   
 		    error:function(e){  
@@ -173,32 +173,32 @@ function statusEvent2()
          data: 'val='+val,
          cache: false,
          success: function(res) {
-        		//location.reload();
-        	 $("#logdata").html(args);
+        	location.reload();
+        	 $(".tablebor").html(args);
          }
     });
 }	
 	
 	
-	var change = 0;
-	function allDeviceCheck(){
-		//var check = document.devicelist1.check;
-		var check = document.getElementsByName("info2");
-		if(change == 0){
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = true;	
-			}
-				
-			change = 1;
-		}else{
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = false;
-			}
+var change = 0;
+function allDeviceCheck(){
+	//var check = document.devicelist1.check;
+	var check = document.getElementsByName("info2");
+	if(change == 0){
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = true;	
+		}
 			
-			change = 0;
+		change = 1;
+	}else{
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = false;
 		}
 		
+		change = 0;
 	}
+	
+}
 	
 	
 	

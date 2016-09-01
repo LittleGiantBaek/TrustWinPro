@@ -72,10 +72,8 @@
 %>
 <script type="text/javascript">
 $(window).load(function() {
+	$(".notcheck").css("display", "none");
 	refresh();
-	//$(".notcheck").css("display", "none");
-	//alert("hello")
-	//drawDevice();
 }); 
 
 function drawEvent()
@@ -88,7 +86,7 @@ function drawEvent()
          cache: false,
          success: function(res) {
         	table_data = eval("(" + res + ")");
-        	$("#logdata").html(args);
+        	$(".tablebor").html(args);
          }
     });
 }
@@ -112,7 +110,7 @@ function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 		    url:"/TrustWinPro/action/ajax/PrintRealEventList.jsp",
 		    data: "array=" + arrayObj + "&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num,
 		    success:function(args){   
-				$("#logdata").html(args);
+				$(".tablebor").html(args);
 				statusEvent2();
 		    },   
 		    error:function(e){  
@@ -173,7 +171,7 @@ function refresh(){
 	    url:"/TrustWinPro/action/ajax/LogA.jsp",   
 	    data: "num=<%=Num%>&searchStartDate=<%=SDate%>&searchEndDate=<%=EDate%>&searchStartHour=<%=SHour%>&searchStartMinute=<%=SMin%>&searchStartSec=<%=SSec%>&searchEndHour=<%=EHour%>&searchEndMinute=<%=EMin%>&searchEndSec=<%=ESec%>&searchName=<%=Name%>&searchUser=<%=User%>&month=<%=Month%>",
 	    success:function(args){ 
-	        $("#logdata").html(args);      
+	        $(".tablebor").html(args);      
 	        //EventSorts2();
 	    },   
 	    error:function(e){  

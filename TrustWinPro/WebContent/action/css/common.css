@@ -11,6 +11,8 @@ scrollbar-arrow-color:#afafaf;
 scrollbar-track-color:#ffffff;
 }
 
+.notcheck {display : none;}
+
 .conf {
 	background-color : gray;
 }
