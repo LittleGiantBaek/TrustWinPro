@@ -83,9 +83,9 @@
 		searchEndTime = new String(searchEndTime .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	int top = 0;
-	if((String)request.getParameter("top")!=null){
-			top = Integer.parseInt((String)request.getParameter("top"));
+	int Num = 0;
+	if((String)request.getParameter("Num")!=null){
+			Num = Integer.parseInt((String)request.getParameter("Num"));
 	}
 	
 	String[] dev = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
@@ -173,6 +173,7 @@ function statusEvent2()
          data: 'val='+val,
          cache: false,
          success: function(res) {
+        		//location.reload();
         	 $("#logdata").html(args);
          }
     });
@@ -302,7 +303,7 @@ function statusEvent2()
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" id="sortBtn" onclick="EventSorts2(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" id="sortBtn" onclick="EventSorts2(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName%>', '<%=searchUser%>', '<%=Num%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
 <!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
