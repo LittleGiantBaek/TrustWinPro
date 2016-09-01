@@ -91,34 +91,7 @@ function drawEvent()
     });
 }
 
-function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
-	var arrayObj = "";
-	var count = 0;
-	for(i=0;i<form.info2.length;i++){
-		if(form.info2[i].checked){
-			arrayObj = arrayObj + form.info2[i].value + ",";
-			count++;
-			console.log(arrayObj);
-		}
-	}
-	if(count==0){
-		alert("항목을 선택하세요");
-		return false;
-	}else{ 
-		$.ajax({      
-		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/PrintRealEventList.jsp",
-		    data: "array=" + arrayObj + "&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num,
-		    success:function(args){   
-				$(".tablebor").html(args);
-				statusEvent2();
-		    },   
-		    error:function(e){  
-		        alert(e.responseText);  
-		    }  
-		});
-	 }
-}
+
 	
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -226,7 +199,7 @@ function openColor(){
 }
 
 
-//$(document).attr("timer",setInterval(refresh,1000));
+$(document).attr("timer",setInterval(refresh,1000));
 
 </script>
 <div id="userdata">

@@ -24,19 +24,45 @@
 	
 %>
 <script type="text/javascript">
+$(window).load(function() {
+	$(".notcheck").css("display", "none");
+	refresh();
+}); 
 
 function refresh(){
 	$.ajax({      
 	    type:"post",  
-	    url:"/TrustWinPro/action/ajax/LogA.jsp",   
+	    url:"/TrustWinPro/action/ajax/LogB.jsp",   
 	    data: "num=<%=Num%>",
 	    success:function(args){   
-	        $("#logdata").html(args);      
+	        $(".tablebor").html(args);      
 	    },   
 	    error:function(e){  
 	        //alert(e.responseText);  
 	    }  
 	});  
+}
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 function optionSubmit(){
@@ -84,7 +110,32 @@ function openColor(){
 	
 }
 
-refresh();
+function printPage(){
+	 var initBody;
+	 window.onbeforeprint = function(){
+	  initBody = document.body.innerHTML;
+	  document.body.innerHTML =  document.getElementById('logdata').innerHTML;
+	 };
+	 window.onafterprint = function(){
+	  document.body.innerHTML = initBody;
+	 };
+	 window.print();
+	 return false;
+	}
+
+
+function eventSort(){
+	document.getElementById("postitMainEventSort").style.display = "block";
+	document.getElementById("postitMainEventSort").style.top = "200px";
+}
+
+function eventExcel(){
+	document.getElementById("postitMainEventExcel").style.display = "block";
+	document.getElementById("postitMainEventExcel").style.top = "200px";
+}
+
+
+//refresh();
 $(document).attr("timer",setInterval(refresh,1000));
 
 </script>
@@ -137,9 +188,6 @@ $(document).attr("timer",setInterval(refresh,1000));
 			</tbody>
 		</table>
 
-
-
-
 		<div class="button" id="web-buttons-idrmij3">
 			<a href="#"  onclick="closeColor();"><%=Lanfunc.language(lan, 185)%></a>
 			<a href="#"  onclick="optionSubmit();"><%=Lanfunc.language(lan, 92)%></a>
@@ -152,3 +200,52 @@ $(document).attr("timer",setInterval(refresh,1000));
 		</div>
 	</div>
 </div>
+
+
+<div class="postitEventSort" id="postitMainEventSort" style="display:none">
+		<jsp:include page="MainEventSort.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value=""/>
+			<jsp:param name="searchName" value=""/>
+			<jsp:param name="Num" value="<%=Num%>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value=""/>
+			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
+		</jsp:include>
+</div>
+
+<div class="postitEventExcel" id="postitMainEventExcel">
+		<jsp:include page="MainEventExcel.jsp" flush="true">
+			<jsp:param name="EventType" value=""/>
+			<jsp:param name="EventDate" value=""/>
+			<jsp:param name="EventTime" value=""/>
+			<jsp:param name="EventPlace" value=""/>
+			<jsp:param name="EventName" value=""/>
+			<jsp:param name="searchUser" value=""/>
+			<jsp:param name="searchName" value=""/>
+			<jsp:param name="Num" value="<%=Num%>"/>
+			<jsp:param name="EventDoorState" value=""/>
+			<jsp:param name="EventCompanyID" value=""/>
+			<jsp:param name="searchStartDate" value=""/>
+			<jsp:param name="searchEndDate" value=""/>
+			<jsp:param name="searchEndTime" value=""/>
+			<jsp:param name="searchStartHour" value=""/>
+			<jsp:param name="searchStartMinute" value=""/>
+			<jsp:param name="searchStartSec" value=""/>
+			<jsp:param name="searchEndHour" value=""/>
+			<jsp:param name="searchEndMinute" value=""/>
+			<jsp:param name="searchEndSec" value=""/>
+		</jsp:include>
+		</div>

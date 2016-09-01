@@ -8,7 +8,7 @@
 	
 	Connection conn = null;
 	String sql = "";
-	sql = "update Sort set MaineventSort = '" + vals + "'where idx=1;"; 
+	sql = "update Sort set maineventSort = '" + vals + "'where idx=1;"; 
 
 	try {
 		Context init = new InitialContext();

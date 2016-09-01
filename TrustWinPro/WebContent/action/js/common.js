@@ -286,6 +286,17 @@ function RealEventExcel(form,SDate,EDate,STime,ETime,Name,User,Num){
 	window.open("/TrustWinPro/action/print/ExcelRealEvent.jsp?array="+arrayObj+"&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num+"","printpopup","width=800, height=800, menubar=no, status=no, toolbar=no");
 }
 
+function MainEventExcel(form,SDate,EDate,STime,ETime,Name,User,Num){
+	var arrayObj = "";
+	var count = 0;
+	for(var i=0;i<form.info.length;i++){
+		if(form.info[i].checked){
+			arrayObj = arrayObj + form.info[i].value + ",";
+			count++;
+		}
+	}
+	window.open("/TrustWinPro/action/print/ExcelMainEvent.jsp?array="+arrayObj+"&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num+"","printpopup","width=800, height=800, menubar=no, status=no, toolbar=no");
+}
 
 
 function Enroll(value){

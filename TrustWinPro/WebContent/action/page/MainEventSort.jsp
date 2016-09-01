@@ -83,9 +83,9 @@
 		searchEndTime = new String(searchEndTime .getBytes("8859_1"), "UTF-8");	
 	}
 	
-	int top = 0;
-	if((String)request.getParameter("top")!=null){
-			top = Integer.parseInt((String)request.getParameter("top"));
+	int Num = 0;
+	if((String)request.getParameter("Num")!=null){
+			Num = Integer.parseInt((String)request.getParameter("Num"));
 	}
 	
 	String[] dev = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
@@ -128,12 +128,12 @@
 
 <script type="text/javascript">
 
-function EventSorts(form,SDate,EDate,STime,ETime,Name,User,Num){
+function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 	var arrayObj = "";
 	var count = 0;
-	for(i=0;i<form.info.length;i++){
-		if(form.info[i].checked){
-			arrayObj = arrayObj + form.info[i].value + ",";
+	for(i=0;i<form.info2.length;i++){
+		if(form.info2[i].checked){
+			arrayObj = arrayObj + form.info2[i].value + ",";
 			count++;
 			console.log(arrayObj);
 		}
@@ -144,12 +144,11 @@ function EventSorts(form,SDate,EDate,STime,ETime,Name,User,Num){
 	}else{ 
 		$.ajax({      
 		    type:"post",  
-		    url:"/TrustWinPro/action/ajax/LogA.jsp",
-		    //url:"/TrustWinPro/action/ajax/PrintMainEventList.jsp",
+		    url:"/TrustWinPro/action/ajax/PrintMainEventList.jsp",
 		    data: "array=" + arrayObj + "&SDate="+SDate+"&EDate="+EDate+"&STime="+STime+"&ETime="+ETime+"&Name="+Name+"&User="+User+"&Num="+Num,
 		    success:function(args){   
 				$(".tablebor").html(args);
-				statusEvent();
+				statusEvent2();
 		    },   
 		    error:function(e){  
 		        alert(e.responseText);  
@@ -159,9 +158,9 @@ function EventSorts(form,SDate,EDate,STime,ETime,Name,User,Num){
 }
 	
 	
-function statusEvent()
+function statusEvent2()
 {
-	var array = document.eventlist.info;
+	var array = document.eventlist.info2;
 	var val = "";
 	for(var i=0;i<array.length;i++){
 		if(array[i].checked == true){
@@ -170,43 +169,41 @@ function statusEvent()
 		}
 	}
      $.ajax({
-         url:'/TrustWinPro/action/ajax/MaineventStatusProc.jsp',
+         url:'/TrustWinPro/action/ajax/maineventStatusProc.jsp',
          data: 'val='+val,
          cache: false,
          success: function(res) {
-      	  /* alert("StatusBar : " +val); */
-      	location.reload();
-        //document.getElementById("userlist").submit();
+        	location.reload();
         	 $(".tablebor").html(args);
          }
     });
 }	
 	
 	
-	var change = 0;
-	function allDeviceCheck(){
-		//var check = document.devicelist1.check;
-		var check = document.getElementsByName("info");
-		if(change == 0){
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = true;	
-			}
-				
-			change = 1;
-		}else{
-			for(var i = 0 ; i < check.length;i++ ){
-				check[i].checked = false;
-			}
+var change = 0;
+function allDeviceCheck(){
+	//var check = document.devicelist1.check;
+	var check = document.getElementsByName("info2");
+	if(change == 0){
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = true;	
+		}
 			
-			change = 0;
+		change = 1;
+	}else{
+		for(var i = 0 ; i < check.length;i++ ){
+			check[i].checked = false;
 		}
 		
+		change = 0;
 	}
+	
+}
 	
 	
 	
 	function accessDeviceClose2(){
-		document.getElementById("postitEventSort").style.display = "none";
+		document.getElementById("postitMainEventSort").style.display = "none";
 	}
 	
 	/* if($("input[name=info]").is(":checked"))	{
@@ -268,45 +265,45 @@ function statusEvent()
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info" value="EventType/72" id="1" <%=status1%>></td>
+<td><input type="checkbox" name="info2" value="EventType/72" id="1" <%=status1%>></td>
 <td >EventType</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="EventDate/73" id="2" <%=status2%>></td>
+<td ><input type="checkbox" name="info2" value="EventDate/73" id="2" <%=status2%>></td>
 <td >EventDate</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="EventTime/74" id="3" <%=status3%>></td>
+<td ><input type="checkbox" name="info2" value="EventTime/74" id="3" <%=status3%>></td>
 <td >EventTime</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="EventPlace/75" id="4" <%=status4%>></td>
+<td ><input type="checkbox" name="info2" value="EventPlace/75" id="4" <%=status4%>></td>
 <td >EventPlace</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="EventName/76" id="5" <%=status5%>></td>
+<td ><input type="checkbox" name="info2" value="EventName/76" id="5" <%=status5%>></td>
 <td> EventName</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info" value="EventUserID/77" id="6" <%=status6%>></td>
+<td ><input type="checkbox" name="info2" value="EventUserID/77" id="6" <%=status6%>></td>
 <td >EventUserID</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="EventUserName/78" id="7" <%=status7%>></td>
+<td ><input type="checkbox" name="info2" value="EventUserName/78" id="7" <%=status7%>></td>
 <td >EventUserName</td>
 </tr>
 <tr>
-<td ><input type="checkbox" name="info" value="EventDoorState/79" id="8" <%=status8%>></td>
+<td ><input type="checkbox" name="info2" value="EventDoorState/79" id="8" <%=status8%>></td>
 <td >EventDoorState</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info" value="EventCompanyID/80" id="9" <%=status9%>></td>
+<td ><input type="checkbox" name="info2" value="EventCompanyID/80" id="9" <%=status9%>></td>
 <td >EventCompanyID</td>
 </tr>
 </tbody>
 </table>
 <div class="buttom">
-<a href="#" id="sortBtn" onclick="EventSorts(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName %>', '<%=searchUser %>', '<%=top %>');" class="button gray"><span class="icon-check"></span>Sort</a>
+<a href="#" id="sortBtn" onclick="EventSorts2(document.getElementById('eventlist'),'<%=searchStartDate%>','<%=searchEndDate%>','<%=EventTime%>','<%=searchEndTime%>', '<%=searchName%>', '<%=searchUser%>', '<%=Num%>');" class="button gray"><span class="icon-check"></span>Sort</a>
 </div>
 <!-- div id="DeviceSorts" class="tableList2"></div> -->
 </form>
