@@ -131,9 +131,9 @@
 function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 	var arrayObj = "";
 	var count = 0;
-	for(i=0;i<form.info2.length;i++){
-		if(form.info2[i].checked){
-			arrayObj = arrayObj + form.info2[i].value + ",";
+	for(i=0;i<form.info.length;i++){
+		if(form.info[i].checked){
+			arrayObj = arrayObj + form.info[i].value + ",";
 			count++;
 			console.log(arrayObj);
 		}
@@ -160,7 +160,7 @@ function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 	
 function statusEvent2()
 {
-	var array = document.eventlist.info2;
+	var array = document.eventlist.info;
 	var val = "";
 	for(var i=0;i<array.length;i++){
 		if(array[i].checked == true){
@@ -183,7 +183,7 @@ function statusEvent2()
 var change = 0;
 function allDeviceCheck(){
 	//var check = document.devicelist1.check;
-	var check = document.getElementsByName("info2");
+	var check = document.getElementsByName("info");
 	if(change == 0){
 		for(var i = 0 ; i < check.length;i++ ){
 			check[i].checked = true;	
@@ -265,39 +265,39 @@ function allDeviceCheck(){
 		<tbody>
 	
 <tr class="odd">
-<td><input type="checkbox" name="info2" value="EventType/72" id="1" <%=status1%>></td>
+<td><input type="checkbox" name="info" value="EventType/72" id="1" <%=status1%>></td>
 <td >EventType</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info2" value="EventDate/73" id="2" <%=status2%>></td>
+<td ><input type="checkbox" name="info" value="EventDate/73" id="2" <%=status2%>></td>
 <td >EventDate</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info2" value="EventTime/74" id="3" <%=status3%>></td>
+<td ><input type="checkbox" name="info" value="EventTime/74" id="3" <%=status3%>></td>
 <td >EventTime</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info2" value="EventPlace/75" id="4" <%=status4%>></td>
+<td ><input type="checkbox" name="info" value="EventPlace/75" id="4" <%=status4%>></td>
 <td >EventPlace</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info2" value="EventName/76" id="5" <%=status5%>></td>
+<td ><input type="checkbox" name="info" value="EventName/76" id="5" <%=status5%>></td>
 <td> EventName</td>
 </tr>
 <tr >
-<td ><input type="checkbox" name="info2" value="EventUserID/77" id="6" <%=status6%>></td>
+<td ><input type="checkbox" name="info" value="EventUserID/77" id="6" <%=status6%>></td>
 <td >EventUserID</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info2" value="EventUserName/78" id="7" <%=status7%>></td>
+<td ><input type="checkbox" name="info" value="EventUserName/78" id="7" <%=status7%>></td>
 <td >EventUserName</td>
 </tr>
 <tr>
-<td ><input type="checkbox" name="info2" value="EventDoorState/79" id="8" <%=status8%>></td>
+<td ><input type="checkbox" name="info" value="EventDoorState/79" id="8" <%=status8%>></td>
 <td >EventDoorState</td>
 </tr>
 <tr class="odd">
-<td ><input type="checkbox" name="info2" value="EventCompanyID/80" id="9" <%=status9%>></td>
+<td ><input type="checkbox" name="info" value="EventCompanyID/80" id="9" <%=status9%>></td>
 <td >EventCompanyID</td>
 </tr>
 </tbody>
