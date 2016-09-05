@@ -662,14 +662,14 @@ public class DeviceFunc {
 							user = new UserList();
 							user.setNo(rs.getInt(1));
 							user.setUserID(rs.getString(2));
-							user.setName(rs.getString(2));
-							user.setDepartment(rs.getString(2));
-							user.setUserClass(rs.getString(2));
-							user.setCard(rs.getString(2));
-							user.setFP1(rs.getString(2));
-							user.setFP2(rs.getString(2));
-							user.setDeviceName(rs.getString(2));
-							user.setDeviceID(rs.getString(2));
+							user.setName(rs.getString(3));
+							user.setDepartment(rs.getString(4));
+							user.setUserClass(rs.getString(5));
+							user.setCard(rs.getString(6));
+							user.setFP1(rs.getString(7));
+							user.setFP2(rs.getString(8));
+							user.setDeviceName(rs.getString(9));
+							user.setDeviceID(rs.getString(10));
 							userlist[cout] = user;
 							cout++;
 						}
