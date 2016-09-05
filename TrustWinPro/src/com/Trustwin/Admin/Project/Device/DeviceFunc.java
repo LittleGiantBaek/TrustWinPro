@@ -644,7 +644,7 @@ public class DeviceFunc {
 			Connection conn = null;
 			UserList[] userlist = null;
 			UserList user = null;
-			String sql = "select UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice from dbo.UserList";
+			String sql = "select No ,UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice from dbo.UserList";
 				sql +="	where DeviceID='" + Deviceid + "' order by No desc; ";
 				
 				try {
