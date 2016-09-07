@@ -174,7 +174,7 @@ function statusEvent2()
          cache: false,
          success: function(res) {
         	location.reload();
-        	 $(".tablebor").html(args);
+        	// $(".tablebor").html(args);
          }
     });
 }	
