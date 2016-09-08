@@ -26,6 +26,7 @@
 		conn.close();	
 		
 		try{
+			System.out.println("!");
 			TCPClient client = new TCPClient(ServerIP, port);
 			client.run();
 			int result = 0; 

@@ -379,11 +379,11 @@ function AllEnroll(ary, depth){
 							$(".progress_meter").css("display","none");
 			    		}
 			    	} else if(args.trim() == 'socket'){
-						alert("Connetion time out!");
+			    		alertify.alert("Connetion time out!");
 						$(".Loading").css("display","none");
 						$(".progress_meter").css("display","none");
 			    	} else if(args.trim() == 'db error'){
-						alert("DB Error!");
+			    		alertify.alert("DB Error!");
 						$(".Loading").css("display","none");
 						$(".progress_meter").css("display","none");
 			    	}

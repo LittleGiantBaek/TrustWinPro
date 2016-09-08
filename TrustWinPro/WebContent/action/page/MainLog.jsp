@@ -143,17 +143,6 @@ $(document).attr("timer",setInterval(refresh,1000));
 </script>
 
 
-
-		<div class="dropdown" style="margin-left:1%; font-size:13px;">
-  <button onclick="myFunction()" class="dropbtn">•••</button>
-  <div id="myDropdown" class="dropdown-content">
-  <!--ieExecWB();  -->
-    <a href="#" onclick="printPage();">Print</a>
-    <a href="#" onclick="eventExcel();">Excel</a>
-    <a href="#" onclick="eventSort();">Sort</a>
-  </div>
-</div>
-
 <div id="userdata">
 	<div class="colorOption" id="colorOption">
 	<form action="/TrustWinPro/action/index.jsp" name="colorO" id="colorO" method="post">
@@ -199,6 +188,15 @@ $(document).attr("timer",setInterval(refresh,1000));
 	</form>
 	</div>
 
+<div class="dropdown" style="margin-left:1%; font-size:13px; width:96%">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
+    <a href="#" onclick="eventExcel();">Excel</a>
+    <a href="#" onclick="eventSort();">Sort</a>
+  </div>
+</div>
 	<div class = "tablebor" style = "width: 96%; margin:3px">
 		<div id="logdata">
 		</div>

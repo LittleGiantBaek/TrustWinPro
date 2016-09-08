@@ -2265,12 +2265,14 @@ function AccessDelete(deviceID){
 							<div id="devicelist">
 								<table border=1 cellspacing="0"  class="titleEx1">
 									<colgroup>
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="10%">
+										<col width="5%">
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
@@ -2286,16 +2288,19 @@ function AccessDelete(deviceID){
 										<th>FP2</th>
 										<th>성명(Device)</th>
 										<th>사원번호(Device)</th>
+										<th>Etc</th>
 									</tr>
 								</table>
 								<table class="ex1" cellspacing="0" id="DeviceUserList" >
 									<colgroup>
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="10%">
+										<col width="5%">
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
@@ -2315,6 +2320,7 @@ function AccessDelete(deviceID){
 				out.println("<td>" + userlist[i].getFP2() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceName() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceID() + "</td>");
+				out.println("<td>" + userlist[i].getEtc() + "</td>");
 				out.println("</tr>");
 			}
 %>

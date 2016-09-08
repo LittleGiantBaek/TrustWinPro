@@ -644,7 +644,7 @@ public class DeviceFunc {
 			Connection conn = null;
 			UserList[] userlist = null;
 			UserList user = null;
-			String sql = "select No ,UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice from dbo.UserList";
+			String sql = "select No ,UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice, Etc from dbo.UserList";
 				sql +="	where DeviceID='" + Deviceid + "' order by No desc; ";
 				
 				try {
@@ -670,6 +670,7 @@ public class DeviceFunc {
 							user.setFP2(rs.getString(8));
 							user.setDeviceName(rs.getString(9));
 							user.setDeviceID(rs.getString(10));
+							user.setEtc(rs.getString(11));
 							userlist[cout] = user;
 							cout++;
 						}

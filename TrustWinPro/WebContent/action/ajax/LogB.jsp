@@ -134,7 +134,7 @@
 				}
 			}
 			
-			//System.out.println(statuss1);
+			System.out.println(statuss1);
 			
 		
 %>
