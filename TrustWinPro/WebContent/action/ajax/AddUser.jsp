@@ -68,8 +68,8 @@
 		
 		
 		if(value == 0){
-	sql = "insert into member(UserID, FirstName, MiddleName, LastName, ID, Password, CardID,FacilityCode, department,CardID2,CompanyID,Position,TelOffice,EngagedDay,LatestPromoted,RetiredDay,License1,License2,License3,EMail,TelHome,MobilePhone,CarName,Photo,ZipCode,Address)"; 
-	sql += " values('"+SMaxId+"','username','','',"+SMaxId+","+SMaxId+",'00"+SMaxId+"','00000','"+depart+"','1','"+SMaxId+"','None','None','2015-01-01','2015-01-01','2015-01-01','None','None','None','None','None','None','None','None','None','None')";
+	sql = "insert into member(UserID, FirstName, MiddleName, LastName, ID, Password, CardID,FacilityCode, department,CardID2,CompanyID,Position,TelOffice,EngagedDay,LatestPromoted,RetiredDay,License1,License2,License3,EMail,TelHome,MobilePhone,CarName,Photo,ZipCode,Address,FP1,FP2)"; 
+	sql += " values('"+SMaxId+"','username','','',"+SMaxId+","+SMaxId+",'00"+SMaxId+"','00000','"+depart+"','1','"+SMaxId+"','None','None','2015-01-01','2015-01-01','2015-01-01','None','None','None','None','None','None','None','None','None','None','No','No')";
 	
 	try {
 		Context init = new InitialContext();

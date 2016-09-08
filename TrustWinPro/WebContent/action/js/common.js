@@ -380,8 +380,12 @@ function AllEnroll(ary, depth){
 			    		}
 			    	} else if(args.trim() == 'socket'){
 						alert("Connetion time out!");
+						$(".Loading").css("display","none");
+						$(".progress_meter").css("display","none");
 			    	} else if(args.trim() == 'db error'){
 						alert("DB Error!");
+						$(".Loading").css("display","none");
+						$(".progress_meter").css("display","none");
 			    	}
 			    },   
 			    error:function(e){  

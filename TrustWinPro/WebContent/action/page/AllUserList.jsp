@@ -193,8 +193,7 @@ function userExcel(){
 
 		List<Integer> ChildDepartmentArr = new ArrayList<Integer>();
 		ChildDepartmentArr = Userfunc.departmentChildarr(Department);
-		User[] users = Userfunc.searchUser(FirstName, MiddleName, LastName, ChildDepartmentArr, UserClass,
-				CompanyID);
+		User[] users = Userfunc.searchUser(FirstName, MiddleName, LastName, ChildDepartmentArr, UserClass,CompanyID);
 		String lan = (String) session.getAttribute("nation");
 
 		int top = 0;
@@ -377,6 +376,8 @@ function userExcel(){
 					<th class="<%=statuss9%>"><%=Lanfunc.language(lan, 39)%></th>
 					<th><%=Lanfunc.language(lan, 81)%></th>
 					<th><%=Lanfunc.language(lan, 82)%></th>
+					<th>FP1</th>
+					<th>FP2</th>
 				</tr>
 			</table>
 			<table cellspacing="0" class="ex1">
@@ -391,6 +392,8 @@ function userExcel(){
 					<col width="8%" class="<%=statuss7%>">
 					<col width="8%" class="<%=statuss8%>">
 					<col width="8%" class="<%=statuss9%>">
+					<col width="8%">
+					<col width="8%">
 					<col width="8%">
 					<col width="8%">
 				</colgroup>
@@ -443,6 +446,7 @@ function userExcel(){
 									out.println(Name);
 							%>
 						</td>
+						
 						<td class='date1'>
 							<%
 								AccessUser[] accessUser = Accfunc.SelAccessUserId(Integer.parseInt(users[i].getUserId()));
@@ -463,6 +467,14 @@ function userExcel(){
 										}
 									}
 							%>
+						</td>
+						
+						<td class='date1'>
+							<%=users[i].getFP1()%>
+						</td>
+						
+						<td class='date1'>
+							<%=users[i].getFP2()%>
 						</td>
 					</tr>
 					<%

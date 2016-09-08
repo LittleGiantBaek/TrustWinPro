@@ -31,7 +31,7 @@
 	String sql = "select FirstName, MiddleName, LastName, UserID, UserClass, ID, Password, CompanyID, Department, "+
 	"Position, TelOffice, EngagedDay, LatestPromoted, RetiredDay, License1, License2, License3, HourlyWage, EMail, Sex, "+
 	"Married, ResidentRegNo, TelHome, MobilePhone, CarName, ZipCode, Address, CardID, CardType, FacilityCode, CardAttribute, "+
-	"TimeZoneNo1, TimeZoneNo2, UserMode, UseSubSensor, UseDuressFinger, photo, DeviceGroup, ReAccessLimitTime from member where UserID = '" + ID + "'";
+	"TimeZoneNo1, TimeZoneNo2, UserMode, UseSubSensor, UseDuressFinger, photo, DeviceGroup, ReAccessLimitTime, FP1, FP2 from member where UserID = '" + ID + "'";
 	try {
 	
 	Context init = new InitialContext();
@@ -139,7 +139,7 @@ $( ".tab>li>a" ).click(function() {
 });
 
 function displayInfo(z){
-	for(var i=1;i<7;i++){
+	for(var i=1;i<8;i++){
 		if(i==z){
 			document.getElementById("tab0"+i).parentNode.className = "on";
 			document.getElementById("tab"+i).style.display = "block";		
@@ -435,6 +435,9 @@ function AccessAdd(UserID){
 					</li>
 					<li >
 						<a href="#a" onclick="displayInfo(6)" id="tab06" ><%=Lanfunc.language(lan, 37)%></a>
+					</li>
+					<li >
+						<a href="#a" onclick="displayInfo(7)" id="tab07" >FP</a>
 					</li>
 				</ul>
 			<!-- </div> -->
@@ -919,6 +922,21 @@ function AccessAdd(UserID){
 					</div>
 				</div>
 			</div>
+			<div class="FP" id="tab7">
+				<div class="InfoBox">
+					<div class="block">
+						<div class="header">FP1</div>
+						<div class="main"><input type="text" name="TelHome" value="<%=LangUtil.Empty(rs.getString(40)) %>" size="40um" readonly></div>
+					</div>
+					<div class="block">
+						<div class="header">FP2</div>
+						<div class="main"><input type="text" name="TelHome" value="<%=LangUtil.Empty(rs.getString(41)) %>" size="40um" readonly></div>
+					</div>
+				</div>				
+			</div>
+			
+			
+			
 			
 			<div class="buttonBox">
 				<div class="bottom">
@@ -926,6 +944,22 @@ function AccessAdd(UserID){
 					<a href="#" title="Recive" onclick="Recive('S,U,R,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 184)%></a>
 					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
 				</div>
+				
+				<%
+				String FP1 = new String(rs.getString(40));
+				String FP2 = new String(rs.getString(41));
+				if((FP1).equals(FP2)){
+					if((FP1.substring(0,1)).equals("N")){
+				%>
+				<script>   
+					$(".bottom").css("display", "none");
+				</script>		
+				<% 
+					}
+					
+				}
+				%>
+				
 				<div class="InfoButtom">
 					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 					<a href="#UserInfo" onclick="UserDelete('<%= ID%>');" class="button gray" ><span class="icon-delete"></span>Remove</a>

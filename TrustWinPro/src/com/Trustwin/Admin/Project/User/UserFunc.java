@@ -249,7 +249,7 @@ public User[] UserSelect(int dep) {
 		Connection conn = null;
 		Language language = new Language();
 		User[] users = null;
-		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID from dbo.Member where 1=1 ";
+		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID, FP1, FP2 from dbo.Member where 1=1 ";
 		
 		if(FN !=null){
 			if(!FN.equals("")){
@@ -308,6 +308,8 @@ public User[] UserSelect(int dep) {
 					users[count].setPassWord(rs.getString(7));
 					users[count].setDepartment(rs.getInt(8));
 					users[count].setCompanyID(rs.getString(9));
+					users[count].setFP1(rs.getString(10));
+					users[count].setFP2(rs.getString(11));
 					count++;
 				}
 				rs.close();
@@ -325,7 +327,7 @@ public User[] UserSelect(int dep) {
 		User[] users = null;
 		int count = 0;
 		for(int i = 0; i< DP.size();i++){
-		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID from dbo.Member where 1=1 ";
+		String sql = "select FirstName, MiddleName, LastName, UserID, ID, UserClass, Password, Department, CompanyID, FP1, FP2 from dbo.Member where 1=1 ";
 		
 		if(FN !=null){
 			if(!FN.equals("")){
@@ -381,6 +383,8 @@ public User[] UserSelect(int dep) {
 					userstmp.get(count).setPassWord(rs.getString(7));
 					userstmp.get(count).setDepartment(rs.getInt(8));
 					userstmp.get(count).setCompanyID(rs.getString(9));
+					userstmp.get(count).setFP1(rs.getString(10));
+					userstmp.get(count).setFP2(rs.getString(11));
 					count++;
 				}
 				rs.close();
