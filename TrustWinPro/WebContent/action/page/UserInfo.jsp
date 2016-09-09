@@ -139,7 +139,7 @@ $( ".tab>li>a" ).click(function() {
 });
 
 function displayInfo(z){
-	for(var i=1;i<8;i++){
+	for(var i=1;i<7;i++){
 		if(i==z){
 			document.getElementById("tab0"+i).parentNode.className = "on";
 			document.getElementById("tab"+i).style.display = "block";		
@@ -425,16 +425,19 @@ function AccessAdd(UserID){
 						<a href="#a" onclick="displayInfo(2)" id="tab02"><%=Lanfunc.language(lan, 33)%></a>
 					</li>
 				 	<li>
+						<a href="#a" id="space" ></a>
+					</li> 
+				 	<li>
 						<a href="#a" onclick="displayInfo(3)" id="tab03" >FP</a>
 					</li> 
 					<li>
+						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=Lanfunc.language(lan, 34)%></a>
+					</li> 
+					<li >
 						<a href="#a" onclick="displayInfo(5)" id="tab05" ><%=Lanfunc.language(lan, 36)%></a>
 					</li>
-					<li >
+					<li>
 						<a href="#a" onclick="displayInfo(6)" id="tab06" ><%=Lanfunc.language(lan, 37)%></a>
-					</li>
-					<li >
-						<a href="#a" onclick="displayInfo(7)" id="tab07" ><%=Lanfunc.language(lan, 34)%></a>
 					</li>
 				</ul>
 			<!-- </div> -->
@@ -582,8 +585,139 @@ function AccessAdd(UserID){
 					</div>
 				</div>
 			</div>
-			<div class="Device" id="tab4" style="display:none;">
-				
+			
+			<div class="Card" id="tab4">
+					
+				<div class="InfoBox">
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 55) %></div>
+						<div class="main"><input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um"><a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 56) %></div>
+						<div >
+							<select name="CardType" class="mainselect">
+								<option value = "0" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 0){out.println("selected");}}} %>>Standard 26 Bit</option>
+								<option value = "1" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 1){out.println("selected");}}} %>>Binary(Mifare 34 Bit)</option>
+								<option value = "2" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 2){out.println("selected");}}} %>>Keico 37bit</option>
+								<option value = "3" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 3){out.println("selected");}}} %>>SSMT 37bit</option>
+								<option value = "4" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 4){out.println("selected");}}} %>>Standard 36bit</option>
+								<option value = "5" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 5){out.println("selected");}}} %>>Corporation-1000 35bit</option>
+								<option value = "6" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 6){out.println("selected");}}} %>>PCSC 37bit</option>
+								<option value = "7" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 7){out.println("selected");}}} %>>Binary(Mifare 32 Bit)</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 57) %></div>
+						<div class="main"><input type="text" name="FacilityCode" value="<%=LangUtil.Empty(rs.getString(30)) %>" size="40um"></div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 58) %></div>
+						<div >
+							<select name="CardAttribute" class="mainselect">
+								<option value = "0" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 0){out.println("selected");}}} %>>Normal</option>
+								<option value = "1" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 1){out.println("selected");}}} %>>Handicapped</option>
+								<option value = "2" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 2){out.println("selected");}}} %>>Lost Card</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 59) %>1</div>
+						<div >
+							<select name="TimeZoneNo1" class="mainselect">
+								<option value = "0" >All</option>
+<%
+	TimeZone[] zones = Timfunc.TimeMenu();
+	AccessGroup[] access = Accfunc.AccessGroupMenu();
+	
+	for(int i = 0;zones.length>i;i++){	
+		if((zones[i].getTimeZoneNo()).equals(rs.getString(32))){
+
+%>
+		<option selected value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
+<%
+		}else{
+%>
+		<option value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
+<%
+		}	
+	}
+
+%>							
+								<option value = "257" >None Time</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 59) %>2</div>
+						<div >
+							<select name="TimeZoneNo2" class="mainselect">
+								<option value = "0" >All</option>
+<%
+	for(int i = 0;zones.length>i;i++){	
+		if((zones[i].getTimeZoneNo()).equals(rs.getString(33))){
+
+%>
+	<option selected value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
+<%
+	}else{
+%>
+	<option value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
+<%
+	}	
+}
+
+%>			
+								<option value = "257" >None Time</option>						
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 60) %></div>
+						<div >
+							<select name="UserMode" class="mainselect">
+								<option value = "0" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 0){out.println("selected");}}} %>>Normal User</option>
+								<option value = "1" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 1){out.println("selected");}}} %>>AnyOne(ID or Card) User</option>
+								<option value = "2" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 2){out.println("selected");}}} %>>Black List</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 61) %></div>
+						<div >
+							<select name="ReAccessLimitTime" class="mainselect">
+								<option value = "0" >None</option>
+<%
+	for(int i=1;i<128;i++){
+%>
+								<option value = "<%=i %>" <%if(rs.getString(39)!=null){if(rs.getString(39).equals(Integer.toString(i))){out.print("selected");}} %>><%=i%>Min</option>
+<%
+	}
+%>								
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 62) %></div>
+						<div >
+							<select name="UseSubSensor" class="mainselect">
+								<option value = "0" <%if(rs.getString(35)!=null){if(!rs.getString(35).equals("")){if(Integer.parseInt(rs.getString(35)) == 0){out.println("selected");}}} %>>No</option>
+								<option value = "1" <%if(rs.getString(35)!=null){if(!rs.getString(35).equals("")){if(Integer.parseInt(rs.getString(35)) == 1){out.println("selected");}}} %>>YES</option>
+							</select>
+						</div>
+					</div>
+					<div class="block">
+						<div class="header"><%=Lanfunc.language(lan, 63) %></div>
+						<div >
+							<select name="UseDuressFinger" class="mainselect">
+								<option value = "0" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 0){out.println("selected");}}} %>>No</option>
+								<option value = "1" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 1){out.println("selected");}}} %>>FingerPrint1</option>
+								<option value = "2" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 2){out.println("selected");}}} %>>FingerPrint2</option>
+							</select>
+						</div>
+					</div>
+				</div>		
 			</div>
 <%
 	Event[] eventG = null;
@@ -799,139 +933,7 @@ function AccessAdd(UserID){
 					</div>
 				</div>
 			</div>
-			<div class="Card" id="tab7">
-					
-				<div class="InfoBox">
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 55) %></div>
-						<div class="main"><input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um"><a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 56) %></div>
-						<div >
-							<select name="CardType" class="mainselect">
-								<option value = "0" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 0){out.println("selected");}}} %>>Standard 26 Bit</option>
-								<option value = "1" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 1){out.println("selected");}}} %>>Binary(Mifare 34 Bit)</option>
-								<option value = "2" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 2){out.println("selected");}}} %>>Keico 37bit</option>
-								<option value = "3" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 3){out.println("selected");}}} %>>SSMT 37bit</option>
-								<option value = "4" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 4){out.println("selected");}}} %>>Standard 36bit</option>
-								<option value = "5" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 5){out.println("selected");}}} %>>Corporation-1000 35bit</option>
-								<option value = "6" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 6){out.println("selected");}}} %>>PCSC 37bit</option>
-								<option value = "7" <%if(rs.getString(29)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(29)) == 7){out.println("selected");}}} %>>Binary(Mifare 32 Bit)</option>
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 57) %></div>
-						<div class="main"><input type="text" name="FacilityCode" value="<%=LangUtil.Empty(rs.getString(30)) %>" size="40um"></div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 58) %></div>
-						<div >
-							<select name="CardAttribute" class="mainselect">
-								<option value = "0" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 0){out.println("selected");}}} %>>Normal</option>
-								<option value = "1" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 1){out.println("selected");}}} %>>Handicapped</option>
-								<option value = "2" <%if(rs.getString(31)!=null){if(!rs.getString(29).equals("")){if(Integer.parseInt(rs.getString(31)) == 2){out.println("selected");}}} %>>Lost Card</option>
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 59) %>1</div>
-						<div >
-							<select name="TimeZoneNo1" class="mainselect">
-								<option value = "0" >All</option>
-<%
-	TimeZone[] zones = Timfunc.TimeMenu();
-	AccessGroup[] access = Accfunc.AccessGroupMenu();
-	
-	for(int i = 0;zones.length>i;i++){	
-		if((zones[i].getTimeZoneNo()).equals(rs.getString(32))){
-
-%>
-		<option selected value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
-<%
-		}else{
-%>
-		<option value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
-<%
-		}	
-	}
-
-%>							
-								<option value = "257" >None Time</option>
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 59) %>2</div>
-						<div >
-							<select name="TimeZoneNo2" class="mainselect">
-								<option value = "0" >All</option>
-<%
-	for(int i = 0;zones.length>i;i++){	
-		if((zones[i].getTimeZoneNo()).equals(rs.getString(33))){
-
-%>
-	<option selected value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
-<%
-	}else{
-%>
-	<option value = "<%=zones[i].getTimeZoneNo() %>" ><%=zones[i].getTimeZoneName() %></option>
-<%
-	}	
-}
-
-%>			
-								<option value = "257" >None Time</option>						
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 60) %></div>
-						<div >
-							<select name="UserMode" class="mainselect">
-								<option value = "0" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 0){out.println("selected");}}} %>>Normal User</option>
-								<option value = "1" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 1){out.println("selected");}}} %>>AnyOne(ID or Card) User</option>
-								<option value = "2" <%if(rs.getString(34)!=null){if(!rs.getString(34).equals("")){if(Integer.parseInt(rs.getString(34)) == 2){out.println("selected");}}} %>>Black List</option>
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 61) %></div>
-						<div >
-							<select name="ReAccessLimitTime" class="mainselect">
-								<option value = "0" >None</option>
-<%
-	for(int i=1;i<128;i++){
-%>
-								<option value = "<%=i %>" <%if(rs.getString(39)!=null){if(rs.getString(39).equals(Integer.toString(i))){out.print("selected");}} %>><%=i%>Min</option>
-<%
-	}
-%>								
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 62) %></div>
-						<div >
-							<select name="UseSubSensor" class="mainselect">
-								<option value = "0" <%if(rs.getString(35)!=null){if(!rs.getString(35).equals("")){if(Integer.parseInt(rs.getString(35)) == 0){out.println("selected");}}} %>>No</option>
-								<option value = "1" <%if(rs.getString(35)!=null){if(!rs.getString(35).equals("")){if(Integer.parseInt(rs.getString(35)) == 1){out.println("selected");}}} %>>YES</option>
-							</select>
-						</div>
-					</div>
-					<div class="block">
-						<div class="header"><%=Lanfunc.language(lan, 63) %></div>
-						<div >
-							<select name="UseDuressFinger" class="mainselect">
-								<option value = "0" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 0){out.println("selected");}}} %>>No</option>
-								<option value = "1" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 1){out.println("selected");}}} %>>FingerPrint1</option>
-								<option value = "2" <%if(rs.getString(36)!=null){if(!rs.getString(36).equals("")){if(Integer.parseInt(rs.getString(36)) == 2){out.println("selected");}}} %>>FingerPrint2</option>
-							</select>
-						</div>
-					</div>
-				</div>		
-			</div>
+			
 			
 			
 			
