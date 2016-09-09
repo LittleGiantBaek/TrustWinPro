@@ -770,6 +770,9 @@ table.ex1 a:active{color:#000;}
 .tab>li+li+li>a {left:200px;}
 .tab>li+li+li+li+li>a {left:300px;}
 .tab>li+li+li+li+li+li>a {left:400px;}
+.tab>li+li+li+li+li+li+li>a {left:500px;}
+.tab>li+li+li+li+li+li+li+li>a {left:600px;}
+.tab>li+li+li+li+li+li+li+li+li>a {left:700px;}
 .tab>li>div {height:0; overflow:hidden; position:absolute;}
 .tab>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
 

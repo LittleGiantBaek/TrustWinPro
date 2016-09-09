@@ -424,12 +424,9 @@ function AccessAdd(UserID){
 					<li>
 						<a href="#a" onclick="displayInfo(2)" id="tab02"><%=Lanfunc.language(lan, 33)%></a>
 					</li>
-					<li>
+				 	<li>
 						<a href="#a" onclick="displayInfo(3)" id="tab03" >FP</a>
-					</li>
-					<li  style="display:none;">
-						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=Lanfunc.language(lan, 35)%></a>
-					</li>
+					</li> 
 					<li>
 						<a href="#a" onclick="displayInfo(5)" id="tab05" ><%=Lanfunc.language(lan, 36)%></a>
 					</li>
