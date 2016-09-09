@@ -401,10 +401,23 @@ function userExcel(){
 					<%
 						for (int i = 0; i < users.length; i++) {
 					%>
-
+					
 					<tr>
+					<%
+							String FP1 = new String(users[i].getFP1());
+							String FP2 = new String(users[i].getFP2());
+							if((FP1.substring(0,1)).equals("N") & (FP2.substring(0,1)).equals("N")){
+					%>
+						<td class='date1'><input type="checkbox" disabled
+							value="'<%=users[i].getUserId()%>'" ></td>
+					<%
+							} else {
+					%>
 						<td class='date1'><input type="checkbox" name="check"
-							value="'<%=users[i].getUserId()%>'"></td>
+							value="'<%=users[i].getUserId()%>'" ></td>
+					<%  
+							}
+					%>	
 						<td class='date1 <%=statuss1%>'><a href="#a"
 							onclick="submitUser('User','<%=users[i].getUserId()%>')"><%=users[i].getFirstName()%></a></td>
 						<td class='date1 <%=statuss2%>'><a href="#a"

@@ -17,12 +17,14 @@
 %>
 
 									<colgroup>
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="10%">
+										<col width="5%">
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
@@ -42,6 +44,7 @@
 				out.println("<td>" + userlist[i].getFP2() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceName() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceID() + "</td>");
+				out.println("<td>" + userlist[i].getEtc() + "</td>");
 				out.println("</tr>");
 			}
 %>
