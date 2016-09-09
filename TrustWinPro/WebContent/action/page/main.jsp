@@ -19,7 +19,7 @@
 			</div>	
 		</div>
  	
-	<div style="position:relative; width:100%" >
+	<div style="width:100%;" >
 		<jsp:include page="/action/page/MainLog.jsp" flush="false"></jsp:include>
 	</div>	
 </div>

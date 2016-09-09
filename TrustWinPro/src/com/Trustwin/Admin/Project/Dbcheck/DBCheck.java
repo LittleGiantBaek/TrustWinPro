@@ -1461,7 +1461,7 @@ public class DBCheck {
 				}else{
 					Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 
-					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NULL DEFAULT ((1)),"
+					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL,"
 							+ "[deviceSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
 							+ "[userSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
 							+ "[eventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
