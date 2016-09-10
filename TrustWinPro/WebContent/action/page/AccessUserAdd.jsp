@@ -14,7 +14,6 @@
 	}else{
 		
 		String[] userIdx = request.getParameterValues("checkU");
-		System.out.println(userIdx.length);
 		String sql = "";
 
 		
