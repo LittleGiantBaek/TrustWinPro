@@ -14,15 +14,16 @@
 	}else{
 		
 		String[] userIdx = request.getParameterValues("checkU");
+		System.out.println(userIdx.length);
 		String sql = "";
-		
+
 		
 		for(int i=0;i<userIdx.length;i++){
-			User user = Userfunc.SelUser(userIdx[i]);
+			User user = Userfunc.SelUserID(userIdx[i]);
 			String department = catefunc.selCategory(user.getDepartment());
 			Connection conn = null;
 			
-			sql = "Delete from AccessUser where access = '" + idx + "' and userID='"+ user.getUserId()+ "';";
+			sql = "Delete from AccessUser where access = '" + idx + "' and userID='"+ userIdx[i]+ "';";
 			try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
@@ -35,7 +36,7 @@
 				e.printStackTrace();
 			}
 			
-			sql = "insert into AccessUser (userID, department, access ) values ('" + user.getUserId() + "', '" + department + "',"+idx+");";
+			sql = "insert into AccessUser (userID, department, access ) values ('" + userIdx[i] + "', '" + department + "',"+idx+");";
 			try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
