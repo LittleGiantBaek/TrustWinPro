@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -49,13 +49,18 @@
   }
   
 </style>
+
+<div class="dropdown" style="font-size:13px; width:100%; padding:2;">
+  <button onclick="statusWindowBar()" class="dropbtn" style="float:right">â€¢â€¢â€¢</button>
+</div>
+<!-- 
 <div  style="width:100%; height:6px; font-size:0;  padding:2;" >
 	<a href="#" onclick="statusWindowBar()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right"/></a>
-</div>
-<br>
+</div> -->
+
 <div>
 	<section style = "overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; width: 100%; ">
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; width: 100%; margin-top:5px;">
 	
 		<ul style = "height: 45px;
 		border-bottom: 1px solid #f2f2f2;
@@ -66,12 +71,12 @@
 		margin: 0;
 		padding: 0;
 		color: #5a5a5a;
-		font: normal 12px/0.9 Roboto, 'Nanum Gothic', 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;
+		font: normal 12px/0.9 Roboto, 'Nanum Gothic', 'ë‹ì›€', Dotum, 'êµ´ë¦¼', Gulim, sans-serif;
 		letter-spacing: 0.03em;">
 		</ul>
 		<div id="chart_div" >
 				  <section>
-				 	 <h1 style="margin:2rem;margin-left:10rem;">ÃâÀÔÀÎ¿ø</h1>
+				 	 <h1 style="margin:2rem;margin-left:10rem;">ì¶œìž…ì¸ì›</h1>
 				    <ul class="style-2" id="barChartData">
 				    </ul>
 				  </section>

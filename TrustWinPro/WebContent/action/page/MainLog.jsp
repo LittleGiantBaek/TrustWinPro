@@ -31,12 +31,14 @@ $(window).load(function() {
 
 function eventSort(){
 	document.getElementById("postitMainEventSort").style.display = "block";
+	document.getElementById("postitMainEventExcel").style.display = "none";
 	document.getElementById("postitMainEventSort").style.top = "200px";
 }
 
 function eventExcel(){
 	document.getElementById("postitMainEventExcel").style.display = "block";
-	//document.getElementById("postitMainEventExcel").style.top = "200px";
+	document.getElementById("postitMainEventSort").style.display = "none";
+	document.getElementById("postitMainEventExcel").style.top = "200px";
 }
 
 
@@ -203,7 +205,7 @@ $(document).attr("timer",setInterval(refresh,1000));
 	</div>
 </div>
 
-<div class="postitEventExcel" id="postitMainEventExcel" style="display:none; width:65%; top:0%; left:20%;">
+<div class="postitEventExcel" id="postitMainEventExcel" style="display:none; ">
 		<jsp:include page="MainEventExcel.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>

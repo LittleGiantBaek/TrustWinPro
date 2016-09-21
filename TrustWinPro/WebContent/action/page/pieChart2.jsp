@@ -93,17 +93,20 @@ section {
   float: right;
 }	
 </style>
-
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%> --%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 
-<div  style="width:99%; height:6px; font-size:0; line-height:2; padding:2;" >
-
-<a href="#a" onclick="statusWindowPie()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right;"/></a>
+<div class="dropdown" style="font-size:13px; width:99%; padding:2;  line-height:2;">
+  <button onclick="statusWindowPie()" class="dropbtn" style="float:right">•••</button>
 </div>
+<!-- <div  style="width:99%; height:6px; font-size:0; line-height:2; padding:2;" >
+<a href="#a" onclick="statusWindowPie()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right;"/></a>
+</div> -->
 <br>
 
 <div id="piechart_3d" style = "position: relative;

@@ -2309,7 +2309,7 @@ function AccessDelete(deviceID){
 
 <%
 		for(int i=0;i < userlist.length;i++){
-			if((userlist[i].getEtc()).equals(""))
+			if(!(userlist[i].getEtc()).equals(""))
 				out.println("<tr style='color:red;'>");
 			else
 				out.println("<tr>");
