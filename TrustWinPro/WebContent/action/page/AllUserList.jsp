@@ -400,11 +400,14 @@ function userExcel(){
 				<tbody>
 					<%
 						for (int i = 0; i < users.length; i++) {
+								if(i%2 == 0){
 					%>
-					
-					<tr>
-					
+						<tr>
 					<%
+								}else{
+					%>
+						<tr  class='odd'>
+					<%			}	
 							String FP1 = new String(users[i].getFP1());
 							String FP2 = new String(users[i].getFP2());
 							if((FP1.substring(0,1)).equals("N") & (FP2.substring(0,1)).equals("N")){

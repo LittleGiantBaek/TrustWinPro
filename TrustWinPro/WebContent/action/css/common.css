@@ -910,7 +910,7 @@ table.ex1 a:active{color:#000;}
 #TimeInfo .basic .block .header {height:20px;width:15%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;margin-bottom:10px;}
 #TimeInfo .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
 #TimeInfo .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
-#TimeInfo .week {width:95%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:350px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
+#TimeInfo .week {margin-left:12px;margin-top:10px;width:95%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:350px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
 #TimeInfo .week .Name {width:7%;float:left;padding:25px 6px 0 6px;}
 #TimeInfo .week .Group {width:90%;float:left;padding-top:5px;}
 #TimeInfo .buttom .image{float:right;padding-right:50px;}
@@ -936,7 +936,7 @@ table.ex1 a:active{color:#000;}
 #HoliInfo .basic .basicInfo .right {width:45%;float:right;position:relative;}
 #HoliInfo .basic .basicInfo .right .buttom{padding:5px 0;}
 #HoliInfo .basic .basicInfo .right .buttom .text {position:absolute;text-align: center;padding:13px 0 0 0;width:100px;}
-#HoliInfo .basic .dataAdd {width:96%;margin-top:10px;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:80px;}
+#HoliInfo .basic .dataAdd {width:96%;margin-left:12px;margin-top:10px;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:80px;}
 #HoliInfo .basic .dataAdd .text {width:10%;float:left;padding-left:40px;}
 #HoliInfo .basic .dataAdd .input {width:75%;float:left;}
 #HoliInfo .basic .dataAdd .buttom {width:15%;float:right;position:relative;}

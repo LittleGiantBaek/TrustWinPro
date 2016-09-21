@@ -60,7 +60,7 @@
 
 <div>
 	<section style = "overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; width: 100%; margin-top:5px;">
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; width: 100%; margin-top:3px;">
 	
 		<ul style = "height: 45px;
 		border-bottom: 1px solid #f2f2f2;
