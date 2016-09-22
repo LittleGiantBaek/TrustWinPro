@@ -36,7 +36,7 @@
 					$(".Loading").css("display","none"); 			        
 			    },   
 			    error:function(e){  
-			        alert(e.responseText);  
+			    	alertify.alert(e.responseText);  
 			    }  
 			}); 
 		}else{

@@ -230,7 +230,7 @@ function TimeZoneSubmit(){
 				
 				if(value > min && max > value){
 					if(document.getElementById(value).className.indexOf("dropped") < 0){
-						alert("<%=Lanfunc.language(lan, 93)%>");
+						alertify.alert("<%=Lanfunc.language(lan, 93)%>");
 						
 						location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time&num="+<%=times[0].getTimeZoneNo()%>;
 						return false;

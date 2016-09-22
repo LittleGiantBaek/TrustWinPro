@@ -182,15 +182,16 @@ function RedundancyEmployee(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=lanFunc.language(lan, 114)%>");
+
+	    		alertify.alert("<%=lanFunc.language(lan, 114)%>");
 	    		companyid = 0;
 	    	}else{
-	    		alert("<%=lanFunc.language(lan, 115)%>");
+	    		alertify.alert("<%=lanFunc.language(lan, 115)%>");
 	    		companyid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -203,15 +204,15 @@ function RedundancyCard(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=lanFunc.language(lan, 116)%>");
+	    		alertify.alert("<%=lanFunc.language(lan, 116)%>");
 	    		cardid = 0;
 	    	}else{
-	    		alert("<%=lanFunc.language(lan, 117)%>");
+	    		alertify.alert("<%=lanFunc.language(lan, 117)%>");
 	    		cardid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -266,7 +267,7 @@ function accessList(v){
 		    	$(".Loading").css("display","none");   
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
@@ -288,7 +289,7 @@ function AccessAdd(DeviceID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		});
     		
@@ -313,7 +314,7 @@ function AccessDelete(deviceID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		}); 
     	}
@@ -428,7 +429,7 @@ function AccessDelete(deviceID){
 						<a href="#a" onclick="displayInfo(9)" id="tab09" ><%=lanFunc.language(lan, 37)%></a>
 					</li>
 					<li >
-						<a href="#a" onclick="displayInfo(10)" id="tab010" ><%=lanFunc.language(lan, 190)%></a>
+						<a href="#a" onclick="displayInfo(10);EnrollUserList('S,D,U,0,0,<%=UID%>,E','<%=UID%>');" id="tab010" ><%=lanFunc.language(lan, 190)%></a>
 					</li>
 				</ul>
 			<div class="Basic" id="tab1" style="display:block">
@@ -2339,7 +2340,7 @@ function AccessDelete(deviceID){
 				</table>
 			</div>
 				<div class="InfoButtom" style="width:300px; float:left; margin-top:5px; margin-left:5px;position:absolute;">
-					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E','<%=UID%>');"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
+					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E','<%=UID%>');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 				</div>
 			</div>
 			

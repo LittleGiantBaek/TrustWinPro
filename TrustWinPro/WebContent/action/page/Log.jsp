@@ -19,7 +19,7 @@
 	String User = (String)request.getParameter("searchUser");
 	String Month = (String)request.getParameter("month");
 	
-	String Num = "40";
+	String Num = "50";
 	LanguageFunc Lanfunc = new LanguageFunc();
 	EventFunc Evtfunc = new EventFunc();
 	
@@ -178,7 +178,7 @@ function optionSubmit(){
 	    	document.getElementById("colorO").submit();
 	    },   
 	    error:function(e){  
-	        alert("optionSubmit error" + e.responseText);  
+	    	alertify.alert("optionSubmit error" + e.responseText);  
 	    }  
 	});  
 	
@@ -369,7 +369,7 @@ $(document).attr("timer",setInterval(refresh,1000));
     <a href="#" onclick="eventSort();">Sort</a>
   </div>
 </div>
-	<div  class="tablebor" id="logdata">
+	<div  class="tablebor" id="logdata" style="height: 690px; overflow-y: auto;">
 	</div>
 </div>
 

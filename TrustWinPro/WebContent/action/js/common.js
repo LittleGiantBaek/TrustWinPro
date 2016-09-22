@@ -318,21 +318,24 @@ function Enroll(value){
 }
 
 function EnrollUserList(value, deviceId){
+	 $(".Loading").css("display","block");
 	$.ajax({      
 	    type:"post",
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
 	    	if(args.trim() == 'success'){
-	    		alert("success");
+	    		alertify.alert("success");
 	    		$("#DeviceUserList").empty();
 	    		RefreshUserList(deviceId);
 	    	}else{
-	    		alert("fail");
+	    		alertify.alert("fail");
+		    	 $(".Loading").css("display","none");
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
+	    	 $(".Loading").css("display","none");
 	    }  
 	}); 
 }
@@ -345,9 +348,11 @@ function RefreshUserList(deviceID){
 	    data: "deviceID="+deviceID,
 	    success:function(args){
 	    	 $("#DeviceUserList").append(args);
+	    	 $(".Loading").css("display","none");
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
+	    	 $(".Loading").css("display","none");
 	    }  
 	}); 
 }

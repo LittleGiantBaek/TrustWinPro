@@ -44,7 +44,7 @@
 					$("#default_devicelist").css("display","none");    
 			    },   
 			    error:function(e){  
-			        alert("AcceessDeviceList Error!" + e.responseText);  
+			    	alertify.alert("AcceessDeviceList Error!" + e.responseText);  
 			    }  
 			}); 
 		}else{

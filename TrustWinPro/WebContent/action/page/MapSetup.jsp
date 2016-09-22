@@ -24,7 +24,7 @@ function addMapDevice(v){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -38,7 +38,7 @@ function delMapDevice(x){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -52,7 +52,7 @@ function updMapDevice(x,v){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
 	    }  
 	}); 
 }

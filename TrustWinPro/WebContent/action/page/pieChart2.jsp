@@ -214,7 +214,7 @@ function drawPiechart(){
 			createPie(".pieID.legend", ".pieID.pie");
 		},
 	     error : function(xhr, status, error) {
-             alert("Chart Error!");
+	    	 alertify.alert("Chart Error!");
       	}
 	});
 }
@@ -236,7 +236,7 @@ function statusPie()
         	   location.reload();
 	     },
 	     error : function(xhr, status, error) {
-                alert("Save Error!");
+	    	 alertify.alert("Save Error!");
          }
 	});
 }

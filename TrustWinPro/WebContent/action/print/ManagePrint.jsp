@@ -29,7 +29,7 @@ function UserList(form,FN,MN,LN,DP){
 		}
 	}
 	if(count==0){
-		alert("항목을 선택하세요");
+		alertify.alert("항목을 선택하세요");
 		return false;
 	}else{
 		$.ajax({      
@@ -40,7 +40,7 @@ function UserList(form,FN,MN,LN,DP){
 		        $("#UserList").html(args);      
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	}
@@ -56,7 +56,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		}
 	}
 	if(count==0){
-		alert("항목을 선택하세요");
+		alertify.alert("항목을 선택하세요");
 		return false;
 	}else{
 		$.ajax({   
@@ -67,7 +67,7 @@ function DeviceList(form,CN,Add,ID,UID){
 		        $("#DeviceList").html(args);     
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	}
@@ -85,7 +85,7 @@ function EventList(form,SDate,EDate,STime,ETime,Name,User,Top){
 		}
 	}
 	if(count==0){
-		alert("항목을 선택하세요");
+		alertify.alert("항목을 선택하세요");
 		return false;
 	}else{
 		$.ajax({      
@@ -96,7 +96,7 @@ function EventList(form,SDate,EDate,STime,ETime,Name,User,Top){
 		        $("#EventList").html(args);      
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	}

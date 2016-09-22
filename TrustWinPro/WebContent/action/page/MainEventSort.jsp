@@ -139,7 +139,7 @@ function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 		}
 	}
 	if(count==0){
-		alert("항목을 선택하세요");
+		alertify.alert("항목을 선택하세요");
 		return false;
 	}else{ 
 		$.ajax({      
@@ -151,7 +151,7 @@ function EventSorts2(form,SDate,EDate,STime,ETime,Name,User,Num){
 				statusEvent2();
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	 }

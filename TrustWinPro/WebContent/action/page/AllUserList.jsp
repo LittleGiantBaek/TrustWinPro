@@ -111,7 +111,7 @@ function checkedF(num,v){
 				$("#progressbar").text("0%");
 				AllEnroll(array, 0);
 		 } else {
-			 alert("Please Select User");
+			 alertify.alert("Please Select User");
 		 }
 	}else if(v==2){	// 삭제
 		 if(array.length !=0){	
@@ -122,7 +122,7 @@ function checkedF(num,v){
 				$("#progressbar").text("0%");
 				AllDelete(array, 0);
 		 } else {
-			 alert("Please Select User");
+			 alertify.alert("Please Select User");
 		 }
 	}else{	// 수신
 		if(num==count){
@@ -345,7 +345,7 @@ function userExcel(){
 	</div>
 	
 	<form action="" name="userInfo" id="userInfo" method="post">
-		<div class="tablebor" id="TrustPrint">
+		<div class="user_tablebor" id="TrustPrint">
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
 					<col width="8%">

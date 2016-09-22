@@ -54,7 +54,7 @@ jQuery(function($){
 			    	
 			    },   
 			    error:function(e){  
-			        alert("drag error" + e.responseText);  
+			    	alertify.alert("drag error" + e.responseText);  
 			    }  
 			}); 
 		});
@@ -78,7 +78,7 @@ function MapDeviceInfo(x,y){
 	    	}
 	    },   
 	    error:function(e){  
-	        alert("MapDeviceInfo error" + e.responseText);  
+	    	alertify.alert("MapDeviceInfo error" + e.responseText);  
 	    }  
 	}); 
 }
@@ -94,7 +94,7 @@ function mapDelete(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=Map";
 	    },   
 	    error:function(e){  
-	        alert("Map delete error !! : " + e.responseText);  
+	    	alertify.alert("Map delete error !! : " + e.responseText);  
 	    }  
 	}); 
 }

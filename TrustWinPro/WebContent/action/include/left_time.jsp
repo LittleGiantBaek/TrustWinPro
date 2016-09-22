@@ -51,7 +51,7 @@ function InsertTime(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -64,7 +64,7 @@ function InsertAccess(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -95,7 +95,7 @@ function TimeAdd(){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else if(document.getElementById("TimeAcess").value == 2){
@@ -106,11 +106,11 @@ function TimeAdd(){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
-		alert("<%=Lanfunc.language(lan, 181) %>");
+		alertify.alert("<%=Lanfunc.language(lan, 181) %>");
 	}
 }
 
@@ -124,7 +124,7 @@ function TimeDelete(v){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else if(document.getElementById("TimeAcess").value == 2){
@@ -136,7 +136,7 @@ function TimeDelete(v){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}

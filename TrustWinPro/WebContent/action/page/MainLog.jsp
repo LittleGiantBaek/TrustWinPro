@@ -8,7 +8,7 @@
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
 <%
 	
-	String Num = "20";
+	String Num = "25";
 	LanguageFunc Lanfunc = new LanguageFunc();
 	EventFunc Evtfunc = new EventFunc();
 	
@@ -199,7 +199,7 @@ $(document).attr("timer",setInterval(refresh,1000));
     <a href="#" onclick="eventSort();">Sort</a>
   </div>
 </div>
-	<div class = "tablebor" style = "width: 96%; margin:3px">
+	<div class = "tablebor" style = " width: 96%; margin:3px">
 		<div id="logdata">
 		</div>
 	</div>

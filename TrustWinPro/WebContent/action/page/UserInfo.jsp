@@ -42,7 +42,7 @@
 	if(!rs.next()){
 %>
 		<script>
-			alert("정보가 없습니다.");
+		alertify.alert("정보가 없습니다.");
 			location.replace("index.jsp?left=User");
 		</script>
 <%
@@ -161,15 +161,15 @@ function RedundancyEmployee(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=Lanfunc.language(lan, 114)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 114)%>");
 	    		companyid = 0;
 	    	}else{
-	    		alert("<%=Lanfunc.language(lan, 115)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 115)%>");
 	    		companyid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -181,15 +181,15 @@ function RedundancyCard(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=Lanfunc.language(lan, 116)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 116)%>");
 	    		cardid = 0;
 	    	}else{
-	    		alert("<%=Lanfunc.language(lan, 117)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 117)%>");
 	    		cardid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -226,7 +226,7 @@ function deviceList(v){
 				$(".Loading").css("display","none");   
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
@@ -248,7 +248,7 @@ function accessList(v){
 		    	$(".Loading").css("display","none");   
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
@@ -290,7 +290,7 @@ function AccessDelete(UserID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		}); 
     	}
@@ -314,7 +314,7 @@ function AccessAdd(UserID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		});
     		

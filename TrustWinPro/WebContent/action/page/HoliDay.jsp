@@ -20,7 +20,7 @@ function HoliDayAdd(){
 	var name = document.getElementById("AddName").value;
 	var date = document.getElementById("AddDate").value;
 	if(name == "" || date == ""){
-		alert("<%=Lanfunc.language(lan, 118) %>");
+		alertify.alert("<%=Lanfunc.language(lan, 118) %>");
 	}else{
 		var used = 1;
 		$.ajax({      
@@ -31,7 +31,7 @@ function HoliDayAdd(){
 		    	document.getElementById("Holiday").submit();
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	}
