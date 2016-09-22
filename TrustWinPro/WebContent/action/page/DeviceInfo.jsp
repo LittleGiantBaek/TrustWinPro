@@ -220,7 +220,7 @@ function RedundancyCard(num,userid){
 <%-- 
 function DeviceDelete(){
 	$(".Loading").css("display","block");
-	var del = confirm("<%=lanFunc.language(lan, 103)%>");
+	var del = alertify.confirm("<%=lanFunc.language(lan, 103)%>");
 	if(del){
 		deviceDelete.submit();
 	}else{}

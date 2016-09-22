@@ -125,7 +125,18 @@ function checkedF(num,v){
 			 alertify.alert("Please Select User");
 		 }
 	}else{	// 수신
-		if(num==count){
+		 if(array.length !=0){	
+				$(".Loading").css("display","block");
+				$(".progress_meter").css("display","block");
+				$("#progressbar").css("width","1%");
+				$("#progressbar").val("1");
+				$("#progressbar").text("0%");
+				AllReceive(array, 0);
+		 } else {
+			 alertify.alert("Please Select User");
+		 }
+	
+		/* if(num==count){
 			Recive('S,U,R,0,E');
 		}else{
 			var value = 'S,U,R,1,';
@@ -134,7 +145,7 @@ function checkedF(num,v){
 			}
 			value = value + 'E';
 			Recive(value);
-		}
+		} */
 	}
 }
 

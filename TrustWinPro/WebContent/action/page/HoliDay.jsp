@@ -141,9 +141,20 @@ function allCheck(){
 			<div class="input"><input type="text" name="AddName" id="AddName" value="" size="40um" ></div>
 			<div class="text"><%=Lanfunc.language(lan, 71) %></div>
 			<div class="input"><input type="text" name="AddDate" id="AddDate" readonly="readOnly" value="" size="40um" onclick="fnPopUpCalendar(AddDate,AddDate,'yyyy-mm-dd')"></div>
-			<div class="buttom" ><a href="#content" onclick="HoliDayAdd();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:80px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 90) %></span></a></div>
+		<%-- 	<div class="buttom" >	<a href="#content" onclick="HoliDayAdd();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:80px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 90) %></span></a>	</div>			 --%>
+			<div class="buttom" >	<a href="#DeviceInfo" onclick="HoliDayAdd();" class="button gray"  style=""><span class="icon-check" ></span><%=Lanfunc.language(lan, 90) %></a>	</div>
+			
+				
 		</div>
 	</div>
+	
+	<div class="buttonBox">
+			<div class="bottom" style="padding-right: 50px;padding-left: 10px;">
+					<a href="#" title="Send" onclick="HoliSocket('S,D,H,H,H,H,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+
+			</div>
+				
+		</div>
 </div>
 <form name="AllDelHoliday" id="AllDelHoliday" method="post" action="page/HoliDayAllDel.jsp" >
 </form>

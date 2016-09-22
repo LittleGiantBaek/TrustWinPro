@@ -27,10 +27,31 @@
 				pstmt.executeUpdate(sql);
 				sql = "Delete from AccessDevice where device= '" + id + "'";
 				pstmt.executeUpdate(sql);
+					
+				sql = "select * from MainChart";
+				ResultSet rs = pstmt.executeQuery(sql);
+				String DeAc = "";
+				String DeStatus = "";
+				if(rs.next()){
+					DeAc = rs.getString(1);
+					DeStatus = rs.getString(2);
+				}
+				
+				System.out.println(DeAc + "  " + DeStatus);	
+				DeAc = DeAc.replace(","+ id + ",",",");
+				DeStatus = DeStatus.replace(","+ id + ",",",");
+				System.out.println(DeAc + "  " + DeStatus);	
+				
+				sql = "update MainChart set DeAC = '"+DeAc+"', DeStatus ='"+DeStatus+"' where idx ='1'";
+				pstmt.executeUpdate(sql);
+				
+				rs.close();
 				conn.close();
+				
 		}catch(Exception e){
 			out.println("DB error!!.");
 			e.printStackTrace();
 		}	
+
 		
 %>

@@ -208,7 +208,7 @@ function UserInfoSubmit(){
 }
 <%-- 
 function UserDelete(){
-	var del = confirm("<%=Lanfunc.language(lan, 103)%>")
+	var del = alertify.confirm("<%=Lanfunc.language(lan, 103)%>")
 	if(del){
 		userDelete.submit();
 	}
