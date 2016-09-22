@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="com.Trustwin.Admin.Project.Device.*" %>
 <%@ page import="com.Trustwin.Admin.Project.Event.*" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -32,7 +32,7 @@ function drawChart(){
 						"labels": labels2,
 						"color": "blue"
 					},
-					"title": "ÃâÀÔ ÀÎ¿ø",
+					"title": "ì¶œì… ì¸ì›",
 					"noY": false,
 					"height": "300px",
 					"width": "1300px",
@@ -83,10 +83,12 @@ function statusWindowBar(){
 
 </script>
 
-
-<div  style="width:100%; height:6px; font-size:0;  padding:2;" >
-	<a href="#" onclick="statusWindowBar()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right"/></a>
+<div class="dropdown" style="font-size:13px; width:100%; padding:2;">
+  <button onclick="statusWindowBar()" class="dropbtn" style="float:right">â€¢â€¢â€¢</button>
 </div>
+<!-- <div  style="width:100%; height:6px; font-size:0;  padding:2;" >
+	<a href="#" onclick="statusWindowBar()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right"/></a>
+</div> -->
 <br>
 <div>
 	<section style = "overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
@@ -101,7 +103,7 @@ function statusWindowBar(){
 		margin: 0;
 		padding: 0;
 		color: #5a5a5a;
-		font: normal 12px/0.9 Roboto, 'Nanum Gothic', 'µ¸¿ò', Dotum, '±¼¸²', Gulim, sans-serif;
+		font: normal 12px/0.9 Roboto, 'Nanum Gothic', 'ë‹ì›€', Dotum, 'êµ´ë¦¼', Gulim, sans-serif;
 		letter-spacing: 0.03em;">
 		</ul>
 

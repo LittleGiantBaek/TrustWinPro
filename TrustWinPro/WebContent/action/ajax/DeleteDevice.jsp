@@ -37,7 +37,7 @@
 					DeStatus = rs.getString(2);
 				}
 				
-				System.out.println(DeAc + "  " + DeStatus);	
+				DeAc = DeAc.replace(","+ id + ",",",");
 				DeStatus = DeStatus.replace(","+ id + ",",",");
 				
 				sql = "update MainChart set DeAC = '"+DeAc+"', DeStatus ='"+DeStatus+"' where idx ='1'";
