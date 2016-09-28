@@ -7,6 +7,14 @@
 <%@ page import="com.Trustwin.Admin.Project.Map.*" %>
 <script type="text/javascript">
 </script>
+<%	 
+String temp = "";
+String temp1 = "";
+String temp2 = "";
+	temp = (String)request.getAttribute("SelectedContent");
+	temp1 = (String)request.getAttribute("left");
+	temp2 = (String)request.getAttribute("content");
+%>
 <section class="contents ng-scope" id="contents">
 
     <!-- title -->

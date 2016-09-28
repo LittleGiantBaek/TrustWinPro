@@ -34,7 +34,7 @@ function drawChart(){
 					},
 					"title": "출입 인원",
 					"noY": false,
-					"height": "300px",
+					"height": "200px",
 					"width": "1300px",
 					"background": "#FFFFFF",
 				};
@@ -63,8 +63,7 @@ function statusBar()
          data: 'val='+val,
          cache: false,
          success: function(res) {
-      	  /* alert("StatusBar : " +val); */
-      	  location.reload();
+      	  	  location.reload();
         	  document.getElementById("barChart").submit();
          }
     });
@@ -86,10 +85,6 @@ function statusWindowBar(){
 <div class="dropdown" style="font-size:13px; width:100%; padding:2;">
   <button onclick="statusWindowBar()" class="dropbtn" style="float:right">•••</button>
 </div>
-<!-- <div  style="width:100%; height:6px; font-size:0;  padding:2;" >
-	<a href="#" onclick="statusWindowBar()"><input type="image" src="/TrustWinPro/action/image/setting.png" style="width:20px; height:20px; float:right"/></a>
-</div> -->
-<br>
 <div>
 	<section style = "overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
 		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);background: #fff; width: 100%; ">

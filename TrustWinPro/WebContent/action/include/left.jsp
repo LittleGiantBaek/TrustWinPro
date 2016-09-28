@@ -754,6 +754,10 @@
 %>
 		<jsp:include page="left_Monitoring.jsp" flush="false"></jsp:include>
 <%
+	}else if(left.equals("Setting")){
+%>
+		<jsp:include page="left_Setting.jsp" flush="false"></jsp:include>
+<%	
 	}else{
 %>
 		<jsp:include page="left_time.jsp" flush="false"></jsp:include>
