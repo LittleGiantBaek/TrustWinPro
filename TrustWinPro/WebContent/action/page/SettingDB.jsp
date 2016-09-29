@@ -52,7 +52,11 @@
 					<p></p>
 					<input type="hidden" value="Setting" name="left" /> <input type="hidden" value=Setting_s name="content" />
 					<p>
-						<div class="headerji">Server IP	:</div>
+						<div class="headerji">DataBase Name :</div>
+						<input type="text" name="Server_port" class="inputt" value="<%=Port%>" />
+					</p>
+					<p>
+						<div class="headerji">DataBase IP	:</div>
 						<input type="text" name="Server_ip" class="inputt" value="<%=ServerIP%>" />
 					</p>
 					<p>
@@ -70,7 +74,6 @@
 %>
 <script>
 alertify.alert("권한이 없습니다.");
-	history.back();
 </script>
 <%
 	}

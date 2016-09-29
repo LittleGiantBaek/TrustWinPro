@@ -195,7 +195,7 @@ $( ".tab3>li>a" ).click(function() {
 				</div>
 				</form>
 			
-			<div class="buttom">
+			<div class="buttom bt_access">
 				<div class="image">
 					<a href="#DeviceInfo" onclick="DeviceAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 					<a href="#DeviceInfo" onclick="DeviceDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
@@ -243,7 +243,7 @@ $( ".tab3>li>a" ).click(function() {
 					</table>
 				</form>
 			</div>
-			<div class="buttom">
+			<div class="buttom bt_access">
 				<div class="image">
 					<a href="#DeviceInfo" onclick="UserAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 					<a href="#DeviceInfo" onclick="UserDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
@@ -253,7 +253,7 @@ $( ".tab3>li>a" ).click(function() {
 	</div>
 </div>
 
-	<div class="mainButtom">
+	<div class="mainButtom bt_access">
 		<div class="image">
 			<a href="#DeviceInfo" onclick="GroupUpdate();"class="button gray" ><span class="icon-check"></span>Save</a>
 			<a href="#DeviceInfo" onclick="GroupDel();"class="button gray" ><span class="icon-delete"></span>Remove</a>

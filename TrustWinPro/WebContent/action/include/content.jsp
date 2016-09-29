@@ -88,11 +88,11 @@
 <%	
 	}else if(content.equals("Setting")){
 %>
-		<jsp:include page="/action/page/Setting.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/SettingAccount2.jsp" flush="false"></jsp:include>
 <%	
 	}else if(content.equals("Setting_a")){
 %>
-		<jsp:include page="/action/page/SettingAccount.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/SettingAccount2.jsp" flush="false"></jsp:include>
 <%	
 	}else if(content.equals("Setting_s")){
 %>

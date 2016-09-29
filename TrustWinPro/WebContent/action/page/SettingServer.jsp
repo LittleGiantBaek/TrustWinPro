@@ -17,21 +17,33 @@
 	String ServerIP = (String) request.getParameter("Server_ip");
 	String Port = (String) request.getParameter("Server_port");
 
-	if (ServerIP != null) {
-		System.out.println(ServerIP);
-	}
-	if (Port != null) {
-		System.out.println(Port);
-	}
-	
-	
+
 	Connection conn = null;
-	String sql = "SELECT ServerIP, Port FROM SocketServer";
+	String sql = "";
+	if (ServerIP != null && Port != null) {
+		sql = "update SocketServer set ServerIP = '"+ ServerIP+"' , Port = '" + Port + "'";
+		try {
+			Context init = new InitialContext();
+			DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
+			conn = ds.getConnection();
+			Statement pstmt = conn.createStatement();
+			pstmt.executeUpdate(sql);
+			
+			pstmt.close();
+			conn.close();
+		}catch(Exception e){
+			out.println("DB error!!.");
+			e.printStackTrace();
+		}
+	}
+	
+	sql = "SELECT ServerIP, Port FROM SocketServer";
 	try {
 		Context init = new InitialContext();
 		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/MssqlDB");
 		conn = ds.getConnection();
 		Statement pstmt = conn.createStatement();
+		
 		ResultSet rs = pstmt.executeQuery(sql);
 		if(rs.next()){
 			ServerIP = rs.getString(1);
@@ -79,7 +91,6 @@
 %>
 <script>
 alertify.alert("권한이 없습니다.");
-	history.back();
 </script>
 <%
 	}

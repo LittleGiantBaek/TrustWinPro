@@ -128,8 +128,8 @@ function allCheck(){
 			</form>
 
 			<div class="right">
-				<div class="buttom"><a href="#content" onclick="HoliDayDel();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;"><span style="position:absolute;left:35px;top:15px;"><%=Lanfunc.language(lan, 88) %></span></a></div>
-				<div class="buttom"><a href="#content" onclick="HoliDayModify();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 89) %></span></a></div>
+				<div class="buttom bt_access"><a href="#content" onclick="HoliDayDel();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;"><span style="position:absolute;left:35px;top:15px;"><%=Lanfunc.language(lan, 88) %></span></a></div>
+				<div class="buttom bt_access"><a href="#content" onclick="HoliDayModify();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 89) %></span></a></div>
 			</div>
 		</div>
 </section>
@@ -142,14 +142,14 @@ function allCheck(){
 			<div class="text"><%=Lanfunc.language(lan, 71) %></div>
 			<div class="input"><input type="text" name="AddDate" id="AddDate" readonly="readOnly" value="" size="40um" onclick="fnPopUpCalendar(AddDate,AddDate,'yyyy-mm-dd')"></div>
 		<%-- 	<div class="buttom" >	<a href="#content" onclick="HoliDayAdd();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:80px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 90) %></span></a>	</div>			 --%>
-			<div class="buttom" >	<a href="#DeviceInfo" onclick="HoliDayAdd();" class="button gray"  style=""><span class="icon-check" ></span><%=Lanfunc.language(lan, 90) %></a>	</div>
+			<div class="buttom bt_access" >	<a href="#DeviceInfo" onclick="HoliDayAdd();" class="button gray"  style=""><span class="icon-check" ></span><%=Lanfunc.language(lan, 90) %></a>	</div>
 			
 				
 		</div>
 	</div>
 	
 	<div class="buttonBox">
-			<div class="bottom" style="padding-right: 50px;padding-left: 10px;">
+			<div class="bottom bt_access" style="padding-right: 50px;padding-left: 10px;">
 					<a href="#" title="Send" onclick="HoliSocket('S,D,H,H,H,H,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 
 			</div>

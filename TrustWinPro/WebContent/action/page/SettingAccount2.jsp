@@ -8,7 +8,6 @@
 <%@ page import="com.Trustwin.Admin.Project.User.*"%>
 
 <%
-
 	CategoryFunc Catefunc = new CategoryFunc();
 	LanguageFunc Lanfunc = new LanguageFunc();
 	UserFunc Userfunc = new UserFunc();
@@ -74,34 +73,46 @@
 <%
 	if (userClass.equals("128")) {
 %>
-<div class="contents ng-scope" id="contents">
-	<article class="titleSubAct">
-		<!-- title -->
-		<div class="titleGroup">
-			<button ng-click="backSetting()" class="btnBack"></button>
-			<h2 class="cntTitle">
-				<b ng-label="account.account">계정</b>
-			</h2>
-		</div>
-	</article>
-	<article class="formBox">
-		<div class="cnt">
-			<h2>사용자 권한</h2>
+	<div>
+		<section class="sectionji">
+			<ul class="ulji">
+			</ul>
 			<div>
-				<form name="Account" id="Account" method="post">
-					<h5>Device</h5>
-					<input type="radio" name="DevAccount" value="see" <%=Account[0].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="DevAccount" value="edit" <%=Account[0].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="DevAccount" value="hide" <%=Account[0].equals("3") ? "checked" : ""%>> 숨김 <br> <br>
-					<h5>User</h5>
-					<input type="radio" name="UserAccount" value="see" <%=Account[1].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="UserAccount" value="edit" <%=Account[1].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="UserAccount" value="hide" <%=Account[1].equals("3") ? "checked" : ""%>> 숨김 <br> <br>
-					<h5>AccessControl</h5>
-					<input type="radio" name="ACAccount" value="see" <%=Account[2].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="ACAccount" value="edit" <%=Account[2].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="ACAccount" value="hide" <%=Account[2].equals("3") ? "checked" : ""%>> 숨김 <br> <br>
-					<h5>Monitoring</h5>
-					<input type="radio" name="MonitoringAccount" value="see" <%=Account[3].equals("1") ? "checked" : ""%>> 보기 <input type="radio" name="MonitoringAccount" value="edit" <%=Account[3].equals("2") ? "checked" : ""%>> 수정 <input type="radio" name="MonitoringAccount" value="hide" <%=Account[3].equals("3") ? "checked" : ""%>> 숨김 <br> <br> 
-					<input type="button" value="저장" onclick="SetAccount();">
+				<form action="/TrustWinPro/action/index.jsp" name="Account" method="post" style="padding-left:5%;">
+					<p></p>
+					<input type="hidden" value="Setting" name="left" /> <input type="hidden" value=Setting_s name="content" />
+					<p>
+						<div class="headerji">Device :</div>
+						<input type="radio" name="DevAccount" value="see" <%=Account[0].equals("1") ? "checked" : ""%>> 보기 
+						<input type="radio" name="DevAccount" value="edit" <%=Account[0].equals("2") ? "checked" : ""%>> 수정
+						<%--  <input type="radio" name="DevAccount" value="hide" <%=Account[0].equals("3") ? "checked" : ""%>> 숨김 --%> 
+					</p>
+					<br>
+					<p>
+						<div class="headerji">User  :</div>
+						<input type="radio" name="UserAccount" value="see" <%=Account[1].equals("1") ? "checked" : ""%>> 보기 
+						<input type="radio" name="UserAccount" value="edit" <%=Account[1].equals("2") ? "checked" : ""%>> 수정 
+						<%--  <input type="radio" name="UserAccount" value="hide" <%=Account[1].equals("3") ? "checked" : ""%>> 숨김 <br> <br> --%>
+					</p>
+					<br>
+					<p>
+						<div class="headerji">Access Control :</div>
+						<input type="radio" name="ACAccount" value="see" <%=Account[2].equals("1") ? "checked" : ""%>> 보기 
+						<input type="radio" name="ACAccount" value="edit" <%=Account[2].equals("2") ? "checked" : ""%>> 수정 
+						<%-- <input type="radio" name="ACAccount" value="hide" <%=Account[2].equals("3") ? "checked" : ""%>> 숨김 <br> <br> --%>
+					</p>
+					<br>
+					<p>
+						<div class="headerji">Monitoring : </div>
+						<input type="radio" name="MonitoringAccount" value="see" <%=Account[3].equals("1") ? "checked" : ""%>> 보기
+						 <input type="radio" name="MonitoringAccount" value="edit" <%=Account[3].equals("2") ? "checked" : ""%>> 수정 
+						 <%-- <input type="radio" name="MonitoringAccount" value="hide" <%=Account[3].equals("3") ? "checked" : ""%>> 숨김 <br> <br> --%> 
+					</p>
+					<input type="button" onclick="SetAccount();" value="Save" class="ct-btn white" style="float: right; margin-right:3rem;" />
 				</form>
 			</div>
-	</article>
-</div>
+		</section>
+	</div>
 <%
 	} else {
 %>

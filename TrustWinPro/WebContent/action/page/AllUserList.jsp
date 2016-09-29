@@ -515,7 +515,7 @@ function userExcel(){
 		</div>
 
 
-		<div class="bottom">
+		<div class="bottom bt_user">
 			<a href="#" title="Send" onclick="checkedF(<%=users.length%>,1);"
 				class="button yellow"><span style="margin-left: 0px;"><img
 					src="/TrustWinPro/action/image/interface/soket_logo.png"

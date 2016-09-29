@@ -59,15 +59,9 @@ $(".Loading").css("display","none");
 </div>
 		<%
 			if(userClass != null && !userClass.equals("128")){
-		%>
-			<script type = "text/javascript">
-			$(".bottom").hide(); //Device Enroll button
-			$(".DeviceButtom").hide();
-			$(".InfoButtom").hide();
-			$(".UserButtom").hide();
-			$(".buttom").hide();
-			$(".mainButtom").hide();
-			</script>
+				
+		%>    
+   			<jsp:include page="./include/Authentication.jsp" flush="false"></jsp:include>
 		<%
 		}
 		%>

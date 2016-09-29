@@ -63,7 +63,7 @@
 	</script>
 <div class="Monitoring">
 	<ul>
-		<li><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a  href="#in" id="MapTopID"  onclick="MapTop();">Map</a><a class = "buttom" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
+		<li><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a  href="#in" id="MapTopID"  onclick="MapTop();">Map</a><a class = "buttom bt_monitoring" href="#a" onclick="addMap();" onkeypress="addMap();">+</a>
 			<ul>
 <%	
 	for(int i = 0;i<maps.length;i++){	

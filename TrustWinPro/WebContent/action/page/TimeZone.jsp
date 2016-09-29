@@ -849,7 +849,7 @@ function TimeZoneDelete(v){
 
 
 		<div class="buttonBox">
-			<div class="bottom" style="padding-right: 50px;padding-left: 10px;">
+			<div class="bottom bt_access" style="padding-right: 50px;padding-left: 10px;">
 					<a href="#" title="Send" onclick="TimeSocket('S,D,T,T,T,T,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 					
 					<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"class="button gray" style="float: right"><span class="icon-delete"  ></span>Remove</a>

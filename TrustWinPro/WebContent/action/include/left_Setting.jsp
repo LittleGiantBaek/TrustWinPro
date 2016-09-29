@@ -8,6 +8,8 @@
 	LanguageFunc Lanfunc = new LanguageFunc();
 	String lan = (String)session.getAttribute("nation");
 	String select_setting = (String)request.getParameter("SelectedContent");
+	if(select_setting == null)
+		select_setting = "a";
 %>
 <script type="text/javascript">
 	function Settingsubmit(v,i){

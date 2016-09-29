@@ -769,7 +769,7 @@ function AccessDelete(deviceID){
 					<a href="#UserInfo" onclick="">get</a>/
 					<a href="#UserInfo" onclick="">set</a>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:610px; position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:610px; position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -890,7 +890,7 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:150px;position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:150px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,2,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,2,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -1139,7 +1139,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,3,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,3,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -1457,7 +1457,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:55px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,4,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,4,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -1661,7 +1661,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom"  style="width:300px; float:left; margin-top:183px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom bt_device"  style="width:300px; float:left; margin-top:183px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,5,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,5,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -1910,7 +1910,7 @@ function AccessDelete(deviceID){
 						</table>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:215px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:215px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,6,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,6,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -2024,7 +2024,7 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:250px; position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:250px; position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,7,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Delete" onclick="Delete('S,D,D,2,7,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
@@ -2239,7 +2239,7 @@ function AccessDelete(deviceID){
 					</td>
 				</tr>
 				</table>
-					<div class="buttom"  align="right">
+					<div class="buttom bt_device"  align="right">
 						<div class="image">
 							<a href="#" onclick="AccessAdd(<%= Integer.parseInt(UID)%>);"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 							<a href="#" onclick="AccessDelete(<%= Integer.parseInt(UID)%>);""><img src="/TrustWinPro/action/image/interface/delete.png"></a>
@@ -2339,14 +2339,14 @@ function AccessDelete(deviceID){
 					</tr>
 				</table>
 			</div>
-				<div class="InfoButtom" style="width:300px; float:left; margin-top:5px; margin-left:5px;position:absolute;">
+				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:5px; margin-left:5px;position:absolute;">
 					<a href="#" title="Send" onclick="EnrollUserList('S,D,U,0,0,<%=UID%>,E','<%=UID%>');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
 				</div>
 			</div>
 			
 			
 		
-			<div class="InfoButtom" >
+			<div class="InfoButtom bt_device" >
 				<a href="#DeviceInfo" onclick="DeviceInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 				<a href="#DeviceInfo" onclick="DeviceDelete('<%= Integer.parseInt(UID)%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>

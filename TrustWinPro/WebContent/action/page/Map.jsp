@@ -122,7 +122,7 @@ function mapDelete(){
 %>
 		<img src="<%=imageFile%>" class="mapImage">
 	</div>
-	<div class="bottom" >
+	<div class="bottom bt_monitoring" >
 		<a href="#a" title="Send" onclick="setupMove()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>MapSetup</a>
 		<a href="#" title="Delete" onclick="mapDelete()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>Delete</a>
 	</div>

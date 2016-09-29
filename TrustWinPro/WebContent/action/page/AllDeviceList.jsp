@@ -400,7 +400,7 @@ function checkedF(num,v){
 
 		</div>
 
-		<div class="bottom">
+		<div class="bottom bt_device">
 			<a href="#" title="Send"
 				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 			<a href="#" title="Delete"

@@ -3,7 +3,7 @@
     
 <link href="/TrustWinPro/action/css/contextmenu.css" rel="stylesheet" type="text/css" />
 
-	<div class="contextmenu conDeviceMenu">
+  <div class="contextmenu conDeviceMenu">
 	  <ul>
 	    <li class="menuitem">Print</li>
   	    <li class="menuitem">Excel</li>
@@ -12,7 +12,7 @@
   </div>
 
 
-  <div class="contextmenu conDeviceGroup">
+  <div class="contextmenu conDeviceGroup bt_device">
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
   	    <li class="menuitem">Delete Device Group</li>
@@ -21,7 +21,7 @@
 	  </ul>
   </div>
   
-    <div class="contextmenu conDeviceMemberGroup">
+    <div class="contextmenu conDeviceMemberGroup bt_device">
 	 <ul>
 	   <li class="menuitem">Delete Device Group</li>
 	   <li class="divider"></li>
@@ -30,7 +30,7 @@
 	 </ul>
      </div>  
      
-       <div class="contextmenu conDevicesubGroup">
+       <div class="contextmenu conDevicesubGroup bt_device">
 	 <ul>
 	   <li class="menuitem">Add Device Group</li>
 	   <li class="menuitem">Delete Device Group</li>
@@ -40,7 +40,7 @@
 	 </ul>
      </div>  
      
-       <div class="contextmenu conDevicetotal">
+       <div class="contextmenu conDevicetotal bt_device">
 	  <ul>
 	    <li class="menuitem">Add Device Group</li>
   	    <li class="menuitem">Delete Device Group</li>
@@ -50,7 +50,7 @@
 	  </ul>
  	 </div>
   
-     <div class="contextmenu conDeviceDelete">
+     <div class="contextmenu conDeviceDelete bt_device">
 	 <ul>
 	   <li class="menuitem">Delete Device</li>
 	   </ul>
@@ -58,7 +58,7 @@
   
     
  <!-- User -->
-  <div class="contextmenu conUserGroup">
+  <div class="contextmenu conUserGroup bt_user">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
@@ -66,13 +66,13 @@
 	   <li class="menuitem">Edit Name</li>
 	 </ul>
 	 </div>
-         <div class="contextmenu conUserDelete">
+         <div class="contextmenu conUserDelete bt_user">
 	 <ul>
 	   <li class="menuitem">Delete User</li>
 	   </ul>
      </div>
      
-  <div class="contextmenu conUserTotal">
+  <div class="contextmenu conUserTotal bt_user">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
@@ -81,7 +81,7 @@
 	   <li class="menuitem">Delete User</li>
 	 </ul>
     </div>
-  <div class="contextmenu conUsersubGroup">
+  <div class="contextmenu conUsersubGroup bt_user">
 	 <ul>
 	   <li class="menuitem">Add User Group</li>
 	   <li class="menuitem">Delete User Group</li>
@@ -91,7 +91,7 @@
 	 </ul>
      </div>     
   
- <div class="contextmenu conUserMemberGroup">
+ <div class="contextmenu conUserMemberGroup bt_user">
 	 <ul>
 	   <li class="menuitem">Delete User Group</li>
 	   <li class="divider"></li>
@@ -101,24 +101,24 @@
      </div> 
        
 <!-- Access Group -->
-  <div class="contextmenu conAccessGroupAdd">
+  <div class="contextmenu conAccessGroupAdd bt_access">
 	 <ul>
 	   <li class="menuitem">Add Access Group</li>
 	 </ul>
   </div>	
-  <div class="contextmenu conAccessGroupDelete">
+  <div class="contextmenu conAccessGroupDelete bt_access">
 	 <ul>
 	   <li class="menuitem">Delete Access Group</li>
 	 </ul>
   </div>	
    
   
-  <div class="contextmenu conTimeZoneAdd">
+  <div class="contextmenu conTimeZoneAdd bt_access">
 	 <ul>
 	   <li class="menuitem">Add TimeZone</li>
 	 </ul>
 	</div>
-  <div class="contextmenu conTimeZoneDelete">
+  <div class="contextmenu conTimeZoneDelete bt_access">
 	 <ul>
 	   <li class="menuitem">Delete TimeZone</li>
 	 </ul>
@@ -126,13 +126,13 @@
   
   
 <!-- Monitoring --> 
-  <div class="contextmenu conMonitoringAdd">
+  <div class="contextmenu conMonitoringAdd bt_monitoring">
 	 <ul>
 	   <li class="menuitem">Add Map</li>
 	 </ul>
     </div>
      
-  <div class="contextmenu conMonitoringDelete">
+  <div class="contextmenu conMonitoringDelete bt_monitoring">
 	 <ul>
 	   <li class="menuitem">Delete Map</li>
 	 </ul>

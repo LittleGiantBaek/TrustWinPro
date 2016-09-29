@@ -145,7 +145,7 @@ function TimeDelete(v){
 </script>
 <div class="Time">
 	<ul>
-		<li><a id="AccessGroupTopID" href="#content" onclick="AccessGroupTop();"><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %></a> <a class = "bottom" href="#a" onclick="InsertAccess();" >+</a>
+		<li><a id="AccessGroupTopID" href="#content" onclick="AccessGroupTop();"><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %></a> <a class = "bottom bt_access" href="#a" onclick="InsertAccess();" >+</a>
 			<ul>
 <%
 		for(int i = 0;access.length>i;i++){	
@@ -156,7 +156,7 @@ function TimeDelete(v){
 %>
 			</ul>
 		</li>
-		<li><a id="TimeZoneTopID" href="#content" onclick="TimeZoneTop();"><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %></a> <a class = "bottom" href="#a" onclick="InsertTime();" >+</a>
+		<li><a id="TimeZoneTopID" href="#content" onclick="TimeZoneTop();"><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %></a> <a class = "bottom bt_access" href="#a" onclick="InsertTime();" >+</a>
 			<ul>
 <%
 		for(int i = 0;times.length>i;i++){
