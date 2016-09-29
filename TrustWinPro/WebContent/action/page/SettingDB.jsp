@@ -53,15 +53,15 @@
 					<input type="hidden" value="Setting" name="left" /> <input type="hidden" value=Setting_s name="content" />
 					<p>
 						<div class="headerji">DataBase Name :</div>
-						<input type="text" name="Server_port" class="inputt" value="<%=Port%>" />
+						<input type="text" name="Server_port" class="inputt" value="" />
 					</p>
 					<p>
 						<div class="headerji">DataBase IP	:</div>
-						<input type="text" name="Server_ip" class="inputt" value="<%=ServerIP%>" />
+						<input type="text" name="Server_ip" class="inputt" value="" />
 					</p>
 					<p>
 						<div class="headerji">Port :</div>
-						<input type="text" name="Server_port" class="inputt" value="<%=Port%>" />
+						<input type="text" name="Server_port" class="inputt" value="" />
 					</p>
 					<input type="submit" name="submit" value="Save" class="ct-btn white" style="float: right; margin-right:3rem;" />
 				</form>
