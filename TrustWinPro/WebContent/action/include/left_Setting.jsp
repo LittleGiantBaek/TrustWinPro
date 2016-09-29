@@ -25,8 +25,8 @@
 <div class="Setting">
 	<ul>
 		<li id="Setting_a"  ><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a  href="#in"onclick="Settingsubmit('SettingOption','a');"> Account</a></li>
-		<li id="Setting_s"  ><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a  href="#in" onclick="Settingsubmit('SettingOption','s');"> Server</a></li>
-		<li id="Setting_d"  ><img src="/TrustWinPro/action/image/interface/leftmapicon.png" style="width:13px;"><a  href="#in" onclick="Settingsubmit('SettingOption','d');"> DataBase</a></li>
+		<li id="Setting_s"  ><img src="/TrustWinPro/action/image/interface/server.png" style="width:13px;"><a  href="#in" onclick="Settingsubmit('SettingOption','s');"> Server</a></li>
+		<li id="Setting_d"  ><img src="/TrustWinPro/action/image/interface/database.png" style="width:13px;"><a  href="#in" onclick="Settingsubmit('SettingOption','d');"> DataBase</a></li>
 	</ul>
 </div>
 

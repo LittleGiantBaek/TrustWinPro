@@ -76,7 +76,8 @@
 <%	
 	}else if(content.equals("Language")){
 %>
-		<jsp:include page="/action/page/LanguageAdmin.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/LanguageAdmin2.jsp" flush="false"></jsp:include>
+		<script>splitterClicked();</script>
 <%	
 	}else if(content.equals("Map")){
 %>

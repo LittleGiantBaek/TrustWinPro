@@ -8,6 +8,8 @@
 	String[] idxs = request.getParameterValues("idx");
 	String[] etcs = request.getParameterValues("etc");
 	String sql = "";
+	System.out.println(idxs);
+	System.out.println(etcs);
 	for(int i=0;i<idxs.length;i++){
 		sql = "update Language set etc = '" + etcs[i] + "' where idx = "+idxs[i]+";";
 		try {
