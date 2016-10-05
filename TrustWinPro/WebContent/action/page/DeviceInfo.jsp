@@ -166,12 +166,22 @@ function allA_GroupInfoCheck() {
 function DeviceInfoSubmit(){
 	var dev = document.getElementById("DeviceInfomation");
 	
-	if(dev.port.value==null){
-		
-	}
-	
-	
-	document.getElementById("DeviceInfomation").submit();
+	if(dev.controllerName.value == "")
+    	alertify.alert("Please input 'Device Name'");
+	else if(dev.idm.value == "")
+    	alertify.alert("Please input 'ID'");
+	else if(dev.address.value == "")
+    	alertify.alert("Please input 'Address'");
+	else if(dev.port.value == "")
+    	alertify.alert("Please input 'Port Number'");
+	else if(dev.Password.value == "")
+    	alertify.alert("Please input 'Password'");
+	else if(dev.uniqueid.value == "")
+    	alertify.alert("Please input 'UniqueID'");
+	else if(dev.serverport.value == "")
+    	alertify.alert("Please input 'Server Port'");
+	else
+		document.getElementById("DeviceInfomation").submit();
 }
 
 
@@ -765,13 +775,13 @@ function AccessDelete(deviceID){
 						</div>
 					</div>
 				</div>
-				<div class="GetSet">
-					<a href="#UserInfo" onclick="">get</a>/
+				<div class="GetSet" style="display:none;">
+					<a href="#UserInfo" onclick="">get</a>
 					<a href="#UserInfo" onclick="">set</a>
 				</div>
 				<div class="InfoButtom bt_device" style="width:300px; float:left; margin-top:610px; position:absolute;">
 					<a href="#" title="Send" onclick="Enroll('S,D,E,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=lanFunc.language(lan, 183)%> --%>Send</a>
-					<a href="#" title="Delete" onclick="Delete('S,D,D,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
+					<a href="#" style="display:none"  title="Delete" onclick="Delete('S,D,D,2,1,<%=UID%>,E')"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=lanFunc.language(lan, 88)%></a>
 				</div>
 			</div>
 			
@@ -1859,7 +1869,7 @@ function AccessDelete(deviceID){
 									</select>
 								</td>
 								<td>
-									<select name="FunctionKeyAK<%=k%>" class="key">
+									<select name="FunctionKeyAK<%=k%>" class="key" >
 <%
 				int keyak = 0;
 				if(k==1){
@@ -2242,7 +2252,7 @@ function AccessDelete(deviceID){
 					<div class="buttom bt_device"  align="right">
 						<div class="image">
 							<a href="#" onclick="AccessAdd(<%= Integer.parseInt(UID)%>);"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-							<a href="#" onclick="AccessDelete(<%= Integer.parseInt(UID)%>);""><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+							<a "href="#" onclick="AccessDelete(<%= Integer.parseInt(UID)%>);""><img  src="/TrustWinPro/action/image/interface/delete.png"></a>
 						</div>
 					</div>
 				</div>

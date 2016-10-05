@@ -203,7 +203,14 @@ function UserInfoSubmit(){
 		return false;
 	}
 	*/
-	UserInfomation.submit();
+	if($("#first_input").val() == "")
+    	alertify.alert("Please input 'First Name'");
+	else if($("#id_input").val() == "")
+    	alertify.alert("Please input 'ID'");
+	else if($("#password_input").val() == "")
+    	alertify.alert("Please input 'Password'"); 
+	else 
+		UserInfomation.submit();
 	
 }
 <%-- 
@@ -379,7 +386,7 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 26)%> : 
 								</div>
-								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  >
+								<input class = "inputt" type="text" name="firstName" id="first_input" value="<%=LangUtil.Empty(rs.getString(1)) %>"  required>
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 27)%> : 
 								</div>
@@ -390,12 +397,12 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 28)%> : 
 								</div>
-								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" >
+								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" required>
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 30)%> : 
 								</div>
 								<!-- <div class="main" size="30um"> -->
-								<select name="userClass" class="mainselect">
+								<select name="userClass" class="mainselect" required>
 								<option value="1" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("1")){out.print("selected");}} %>><%=Lanfunc.language(lan, 170)%></option>
 								<option value="128" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("128")){out.print("selected");}}  %>><%=Lanfunc.language(lan, 171)%></option>
 								</select>
@@ -403,11 +410,11 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 2)%> : 
 								</div>
-								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" >
+								<input class="inputt" type="text" name="ID" id="id_input" value="<%=LangUtil.Empty(rs.getString(6)) %>" required>
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 5)%> : 
 								</div>
-								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
+								<input class="inputt" type="text" name="Password" id="password_input" value="<%=LangUtil.Empty(rs.getString(7)) %>" required>
 							<div class="block" style="float:right; margin-right:6rem;">
 								<p><div ><span style="color:red"> required *</span></div>
 							</div>

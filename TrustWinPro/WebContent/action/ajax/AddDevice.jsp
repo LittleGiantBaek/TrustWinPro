@@ -60,7 +60,7 @@
 		
 		if(value == 0){
 			sql = "insert into SetupTcpip(ID, ControllerName, Address, Port, Password, UniqueID, ServerPort, groupIdx,InOut)"; 
-			sql += " values('"+SMaxId+"','new device','','1000','1111','"+SMaxId+"','0',"+group+",'IN')";
+			sql += " values('"+SMaxId+"','new device','127.0.0.1','1000','1111','"+SMaxId+"','0',"+group+",'IN')";
 			
 			try {
 				Context init = new InitialContext();
