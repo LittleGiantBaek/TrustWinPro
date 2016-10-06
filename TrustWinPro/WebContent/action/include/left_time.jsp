@@ -77,6 +77,7 @@ function Timesubmit(v){
 
 function Holidaysubmit(){
 	var form = document.getElementById("Holiday");
+	form.num.value = 1;
 	form.submit();
 }
 
@@ -168,7 +169,7 @@ function TimeDelete(v){
 %>
 			</ul>
 		</li>
-		<li><img src="/TrustWinPro/action/image/interface/Holiday.png" alt="" style="width:13px;"> <a href="#" onclick="Holidaysubmit();" onkeypress="Holidaysubmit();">Holiday</a></li>
+		<li id="holiday"><img src="/TrustWinPro/action/image/interface/Holiday.png" alt="" style="width:13px;"> <a href="#" onclick="Holidaysubmit();" onkeypress="Holidaysubmit();">Holiday</a></li>
 	</ul>
 </div>
 <div class="UserButtom" style="display:none">
@@ -186,6 +187,7 @@ function TimeDelete(v){
 <form action="/TrustWinPro/action/index.jsp" name="Holiday" id="Holiday" method="post">
 	<input type="hidden" value="" name="num" />
 	<input type="hidden" value="Time" name="left" />
+	<input type="hidden" value="Holiday" name="content" />
 	<input type="hidden" value="Holiday" name="content" />
 </form>
 <form action="/TrustWinPro/action/index.jsp" name="AccessGroup" id="AccessGroup" method="post">
@@ -213,12 +215,18 @@ function SpanAccessClass(idx){
 	document.getElementById("access"+idx+"a").style.color = "#ffffff";
 	document.getElementById("numValue").value = idx;
 	document.getElementById("TimeAcess").value = "2";
-	
+}
+
+function SpanHoliClass(idx){
+	document.getElementById("holiday").className = "userspan";
+	document.getElementById("holiday").style.color = "#ffffff";
 }
 
 if(<%=value%> == 0 ){
 	if('<%=request.getParameter("content")%>'=='Time'){
 		SpanTimeClass(<%=Num%>);
+	}else if('<%=request.getParameter("content")%>'=='Holiday'){
+		SpanHoliClass(<%=Num%>);
 	}else{
 		SpanAccessClass(<%=Num%>);	
 	}
