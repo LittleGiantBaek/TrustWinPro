@@ -17,6 +17,29 @@ scrollbar-track-color:#ffffff;
 	background-color : gray;
 }
 
+/* Grid */
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+  /*   border: 1px solid red;  */
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
 /* #notcheck {
 	display : none;
 }
@@ -494,7 +517,8 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .basicInfo .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Official {width:96%;border:1px solid gray; -moz-border-radius: 5px;-webkit-border-radius: 5px;height:460px;margin-left:12px;}
+#UserInfo .basic .Official {width:96%;border:2px solid gray; -moz-border-radius: 6px;-webkit-border-radius: 5px;height:460px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Official .InfoBox {width:60%;padding:20px;height:120px;position:relative;} 
 #UserInfo .basic .Official .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Official .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -504,9 +528,10 @@ a#web-buttons-idrmij3a {display:none}
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Official .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Official .InfoBox .block .search {height:30px;}
 
-#UserInfo .basic .Private {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:320px;margin-left:12px;}
+#UserInfo .basic .Private {width:96%;border:2px solid gray; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:320px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Private .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .Private .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Private .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -516,9 +541,10 @@ a#web-buttons-idrmij3a {display:none}
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Private .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Private .InfoBox .block .search {height:30px;float:right;}
 
-#UserInfo .basic .Card {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;margin-left:12px;}
+#UserInfo .basic .Card {width:96%;border:2px solid gray; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:380px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Card .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .Card .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Card .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -528,16 +554,19 @@ a#web-buttons-idrmij3a {display:none}
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Card .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Card .InfoBox .block .search {height:30px;}
 #UserInfo .basic .Device {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
 #UserInfo .basic .Device table{width:100%}
-#UserInfo .basic .Event {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#UserInfo .basic .Event {width:96%;border:2px solid gray; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Event table{width:100%}
-#UserInfo .basic .Event table .main img{padding:0;margin:0;height:28px;top:5px;}
-#UserInfo .basic .AccessControl {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#UserInfo .basic .Event table .main img{padding:0;margin:0;height:30px;}
+#UserInfo .basic .AccessControl {width:96%;border:2px solid gray; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .AccessControl table{width:100%}
 
-#UserInfo .basic .FP {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#UserInfo .basic .FP {width:96%;border:2px solid gray; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .FP .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .FP .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .FP .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}

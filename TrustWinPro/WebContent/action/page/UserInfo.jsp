@@ -372,7 +372,7 @@ function AccessAdd(UserID){
 										<!-- <div id="shadow" style="position:absolute;z-index:100;"> -->
 										<div>
 											<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="" >
-											<img src="/TrustWinPro/action/image/interface/search.png"  border='0' align="absmiddle">
+											<img src="/TrustWinPro/action/image/interface/search.png" style="height:30px;" border='0' align="absmiddle">
 										</div>
 									</div>
 				</div>
@@ -453,7 +453,16 @@ function AccessAdd(UserID){
 				<div class="InfoBox">
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 38)%></div>
-						<div class="main"><input type="text" name="CompanyID" id="CompanyID" value="<%=LangUtil.Empty(rs.getString(8)) %>" size="40um"><a href="#content" onclick="RedundancyEmployee(document.getElementById('CompanyID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
+						<div class="main col-12">
+							<div class="col-6">
+							<input type="text" name="CompanyID" id="CompanyID" value="<%=LangUtil.Empty(rs.getString(8)) %>" size="40um">
+							</div>
+							<div class="col-2">
+							<a href="#content" onclick="RedundancyEmployee(document.getElementById('CompanyID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)">
+								<img src="/TrustWinPro/action/image/interface/search.png" class="search">
+							</a>
+							</div>
+						</div>
 					</div>
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 39)%></div>
@@ -598,7 +607,16 @@ function AccessAdd(UserID){
 				<div class="InfoBox">
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 55) %></div>
-						<div class="main"><input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um"><a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
+						<div class="main col-12">
+							<div class="col-6">
+							<input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um">
+							</div>
+							<div class="col-2">
+							<a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)">
+								<img src="/TrustWinPro/action/image/interface/search.png" class="search">
+							</a>
+							</div>
+						</div>
 					</div>
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 56) %></div>
@@ -757,13 +775,21 @@ function AccessAdd(UserID){
 					</colgroup>
 					<tr >
 						<td class="main" colspan="2">
-						
-							<p style="margin-left:2rem;">
+							<div class="col-6" style="margin:1rem;">
+							<div class="col-8">
+							<!-- <p style="margin-left:2rem;"> -->
 							<%=Lanfunc.language(lan, 71).trim() %> : <input type="text" name="start" value="<%=start%>" id="startDate"  readonly="readOnly" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd')"  class="inputt"  /> 
 							~ 
 							<input type="text" name="end" value="<%=end%>" id="endDate"  readonly="readOnly" onclick="fnPopUpCalendar(endDate,endDate,'yyyy-mm-dd')"  class="inputt"  /> 
-							<a href="#search" onclick="searchEvent(); " ><img src="/TrustWinPro/action/image/interface/search.png"></a>
-							</p>
+							</div>
+							
+							<div class="col-3">
+							<a href="#search" class="search" onclick="searchEvent(); " >
+								<img src="/TrustWinPro/action/image/interface/search.png">
+							</a>
+							</div>
+							<!-- </p> -->
+							</div>
 						</td>
 					</tr>
 					<tr>
@@ -840,7 +866,7 @@ function AccessAdd(UserID){
 					</colgroup>
 					<tr class="block" >					
 						<td class="header">
-						<p style="margin-left:3rem;"><%=Lanfunc.language(lan, 133) %></p></td>
+						<p style="margin:1rem;"><%=Lanfunc.language(lan, 133) %></p></td>
 						<td class="main">
 							<select name="Device" onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
 								<option value = "0"  >-- <%=Lanfunc.language(lan, 65) %> --</option>
