@@ -947,6 +947,7 @@ function AccessAdd(UserID){
 			
 			<div class="buttonBox">
 				<div class="bottom bt_user">
+					<a style="margin-right: 0px;margin-left:0px;padding-top:4px;padding-right:8px;" class="button"><span> <img src="/TrustWinPro/action/image/interface/device_com2.png" style="height:28px; width:28px;border-radius:7px;"></span></a>
 					<a href="#" title="Send" onclick="Enroll('S,U,E,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 					<a href="#" title="Recive" onclick="Recive('S,U,R,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 184)%></a>
 					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
