@@ -353,9 +353,6 @@ function AccessDelete(deviceID){
 	if(rs.getString(8)!=null){
 %> --%>
 									<img src="<%=realFolder %>" alt="" style="width:180px;height:180px;" id="prev_View_area" />
-<%-- <%		
-	}
-%>	 --%>								
 
 								<div>
 									<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="">
@@ -2080,13 +2077,20 @@ function AccessDelete(deviceID){
 					</colgroup>
 					<tr >
 						<td class="main" colspan="2">
-							<p style="margin-left:2rem;">
-							<%=lanFunc.language(lan, 71).trim() %> : <input type="text" name="start" value="<%=start%>" id="startDate"  readonly="readOnly" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd')"  class="inputt"  /> 
-							~ 
-							<input type="text" name="end" value="<%=end%>" id="endDate"  readonly="readOnly" onclick="fnPopUpCalendar(endDate,endDate,'yyyy-mm-dd')" class="inputt"  /> 
+							<div class="col-6" style="margin:1rem;">
+								<div class="col-9">
+								
+								<!-- <p style="margin-left:2rem;"> -->
+								<%=lanFunc.language(lan, 71).trim() %> : <input type="text" name="start" value="<%=start%>" id="startDate"  readonly="readOnly" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd')"  class="inputt"  /> 
+								~ 
+								<input type="text" name="end" value="<%=end%>" id="endDate"  readonly="readOnly" onclick="fnPopUpCalendar(endDate,endDate,'yyyy-mm-dd')" class="inputt"  /> 
+								</div>
+								<div class="col-3">
+								<a href="#search" onclick="searchEventDevice(); " ><img src="/TrustWinPro/action/image/interface/search.png"></a>
 							
-							<a href="#search" onclick="searchEventDevice(); " ><img src="/TrustWinPro/action/image/interface/search.png"></a>
-							</p>
+								</div>
+							<!-- </p> -->
+							</div>
 						</td>
 					</tr>
 					<tr>

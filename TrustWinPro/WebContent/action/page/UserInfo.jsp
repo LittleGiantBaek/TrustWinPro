@@ -776,7 +776,7 @@ function AccessAdd(UserID){
 					<tr >
 						<td class="main" colspan="2">
 							<div class="col-6" style="margin:1rem;">
-							<div class="col-8">
+							<div class="col-9">
 							<!-- <p style="margin-left:2rem;"> -->
 							<%=Lanfunc.language(lan, 71).trim() %> : <input type="text" name="start" value="<%=start%>" id="startDate"  readonly="readOnly" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd')"  class="inputt"  /> 
 							~ 

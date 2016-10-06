@@ -628,7 +628,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .tab .tab8{float:left;padding:0;}
 #DeviceInfo .basic .tab .tab9{float:left;padding:0;}
 
-#DeviceInfo .basic .Basic {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:600px;position:relative;margin-left:12px;}
+#DeviceInfo .basic .Basic {width:96%;border:2px solid gray;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:600px;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:20px;;position:absolute;} 
 #DeviceInfo .basic .Basic .InfoBox1 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
 #DeviceInfo .basic .Basic .InfoBox1 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -652,7 +653,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Basic #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Basic #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Sunlight {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:280px;display:none;position:relative;margin-left:12px;}
+#DeviceInfo .basic .Sunlight {width:96%;border:2px solid gray;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:280px;display:none;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Sunlight .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
 #DeviceInfo .basic .Sunlight .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #DeviceInfo .basic .Sunlight .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -665,7 +667,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Operatelight {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;margin-left:12px;}
+#DeviceInfo .basic .Operatelight {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Operatelight .InfoBox {padding:10px;} 
 #DeviceInfo .basic .Operatelight table {width:100%}
 #DeviceInfo .basic .Operatelight th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
@@ -674,7 +677,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Alarm {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;margin-left:12px;}
+#DeviceInfo .basic .Alarm {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Alarm .InfoBox {padding:10px;} 
 #DeviceInfo .basic .Alarm table {width:100%}
 #DeviceInfo .basic .Alarm th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
@@ -683,7 +687,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Alarm #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Alarm #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .AutoDoor {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;margin-left:12px;}
+#DeviceInfo .basic .AutoDoor {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .AutoDoor .InfoBox {padding:10px;} 
 #DeviceInfo .basic .AutoDoor table {width:100%}
 #DeviceInfo .basic .AutoDoor th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
@@ -693,7 +698,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .AutoDoor #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
 
-#DeviceInfo .basic .AutoKey {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;margin-left:12px;}
+#DeviceInfo .basic .AutoKey {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .AutoKey .InfoBox {padding:10px;} 
 #DeviceInfo .basic .AutoKey table {width:100%}
 #DeviceInfo .basic .AutoKey th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
@@ -703,7 +709,8 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .NoAct {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;display:none;position:relative;margin-left:12px;}
+#DeviceInfo .basic .NoAct {width:96%;border:2px solid gray;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:380px;display:none;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .NoAct .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
 #DeviceInfo .basic .NoAct .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #DeviceInfo .basic .NoAct .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -714,16 +721,19 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .NoAct #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .NoAct #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Event {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#DeviceInfo .basic .Event {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Event table{width:100%}
-#DeviceInfo .basic .Event table .main img{padding:0;margin:0;height:28px;top:5px;}
+#DeviceInfo .basic .Event table .main img{padding:0;margin:0;height:30px;top:15px;}
 #DeviceInfo .basic .Event #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Event #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .AccessControl {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#DeviceInfo .basic .AccessControl {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .AccessControl table{width:100%}
 
-#DeviceInfo .basic .UserList {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#DeviceInfo .basic .UserList {width:96%;border:2px solid gray;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .UserList table{width:100%}
 
 
