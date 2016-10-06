@@ -600,7 +600,7 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .tab .tab9{float:left;padding:0;}
 
 #DeviceInfo .basic .Basic {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:600px;position:relative;margin-left:12px;}
-#DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:20px;;position:absolute;left:10px;} 
+#DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:20px;;position:absolute;} 
 #DeviceInfo .basic .Basic .InfoBox1 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
 #DeviceInfo .basic .Basic .InfoBox1 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
 #DeviceInfo .basic .Basic .InfoBox1 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:left;margin-left:30px;}
