@@ -203,6 +203,10 @@ $(document).attr("timer",setInterval(refresh,1000));
 
 </script>
 <div id="userdata">
+	
+	<div class="dropdown" style="font-size:13px; width:97%; padding:2;">
+	  <button onclick="openColor();" class="dropbtn" style="float:right">•••</button>
+	</div>
 	<section class="sectionji">
 		<ul class="ulji"></ul>
 		<div>
@@ -305,20 +309,19 @@ $(document).attr("timer",setInterval(refresh,1000));
 					</p>					
 					
 					<p><div class = "headerji">
-					<%=Lanfunc.language(lan, 91)%> : 	
+					<%=Lanfunc.language(lan, 91)%>1 : 	
 					</div>
 					<input name="Num" class="inputt" type="text" value="<%=Num%>" size="20" />
 					<input type="submit" name="submit" value="<%=Lanfunc.language(lan, 182)%>" class="ct-btn white" />
 					<div style="float:right; margin-right:20px">
-						<!-- <a href="#a" onclick="UserPrint();"><img src="/TrustWinPro/action/image/interface/printImage.jpg" alt="" ></a> -->
-						<a href="#" onclick="openColor();" ><img src="/TrustWinPro/action/image/interface/option.png" alt="" height="24" width="24" /></a>
+						<!-- <a href="#" onclick="openColor();" ><img src="/TrustWinPro/action/image/interface/option.png" alt="" height="24" width="24" /></a> -->
 					</div>
 					</p>
 				</form>
 		</div>
 	</section>
 	
-	<div class="colorOption" id="colorOption">
+	<div class="colorOption" id="colorOption" style="margin-left:12px;">
 	<form action="/TrustWinPro/action/index.jsp" name="colorO" id="colorO" method="post">
 		<table cellspacing="0"  class="titleEx1">
 			<colgroup>
@@ -353,22 +356,27 @@ $(document).attr("timer",setInterval(refresh,1000));
 %>
 			</tbody>
 		</table>
-		<div class="button" id="web-buttons-idrmij3">
-			<a href="#"  onclick="closeColor();"><%=Lanfunc.language(lan, 185)%></a>
-			<a href="#"  onclick="optionSubmit();"><%=Lanfunc.language(lan, 92)%></a>
+	
+		<div class="button">
+			<div style="float:right; margin-right:20px">
+				<a href="#"  onclick="optionSubmit();" class= "button gray"><span class="icon-check"></span>Save</a>
+				<a href="#"  onclick="closeColor();" class="button gray" ><span class="icon-delete"></span><%=Lanfunc.language(lan, 185)%></a>
+			</div>
+			<%-- <a href="#"  onclick="closeColor();" class="gray" ><span class="icon-check"></span><%=Lanfunc.language(lan, 185)%></a>
+			<a href="#"  onclick="optionSubmit();" class="gray"><span class="icon-check"></span><%=Lanfunc.language(lan, 92)%></a> --%>
 		</div>
 	</form>
 	</div>
 	
 	<div class="dropdown" style="margin-left:1%; font-size:13px;">
-  <button onclick="myFunction()" class="dropbtn">•••</button>
-  <div id="myDropdown" class="dropdown-content">
-  <!--ieExecWB();  -->
-    <a href="#" onclick="printPage();">Print</a>
-    <a href="#" onclick="eventExcel();">Excel</a>
-    <a href="#" onclick="eventSort();">Sort</a>
-  </div>
-</div>
+		  <button onclick="myFunction()" class="dropbtn">•••</button>
+		  <div id="myDropdown" class="dropdown-content">
+		  <!--ieExecWB();  -->
+		    <a href="#" onclick="printPage();">Print</a>
+		    <a href="#" onclick="eventExcel();">Excel</a>
+		    <a href="#" onclick="eventSort();">Sort</a>
+		  </div>
+	</div>
 	<div  class="tablebor" id="logdata" style="height: 690px; overflow-y: auto;">
 	</div>
 </div>

@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
@@ -197,7 +198,8 @@ $( ".tab3>li>a" ).click(function() {
 			
 			<div class="buttom bt_access">
 				<div class="image">
-					<a href="#DeviceInfo" onclick="DeviceAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
+					<button onclick="DeviceAdd()" class="dropbtn" >•••</button>
+					<!-- <a href="#DeviceInfo" onclick="DeviceAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a> -->
 					<a href="#DeviceInfo" onclick="DeviceDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
 				</div>
 			</div>
@@ -244,8 +246,10 @@ $( ".tab3>li>a" ).click(function() {
 				</form>
 			</div>
 			<div class="buttom bt_access">
+				
 				<div class="image">
-					<a href="#DeviceInfo" onclick="UserAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
+					<button onclick="UserAdd()" class="dropbtn" >•••</button>
+					<!-- <a href="#DeviceInfo" onclick="UserAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a> -->
 					<a href="#DeviceInfo" onclick="UserDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
 				</div>
 			</div>
