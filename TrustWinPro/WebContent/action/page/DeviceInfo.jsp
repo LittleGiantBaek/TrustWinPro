@@ -2093,6 +2093,14 @@ function AccessDelete(deviceID){
 							</div>
 						</td>
 					</tr>
+				</table>					
+					
+				<div  style="overflow:auto; max-height: 230px;">
+				<table>
+					<colgroup>
+						<col width="20%" align="center" >
+						<col width="80%">
+					</colgroup>
 					<tr>
 						<td colspan="2">
 							<div id="devicelist">
@@ -2158,6 +2166,7 @@ function AccessDelete(deviceID){
 						</td>
 					</tr>
 				</table>
+				</div>
 			</div>
 			</div>
 			

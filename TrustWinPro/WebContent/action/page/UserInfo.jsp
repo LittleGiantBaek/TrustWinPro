@@ -792,6 +792,14 @@ function AccessAdd(UserID){
 							</div>
 						</td>
 					</tr>
+				</table>
+				
+				<div  style="overflow:auto; max-height: 230px;">
+				<table>
+					<colgroup>
+						<col width="20%" align="center" >
+						<col width="80%">
+					</colgroup>
 					<tr>
 						<td colspan="2">
 							<div id="devicelist">
@@ -857,6 +865,7 @@ function AccessAdd(UserID){
 						</td>
 					</tr>
 				</table>
+				</div>
 			</div>
 			<div class="AccessControl" id="tab6">
 			<table>
