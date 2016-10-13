@@ -101,7 +101,6 @@ function checkedF(num,v){
 		}
 	}
 	
-
 	if(v==1){ // 전송
 		 if(array.length !=0){	
 				$(".Loading").css("display","block");
