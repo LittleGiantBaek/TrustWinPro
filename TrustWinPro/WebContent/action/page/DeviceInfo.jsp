@@ -146,7 +146,7 @@ function previewImage(targetObj, View_area) {
 var change = 0;
 function allA_GroupInfoCheck() {
 	//var check = document.DeviceInfomation.check; 
-	var check = document.getElementsByName("check");
+	var check = document.getElementsByName("AG_check");
 	if(change == 0){
 		for(var i = 0 ; i < check.length;i++ ){
 			check[i].checked = true;	
@@ -286,7 +286,7 @@ function accessList(v){
 }
 
 function AccessAdd(DeviceID){
-    $('.access_class').each(function(){    
+    $('.access_class').each(function(){   
     		var access = $(this).val();
     		var device_id = parseInt(DeviceID,10);
     		$(".Loading").css("display","block");
@@ -309,7 +309,7 @@ function AccessAdd(DeviceID){
 
 
 function AccessDelete(deviceID){
-    $('.access_class').each(function(){
+	$('.access_class').each(function(){
     	if($(this).prop('checked'))
     	{	
     		var access = $(this).val();
@@ -329,9 +329,9 @@ function AccessDelete(deviceID){
     		}); 
     	}
     	
-    });;
-
+    });
 }
+
 </script>
 
 <%
@@ -2247,8 +2247,8 @@ function AccessDelete(deviceID){
 		for(int j=0; j<accessDevice.length; j++){
 			AccessGroup accessGroup2 = Accfunc.SelAccessGroup(accessDevice[j].getAccess());
 			out.println("<tr id='tr"+ accessGroup2.getIdx() +"'>");
-
-			out.println("<td><input type='checkbox' name='check' value='"+accessGroup2.getIdx()+"'></td>");
+			
+			out.println("<td><input type='checkbox' class='access_class' name='AG_check' value='"+accessGroup2.getIdx()+"'></td>");
 
 			
 			out.println("<td>" + accessGroup2.getName() + "</td>");
