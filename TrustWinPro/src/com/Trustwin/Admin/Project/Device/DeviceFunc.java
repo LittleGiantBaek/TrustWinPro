@@ -165,7 +165,7 @@ public class DeviceFunc {
 
 		public Device selDevice(int idx){
 			Connection conn = null;
-			String sql = "select ControllerName from dbo.SetupTcpip where ID = " + idx + ";";
+			String sql = "select ControllerName, ID, Address from dbo.SetupTcpip where ID = " + idx + ";";
 			Device device = new Device();
 			try {
 					Context init = new InitialContext();
@@ -176,6 +176,8 @@ public class DeviceFunc {
 						
 					if(rs.next()){
 						device.setControllerName(rs.getString(1));
+						device.setID(rs.getString(2));
+						device.setAddress(rs.getString(3));
 					}
 					rs.close();
 					conn.close();

@@ -402,9 +402,9 @@ function checkedF(num,v){
 
 		<div class="bottom bt_device">
 			<a href="#" title="Send"
-				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication.png" style="height:20px; width:20px; border-radius:3px;"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px;"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
 			<a href="#" title="Delete"
-				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication.png" style="height:20px; width:20px; border-radius:3px;"></span><%=Lanfunc.language(lan, 88)%></a>
+				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px;"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 	</form>
 		<div class="postitDeviceSort" id="postitDeviceSort" style="display:none">
