@@ -36,7 +36,7 @@ function drawChart(){
 					"noY": false,
 					"height": "200px",
 					"width": "1300px",
-					"background": "#FFFFFF",
+					"background": "#FFFFFF", 
 				};
 
 				MaterialCharts.bar("#bar-chart-example", exampleBarChartData);

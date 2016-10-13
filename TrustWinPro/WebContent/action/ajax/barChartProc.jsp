@@ -30,13 +30,14 @@
 			}
 			sb.append("]");
 		}else{
-			
+			System.out.println("@@@");
 			cnt = EFunc.selEventAC(devVal);
 			sb.append("[['device','count']");
 			for(int i=0;i<devVal.length;i++){
 				temp_dv = DFunc.selDevice2(devVal[i]);
 				sb.append(",['"+temp_dv.getControllerName()+"',"+cnt[i]+"]");
 			}
+			System.out.println(sb);
 			sb.append("]");
 		}		
 	}
