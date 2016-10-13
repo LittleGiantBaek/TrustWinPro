@@ -2181,7 +2181,7 @@ function AccessDelete(deviceID){
 						<td class="header">
 						<p style="margin-left:3rem;"><%=lanFunc.language(lan, 133) %></p></td>
 						<td class="main">
-							<select name="Device" onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
+							<select onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
 								<option value = "0"  >-- <%=lanFunc.language(lan, 65) %> --</option>
 <%
 

@@ -195,14 +195,6 @@ function RedundancyCard(num,userid){
 }
 
 function UserInfoSubmit(){
-	/*if(cardid == 0){
-		return false;
-	}
-	
-	if(companyid == 0){
-		return false;
-	}
-	*/
 	if($("#first_input").val() == "")
     	alertify.alert("Please input 'First Name'");
 	else if($("#id_input").val() == "")
@@ -210,7 +202,8 @@ function UserInfoSubmit(){
 	else if($("#password_input").val() == "")
     	alertify.alert("Please input 'Password'"); 
 	else 
-		UserInfomation.submit();
+		document.getElementById("UserInfomation").submit();
+		//UserInfomation.submit();
 	
 }
 <%-- 
@@ -877,7 +870,7 @@ function AccessAdd(UserID){
 						<td class="header">
 						<p style="margin:1rem;"><%=Lanfunc.language(lan, 133) %></p></td>
 						<td class="main">
-							<select name="Device" onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
+							<select onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
 								<option value = "0"  >-- <%=Lanfunc.language(lan, 65) %> --</option>
 <%
 
@@ -898,7 +891,7 @@ function AccessAdd(UserID){
 		{
 			if(check_access_group[tt] == accessGroup2[i].getIdx()){
 %>
-				<option disabled value = "<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
+				<option disabled value="<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
 <%				
 				temp_flag=1;
 				continue;
@@ -906,7 +899,7 @@ function AccessAdd(UserID){
 		}
 		if(temp_flag==1) continue;
 %>
-		<option value = "<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
+		<option value="<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
 <%
 	}
 %>
