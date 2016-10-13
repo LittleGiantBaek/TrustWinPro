@@ -379,8 +379,12 @@ function checkedF(num,v){
 				<tbody>
 					<%
 						for (int i = 0; i < devices.length; i++) {
+							if(i%2==1){
+								out.println("<tr class='odd'>");
+							}else{
+								out.println("<tr>");	
+							}
 					%>
-					<tr>
 						<td class="deviceSelect"><input type="checkbox" name="check"
 							value="<%=devices[i].getID()%>"></td>
 						<td class='date1 deviceName <%=statuss1%>' ><a href="#a"

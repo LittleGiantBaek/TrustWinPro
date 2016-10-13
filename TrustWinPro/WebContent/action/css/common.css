@@ -966,6 +966,7 @@ table.ex1 a:active{color:#000;}
 /* HoliInfo */
 #HoliInfo {width:100%;padding:0;margin:0;min-width: 500px;overflow: hidden;}
 #HoliInfo .basic {width:100%;position:relative;padding:0;margin:0;}
+#HoliInfo .basic .sectionji{height:150px;}
 #HoliInfo .basic .basicTitleBar {width:96%;margin:0 auto;position:relative;z-index:100;}
 #HoliInfo .basic .basicTitleBar .TitleBar {width:100%}
 #HoliInfo .basic .basicInfo {width:96%;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:200px;}
@@ -992,13 +993,13 @@ table.ex1 a:active{color:#000;}
 
 
 #HoliInfo table.titleEx1{background-image:url("/TrustWinPro/action/image/interface/titlebar.png"); background-size:cover;background-repeat:no-repeat;border:0; width:100%;margin:0 auto;padding:10px; margin:0;padding:0;color:#fff;-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/TrustWinPro/action/image/interface/titlebar.png',sizingMethod='scale')";  }
-#HoliInfo .titleEx1 th{padding:.2em 0;vertical-align:middle;font-weight:normal;text-align:center;}
+#HoliInfo .titleEx1 th{padding:.2em 0;vertical-align:middle;font-weight:normal;text-align:center;font-weight:bold;color:black;}
 #HoliInfo table.ex1 {width:100%;margin:0 auto;padding:10px;}
 #HoliInfo table.ex1 ,.ex1 td,.ex1 th{border:0;border-collapse:collapse;margin:0;padding:0;}
 #HoliInfo .ex1 td, .ex1 th{padding:.2em 0;vertical-align:top;font-weight:normal;text-align:center;}
 #HoliInfo .ex1 thead th{text-transform:uppercase;color:#fff;}
-#HoliInfo .ex1 tbody td{background:#e1e9ef;}
-#HoliInfo .ex1 tbody th{background:#e1e9ef;}
+#HoliInfo .ex1 tbody td{background:#f2f2f2;}
+#HoliInfo .ex1 tbody th{background:#f2f2f2;}
 #HoliInfo .ex1 tbody tr.odd td{background:#fff;}
 #HoliInfo .ex1 tbody tr.odd th{background:#fff;}
 #HoliInfo .ex1 caption{text-align:left;text-transform:uppercase;letter-spacing:-1px;}
@@ -1017,7 +1018,7 @@ table.ex1 a:active{color:#000;}
 #Access .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
 #Access .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
 #Access .info {width:96%;border:1px solid gray; padding: 0 0 20px 0;
-				-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:330px;position: relative; height:500px;}
+				-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:330px;position: relative; height:400px;}
 #Access .info .Name {width:4%;float:left;padding:25px 6px 0 6px;}
 #Access .info .Group {width:94%;float:left;padding-top:5px;}
 #Access .buttom .image{float:right;}

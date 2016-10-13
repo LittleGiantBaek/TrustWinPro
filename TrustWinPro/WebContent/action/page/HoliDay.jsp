@@ -73,91 +73,94 @@ function allCheck(){
 %>
 <div id="HoliInfo">
 	<div class="basic">
-
-	<section class = "sectionji">
-			<ul class = "ulji">
-			</ul>
-
-		<div class="basicInfo">
-			<form name="HoliDay" id="HoliDay" method="post" action="page/HoliDayDel.jsp">
-				<div class="left">
-					<div class="block">
-						<table border=1 cellspacing="0" class="titleEx1">
-							<colgroup>
-								<col width="25%">
-								<col width="25%">
-								<col width="25%">
-								<col width="25%">
-							</colgroup>
-							<tr>
-								<th><%=Lanfunc.language(lan, 83) %></th>
-								<th><%=Lanfunc.language(lan, 71) %></th>
-								<th><%=Lanfunc.language(lan, 84) %></th>
-								<th><%=Lanfunc.language(lan, 167) %><input type="checkbox" name="allcheck" id="allcheck" onclick="allCheck();" ></th>
-							</tr>
-						</table>
-						<table cellspacing="0"  class="ex1">
-						<colgroup>
-							<col width="25%">
-							<col width="25%">
-							<col width="25%">
-							<col width="25%">
-						</colgroup>
-						<tbody>
-<%
-	for(int i=0;i<holi.length;i++){
-		if(i%2==0){
-			out.println("<tr  class='odd'>");
-		}else{
-			out.println("<tr>");	
-		}
-%>
-								<td class='date1'><%=holi[i].getHolidayName() %></td>
-								<td class='date1'><%=holi[i].getHolidayDate() %></td>
-								<td class='date1'><%=holi[i].getUsed().equals("1")?Lanfunc.language(lan, 168):Lanfunc.language(lan, 169) %></td>
-								<td class='date1'><input type="checkbox" name="check" id="check" value="<%=holi[i].getHolidayDate()%>" ></td>
-							</tr>
-<%
-	}
-%>
-						</tbody>
-					</table>
-
+		<section class = "sectionji">
+			<ul class = "ulji"></ul>
+			<div class="basicInfo">
+				<div class="holi_top" style="padding-left:4%;margin-top:20px;">
+					<div class="headerji">
+						<%=Lanfunc.language(lan, 83) %>
+						:
 					</div>
+					<input type="text" class="inputt" name="AddName" id="AddName" value="" />
+					</p>
+
+					<p>
+					<div class="headerji">
+						<%=Lanfunc.language(lan, 71) %>
+						:
+					</div>
+					<div class="input"><input type="text" class="inputt" name="AddDate" id="AddDate" readonly="readOnly" value="" onclick="fnPopUpCalendar(AddDate,AddDate,'yyyy-mm-dd')"></div>
+					</p>
+				<%-- <div class="text"><%=Lanfunc.language(lan, 83) %></div>
+					<div class="input"><input type="text" name="AddName" id="AddName" value="" size="40um" ></div>
+					<div class="text"><%=Lanfunc.language(lan, 71) %></div>
+				 	<div class="input"><input type="text" name="AddDate" id="AddDate" readonly="readOnly" value="" size="40um" onclick="fnPopUpCalendar(AddDate,AddDate,'yyyy-mm-dd')"></div>
+					<div class="buttom bt_access" >	<a href="#DeviceInfo" onclick="HoliDayAdd();" class="button gray"  style=""><span class="icon-check" ></span><%=Lanfunc.language(lan, 90) %></a></div> 
+				--%>
 				</div>
-			</form>
-
-			<div class="right">
-				<div class="buttom bt_access"><a href="#content" onclick="HoliDayDel();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;"><span style="position:absolute;left:35px;top:15px;"><%=Lanfunc.language(lan, 88) %></span></a></div>
-				<div class="buttom bt_access"><a href="#content" onclick="HoliDayModify();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:100px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 89) %></span></a></div>
 			</div>
-		</div>
-</section>
+			</div>
+		</section>
 
-
-
-		<div class="dataAdd">
-			<div class="text"><%=Lanfunc.language(lan, 83) %></div>
-			<div class="input"><input type="text" name="AddName" id="AddName" value="" size="40um" ></div>
-			<div class="text"><%=Lanfunc.language(lan, 71) %></div>
-			<div class="input"><input type="text" name="AddDate" id="AddDate" readonly="readOnly" value="" size="40um" onclick="fnPopUpCalendar(AddDate,AddDate,'yyyy-mm-dd')"></div>
-		<%-- 	<div class="buttom" >	<a href="#content" onclick="HoliDayAdd();"><img src="/TrustWinPro/action/image/interface/statusbar.png" style="width:80px;position:absolute;"><span class="text"><%=Lanfunc.language(lan, 90) %></span></a>	</div>			 --%>
-			<div class="buttom bt_access" >	<a href="#DeviceInfo" onclick="HoliDayAdd();" class="button gray"  style=""><span class="icon-check" ></span><%=Lanfunc.language(lan, 90) %></a>	</div>
-			
-				
-		</div>
+		<div class="tablebor" id="TrustPrint">
+			<form name="HoliDay" id="HoliDay" method="post" action="page/HoliDayDel.jsp">
+				<table border=1 cellspacing="0" class="titleEx1">
+						<colgroup>
+							<col width="10%">
+							<col width="30%">
+							<col width="30%">
+							<col width="30%">
+						</colgroup>
+						<tr>
+							<th><%=Lanfunc.language(lan, 85) %><input type="checkbox" name="allcheck" id="allcheck" onclick="allCheck();" ></th>
+							<th><%=Lanfunc.language(lan, 83) %></th>
+							<th><%=Lanfunc.language(lan, 71) %></th>
+							<th><%=Lanfunc.language(lan, 84) %></th>
+						</tr>
+				</table>
+				<table cellspacing="0"  class="ex1">
+							<colgroup>
+								<col width="10%">
+								<col width="30%">
+								<col width="30%">
+								<col width="30%">
+							</colgroup>
+							<tbody>
+	<%
+		for(int i=0;i<holi.length;i++){
+			if(i%2==0){
+				out.println("<tr class='odd'>");
+			}else{
+				out.println("<tr>");	
+			}
+	%>	
+									<td class='date1'><input type="checkbox" name="check" id="check" value="<%=holi[i].getHolidayDate()%>" ></td>
+									<td class='date1'><%=holi[i].getHolidayName() %></td>
+									<td class='date1'><%=holi[i].getHolidayDate() %></td>
+									<td class='date1'><%=holi[i].getUsed().equals("1")?Lanfunc.language(lan, 168):Lanfunc.language(lan, 169) %></td>
+								</tr>
+								
+	<%
+		}
+	%>
+							</tbody>
+						</table>
+				</form>
+			</div>
 	</div>
 	
 	<div class="buttonBox">
-			<div class="bottom bt_access" style="padding-right: 50px;padding-left: 10px;">
-					<a href="#" title="Send" onclick="HoliSocket('S,D,H,H,H,H,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
-
-			</div>
-				
-		</div>
+			<div class="bottom bt_access" style="padding-right: 50px;padding-left:10px;margin-top:10px;">
+					<a href="#" title="Send" onclick="HoliSocket('S,D,H,H,H,H,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px"></span>Send</a>
+					<a href="#" title="Send" onclick="HoliDayDel();" class="button gray" style="float: right;"><span class="icon-delete"></span><%=Lanfunc.language(lan, 88) %></a>
+					<a href="#" title="Send" onclick="HoliDayModify();" class="button gray" style="float: right;"><span class="icon-check"></span><%=Lanfunc.language(lan, 89) %></a>
+					<a href="#" title="Send" onclick="HoliDayAdd();" class="button gray" style="float: right;"><span class="icon-check"></span><%=Lanfunc.language(lan, 90) %></a>
+			</div>				
+	</div>
+	
 </div>
-<form name="AllDelHoliday" id="AllDelHoliday" method="post" action="page/HoliDayAllDel.jsp" >
-</form>
+
+<form name="AllDelHoliday" id="AllDelHoliday" method="post" action="page/HoliDayAllDel.jsp" ></form>
 <form action="/TrustWinPro/action/index.jsp" name="Holiday" id="Holiday" method="post">
 	<input type="hidden" value="Time" name="left" />
 	<input type="hidden" value="Holiday" name="content" />
