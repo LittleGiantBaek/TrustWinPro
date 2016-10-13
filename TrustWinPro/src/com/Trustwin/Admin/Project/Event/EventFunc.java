@@ -421,8 +421,9 @@ public class EventFunc {
 		
 		for(int i=0;i<dev.length;i++)
 		{
-			temp_sql = "select count(*) from dbo.History where EventDate='" + today_date +"' and EventName ='Granted' and EventPlace = ";
-			temp_sql += "(select ControllerName As DeviceID from dbo.SetupTcpip where ID='" + dev[i] +"')";
+
+			temp_sql = "select count(*) from dbo.History where EventDate='" + today_date +"' and EventName ='Granted' and id = '" +dev[i]+ "'";
+
 			try {
 				Context init = new InitialContext();
 				DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/MssqlDB");
