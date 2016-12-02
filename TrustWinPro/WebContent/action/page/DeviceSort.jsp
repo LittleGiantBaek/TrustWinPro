@@ -80,7 +80,7 @@ function DeviceSorts(form,CN,Add,ID,UID){
 		}
 	}
 	if(count==0){
-		alert("항목을 선택하세요");
+		alertify.alert("항목을 선택하세요");
 		return false;
 	}else{ 
 		$.ajax({      
@@ -92,7 +92,7 @@ function DeviceSorts(form,CN,Add,ID,UID){
 				statusDevice();
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		});
 	 }
@@ -125,7 +125,6 @@ function statusDevice()
 	
 	var change = 0;
 	function allDeviceCheck(){
-		//var check = document.getElementsByName("checkD");
 		var check = document.getElementsByName("info");
 		if(change == 0){
 			for(var i = 0 ; i < check.length;i++ ){
