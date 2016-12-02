@@ -21,6 +21,27 @@ public class User {
 	private String passWord;
 	
 	private String CompanyID;
+
+	private String FP1;
+	
+	private String FP2;
+	
+	public String getFP1() {
+		return FP1;
+	}
+
+	public void setFP1(String fP1) {
+		FP1 = fP1;
+	}
+
+	public String getFP2() {
+		return FP2;
+	}
+
+	public void setFP2(String fP2) {
+		FP2 = fP2;
+	}
+
 	
 	public String getId() {
 		return id;

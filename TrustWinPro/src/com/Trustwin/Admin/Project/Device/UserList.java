@@ -22,6 +22,16 @@ public class UserList {
 
 	private String DeviceID;
 	
+	private String Etc;
+	
+	public String getEtc() {
+		return Etc;
+	}
+
+	public void setEtc(String etc) {
+		Etc = etc;
+	}
+
 	public int getNo() {
 		return no;
 	}

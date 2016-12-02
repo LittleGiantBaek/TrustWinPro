@@ -5,7 +5,6 @@
 <%@ page import="javax.naming.*" %>
 <%
 	String vals = request.getParameter("val");
-	
 	Connection conn = null;
 	String sql = "";
 	sql = "update Sort set maineventSort = '" + vals + "'where idx=1;"; 

@@ -11,11 +11,36 @@ scrollbar-arrow-color:#afafaf;
 scrollbar-track-color:#ffffff;
 }
 
+
+
 .notcheck {display : none;}
 
 .conf {
 	background-color : gray;
 }
+
+/* Grid */
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+  /*   border: 1px solid red;  */
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 
 /* #notcheck {
 	display : none;
@@ -44,7 +69,7 @@ scrollbar-track-color:#ffffff;
 .dropdown {
     position: relative;
     display: inline-block;
-    z-index:101;
+    z-index:100;
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -292,6 +317,9 @@ button {
 #allDevice, #allUser {
 	padding-left : 5%;
 }
+#LanModify {
+	padding-left : 15%;
+}
 
 .Loading{position:absolute; top:0; left:0; width:100%; height:100%; z-index:101; display:none; background-repeat: no-repeat;background-color: #fff;opacity:0.5;}
 .Loading .backImg{margin:100px auto 0;width:600px; height:600px; z-index:101;  background-image:url("/TrustWinPro/action/image/interface/loading.gif");background-repeat: no-repeat;  opacity:0.5; }
@@ -491,7 +519,8 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .basicInfo .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Official {width:96%;border:1px solid gray; -moz-border-radius: 5px;-webkit-border-radius: 5px;height:460px;margin-left:12px;}
+#UserInfo .basic .Official {width:96%;border:2px solid #988f90; -moz-border-radius: 6px;-webkit-border-radius: 5px;height:460px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Official .InfoBox {width:60%;padding:20px;height:120px;position:relative;} 
 #UserInfo .basic .Official .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Official .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -501,21 +530,23 @@ a#web-buttons-idrmij3a {display:none}
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Official .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Official .InfoBox .block .search {height:30px;}
 
-#UserInfo .basic .Private {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:320px;margin-left:12px;}
+#UserInfo .basic .Private {width:96%;border:2px solid #988f90; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:320px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Private .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .Private .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
-#UserInfo .basic .Private .InfoBox .block .header {height:28px;width:25%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .Private .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
 #UserInfo .basic .Private .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
 #UserInfo .basic .Private .InfoBox .block .mainselect {display: inline-block;height:28px;background-color: #dcdcdc;left:27%;vertical-align: middle;line-height:22px;width:200px;position: absolute;}
 #UserInfo .basic .Private .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Private .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Private .InfoBox .block .search {height:30px;float:right;}
 
-#UserInfo .basic .Card {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;margin-left:12px;}
+#UserInfo .basic .Card {width:96%;border:2px solid #988f90; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:380px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Card .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
 #UserInfo .basic .Card .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #UserInfo .basic .Card .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
@@ -525,14 +556,28 @@ a#web-buttons-idrmij3a {display:none}
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#UserInfo .basic .Card .InfoBox .block .search {height:20px;float:right;}
+#UserInfo .basic .Card .InfoBox .block .search {height:30px;}
 #UserInfo .basic .Device {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
 #UserInfo .basic .Device table{width:100%}
-#UserInfo .basic .Event {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#UserInfo .basic .Event {width:96%;border:2px solid #988f90; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .Event table{width:100%}
-#UserInfo .basic .Event table .main img{padding:0;margin:0;height:28px;top:5px;}
-#UserInfo .basic .AccessControl {width:96%;border:1px solid gray; display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;margin-left:12px;}
+#UserInfo .basic .Event table .main img{padding:0;margin:0;height:30px;}
+#UserInfo .basic .AccessControl {width:96%;border:2px solid #988f90; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #UserInfo .basic .AccessControl table{width:100%}
+
+#UserInfo .basic .FP {width:96%;border:2px solid #988f90; display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#UserInfo .basic .FP .InfoBox {width:60%;padding:20px;height:100px;position:relative;} 
+#UserInfo .basic .FP .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
+#UserInfo .basic .FP .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
+#UserInfo .basic .FP .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+#UserInfo .basic .FP .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+    color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
+    white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
+
 
 #UserInfo .basic .buttonBox {width:96%;position:relative;margin-left:12px; } 
 #UserInfo .basic .buttonBox .InfoButtom {float:right; margin-top:5px;}
@@ -548,6 +593,7 @@ a#web-buttons-idrmij3a {display:none}
 #UserInfo .basic .tab .tab4{float:left;padding:0;}
 #UserInfo .basic .tab .tab5{float:left;padding:0;}
 #UserInfo .basic .tab .tab6{float:left;padding:0;}
+#UserInfo .basic .tab .tab7{float:left;padding:0;}
 
 /* DviceInfo*/
 #DeviceInfo {width:100%;padding:0;margin:0;min-width: 1000px;overflow: hidden;}
@@ -584,22 +630,23 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .tab .tab8{float:left;padding:0;}
 #DeviceInfo .basic .tab .tab9{float:left;padding:0;}
 
-#DeviceInfo .basic .Basic {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:600px;position:relative;margin-left:12px;}
-#DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:10px 0;position:absolute;left:10px;} 
+#DeviceInfo .basic .Basic {width:96%;border:2px solid #988f90;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:600px;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#DeviceInfo .basic .Basic .InfoBox1 {width:45%;padding:20px;;position:absolute;} 
 #DeviceInfo .basic .Basic .InfoBox1 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
 #DeviceInfo .basic .Basic .InfoBox1 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
-#DeviceInfo .basic .Basic .InfoBox1 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:right;}
+#DeviceInfo .basic .Basic .InfoBox1 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:left;margin-left:30px;}
 #DeviceInfo .basic .Basic .InfoBox1 .block .mainselect {height:28px;background-color: #dcdcdc;vertical-align: middle;line-height:22px;width:50%;position: absolute;}
 #DeviceInfo .basic .Basic .InfoBox1 .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
-#DeviceInfo .basic .Basic .InfoBox2 {width:45%;padding:20px 0;position:absolute;right:50px;} 
+#DeviceInfo .basic .Basic .InfoBox2 {width:45%;padding:20px;position:absolute;right:50px;} 
 #DeviceInfo .basic .Basic .InfoBox2 .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;padding:0 0px;}
 #DeviceInfo .basic .Basic .InfoBox2 .block .header {height:28px;width:40%;min-width:150px;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
-#DeviceInfo .basic .Basic .InfoBox2 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:right;}
+#DeviceInfo .basic .Basic .InfoBox2 .block .main {height:28px;width:50%;vertical-align: middle;line-height:22px;float:left;margin-left:30px;}
 #DeviceInfo .basic .Basic .InfoBox2 .block .mainselect {height:28px;background-color: #dcdcdc;vertical-align: middle;line-height:22px;width:50%;position: absolute;}
-#DeviceInfo .basic .Basic .InfoBox2 .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
+#DeviceInfo .basic .Basic .InfoBox2 .block input{width: 90%; display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
     -webkit-appearance: none; border: 1px solid #b4b4b4;border-radius: 4px;background: #fff;}
@@ -608,11 +655,12 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Basic #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Basic #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Sunlight {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:280px;display:none;position:relative;}
+#DeviceInfo .basic .Sunlight {width:96%;border:2px solid #988f90;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:280px;display:none;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Sunlight .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
 #DeviceInfo .basic .Sunlight .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #DeviceInfo .basic .Sunlight .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
-#DeviceInfo .basic .Sunlight .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:left;}
+#DeviceInfo .basic .Sunlight .InfoBox .block .main {height:28px;width:73%;vertical-align: middle;line-height:22px;float:left;margin-left:30px;}
 #DeviceInfo .basic .Sunlight .InfoBox .block input{display: inline-block; height: 28px;padding: 0 14px;margin: 0px;font-size: 12px;
     color: #6e6e6e;font-weight: normal;font-family: Verdana, Helvetica, '�룍��', Dotum, '援대┝', Gulim, sans-serif;line-height: 27px;
     white-space: nowrap;text-overflow: ellipsis;-webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -621,7 +669,9 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Sunlight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Operatelight {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .Operatelight {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#DeviceInfo .basic .Operatelight .InfoBox {padding:10px;} 
 #DeviceInfo .basic .Operatelight table {width:100%}
 #DeviceInfo .basic .Operatelight th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
 #DeviceInfo .basic .Operatelight tr {vertical-align: middle;line-height:28px;text-align: center;}
@@ -629,7 +679,9 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Operatelight #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Alarm {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .Alarm {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#DeviceInfo .basic .Alarm .InfoBox {padding:10px;} 
 #DeviceInfo .basic .Alarm table {width:100%}
 #DeviceInfo .basic .Alarm th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
 #DeviceInfo .basic .Alarm tr {vertical-align: middle;line-height:20px;text-align: center;}
@@ -637,7 +689,9 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .Alarm #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Alarm #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .AutoDoor {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .AutoDoor {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#DeviceInfo .basic .AutoDoor .InfoBox {padding:10px;} 
 #DeviceInfo .basic .AutoDoor table {width:100%}
 #DeviceInfo .basic .AutoDoor th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
 #DeviceInfo .basic .AutoDoor tr {vertical-align: middle;line-height:20px;text-align: center;}
@@ -646,36 +700,42 @@ a#web-buttons-idrmij3a {display:none}
 #DeviceInfo .basic .AutoDoor #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
 
-#DeviceInfo .basic .AutoKey {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:400px;}
+#DeviceInfo .basic .AutoKey {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:400px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
+#DeviceInfo .basic .AutoKey .InfoBox {padding:10px;} 
 #DeviceInfo .basic .AutoKey table {width:100%}
 #DeviceInfo .basic .AutoKey th {background-color: #565656; color:#fff;text-align: center;vertical-align: middle;line-height:28px;}
 #DeviceInfo .basic .AutoKey tr {vertical-align: middle;line-height:20px;text-align: center;}
-#DeviceInfo .basic .AutoKey .key {width:150px;}
+#DeviceInfo .basic .AutoKey .key {width:150px; height:28px;}
 #DeviceInfo .basic .AutoKey .InfoButtom {width:200px;margin:5px 0;}
 #DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .AutoKey #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .NoAct {width:96%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;height:380px;display:none;position:relative;}
+#DeviceInfo .basic .NoAct {width:96%;border:2px solid #988f90;-moz-border-radius: 6px;-webkit-border-radius: 6px;height:380px;display:none;position:relative;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .NoAct .InfoBox {width:80%;padding:20px;height:100px;position:relative;} 
 #DeviceInfo .basic .NoAct .InfoBox .block {margin:0px 0 8px 0px;position:relative; width:100%;height:28px;}
 #DeviceInfo .basic .NoAct .InfoBox .block .header {height:28px;width:23%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;}
-#DeviceInfo .basic .NoAct .InfoBox .block .main {height:28px;width:73%;background-color:vertical-align: middle;line-height:22px;float:left;}
+#DeviceInfo .basic .NoAct .InfoBox .block .main {height:28px;width:73%;background-color:vertical-align: middle;line-height:22px;float:left;margin-left:30px;}
 #DeviceInfo .basic .NoAct .InfoBox .block select{width:150px;}
 #DeviceInfo .basic .NoAct .InfoBox .block .search {height:20px;float:right;}
 #DeviceInfo .basic .NoAct .InfoButtom {position:absolute;width:200px;margin:0;padding:0;}
 #DeviceInfo .basic .NoAct #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .NoAct #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .Event {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#DeviceInfo .basic .Event {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .Event table{width:100%}
-#DeviceInfo .basic .Event table .main img{padding:0;margin:0;height:28px;top:5px;}
+#DeviceInfo .basic .Event table .main img{padding:0;margin:0;height:30px;top:15px;}
 #DeviceInfo .basic .Event #web-buttons-idrmij3 a{display:inline;color:transparent;text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn1.png);width:89px;height:32px;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;} 
 #DeviceInfo .basic .Event #web-buttons-idrmij3 a:hover{text-decoration:none !important;background-image:url(/TrustWinPro/action/image/interface/btn2.png);width:89px;height:32px;display:block;color:#fff;text-align: center;font-size: 12px;font-weight: bold;padding:8px 0 0 0;background-repeat: no-repeat;float:right;}
 
-#DeviceInfo .basic .AccessControl {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#DeviceInfo .basic .AccessControl {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .AccessControl table{width:100%}
 
-#DeviceInfo .basic .UserList {width:96%;border:1px solid gray;display:none;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:300px;}
+#DeviceInfo .basic .UserList {width:96%;border:2px solid #988f90;display:none;-moz-border-radius: 6px;-webkit-border-radius: 6px;min-height:300px;margin-left:12px;border-radius: 6px;-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);}
 #DeviceInfo .basic .UserList table{width:100%}
 
 
@@ -758,6 +818,9 @@ table.ex1 a:active{color:#000;}
 .tab>li+li+li>a {left:200px;}
 .tab>li+li+li+li+li>a {left:300px;}
 .tab>li+li+li+li+li+li>a {left:400px;}
+.tab>li+li+li+li+li+li+li>a {left:500px;}
+.tab>li+li+li+li+li+li+li+li>a {left:600px;}
+.tab>li+li+li+li+li+li+li+li+li>a {left:700px;}
 .tab>li>div {height:0; overflow:hidden; position:absolute;}
 .tab>li.on>div {height:auto; position:static; border:1px solid #767676; padding:10px;}
 
@@ -895,7 +958,7 @@ table.ex1 a:active{color:#000;}
 #TimeInfo .basic .block .header {height:20px;width:15%;background-color: #565656; color:#fff;text-align: left;padding-left:5px;vertical-align: middle;line-height:20px;float:left;margin-bottom:10px;}
 #TimeInfo .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
 #TimeInfo .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
-#TimeInfo .week {width:95%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:350px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
+#TimeInfo .week {margin-left:12px;margin-top:10px;width:95%;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:350px;position: relative;padding:20px 5px 10px 5px;top:-15px;}
 #TimeInfo .week .Name {width:7%;float:left;padding:25px 6px 0 6px;}
 #TimeInfo .week .Group {width:90%;float:left;padding-top:5px;}
 #TimeInfo .buttom .image{float:right;padding-right:50px;}
@@ -903,6 +966,7 @@ table.ex1 a:active{color:#000;}
 /* HoliInfo */
 #HoliInfo {width:100%;padding:0;margin:0;min-width: 500px;overflow: hidden;}
 #HoliInfo .basic {width:100%;position:relative;padding:0;margin:0;}
+#HoliInfo .basic .sectionji{height:150px;}
 #HoliInfo .basic .basicTitleBar {width:96%;margin:0 auto;position:relative;z-index:100;}
 #HoliInfo .basic .basicTitleBar .TitleBar {width:100%}
 #HoliInfo .basic .basicInfo {width:96%;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:200px;}
@@ -921,7 +985,7 @@ table.ex1 a:active{color:#000;}
 #HoliInfo .basic .basicInfo .right {width:45%;float:right;position:relative;}
 #HoliInfo .basic .basicInfo .right .buttom{padding:5px 0;}
 #HoliInfo .basic .basicInfo .right .buttom .text {position:absolute;text-align: center;padding:13px 0 0 0;width:100px;}
-#HoliInfo .basic .dataAdd {width:96%;margin-top:10px;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:80px;}
+#HoliInfo .basic .dataAdd {width:96%;margin-left:12px;margin-top:10px;border:1px solid gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;position:relative;z-index:1;top:-15px;padding-top:20px;height:80px;}
 #HoliInfo .basic .dataAdd .text {width:10%;float:left;padding-left:40px;}
 #HoliInfo .basic .dataAdd .input {width:75%;float:left;}
 #HoliInfo .basic .dataAdd .buttom {width:15%;float:right;position:relative;}
@@ -929,13 +993,13 @@ table.ex1 a:active{color:#000;}
 
 
 #HoliInfo table.titleEx1{background-image:url("/TrustWinPro/action/image/interface/titlebar.png"); background-size:cover;background-repeat:no-repeat;border:0; width:100%;margin:0 auto;padding:10px; margin:0;padding:0;color:#fff;-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/TrustWinPro/action/image/interface/titlebar.png',sizingMethod='scale')";  }
-#HoliInfo .titleEx1 th{padding:.2em 0;vertical-align:middle;font-weight:normal;text-align:center;}
+#HoliInfo .titleEx1 th{padding:.2em 0;vertical-align:middle;font-weight:normal;text-align:center;font-weight:bold;color:black;}
 #HoliInfo table.ex1 {width:100%;margin:0 auto;padding:10px;}
 #HoliInfo table.ex1 ,.ex1 td,.ex1 th{border:0;border-collapse:collapse;margin:0;padding:0;}
 #HoliInfo .ex1 td, .ex1 th{padding:.2em 0;vertical-align:top;font-weight:normal;text-align:center;}
 #HoliInfo .ex1 thead th{text-transform:uppercase;color:#fff;}
-#HoliInfo .ex1 tbody td{background:#e1e9ef;}
-#HoliInfo .ex1 tbody th{background:#e1e9ef;}
+#HoliInfo .ex1 tbody td{background:#f2f2f2;}
+#HoliInfo .ex1 tbody th{background:#f2f2f2;}
 #HoliInfo .ex1 tbody tr.odd td{background:#fff;}
 #HoliInfo .ex1 tbody tr.odd th{background:#fff;}
 #HoliInfo .ex1 caption{text-align:left;text-transform:uppercase;letter-spacing:-1px;}
@@ -954,7 +1018,7 @@ table.ex1 a:active{color:#000;}
 #Access .basic .block .main {height:20px;width:82%;background-color: #dcdcdc;padding-left:5px;vertical-align: middle;line-height:22px;float:left;margin-bottom:10px;}
 #Access .basic .block input{height:18px;background-color: #dcdcdc;border:0;padding-left:3px;}
 #Access .info {width:96%;border:1px solid gray; padding: 0 0 20px 0;
-				-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:330px;position: relative; height:500px;}
+				-moz-border-radius: 5px;-webkit-border-radius: 5px;min-height:330px;position: relative; height:400px;}
 #Access .info .Name {width:4%;float:left;padding:25px 6px 0 6px;}
 #Access .info .Group {width:94%;float:left;padding-top:5px;}
 #Access .buttom .image{float:right;}
@@ -1010,7 +1074,7 @@ table.ex1 a:active{color:#000;}
 .postitUserExcel .deviceSortPop .timeZone .title{margin:0 70px 0 0;}
 .postitUserExcel .deviceSortPop .buttom {bottom:10px;margin-left:75%;}
 
-.postitEventExcel {padding:0;margin:0;width:50%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
+.postitEventExcel {padding:0;margin:0;width:59%;overflow: hidden;z-index:100;height:300px;position:absolute; display:none;background-color: rgba(255, 255, 255, 0);left:35%;top:5%;}
 .postitEventExcel .deviceSortPop {width:60%;border:2px solid gray;margin:0 auto 10px;-moz-border-radius: 5px;-webkit-border-radius: 5px;/* min-height:270px; */background-color:white;}
 .postitEventExcel .deviceSortPop table{width:100%}
 .postitEventExcel .deviceSortPop table tr th{padding:0;margin:0;}
@@ -1184,7 +1248,7 @@ table.ex1 a:active{color:#000;}
 
 
 .new_block { width:100%; /* height:300px; */}
-.new_block_b {width:48%; float:left; padding: 2rem 0 0 0;}
+.new_block_b {width:48%; float:left; padding: 1rem 0 0 0;}
 
 
 #chart_div {display:block;width:100%; height:100%;}
@@ -1249,6 +1313,21 @@ overflow: hidden;border: 2px solid #46bebe; border-radius: 6px;-webkit-box-shado
 
 .headerji {margin-left:5px; height:28px; width:29%; text-align: left;padding-left:5px;vertical-align: middle;line-height:28px;float:left;}
 .mainji {height:28px;width:73%;vertical-align: middle;line-height:22px;float:right;}
+
+.user_tablebor{
+    overflow: hidden;
+	position: relative;
+    width: 96%;
+    height: auto;
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+    background: #fff;
+    margin-left:12px;
+}
 
 .tablebor{
     overflow: hidden;

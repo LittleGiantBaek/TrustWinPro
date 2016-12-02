@@ -3,7 +3,6 @@
 <%
 	String content = (String)request.getParameter("content");
 	String logtype = (String)request.getParameter("logtype");
-	
 	if(content == null){
 		content = "";
 	}
@@ -77,7 +76,8 @@
 <%	
 	}else if(content.equals("Language")){
 %>
-		<jsp:include page="/action/page/LanguageAdmin.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/LanguageAdmin2.jsp" flush="false"></jsp:include>
+		<script>splitterClicked();</script>
 <%	
 	}else if(content.equals("Map")){
 %>
@@ -89,11 +89,19 @@
 <%	
 	}else if(content.equals("Setting")){
 %>
-		<jsp:include page="/action/page/Setting.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/SettingAccount2.jsp" flush="false"></jsp:include>
 <%	
-	}else if(content.equals("SettingAccount")){
+	}else if(content.equals("Setting_a")){
 %>
-		<jsp:include page="/action/page/SettingAccount.jsp" flush="false"></jsp:include>
+		<jsp:include page="/action/page/SettingAccount2.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Setting_s")){
+%>
+		<jsp:include page="/action/page/SettingServer.jsp" flush="false"></jsp:include>
+<%	
+	}else if(content.equals("Setting_d")){
+%>
+		<jsp:include page="/action/page/SettingDB.jsp" flush="false"></jsp:include>
 <%	
 	}else{
 %>

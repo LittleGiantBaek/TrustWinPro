@@ -8,6 +8,7 @@
 <%@ page import="com.Trustwin.Admin.Project.User.*"%>
 
 <%
+
 	CategoryFunc Catefunc = new CategoryFunc();
 	LanguageFunc Lanfunc = new LanguageFunc();
 	UserFunc Userfunc = new UserFunc();
@@ -39,16 +40,16 @@
 
 <script type="text/javascript">
 	function check3(form) {
-		alert($("input[type=radio][name=accountAdmin]:checked").val());
+		alertify.alert($("input[type=radio][name=accountAdmin]:checked").val());
 	}
 	function check4(form) {
-		alert(form.DevAccount.value);
+		alertify.alert(form.DevAccount.value);
 
-		alert(form.UserAccount.value);
+		alertify.alert(form.UserAccount.value);
 
-		alert(form.ACAccount.value);
+		alertify.alert(form.ACAccount.value);
 
-		alert(form.MonitoringAccount.value);
+		alertify.alert(form.MonitoringAccount.value);
 	}
 
 	function SetAccount() {
@@ -60,10 +61,10 @@
 					url : "/TrustWinPro/action/ajax/AccountMode.jsp",
 					data : "queryString=&"+queryString,
 					success : function(args) {
-						alert("저장되었습니다.");
+						alertify.alert("저장되었습니다.");
 					},
 					error : function(e) {
-						alert(e.responseText);
+						alertify.alert(e.responseText);
 					}
 				});
 	}
@@ -105,8 +106,7 @@
 	} else {
 %>
 <script>
-	alert("권한이 없습니다.");
-	history.back();
+alertify.alert("권한이 없습니다.");
 </script>
 <%
 	}

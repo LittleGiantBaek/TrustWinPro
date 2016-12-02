@@ -21,7 +21,7 @@
 	LanguageFunc Lanfunc = new LanguageFunc();
 	String lan = (String)session.getAttribute("nation");
 	if(Num == null){
-		Num = "40";
+		Num = "25";
 	}
 	Connection conn = null;
 	String sql = "select EventType,EventDate,EventTime,EventPlace,EventName,EventUserID,EventUserName,EventDoorState,EventCompanyID from dbo.History"; 

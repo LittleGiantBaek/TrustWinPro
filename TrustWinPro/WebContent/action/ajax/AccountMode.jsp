@@ -8,10 +8,6 @@
 	String UserAccountStatus = (String) request.getParameter("UserAccount");
 	String ACAccountStatus = (String) request.getParameter("ACAccount");
 	String MonitoringAccountStatus = (String) request.getParameter("MonitoringAccount");
-/* 	System.out.println(DevAccountStatus);
-	System.out.println(UserAccountStatus);
-	System.out.println(ACAccountStatus);
-	System.out.println(MonitoringAccountStatus); */
 
 	Connection conn = null;
 	String sql = "UPDATE AccountMode SET ";

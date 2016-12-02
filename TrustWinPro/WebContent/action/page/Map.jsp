@@ -54,7 +54,7 @@ jQuery(function($){
 			    	
 			    },   
 			    error:function(e){  
-			        alert("drag error" + e.responseText);  
+			    	alertify.alert("drag error" + e.responseText);  
 			    }  
 			}); 
 		});
@@ -78,7 +78,7 @@ function MapDeviceInfo(x,y){
 	    	}
 	    },   
 	    error:function(e){  
-	        alert("MapDeviceInfo error" + e.responseText);  
+	    	alertify.alert("MapDeviceInfo error" + e.responseText);  
 	    }  
 	}); 
 }
@@ -94,7 +94,7 @@ function mapDelete(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=Map";
 	    },   
 	    error:function(e){  
-	        alert("Map delete error !! : " + e.responseText);  
+	    	alertify.alert("Map delete error !! : " + e.responseText);  
 	    }  
 	}); 
 }
@@ -122,9 +122,12 @@ function mapDelete(){
 %>
 		<img src="<%=imageFile%>" class="mapImage">
 	</div>
-	<div class="bottom" >
-		<a href="#a" title="Send" onclick="setupMove()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>MapSetup</a>
-		<a href="#" title="Delete" onclick="mapDelete()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>Delete</a>
+	<div class="bottom bt_monitoring" >
+		<div class="dropdown" style="margin-left: 1%; font-size: 13px">
+			<button onclick="setupMove()" class="dropbtn">•••</button>
+		</div>
+		<!-- <a href="#a" title="Send" onclick="setupMove()"class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span>MapSetup</a> -->
+		<a href="#" title="Delete" onclick="mapDelete()"class="button gray"><span class="icon-delete" style="margin-left: 0px;"></span>Remove</a>
 	</div>
 </div>
 <form name="mapsetup" id="mapsetup" method="post" action="/TrustWinPro/action/index.jsp" >

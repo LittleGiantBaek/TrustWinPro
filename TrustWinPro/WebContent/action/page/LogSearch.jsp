@@ -188,7 +188,6 @@ request.setCharacterEncoding("utf-8");
 	 	top = Integer.parseInt(request.getParameter("Num"));
 	}
 		
-	System.out.println(User);
 	String sql = "select top "+top+" EventType,EventDate,EventTime,EventPlace,EventName,EventUserID,EventUserName,EventDoorState,EventCompanyID from dbo.History  ";
 	sql = sql + where;
 	sql = sql +	" order by EventDate desc; ";

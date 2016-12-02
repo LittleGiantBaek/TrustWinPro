@@ -24,6 +24,10 @@
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/alertify.core.css" />
 <link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/alertify.default.css" />
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
+<script type="text/javascript" src="/TrustWinPro/action/js/material-charts.js"></script>
+<link rel="stylesheet" type="text/css" href="/TrustWinPro/action/css/material-charts.css" />
+
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/common.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.timePicker.js"></script>
@@ -33,6 +37,7 @@
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.event.drop-2.2.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jquery.event.drop.live-2.2.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/jscolor/jscolor.js"></script>
+<script type="text/javascript" src="/TrustWinPro/action/js/contextmunu.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/contextmunu.js"></script>
 <script type="text/javascript" src="/TrustWinPro/action/js/alertify.js"></script>
 
@@ -54,15 +59,9 @@ $(".Loading").css("display","none");
 </div>
 		<%
 			if(userClass != null && !userClass.equals("128")){
-		%>
-			<script type = "text/javascript">
-			$(".bottom").hide(); //Device Enroll button
-			$(".DeviceButtom").hide();
-			$(".InfoButtom").hide();
-			$(".UserButtom").hide();
-			$(".buttom").hide();
-			$(".mainButtom").hide();
-			</script>
+				
+		%>    
+   			<jsp:include page="./include/Authentication.jsp" flush="false"></jsp:include>
 		<%
 		}
 		%>

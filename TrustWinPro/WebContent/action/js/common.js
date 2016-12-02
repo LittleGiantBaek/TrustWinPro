@@ -1,4 +1,4 @@
-/* top menu script*/
+					/* top menu script*/
 function topMenuOn(i){
 	document.getElementById("menu0"+i).style.backgroundColor = "white";
 	document.getElementById("menuA0"+i).style.color = "black";
@@ -299,17 +299,58 @@ function MainEventExcel(form,SDate,EDate,STime,ETime,Name,User,Num){
 }
 
 
-function Enroll(value){
+function TimeSocket(value){
+	$(".Loading").css("display","block");
 	$.ajax({      
 	    type:"post",
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
 	    	if(args.trim() == 'success'){
-	    		alert("success");
+	    		alertify.alert("success");
 	    	}else{
-	    		alert("fail");
+	    		alertify.alert("fail");
 	    	}
+			$(".Loading").css("display","none");
+	    },   
+	    error:function(e){  
+	        alert(e.responseText);
+	    }  
+	}); 
+}
+function HoliSocket(value){
+	$(".Loading").css("display","block");
+	$.ajax({      
+	    type:"post",
+	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+	    data: "Data="+value,
+	    success:function(args){
+	    	if(args.trim() == 'success'){
+	    		alertify.alert("success");
+	    	}else{
+	    		alertify.alert("fail");
+	    	}
+			$(".Loading").css("display","none");
+	    },   
+	    error:function(e){  
+	        alert(e.responseText);
+	    }  
+	}); 
+}
+
+function Enroll(value){
+	$(".Loading").css("display","block");
+	$.ajax({      
+	    type:"post",
+	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+	    data: "Data="+value,
+	    success:function(args){
+	    	if(args.trim() == 'success'){
+	    		alertify.alert("success");
+	    	}else{
+	    		alertify.alert("fail");
+	    	}
+			$(".Loading").css("display","none");
 	    },   
 	    error:function(e){  
 	        alert(e.responseText);
@@ -318,21 +359,24 @@ function Enroll(value){
 }
 
 function EnrollUserList(value, deviceId){
+	 $(".Loading").css("display","block");
 	$.ajax({      
 	    type:"post",
 	    url:"/TrustWinPro/action/ajax/SendServer.jsp",   
 	    data: "Data="+value,
 	    success:function(args){
 	    	if(args.trim() == 'success'){
-	    		alert("success");
+	    		alertify.alert("success");
 	    		$("#DeviceUserList").empty();
 	    		RefreshUserList(deviceId);
 	    	}else{
-	    		alert("fail");
+	    		alertify.alert("fail");
+		    	 $(".Loading").css("display","none");
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
+	    	 $(".Loading").css("display","none");
 	    }  
 	}); 
 }
@@ -345,9 +389,11 @@ function RefreshUserList(deviceID){
 	    data: "deviceID="+deviceID,
 	    success:function(args){
 	    	 $("#DeviceUserList").append(args);
+	    	 $(".Loading").css("display","none");
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
+	    	 $(".Loading").css("display","none");
 	    }  
 	}); 
 }
@@ -369,6 +415,21 @@ function AllEnroll(ary, depth){
 						$("#progressbar").text(parseInt(progress_bar) + "%");	
 						AllEnroll(ary, depth+1);
 			    	}else if(args.trim() == 'false'){
+
+
+			    		alertify.confirm("User ID " + ary[depth] + " send fail. Are you want continue?", function (e) {
+			    			if (e) {
+				    			progress_bar = ((depth + 1)   * 100) / ary.length;
+								$("#progressbar").css("width", parseInt(progress_bar) + "%");
+								$("#progressbar").text(parseInt(progress_bar) + "%");
+				    			AllEnroll(ary, depth+1);		    				
+			    			    } else {
+									$(".Loading").css("display","none");
+									$(".progress_meter").css("display","none");
+			    			    }
+			    			});
+			    		
+			    		/*
 			    		if (confirm("User ID " + ary[depth] + " send fail. Are you want continue?")) {
 			    			progress_bar = ((depth + 1)   * 100) / ary.length;
 							$("#progressbar").css("width", parseInt(progress_bar) + "%");
@@ -377,22 +438,28 @@ function AllEnroll(ary, depth){
 			    		} else {
 							$(".Loading").css("display","none");
 							$(".progress_meter").css("display","none");
-			    		}
+			    		}*/
+			    		
+			    		
 			    	} else if(args.trim() == 'socket'){
-						alert("Connetion time out!");
+			    		alertify.alert("Connetion time out!");
+						$(".Loading").css("display","none");
+						$(".progress_meter").css("display","none");
 			    	} else if(args.trim() == 'db error'){
-						alert("DB Error!");
+			    		alertify.alert("DB Error!");
+						$(".Loading").css("display","none");
+						$(".progress_meter").css("display","none");
 			    	}
 			    },   
 			    error:function(e){  
-					alert(e.responseText);
+			    	alertify.alert(e.responseText);
 			    }  
 		});
 
 	} else {
 		$("#progressbar").css("width", "100%");
 		$("#progressbar").text("100%");
-		alert("Send Complete")
+		alertify.alert("Send Complete")
 		$(".Loading").css("display","none");
 		$(".progress_meter").css("display","none");
 	}
@@ -405,13 +472,13 @@ function Delete(value){
 	    data: "Data="+value,
 	    success:function(args){
 	    	if(args.trim() == 'success'){
-	    		alert("success");
+	    		alertify.alert("success");
 	    	}else{
-	    		alert("fail");
+	    		alertify.alert("fail");
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -433,7 +500,24 @@ function AllDelete(ary, depth){
 						$("#progressbar").text(parseInt(progress_bar) + "%");	
 						AllDelete(ary, depth+1);
 			    	}else if(args.trim() == 'false'){
-			    		if (confirm("User ID " + ary[depth] + " Delete fail. Are you want continue?")) {
+
+
+			    		alertify.confirm("User ID " + ary[depth] + " Delete fail. Are you want continue?", function (e) {
+			    			if (e) {
+				    			progress_bar = ((depth + 1)   * 100) / ary.length;
+								$("#progressbar").css("width", parseInt(progress_bar) + "%");
+								$("#progressbar").text(parseInt(progress_bar) + "%");
+								AllDelete(ary, depth+1);			    				
+			    			    } else {
+									$(".Loading").css("display","none");
+									$(".progress_meter").css("display","none");
+			    			    }
+			    			});
+			    		
+			    		
+			    		
+			    		
+			    		/*if (confirm("User ID " + ary[depth] + " Delete fail. Are you want continue?")) {
 			    			progress_bar = ((depth + 1)   * 100) / ary.length;
 							$("#progressbar").css("width", parseInt(progress_bar) + "%");
 							$("#progressbar").text(parseInt(progress_bar) + "%");
@@ -442,22 +526,76 @@ function AllDelete(ary, depth){
 							$(".Loading").css("display","none");
 							$(".progress_meter").css("display","none");
 			    		}
+			    		*/
 			    	} else if(args.trim() == 'socket'){
-						alert("Connetion time out!");
+			    		alertify.alert("Connetion time out!");
 			    	} else if(args.trim() == 'db error'){
-						alert("DB Error!");
+			    		alertify.alert("DB Error!");
 			    	}
 			    },   
 			    error:function(e){  
-					alert(e.responseText);
+			    	alertify.alert(e.responseText);
 			    }  
 		});
 	} else {
 		$("#progressbar").css("width", "100%");
 		$("#progressbar").text("100%");
-		alert("Delete Complete")
+		alertify.alert("Delete Complete")
 		$(".Loading").css("display","none");
 		$(".progress_meter").css("display","none");
+	}
+}
+
+
+function AllReceive(ary, depth){ 
+	if(depth != ary.length)
+	{
+		var user_id = ary[depth].replace("\'", "");
+		user_id = user_id.replace("\'", "");
+		data = "S,U,R,1," + user_id + ",E";
+		var progress_bar = ((depth + 1)   * 100) / ary.length;
+		$.ajax({      
+			   type:"post",
+			   url:"/TrustWinPro/action/ajax/SendServer.jsp",   
+			   data: "Data="+data,
+			   success:function(args){
+			    	if(args.trim() == 'success'){
+						$("#progressbar").css("width", parseInt(progress_bar) + "%");
+						$("#progressbar").text(parseInt(progress_bar) + "%");	
+						AllReceive(ary, depth+1);
+			    	}else if(args.trim() == 'false'){
+
+
+			    		alertify.confirm("User ID " + ary[depth] + " Receive fail. Are you want continue?", function (e) {
+			    			if (e) {
+				    			progress_bar = ((depth + 1)   * 100) / ary.length;
+								$("#progressbar").css("width", parseInt(progress_bar) + "%");
+								$("#progressbar").text(parseInt(progress_bar) + "%");
+								AllReceive(ary, depth+1);			    				
+			    			    } else {
+									$(".Loading").css("display","none");
+									$(".progress_meter").css("display","none");
+			    			    }
+			    			});
+			    		
+			    	} else if(args.trim() == 'socket'){
+			    		alertify.alert("Connetion time out!");
+			    	} else if(args.trim() == 'db error'){
+			    		alertify.alert("DB Error!");
+			    	}
+			    },   
+			    error:function(e){  
+			    	alertify.alert(e.responseText);
+			    }  
+		});
+	} else {
+		$("#progressbar").css("width", "100%");
+		$("#progressbar").text("100%");
+		alertify.alert("Receive Complete", function (e) {
+				$(".Loading").css("display","none");
+				$(".progress_meter").css("display","none");
+				location.reload(true);	
+		});
 	}
 }
 
@@ -468,13 +606,13 @@ function Recive(value){
 	    data: "Data="+value,
 	    success:function(args){
 	    	if(args.trim()  == 'success'){
-	    		alert("success");
+	    		alertify.alert("success");
 	    	}else{
-	    		alert("fail");
+	    		alertify.alert("fail");
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }

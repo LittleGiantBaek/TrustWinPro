@@ -17,12 +17,14 @@
 %>
 
 									<colgroup>
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
-										<col width="10%">
+										<col width="5%">
+										<col width="5%">
 										<col width="10%">
 										<col width="10%">
 										<col width="10%">
@@ -31,7 +33,11 @@
 
 <%
 		for(int i=0;i < userlist.length;i++){
+			if(!(userlist[i].getEtc()).equals(""))
+				out.println("<tr style='color:red;'>");
+			else
 				out.println("<tr>");
+			
 				out.println("<td>" + userlist[i].getNo() + "</td>");
 				out.println("<td>" + userlist[i].getUserID() + "</td>");
 				out.println("<td>" + userlist[i].getName() + "</td>");
@@ -42,6 +48,7 @@
 				out.println("<td>" + userlist[i].getFP2() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceName() + "</td>");
 				out.println("<td>" + userlist[i].getDeviceID() + "</td>");
+				out.println("<td>" + userlist[i].getEtc() + "</td>");
 				out.println("</tr>");
 			}
 %>

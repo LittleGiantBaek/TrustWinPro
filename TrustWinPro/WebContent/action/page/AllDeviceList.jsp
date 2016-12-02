@@ -221,7 +221,8 @@ function checkedF(num,v){
 				value = value + array[i] + ',';
 			}
 			value = value + 'E';
-			Delete(value);
+			alert(value);
+			//Delete(value);
 		}
 	}
 	
@@ -379,8 +380,12 @@ function checkedF(num,v){
 				<tbody>
 					<%
 						for (int i = 0; i < devices.length; i++) {
+							if(i%2==1){
+								out.println("<tr class='odd'>");
+							}else{
+								out.println("<tr>");	
+							}
 					%>
-					<tr>
 						<td class="deviceSelect"><input type="checkbox" name="check"
 							value="<%=devices[i].getID()%>"></td>
 						<td class='date1 deviceName <%=statuss1%>' ><a href="#a"
@@ -400,11 +405,11 @@ function checkedF(num,v){
 
 		</div>
 
-		<div class="bottom">
-			<a href="#" title="Send"
-				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+		<div class="bottom bt_device">
+			<%-- <a href="#" title="Send"
+				onclick="checkedF(<%=devices.length%>,1);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px;"></span><%=Lanfunc.language(lan, 183)%>Send</a> --%>
 			<a href="#" title="Delete"
-				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
+				onclick="checkedF(<%=devices.length%>,2);" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px;"></span>Delete All User</a>
 		</div>
 	</form>
 		<div class="postitDeviceSort" id="postitDeviceSort" style="display:none">

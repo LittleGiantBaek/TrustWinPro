@@ -51,7 +51,7 @@ function InsertTime(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -64,7 +64,7 @@ function InsertAccess(){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -77,6 +77,7 @@ function Timesubmit(v){
 
 function Holidaysubmit(){
 	var form = document.getElementById("Holiday");
+	form.num.value = 1;
 	form.submit();
 }
 
@@ -95,7 +96,7 @@ function TimeAdd(){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else if(document.getElementById("TimeAcess").value == 2){
@@ -106,11 +107,11 @@ function TimeAdd(){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
-		alert("<%=Lanfunc.language(lan, 181) %>");
+		alertify.alert("<%=Lanfunc.language(lan, 181) %>");
 	}
 }
 
@@ -124,7 +125,7 @@ function TimeDelete(v){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else if(document.getElementById("TimeAcess").value == 2){
@@ -136,7 +137,7 @@ function TimeDelete(v){
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Time&content=AccessGroup";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}
@@ -145,7 +146,7 @@ function TimeDelete(v){
 </script>
 <div class="Time">
 	<ul>
-		<li><a id="AccessGroupTopID" href="#content" onclick="AccessGroupTop();"><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %></a> <a class = "bottom" href="#a" onclick="InsertAccess();" >+</a>
+		<li><a id="AccessGroupTopID" href="#content" onclick="AccessGroupTop();"><img src="/TrustWinPro/action/image/interface/accessgroup.png" style="width:15px;" alt=""> <%=Lanfunc.language(lan, 133) %></a> <a class = "bottom bt_access" href="#a" onclick="InsertAccess();" >+</a>
 			<ul>
 <%
 		for(int i = 0;access.length>i;i++){	
@@ -156,7 +157,7 @@ function TimeDelete(v){
 %>
 			</ul>
 		</li>
-		<li><a id="TimeZoneTopID" href="#content" onclick="TimeZoneTop();"><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %></a> <a class = "bottom" href="#a" onclick="InsertTime();" >+</a>
+		<li><a id="TimeZoneTopID" href="#content" onclick="TimeZoneTop();"><img src="/TrustWinPro/action/image/interface/TimeZone.png" style="width:13px;" alt=""> <%=Lanfunc.language(lan, 111) %></a> <a class = "bottom bt_access" href="#a" onclick="InsertTime();" >+</a>
 			<ul>
 <%
 		for(int i = 0;times.length>i;i++){
@@ -168,7 +169,7 @@ function TimeDelete(v){
 %>
 			</ul>
 		</li>
-		<li><img src="/TrustWinPro/action/image/interface/Holiday.png" alt="" style="width:13px;"> <a href="#" onclick="Holidaysubmit();" onkeypress="Holidaysubmit();">Holiday</a></li>
+		<li id="holiday"><img src="/TrustWinPro/action/image/interface/Holiday.png" alt="" style="width:13px;"> <a href="#" onclick="Holidaysubmit();" onkeypress="Holidaysubmit();">Holiday</a></li>
 	</ul>
 </div>
 <div class="UserButtom" style="display:none">
@@ -186,6 +187,7 @@ function TimeDelete(v){
 <form action="/TrustWinPro/action/index.jsp" name="Holiday" id="Holiday" method="post">
 	<input type="hidden" value="" name="num" />
 	<input type="hidden" value="Time" name="left" />
+	<input type="hidden" value="Holiday" name="content" />
 	<input type="hidden" value="Holiday" name="content" />
 </form>
 <form action="/TrustWinPro/action/index.jsp" name="AccessGroup" id="AccessGroup" method="post">
@@ -213,12 +215,18 @@ function SpanAccessClass(idx){
 	document.getElementById("access"+idx+"a").style.color = "#ffffff";
 	document.getElementById("numValue").value = idx;
 	document.getElementById("TimeAcess").value = "2";
-	
+}
+
+function SpanHoliClass(idx){
+	document.getElementById("holiday").className = "userspan";
+	document.getElementById("holiday").style.color = "#ffffff";
 }
 
 if(<%=value%> == 0 ){
 	if('<%=request.getParameter("content")%>'=='Time'){
 		SpanTimeClass(<%=Num%>);
+	}else if('<%=request.getParameter("content")%>'=='Holiday'){
+		SpanHoliClass(<%=Num%>);
 	}else{
 		SpanAccessClass(<%=Num%>);	
 	}

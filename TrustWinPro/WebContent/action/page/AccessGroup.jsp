@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
@@ -162,20 +163,25 @@ $( ".tab3>li>a" ).click(function() {
 					<table cellspacing="0" class="titleEx1">
 						<colgroup>
 							<col width="20%">
-							<col width="40%">
-							<col width="40%">
+							<col width="30%">
+							<col width="20%">
+							<col width="30%">
 						</colgroup>
 						<tr>
 							<th><%=Lanfunc.language(lan, 85)%><input type="checkbox" name="allcheck" onclick="allDeviceInfoCheck();"></th>
-							<th><%=Lanfunc.language(lan, 35)%></th>
-							<th><%=Lanfunc.language(lan, 109)%></th>
+						<%-- 	<th><%=Lanfunc.language(lan, 35)%></th> --%>
+							<th><%=Lanfunc.language(lan, 66) %></th>
+							<th><%=Lanfunc.language(lan, 2) %></th>
+							<th><%=Lanfunc.language(lan, 3) %></th>
+						<%-- 	<th><%=Lanfunc.language(lan, 109)%></th> --%>
 						</tr>
 					</table>
 					<table cellspacing="0"  class="ex1">
 						<colgroup>
 							<col width="20%">
-							<col width="40%">
-							<col width="40%">
+							<col width="30%">
+							<col width="20%">
+							<col width="30%">
 						</colgroup>
 						<tbody>
 <%
@@ -185,7 +191,9 @@ $( ".tab3>li>a" ).click(function() {
 							<tr>
 								<td class='date1'><input type="checkbox" name="check" value="<%=ad[i].getIdx()%>"></td>
 								<td class='date1'><%=device.getControllerName() %></td>
-								<td class='date1'><%=ad[i].getTimezone().equals("0") ? "" : ad[i].getTimezone() %></td>
+								<td class='date1'><%=device.getID() %></td>
+								<td class='date1'><%=device.getAddress() %></td>
+							<%-- 	<td class='date1'><%=ad[i].getTimezone().equals("0") ? "" : ad[i].getTimezone() %></td> --%>
 							</tr>
 <%
 	}
@@ -194,11 +202,17 @@ $( ".tab3>li>a" ).click(function() {
 					</table>
 				</div>
 				</form>
+	
 			
-			<div class="buttom">
+			<div class="buttom bt_access">
 				<div class="image">
-					<a href="#DeviceInfo" onclick="DeviceAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-					<a href="#DeviceInfo" onclick="DeviceDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+					<div class="dropdown" style="margin-left: 1%; font-size: 13px">
+						<button onclick="myFunction()" class="dropbtn">•••</button>
+						<div id="myDropdown" class="dropdown-content">
+							<a href="#" onclick="DeviceAdd();">Add</a> 
+							<a href="#"	onclick="DeviceDel();">Delete</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -207,24 +221,28 @@ $( ".tab3>li>a" ).click(function() {
 			<div class="InfoBox">
 				<form action="/TrustWinPro/action/page/AccessUserDel.jsp" name="userInfo" id="userInfo" method="post">
 				<input type="hidden" name="idx" value="<%=access.getIdx() %>" >
-				<div class = "tablebor">
+				<div class = "tablebor" >
 					<table cellspacing="0" class="titleEx1">
 						<colgroup>
 							<col width="20%">
-							<col width="40%">
-							<col width="40%">
+							<col width="30%">
+							<col width="20%">
+							<col width="30%">
 						</colgroup>
 						<tr>
 							<th><%=Lanfunc.language(lan, 85)%><input type="checkbox" name="allcheck" onclick="allUserInfoCheck();"></th>
-							<th><%=Lanfunc.language(lan, 108)%></th>
+							<th><%=Lanfunc.language(lan, 29) %></th>
+							<th><%=Lanfunc.language(lan, 81) %></th>
+							<%-- <th><%=Lanfunc.language(lan, 108)%></th> --%>
 							<th><%=Lanfunc.language(lan, 39)%></th>
 						</tr>
 					</table>
 					<table cellspacing="0"  class="ex1">
 						<colgroup>
 							<col width="20%">
-							<col width="40%">
-							<col width="40%">
+							<col width="30%">
+							<col width="20%">
+							<col width="30%">
 						</colgroup>
 						<tbody>
 <%
@@ -233,6 +251,7 @@ $( ".tab3>li>a" ).click(function() {
 %>
 							<tr>
 								<td class='date1'><input type="checkbox" name="check" value="<%=au[i].getIdx()%>"></td>
+								<td class='date1'><%=au[i].getUserId() %></td>
 								<td class='date1'><%=name %></td>
 								<td class='date1'><%=au[i].getDeviceGroup() %></td>
 							</tr>
@@ -243,17 +262,22 @@ $( ".tab3>li>a" ).click(function() {
 					</table>
 				</form>
 			</div>
-			<div class="buttom">
+			<div class="buttom bt_access">
 				<div class="image">
-					<a href="#DeviceInfo" onclick="UserAdd();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-					<a href="#DeviceInfo" onclick="UserDel();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+					<div class="dropdown" style="margin-left: 1%; font-size: 13px">
+						<button onclick="myFunction()" class="dropbtn">•••</button>
+						<div id="myDropdown" class="dropdown-content">
+							<a href="#" onclick="UserAdd();">Add</a> 
+							<a href="#"	onclick="UserDel();">Delete</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-	<div class="mainButtom">
+	<div class="mainButtom bt_access">
 		<div class="image">
 			<a href="#DeviceInfo" onclick="GroupUpdate();"class="button gray" ><span class="icon-check"></span>Save</a>
 			<a href="#DeviceInfo" onclick="GroupDel();"class="button gray" ><span class="icon-delete"></span>Remove</a>

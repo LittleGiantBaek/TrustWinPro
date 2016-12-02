@@ -57,12 +57,12 @@
 	}
 	Connection conn = null;
 
-	
 	String sql = "update member set FirstName = '"+multi.getParameter("firstName")+"', MiddleName = '"+multi.getParameter("middleName")+"', LastName = '"+multi.getParameter("lastName")+"', UserClass = '"+multi.getParameter("userClass")+"', ID = '"+multi.getParameter("ID")+"', Password = '"+multi.getParameter("Password")+"', CompanyID = '"+multi.getParameter("CompanyID")+"', Department = '"+multi.getParameter("Department")+"', "+
 			"Position = '"+multi.getParameter("Position")+"', TelOffice = '"+multi.getParameter("TelOffice")+"', EngagedDay = '"+multi.getParameter("EngagedDay")+"', LatestPromoted = '"+multi.getParameter("LatestPromoted")+"', RetiredDay = '"+multi.getParameter("RetiredDay")+"', License1 = '"+multi.getParameter("License1")+"', License2 = '"+multi.getParameter("License2")+"', License3 = '"+multi.getParameter("License3")+"', HourlyWage = '"+multi.getParameter("HourlyWage")+"', EMail = '"+multi.getParameter("Email")+"', Sex = '"+multi.getParameter("Sex")+"', "+
 			"Married = '"+multi.getParameter("Married")+"', ResidentRegNo = '"+multi.getParameter("ResidentRegNo")+"', TelHome = '"+multi.getParameter("TelHome")+"', MobilePhone = '"+multi.getParameter("MobilePhone")+"', CarName = '"+multi.getParameter("CarName")+"', ZipCode = '"+multi.getParameter("Zipcode")+"', Address = '"+multi.getParameter("Address")+"', CardID = '"+multi.getParameter("CardID")+"', CardType = '"+multi.getParameter("CardType")+"', FacilityCode = '"+multi.getParameter("FacilityCode")+"', CardAttribute = '"+multi.getParameter("CardAttribute")+"', "+
-			"TimeZoneNo1 = '"+multi.getParameter("TimeZoneNo1")+"', TimeZoneNo2 = '"+multi.getParameter("TimeZoneNo2")+"', UserMode = '"+multi.getParameter("UserMode")+"', UseSubSensor = "+ (multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseSubSensor")) +", UseDuressFinger = "+(multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseDuressFinger")) + ",ReAccessLimitTime ='"+multi.getParameter("ReAccessLimitTime")+"', DeviceGroup = '" + (multi.getParameter("Device").equals("")?"0":multi.getParameter("Device")) + "' ";
-			
+			"TimeZoneNo1 = '"+multi.getParameter("TimeZoneNo1")+"', TimeZoneNo2 = '"+multi.getParameter("TimeZoneNo2")+"', UserMode = '"+multi.getParameter("UserMode")+"', UseSubSensor = "+ (multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseSubSensor")) +", UseDuressFinger = "+(multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseDuressFinger")) + ",ReAccessLimitTime ='"+multi.getParameter("ReAccessLimitTime")+"'";
+			//"TimeZoneNo1 = '"+multi.getParameter("TimeZoneNo1")+"', TimeZoneNo2 = '"+multi.getParameter("TimeZoneNo2")+"', UserMode = '"+multi.getParameter("UserMode")+"', UseSubSensor = "+ (multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseSubSensor")) +", UseDuressFinger = "+(multi.getParameter("UseSubSensor").equals("")?"0":multi.getParameter("UseDuressFinger")) + ",ReAccessLimitTime ='"+multi.getParameter("ReAccessLimitTime")+"', DeviceGroup = '" + (multi.getParameter("Device").equals("0") || multi.getParameter("Device").equals("null")?"0":multi.getParameter("Device")) + "' ";
+		
 
 	if(filename1 != null){
 		sql = sql + " , photo = '"+realFileName + "'";
@@ -83,6 +83,7 @@
 		e.printStackTrace();
 	}
 
+	System.out.println("####");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

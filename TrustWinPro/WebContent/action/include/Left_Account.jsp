@@ -29,7 +29,7 @@
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=Map";
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 	
 	}
@@ -43,7 +43,7 @@
 		    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=Map";
 		    },   
 		    error:function(e){
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 }

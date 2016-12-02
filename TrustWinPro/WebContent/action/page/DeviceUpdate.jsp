@@ -216,7 +216,7 @@
 		</script>
 	</head>
 	<body onload="replace();">
-		<form action="/TrustWinPro/action/index.jsp" name="="Device" id="Device" method="post">
+		<form action="/TrustWinPro/action/index.jsp" name="Device" id="Device" method="post">
 			<input type="hidden" value="Device" name="left" />
 			<input type="hidden" value="<%=multi.getParameter("idm")%>" name="deviceID" />
 			<input type="hidden" value="DeviceInfo" name="content" />

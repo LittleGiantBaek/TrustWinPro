@@ -24,7 +24,7 @@ function addMapDevice(v){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -38,7 +38,7 @@ function delMapDevice(x){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -52,7 +52,7 @@ function updMapDevice(x,v){
 	    	location.href = "/TrustWinPro/action/index.jsp?left=Monitoring&content=MapSetup&mapID=" + <%=ID%>;
 	    },   
 	    error:function(e){
-	        alert(e.responseText);
+	    	alertify.alert(e.responseText);
 	    }  
 	}); 
 }
@@ -148,9 +148,10 @@ function MapCancel(){
 		</section>
 
 
-			<div class="bottom" id="web-buttons-idrmij3">
-				<a href="#a" onclick="MapInfoSubmit();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
-				<a href="#a" onclick="MapCancel();" ><img src="/TrustWinPro/action/image/interface/delete.png"></a>
+						
+			<div class="bottom bt_monitoring" >
+				<a href="#" onclick="MapInfoSubmit()"class="button gray"><span class="icon-check" style="margin-left: 0px;"></span>Save</a>
+				<a href="#" onclick="MapCancel()"class="button gray"><span class="icon-delete" style="margin-left: 0px;"></span>Cancel</a>
 			</div>
 		</form>
 	</div>

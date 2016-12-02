@@ -100,8 +100,7 @@ function checkedF(num,v){
 			count++;
 		}
 	}
-
-
+	
 	if(v==1){ // 전송
 		 if(array.length !=0){	
 				$(".Loading").css("display","block");
@@ -111,7 +110,7 @@ function checkedF(num,v){
 				$("#progressbar").text("0%");
 				AllEnroll(array, 0);
 		 } else {
-			 alert("Please Select User");
+			 alertify.alert("Please Select User");
 		 }
 	}else if(v==2){	// 삭제
 		 if(array.length !=0){	
@@ -122,10 +121,21 @@ function checkedF(num,v){
 				$("#progressbar").text("0%");
 				AllDelete(array, 0);
 		 } else {
-			 alert("Please Select User");
+			 alertify.alert("Please Select User");
 		 }
 	}else{	// 수신
-		if(num==count){
+		 if(array.length !=0){	
+				$(".Loading").css("display","block");
+				$(".progress_meter").css("display","block");
+				$("#progressbar").css("width","1%");
+				$("#progressbar").val("1");
+				$("#progressbar").text("0%");
+				AllReceive(array, 0);
+		 } else {
+			 alertify.alert("Please Select User");
+		 }
+	
+		/* if(num==count){
 			Recive('S,U,R,0,E');
 		}else{
 			var value = 'S,U,R,1,';
@@ -134,7 +144,7 @@ function checkedF(num,v){
 			}
 			value = value + 'E';
 			Recive(value);
-		}
+		} */
 	}
 }
 
@@ -193,8 +203,7 @@ function userExcel(){
 
 		List<Integer> ChildDepartmentArr = new ArrayList<Integer>();
 		ChildDepartmentArr = Userfunc.departmentChildarr(Department);
-		User[] users = Userfunc.searchUser(FirstName, MiddleName, LastName, ChildDepartmentArr, UserClass,
-				CompanyID);
+		User[] users = Userfunc.searchUser(FirstName, MiddleName, LastName, ChildDepartmentArr, UserClass,CompanyID);
 		String lan = (String) session.getAttribute("nation");
 
 		int top = 0;
@@ -346,7 +355,7 @@ function userExcel(){
 	</div>
 	
 	<form action="" name="userInfo" id="userInfo" method="post">
-		<div class="tablebor" id="TrustPrint">
+		<div class="user_tablebor" id="TrustPrint">
 			<table cellspacing="0" class="titleEx1">
 				<colgroup>
 					<col width="8%">
@@ -377,6 +386,8 @@ function userExcel(){
 					<th class="<%=statuss9%>"><%=Lanfunc.language(lan, 39)%></th>
 					<th><%=Lanfunc.language(lan, 81)%></th>
 					<th><%=Lanfunc.language(lan, 82)%></th>
+					<th>FP1</th>
+					<th>FP2</th>
 				</tr>
 			</table>
 			<table cellspacing="0" class="ex1">
@@ -393,15 +404,35 @@ function userExcel(){
 					<col width="8%" class="<%=statuss9%>">
 					<col width="8%">
 					<col width="8%">
+					<col width="8%">
+					<col width="8%">
 				</colgroup>
 				<tbody>
 					<%
 						for (int i = 0; i < users.length; i++) {
+								if(i%2 == 0){
 					%>
-
-					<tr>
+						<tr>
+					<%
+								}else{
+					%>
+						<tr  class='odd'>
+					<%			}	
+							String FP1 = new String(users[i].getFP1());
+							String FP2 = new String(users[i].getFP2());
+							if((FP1.substring(0,1)).equals("N") & (FP2.substring(0,1)).equals("N")){
+					%>
 						<td class='date1'><input type="checkbox" name="check"
-							value="'<%=users[i].getUserId()%>'"></td>
+							value="'<%=users[i].getUserId()%>'" data="NO"></td>
+					<%
+							} else {
+					%>
+						<td class='date1'><input type="checkbox" name="check"
+							value="'<%=users[i].getUserId()%>'" data="YES"></td>
+					<%  
+							}
+					%>	
+					
 						<td class='date1 <%=statuss1%>'><a href="#a"
 							onclick="submitUser('User','<%=users[i].getUserId()%>')"><%=users[i].getFirstName()%></a></td>
 						<td class='date1 <%=statuss2%>'><a href="#a"
@@ -443,6 +474,7 @@ function userExcel(){
 									out.println(Name);
 							%>
 						</td>
+						
 						<td class='date1'>
 							<%
 								AccessUser[] accessUser = Accfunc.SelAccessUserId(Integer.parseInt(users[i].getUserId()));
@@ -464,6 +496,14 @@ function userExcel(){
 									}
 							%>
 						</td>
+						
+						<td class='date1'>
+							<%=users[i].getFP1()%>
+						</td>
+						
+						<td class='date1'>
+							<%=users[i].getFP2()%>
+						</td>
 					</tr>
 					<%
 						}
@@ -474,20 +514,22 @@ function userExcel(){
 		</div>
 
 
-		<div class="bottom">
+		<div class="bottom bt_user">
+			<!-- <a style="margin-right: 0px;padding-top:4px;padding-right:8px;" class="button"><span> <img src="/TrustWinPro/action/image/interface/device_com2.png" style="height:28px; width:28px;border-radius:7px;"></span></a>
+			 -->		
 			<a href="#" title="Send" onclick="checkedF(<%=users.length%>,1);"
 				class="button yellow"><span style="margin-left: 0px;"><img
-					src="/TrustWinPro/action/image/interface/soket_logo.png"
-					style="height: 20px; width: 17.5px"></span>
+					src="/TrustWinPro/action/image/interface/communication2.png"
+					style="height: 20px; width: 20px;"></span>
 			<%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a> <a href="#"
 				title="Recive" onclick="checkedF(<%=users.length%>,3);"
 				class="button yellow"><span style="margin-left: 0px;"><img
-					src="/TrustWinPro/action/image/interface/soket_logo.png"
-					style="height: 20px; width: 17.5px"></span><%=Lanfunc.language(lan, 184)%></a>
+					src="/TrustWinPro/action/image/interface/communication2.png"
+					style="height: 20px; width: 20px;"></span><%=Lanfunc.language(lan, 184)%></a>
 			<a href="#" title="Delete" onclick="checkedF(<%=users.length%>,2);"
 				class="button yellow"><span style="margin-left: 0px;"><img
-					src="/TrustWinPro/action/image/interface/soket_logo.png"
-					style="height: 20px; width: 17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
+					src="/TrustWinPro/action/image/interface/communication2.png"
+					style="height: 20px; width: 20px;"></span><%=Lanfunc.language(lan, 88)%></a>
 		</div>
 	</form>
 

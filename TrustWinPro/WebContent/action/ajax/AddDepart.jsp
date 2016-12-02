@@ -44,7 +44,6 @@
 						Statement pstmt = conn.createStatement();
 						pstmt.executeUpdate(sql);
 						conn.close();
-						//System.out.println("complete depart add");
 						
 				}catch(Exception e){
 					out.println("DB error!!.");
@@ -53,7 +52,6 @@
 			} else
 			{
 				out.println(1);
-				//System.out.println("Not complete depart add");
 			}
 			
 			

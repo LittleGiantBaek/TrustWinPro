@@ -1435,7 +1435,7 @@ public class DBCheck {
 	
 	
 	public void SortCheck() {
-		
+	
 		Connection conn = null;
 		try {
 				Context init = new InitialContext();
@@ -1460,16 +1460,34 @@ public class DBCheck {
 					}
 				}else{
 					Statement pstmt2 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-					
-					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL DEFAULT ((1)),"
+
+					String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL,"
+							+ "[deviceSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[userSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[eventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[realeventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ "[maineventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NULL,"
+							+ ") ON [PRIMARY]";
+				/*	String create = "CREATE TABLE [dbo].[Sort]([idx] [int] NOT NULL DEFAULT ((1)),"
 							+ "[deviceSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,')),"
 							+ "[userSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
 							+ "[eventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
 							+ "[realeventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
 							+ "[maineventSort] [nvarchar](50) COLLATE Korean_Wansung_CI_AS NOT NULL DEFAULT (('1,2,3,4,5,6,7,8,9,')),"
-							+ ") ON [PRIMARY]";
+							+ ") ON [PRIMARY]";*/
 					pstmt2.executeUpdate(create);
 				}
+
+				sql = "select * from Sort";
+				rs = pstmt.executeQuery(sql);
+				if(rs.next()){
+					
+				}else{
+					String add = "insert into Sort(idx, deviceSort,userSort,eventSort,realeventSort,maineventSort) "
+							+ "values(1, '1,2,3,4,5,6,7,'  ,  '1,2,3,4,5,6,7,8,9,'  ,  '1,2,3,4,5,6,7,8,9,'  ,  '1,2,3,4,5,6,7,8,9,'  ,  '1,2,3,4,5,6,7,8,9,');";
+					pstmt.executeUpdate(add);
+				}
+				
 				
 				rs.close();
 				conn.close();

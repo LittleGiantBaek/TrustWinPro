@@ -21,7 +21,6 @@
 	User user = Userfunc.SelUserID(UserID);
 	String department = catefunc.selCategory(user.getDepartment());
 	
-	
 	Connection conn = null;
 	String sql = "Delete from AccessUser where access = '" + access + "' and userID='"+ UserID+ "'"; 
 	try {

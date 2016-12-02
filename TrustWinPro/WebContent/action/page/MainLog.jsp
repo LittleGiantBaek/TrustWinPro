@@ -8,7 +8,7 @@
 <%@ page import="com.Trustwin.Admin.Project.Category.*" %>
 <%
 	
-	String Num = "20";
+	String Num = "25";
 	LanguageFunc Lanfunc = new LanguageFunc();
 	EventFunc Evtfunc = new EventFunc();
 	
@@ -31,12 +31,14 @@ $(window).load(function() {
 
 function eventSort(){
 	document.getElementById("postitMainEventSort").style.display = "block";
+	document.getElementById("postitMainEventExcel").style.display = "none";
 	document.getElementById("postitMainEventSort").style.top = "200px";
 }
 
 function eventExcel(){
 	document.getElementById("postitMainEventExcel").style.display = "block";
-	//document.getElementById("postitMainEventExcel").style.top = "200px";
+	document.getElementById("postitMainEventSort").style.display = "none";
+	document.getElementById("postitMainEventExcel").style.top = "200px";
 }
 
 
@@ -143,17 +145,6 @@ $(document).attr("timer",setInterval(refresh,1000));
 </script>
 
 
-
-		<div class="dropdown" style="margin-left:1%; font-size:13px;">
-  <button onclick="myFunction()" class="dropbtn">•••</button>
-  <div id="myDropdown" class="dropdown-content">
-  <!--ieExecWB();  -->
-    <a href="#" onclick="printPage();">Print</a>
-    <a href="#" onclick="eventExcel();">Excel</a>
-    <a href="#" onclick="eventSort();">Sort</a>
-  </div>
-</div>
-
 <div id="userdata">
 	<div class="colorOption" id="colorOption">
 	<form action="/TrustWinPro/action/index.jsp" name="colorO" id="colorO" method="post">
@@ -199,13 +190,22 @@ $(document).attr("timer",setInterval(refresh,1000));
 	</form>
 	</div>
 
-	<div class = "tablebor" style = "width: 96%; margin:3px">
+<div class="dropdown" style="margin-left:1%; font-size:13px; width:96%">
+  <button onclick="myFunction()" class="dropbtn">•••</button>
+  <div id="myDropdown" class="dropdown-content">
+  <!--ieExecWB();  -->
+    <a href="#" onclick="printPage();">Print</a>
+    <a href="#" onclick="eventExcel();">Excel</a>
+    <a href="#" onclick="eventSort();">Sort</a>
+  </div>
+</div>
+	<div class = "tablebor" style = " width: 96%; margin:3px">
 		<div id="logdata">
 		</div>
 	</div>
 </div>
 
-<div class="postitEventExcel" id="postitMainEventExcel" style="display:none; width:65%; top:0%; left:20%;">
+<div class="postitEventExcel" id="postitMainEventExcel" style="display:none; ">
 		<jsp:include page="MainEventExcel.jsp" flush="true">
 			<jsp:param name="EventType" value=""/>
 			<jsp:param name="EventDate" value=""/>

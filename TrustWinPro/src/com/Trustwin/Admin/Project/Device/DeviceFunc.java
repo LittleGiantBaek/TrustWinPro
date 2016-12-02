@@ -165,7 +165,7 @@ public class DeviceFunc {
 
 		public Device selDevice(int idx){
 			Connection conn = null;
-			String sql = "select ControllerName from dbo.SetupTcpip where ID = " + idx + ";";
+			String sql = "select ControllerName, ID, Address from dbo.SetupTcpip where ID = " + idx + ";";
 			Device device = new Device();
 			try {
 					Context init = new InitialContext();
@@ -176,6 +176,8 @@ public class DeviceFunc {
 						
 					if(rs.next()){
 						device.setControllerName(rs.getString(1));
+						device.setID(rs.getString(2));
+						device.setAddress(rs.getString(3));
 					}
 					rs.close();
 					conn.close();
@@ -644,7 +646,7 @@ public class DeviceFunc {
 			Connection conn = null;
 			UserList[] userlist = null;
 			UserList user = null;
-			String sql = "select UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice from dbo.UserList";
+			String sql = "select No ,UserID, Name, Dept, Class, Card, FP1, FP2, NameDevice, CompanyidDevice, Etc from dbo.UserList";
 				sql +="	where DeviceID='" + Deviceid + "' order by No desc; ";
 				
 				try {
@@ -662,14 +664,15 @@ public class DeviceFunc {
 							user = new UserList();
 							user.setNo(rs.getInt(1));
 							user.setUserID(rs.getString(2));
-							user.setName(rs.getString(2));
-							user.setDepartment(rs.getString(2));
-							user.setUserClass(rs.getString(2));
-							user.setCard(rs.getString(2));
-							user.setFP1(rs.getString(2));
-							user.setFP2(rs.getString(2));
-							user.setDeviceName(rs.getString(2));
-							user.setDeviceID(rs.getString(2));
+							user.setName(rs.getString(3));
+							user.setDepartment(rs.getString(4));
+							user.setUserClass(rs.getString(5));
+							user.setCard(rs.getString(6));
+							user.setFP1(rs.getString(7));
+							user.setFP2(rs.getString(8));
+							user.setDeviceName(rs.getString(9));
+							user.setDeviceID(rs.getString(10));
+							user.setEtc(rs.getString(11));
 							userlist[cout] = user;
 							cout++;
 						}

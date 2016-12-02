@@ -13,7 +13,7 @@ public class Device {
 	private String Port;
 	
 	private String Password;
-	
+
 	private String ServerPort;
 	
 	private int groupIdx;

@@ -491,7 +491,7 @@
 <%
 						if(j==dev2.length-1){
 %>
-							<a class = "bottom" href="#in" onclick="DeviceAdd(<%=dev2[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+							<a class = "bottom bt_device" href="#in" onclick="DeviceAdd(<%=dev2[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
@@ -522,7 +522,7 @@
 <%
 						if(j==dev1.length-1){
 %>
-							<a class ="bottom" href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+							<a class ="bottom bt_device" href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
@@ -560,7 +560,7 @@
 <%
 						if(j==dev1.length-1){
 %>
-							<a class = "bottom"  href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+							<a class = "bottom bt_device"  href="#in" onclick="DeviceAdd(<%=dev1[j].getGroupIdx() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
@@ -654,7 +654,7 @@
 <%
 						if(j==user2.length-1){
 %>
-						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user2[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+						<a class = "bottom bt_user"  href="#in" onclick="UserAdd(<%=user2[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
@@ -684,7 +684,7 @@
 
 							if(j==user1.length-1){
 %>						
-						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+						<a class = "bottom bt_user"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 							}
 %>
@@ -720,7 +720,7 @@
 <%
 						if(j==user1.length-1){
 %>
-						<a class = "bottom"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
+						<a class = "bottom bt_user"  href="#in" onclick="UserAdd(<%=user1[j].getDepartment() %>);"><img src="/TrustWinPro/action/image/interface/plus.png"></a>
 <%							
 						}
 %>
@@ -754,12 +754,19 @@
 %>
 		<jsp:include page="left_Monitoring.jsp" flush="false"></jsp:include>
 <%
-	}else{
+	}else if(left.equals("Setting")){
+%>
+		<jsp:include page="left_Setting.jsp" flush="false"></jsp:include>
+<%	
+	}else if(left.equals("Time")){
 %>
 		<jsp:include page="left_time.jsp" flush="false"></jsp:include>
 <%
+	} else {	
+%>
+
+<%
 	}
-		
 %>
 	</div> 
         </div>
@@ -1344,12 +1351,13 @@ String selectuserID = request.getParameter("userID");
 <script>
 	$("#pnlLNB").css("height",$(".leftMainMenu").css("height"));
 </script>
-
-<%
+			<jsp:include page="rightclickmenu.jsp" flush="false"></jsp:include>
+<%-- <%
 			if(userClass != null && userClass.equals("128")){
-		%>
+	%>
 			<jsp:include page="rightclickmenu.jsp" flush="false"></jsp:include>	
 
 	<%
 			}
 	%>
+ --%>

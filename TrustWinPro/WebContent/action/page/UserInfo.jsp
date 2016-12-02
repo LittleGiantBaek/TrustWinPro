@@ -31,7 +31,7 @@
 	String sql = "select FirstName, MiddleName, LastName, UserID, UserClass, ID, Password, CompanyID, Department, "+
 	"Position, TelOffice, EngagedDay, LatestPromoted, RetiredDay, License1, License2, License3, HourlyWage, EMail, Sex, "+
 	"Married, ResidentRegNo, TelHome, MobilePhone, CarName, ZipCode, Address, CardID, CardType, FacilityCode, CardAttribute, "+
-	"TimeZoneNo1, TimeZoneNo2, UserMode, UseSubSensor, UseDuressFinger, photo, DeviceGroup, ReAccessLimitTime from member where UserID = '" + ID + "'";
+	"TimeZoneNo1, TimeZoneNo2, UserMode, UseSubSensor, UseDuressFinger, photo, DeviceGroup, ReAccessLimitTime, FP1, FP2 from member where UserID = '" + ID + "'";
 	try {
 	
 	Context init = new InitialContext();
@@ -42,7 +42,7 @@
 	if(!rs.next()){
 %>
 		<script>
-			alert("정보가 없습니다.");
+		alertify.alert("정보가 없습니다.");
 			location.replace("index.jsp?left=User");
 		</script>
 <%
@@ -161,15 +161,15 @@ function RedundancyEmployee(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=Lanfunc.language(lan, 114)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 114)%>");
 	    		companyid = 0;
 	    	}else{
-	    		alert("<%=Lanfunc.language(lan, 115)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 115)%>");
 	    		companyid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
@@ -181,34 +181,34 @@ function RedundancyCard(num,userid){
 	    data: "num="+num + "&userid="+userid,
 	    success:function(args){
 	    	if(args > 0){
-	    		alert("<%=Lanfunc.language(lan, 116)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 116)%>");
 	    		cardid = 0;
 	    	}else{
-	    		alert("<%=Lanfunc.language(lan, 117)%>");
+	    		alertify.alert("<%=Lanfunc.language(lan, 117)%>");
 	    		cardid = 1;
 	    	}
 	    },   
 	    error:function(e){  
-	        alert(e.responseText);  
+	    	alertify.alert(e.responseText);  
 	    }  
 	}); 
 }
 
 function UserInfoSubmit(){
-	/*if(cardid == 0){
-		return false;
-	}
-	
-	if(companyid == 0){
-		return false;
-	}
-	*/
-	UserInfomation.submit();
+	if($("#first_input").val() == "")
+    	alertify.alert("Please input 'First Name'");
+	else if($("#id_input").val() == "")
+    	alertify.alert("Please input 'ID'");
+	else if($("#password_input").val() == "")
+    	alertify.alert("Please input 'Password'"); 
+	else 
+		document.getElementById("UserInfomation").submit();
+		//UserInfomation.submit();
 	
 }
 <%-- 
 function UserDelete(){
-	var del = confirm("<%=Lanfunc.language(lan, 103)%>")
+	var del = alertify.confirm("<%=Lanfunc.language(lan, 103)%>")
 	if(del){
 		userDelete.submit();
 	}
@@ -226,7 +226,7 @@ function deviceList(v){
 				$(".Loading").css("display","none");   
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
@@ -248,7 +248,7 @@ function accessList(v){
 		    	$(".Loading").css("display","none");   
 		    },   
 		    error:function(e){  
-		        alert(e.responseText);  
+		    	alertify.alert(e.responseText);  
 		    }  
 		}); 
 	}else{
@@ -290,7 +290,7 @@ function AccessDelete(UserID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		}); 
     	}
@@ -314,7 +314,7 @@ function AccessAdd(UserID){
     		    	$(".Loading").css("display","none");   
     		    },   
     		    error:function(e){  
-    		        alert(e.responseText);  
+    		    	alertify.alert(e.responseText);  
     		    }  
     		});
     		
@@ -365,7 +365,7 @@ function AccessAdd(UserID){
 										<!-- <div id="shadow" style="position:absolute;z-index:100;"> -->
 										<div>
 											<input type="file" name="saveFile" id="saveFile"  style="filter:alpha(opacity:0);z-index:2;width:30;opacity:0;position: absolute;left:0px;height:30px;" onchange="previewImage(this,'View_area');" value="" >
-											<img src="/TrustWinPro/action/image/interface/search.png"  border='0' align="absmiddle">
+											<img src="/TrustWinPro/action/image/interface/search.png" style="height:30px;" border='0' align="absmiddle">
 										</div>
 									</div>
 				</div>
@@ -379,7 +379,7 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 26)%> : 
 								</div>
-								<input class = "inputt" type="text" name="firstName" value="<%=LangUtil.Empty(rs.getString(1)) %>"  >
+								<input class = "inputt" type="text" name="firstName" id="first_input" value="<%=LangUtil.Empty(rs.getString(1)) %>"  required>
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 27)%> : 
 								</div>
@@ -390,12 +390,12 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<%=Lanfunc.language(lan, 28)%> : 
 								</div>
-								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" >
+								<input class = "inputt" type="text" name="lastName" value="<%=LangUtil.Empty(rs.getString(3)) %>" required>
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 30)%> : 
 								</div>
 								<!-- <div class="main" size="30um"> -->
-								<select name="userClass" class="mainselect">
+								<select name="userClass" class="mainselect" required>
 								<option value="1" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("1")){out.print("selected");}} %>><%=Lanfunc.language(lan, 170)%></option>
 								<option value="128" <%if(rs.getString(5)!=null){if(rs.getString(5).equals("128")){out.print("selected");}}  %>><%=Lanfunc.language(lan, 171)%></option>
 								</select>
@@ -403,11 +403,11 @@ function AccessAdd(UserID){
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 2)%> : 
 								</div>
-								<input class="inputt" type="text" name="ID" value="<%=LangUtil.Empty(rs.getString(6)) %>" >
+								<input class="inputt" type="text" name="ID" id="id_input" value="<%=LangUtil.Empty(rs.getString(6)) %>" required>
 								<p><div class = "headerji">
 								<span style="color:red">*</span> <%=Lanfunc.language(lan, 5)%> : 
 								</div>
-								<input class="inputt" type="text" name="Password" value="<%=LangUtil.Empty(rs.getString(7)) %>" >
+								<input class="inputt" type="text" name="Password" id="password_input" value="<%=LangUtil.Empty(rs.getString(7)) %>" required>
 							<div class="block" style="float:right; margin-right:6rem;">
 								<p><div ><span style="color:red"> required *</span></div>
 							</div>
@@ -424,16 +424,19 @@ function AccessAdd(UserID){
 					<li>
 						<a href="#a" onclick="displayInfo(2)" id="tab02"><%=Lanfunc.language(lan, 33)%></a>
 					</li>
+				 	<li>
+						<a href="#a" id="space" ></a>
+					</li> 
+				 	<li>
+						<a href="#a" onclick="displayInfo(3)" id="tab03" >FP</a>
+					</li> 
 					<li>
-						<a href="#a" onclick="displayInfo(3)" id="tab03" ><%=Lanfunc.language(lan, 34)%></a>
-					</li>
-					<li  style="display:none;">
-						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=Lanfunc.language(lan, 35)%></a>
-					</li>
-					<li>
+						<a href="#a" onclick="displayInfo(4)" id="tab04" ><%=Lanfunc.language(lan, 34)%></a>
+					</li> 
+					<li >
 						<a href="#a" onclick="displayInfo(5)" id="tab05" ><%=Lanfunc.language(lan, 36)%></a>
 					</li>
-					<li >
+					<li>
 						<a href="#a" onclick="displayInfo(6)" id="tab06" ><%=Lanfunc.language(lan, 37)%></a>
 					</li>
 				</ul>
@@ -443,7 +446,16 @@ function AccessAdd(UserID){
 				<div class="InfoBox">
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 38)%></div>
-						<div class="main"><input type="text" name="CompanyID" id="CompanyID" value="<%=LangUtil.Empty(rs.getString(8)) %>" size="40um"><a href="#content" onclick="RedundancyEmployee(document.getElementById('CompanyID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
+						<div class="main col-12">
+							<div class="col-6">
+							<input type="text" name="CompanyID" id="CompanyID" value="<%=LangUtil.Empty(rs.getString(8)) %>" size="40um">
+							</div>
+							<div class="col-2">
+							<a href="#content" onclick="RedundancyEmployee(document.getElementById('CompanyID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)">
+								<img src="/TrustWinPro/action/image/interface/search.png" class="search">
+							</a>
+							</div>
+						</div>
 					</div>
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 39)%></div>
@@ -570,11 +582,34 @@ function AccessAdd(UserID){
 					</div>
 				</div>
 			</div>
-			<div class="Card" id="tab3">
+			<div class="FP" id="tab3">
+				<div class="InfoBox">
+					<div class="block">
+						<div class="header">FP1</div>
+						<div class="main"><input type="text" name="TelHome" value="<%=LangUtil.Empty(rs.getString(40)) %>" size="40um" readonly></div>
+					</div>
+					<div class="block">
+						<div class="header">FP2</div>
+						<div class="main"><input type="text" name="TelHome" value="<%=LangUtil.Empty(rs.getString(41)) %>" size="40um" readonly></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="Card" id="tab4">
+					
 				<div class="InfoBox">
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 55) %></div>
-						<div class="main"><input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um"><a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)"><img src="/TrustWinPro/action/image/interface/search.png" class="search"></a></div>
+						<div class="main col-12">
+							<div class="col-6">
+							<input type="text" name="CardID" id="CardID" value="<%=LangUtil.Empty(rs.getString(28)) %>" size="40um">
+							</div>
+							<div class="col-2">
+							<a href="#content" onclick="RedundancyCard(document.getElementById('CardID').value,<%=LangUtil.Empty(LangUtil.Empty(rs.getString(6))) %>)">
+								<img src="/TrustWinPro/action/image/interface/search.png" class="search">
+							</a>
+							</div>
+						</div>
 					</div>
 					<div class="block">
 						<div class="header"><%=Lanfunc.language(lan, 56) %></div>
@@ -700,10 +735,7 @@ function AccessAdd(UserID){
 							</select>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="Device" id="tab4" style="display:none;">
-				
+				</div>		
 			</div>
 <%
 	Event[] eventG = null;
@@ -736,15 +768,31 @@ function AccessAdd(UserID){
 					</colgroup>
 					<tr >
 						<td class="main" colspan="2">
-						
-							<p style="margin-left:2rem;">
+							<div class="col-6" style="margin:1rem;">
+							<div class="col-9">
+							<!-- <p style="margin-left:2rem;"> -->
 							<%=Lanfunc.language(lan, 71).trim() %> : <input type="text" name="start" value="<%=start%>" id="startDate"  readonly="readOnly" onclick="fnPopUpCalendar(startDate,startDate,'yyyy-mm-dd')"  class="inputt"  /> 
 							~ 
 							<input type="text" name="end" value="<%=end%>" id="endDate"  readonly="readOnly" onclick="fnPopUpCalendar(endDate,endDate,'yyyy-mm-dd')"  class="inputt"  /> 
-							<a href="#search" onclick="searchEvent(); " ><img src="/TrustWinPro/action/image/interface/search.png"></a>
-							</p>
+							</div>
+							
+							<div class="col-3">
+							<a href="#search" class="search" onclick="searchEvent(); " >
+								<img src="/TrustWinPro/action/image/interface/search.png">
+							</a>
+							</div>
+							<!-- </p> -->
+							</div>
 						</td>
 					</tr>
+				</table>
+				
+				<div  style="overflow:auto; max-height: 230px;">
+				<table>
+					<colgroup>
+						<col width="20%" align="center" >
+						<col width="80%">
+					</colgroup>
 					<tr>
 						<td colspan="2">
 							<div id="devicelist">
@@ -810,6 +858,7 @@ function AccessAdd(UserID){
 						</td>
 					</tr>
 				</table>
+				</div>
 			</div>
 			<div class="AccessControl" id="tab6">
 			<table>
@@ -819,9 +868,9 @@ function AccessAdd(UserID){
 					</colgroup>
 					<tr class="block" >					
 						<td class="header">
-						<p style="margin-left:3rem;"><%=Lanfunc.language(lan, 133) %></p></td>
+						<p style="margin:1rem;"><%=Lanfunc.language(lan, 133) %></p></td>
 						<td class="main">
-							<select name="Device" onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
+							<select onchange="accessList(this.value);" onload="accessList(this.value);" style = "height:28px">
 								<option value = "0"  >-- <%=Lanfunc.language(lan, 65) %> --</option>
 <%
 
@@ -842,7 +891,7 @@ function AccessAdd(UserID){
 		{
 			if(check_access_group[tt] == accessGroup2[i].getIdx()){
 %>
-				<option disabled value = "<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
+				<option disabled value="<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
 <%				
 				temp_flag=1;
 				continue;
@@ -850,7 +899,7 @@ function AccessAdd(UserID){
 		}
 		if(temp_flag==1) continue;
 %>
-		<option value = "<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
+		<option value="<%=accessGroup2[i].getIdx()%>" id="option<%=accessGroup2[i].getIdx()%>" <%=accessGroup2[i].getIdx() == rs.getInt(38) ? "selected" : "" %>><%=accessGroup2[i].getName() %></option>
 <%
 	}
 %>
@@ -912,7 +961,7 @@ function AccessAdd(UserID){
 					</tr>
 				</table>
 				
-				<div class="buttom"  align="right">
+				<div class="buttom bt_user"  align="right">
 					<div class="image">
 						<a href="#" onclick="AccessAdd(<%= Integer.parseInt(ID)%>);" ><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 						<a href="#" onclick="AccessDelete(<%= Integer.parseInt(ID)%>);""><img src="/TrustWinPro/action/image/interface/delete.png"></a>
@@ -920,13 +969,34 @@ function AccessAdd(UserID){
 				</div>
 			</div>
 			
+			
+			
+			
+			
 			<div class="buttonBox">
-				<div class="bottom">
-					<a href="#" title="Send" onclick="Enroll('S,U,E,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
-					<a href="#" title="Recive" onclick="Recive('S,U,R,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 184)%></a>
-					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/soket_logo.png" style="height:20px; width:17.5px"></span><%=Lanfunc.language(lan, 88)%></a>
+				<div class="bottom bt_user">
+					<!-- <a style="margin-top:1px;margin-right: 0px;margin-left:0px;padding-top:4px;padding-right:8px;" class="button"><span claa="bt_span"> <img src="/TrustWinPro/action/image/interface/device_com2.png" style="margin-top:5px;height:28px; width:28px;border-radius:7px;"></span></a> -->
+					<a href="#" title="Send" onclick="Enroll('S,U,E,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height: 20px; width: 20px;"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+					<a href="#" title="Recive" onclick="Recive('S,U,R,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height: 20px; width: 20px;"></span><%=Lanfunc.language(lan, 184)%></a>
+					<a href="#" title="Delete" onclick="Delete('S,U,D,1,<%=ID%>,E');" class="button yellow"><span style="margin-left: 0px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height: 20px; width: 20px;"></span><%=Lanfunc.language(lan, 88)%></a>
 				</div>
-				<div class="InfoButtom">
+				
+		<%-- 		<%
+				String FP1 = new String(rs.getString(40));
+				String FP2 = new String(rs.getString(41));
+				if((FP1).equals(FP2)){
+					if((FP1.substring(0,1)).equals("N")){
+				%>
+				<script>   
+					$(".bottom").css("display", "none");
+				</script>		
+				<% 
+					}
+					
+				}
+				%>
+				 --%>
+				<div class="InfoButtom bt_user">
 					<a href="#UserInfo" onclick="UserInfoSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 					<a href="#UserInfo" onclick="UserDelete('<%= ID%>');" class="button gray" ><span class="icon-delete"></span>Remove</a>
 				</div>

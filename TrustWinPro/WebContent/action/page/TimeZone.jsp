@@ -230,7 +230,7 @@ function TimeZoneSubmit(){
 				
 				if(value > min && max > value){
 					if(document.getElementById(value).className.indexOf("dropped") < 0){
-						alert("<%=Lanfunc.language(lan, 93)%>");
+						alertify.alert("<%=Lanfunc.language(lan, 93)%>");
 						
 						location.href = "/TrustWinPro/action/index.jsp?left=Time&content=Time&num="+<%=times[0].getTimeZoneNo()%>;
 						return false;
@@ -379,7 +379,7 @@ function TimeZoneDelete(v){
 				<%=Lanfunc.language(lan, 81)%>
 				</div>
 				<div class="main">
-					<input type="text" name="timename" value="<%=time.getTimeZoneName() %>" >
+					<input type="text" class="inputt" name="timename" value="<%=time.getTimeZoneName() %>" >
 				</div>
 			</div>
 		</div>
@@ -848,15 +848,24 @@ function TimeZoneDelete(v){
 
 
 
+		<div class="buttonBox">
+			<div class="bottom bt_access" style="padding-right: 50px;padding-left: 10px;">
+					<a href="#" title="Send" onclick="TimeSocket('S,D,T,T,T,T,E');" class="button yellow"><span style="margin-left: 2px;"><img src="/TrustWinPro/action/image/interface/communication2.png" style="height:20px; width:20px"></span><%-- <%=Lanfunc.language(lan, 183)%> --%>Send</a>
+					
+					<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"class="button gray" style="float: right"><span class="icon-delete"  ></span>Remove</a>
+					<a href="#DeviceInfo" onclick="TimeZoneSubmit();" class="button gray"  style="float: right;"><span class="icon-check" ></span>Save</a>
+					
+			</div>
+			
+				
+		</div>
 
-
-
-		<div class="buttom">
+		<%-- <div class="buttom">
 			<div class="image">
 				<a href="#DeviceInfo" onclick="TimeZoneSubmit();" class="button gray" ><span class="icon-check"></span>Save</a>
 				<a href="#DeviceInfo" onclick="TimeZoneDelete('<%=time.getTimeZoneNo()%>');"class="button gray" ><span class="icon-delete"></span>Remove</a>
 			</div>
-		</div>
+		</div> --%>
 	</form>
 </div>
 <form action="/TrustWinPro/action/page/TimeZoneDel.jsp" name="TimeZoneDel" id="TimeZoneDel" method="post">

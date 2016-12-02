@@ -44,7 +44,7 @@
 					$("#default_devicelist").css("display","none");    
 			    },   
 			    error:function(e){  
-			        alert("AcceessDeviceList Error!" + e.responseText);  
+			    	alertify.alert("AcceessDeviceList Error!" + e.responseText);  
 			    }  
 			}); 
 		}else{
@@ -82,6 +82,8 @@
 <div class="accessDevice">
 	<form name="AccessDevice" id="AccessDevice" method="post" action="/TrustWinPro/action/page/AccessDeviceAdd.jsp">
 	<input type="hidden" name="idx" id="idx" value="<%=idxs %>" >
+	
+	<div style="overflow:auto; max-height: 230px;">
 		<table>
 			<colgroup>
 				<col width="20%" align="center" >
@@ -145,7 +147,8 @@
 				</td>
 			</tr>
 		</table>
-		<div class="timeZone">
+	</div>
+<%-- 		<div class="timeZone">
 			<span class="title" style="padding:13px;"><%=lanfunc.language(lan, 111)%></span>
 			<select name="timeSelect">
 				<option value = "0" >-- <%=lanfunc.language(lan, 65)%> --</option>
@@ -157,7 +160,7 @@
 	}
 %>
 			</select>
-		</div>
+		</div> --%>
 		<div class="buttom">
 			<a href="#DeviceInfo" onclick="accessDevice();"><img src="/TrustWinPro/action/image/interface/submit.png"></a>
 			<a href="#DeviceInfo" onclick="accessDeviceClose();"><img src="/TrustWinPro/action/image/interface/delete.png"></a>

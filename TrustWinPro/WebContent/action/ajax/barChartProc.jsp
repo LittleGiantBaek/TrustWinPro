@@ -25,12 +25,10 @@
 			cnt = EFunc.TopEventAc(TopVal);	
 			sb.append("[['device','count']");
 			for(int i=0;i<TopVal.length;i++){
-				
 				sb.append(",['"+TopVal[i]+"',"+cnt[i]+"]");
 			}
 			sb.append("]");
 		}else{
-			
 			cnt = EFunc.selEventAC(devVal);
 			sb.append("[['device','count']");
 			for(int i=0;i<devVal.length;i++){
